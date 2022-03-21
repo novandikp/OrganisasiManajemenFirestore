@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/suneditor@latest/dist/css/suneditor.min.css" rel="stylesheet">
+        <!-- <link href="https://cdn.jsdelivr.net/npm/suneditor@latest/assets/css/suneditor.css" rel="stylesheet"> -->
+        <!-- <link href="https://cdn.jsdelivr.net/npm/suneditor@latest/assets/css/suneditor-contents.css" rel="stylesheet"> -->
+        <script src="https://cdn.jsdelivr.net/npm/suneditor@latest/dist/suneditor.min.js"></script>
+        <!-- languages (Basic Language: English/en) -->
+        <script src="https://cdn.jsdelivr.net/npm/suneditor@latest/src/lang/ko.js"></script>
+        <style>
+            textarea{
+                width: 80vw;
+            }
+        </style>
+</head>
+    <textarea id="sample">Hi</textarea>
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="module" src="./script/app.js"></script>
+    <script type="module">  
+    const editor = SUNEDITOR.create((document.getElementById('sample') || 'sample'),{
+            
+            buttonList: [
+                ['undo', 'redo'],
+                ['font', 'fontSize', 'formatBlock'],
+                ['paragraphStyle', 'blockquote'],
+                ['bold', 'underline', 'italic', 'strike', 'subscript', 'superscript'],
+                ['fontColor', 'hiliteColor', 'textStyle'],
+                ['removeFormat'],
+                '/', // Line break
+                ['outdent', 'indent'],
+                ['align', 'horizontalRule', 'list', 'lineHeight'],
+                ['table', 'link', 'image', /** ,'math' */], // You must add the 'katex' library at options to use the 'math' plugin.
+                /** ['imageGallery'] */ // You must add the "imageGalleryUrl".
+                ['fullScreen', 'showBlocks'],
+                ['preview', 'print'],
+                [],
+                /** ['dir', 'dir_ltr', 'dir_rtl'] */ // "dir": Toggle text direction, "dir_ltr": Right to Left, "dir_rtl": Left to Right
+            ]
+        });
+
+        function getBase64Image(img) {
+        var canvas = document.createElement("canvas");
+        canvas.width = img.width;
+        canvas.height = img.height;
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0);
+        var dataURL = canvas.toDataURL("image/png");
+        return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+        }
+
+        editor.onImageUpload = async function (targetElement, index, state, info, remainingFilesCount, core) {
+            console.log(targetElement)
+         
+            const file =await fetch(targetElement.src).then(r => r.blob());
+            $.ajax({
+                url: 'https://content.dropboxapi.com/2/files/upload',
+                type: 'post',
+                data: file,
+                processData: false,
+                contentType: 'application/octet-stream',
+                headers: {
+                    "Authorization": "Bearer sl.BEKzM5ZH0jr6acC7cq-i-c_fPRwoKFHwT4CgpATvkvvAmD_V2oAK4MT44qiLFJICBSjEdPSluhch3Id0qz83dl3HsPsbkQUdxllZBNu-Xd1kyfSX8PsvD8MiQvgFrY_-E0FeSNo",
+                    "Dropbox-API-Arg": '{"path":"/OKE.png","mode": "add","autorename": true,"mute": false}'
+                },
+                success: function (data) {
+                    console.log(data);
+                },
+                error: function (data) {
+                    console.error(data);
+                }
+            })
+        }
+
+        editor.onImageUploadError=(errorMessage, result, core)=>{
+            console.log(errorMessage)
+            console.log(result)
+        }
+    </script>
+</body>
+</html>
