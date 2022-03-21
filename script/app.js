@@ -71,6 +71,35 @@ function getUserInfo() {
     return null;
   }
 }
+
+function uploadFile(file, path, callback = defFunc, error = errFunc) {
+  $.ajax({
+    url: "https://content.dropboxapi.com/2/files/upload",
+    type: "post",
+    data: file,
+    processData: false,
+    contentType: "application/octet-stream",
+    headers: {
+      Authorization:
+        "Bearer sl.BEKzM5ZH0jr6acC7cq-i-c_fPRwoKFHwT4CgpATvkvvAmD_V2oAK4MT44qiLFJICBSjEdPSluhch3Id0qz83dl3HsPsbkQUdxllZBNu-Xd1kyfSX8PsvD8MiQvgFrY_-E0FeSNo",
+      "Dropbox-API-Arg":
+        '{"path":"/OKE.png","mode": "add","autorename": true,"mute": false}',
+    },
+    success: callback,
+    error: error,
+  });
+}
+
+function thumbnailFile(input, image) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      image.attr("src", e.target.result);
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
 window.db = db;
 window.getDocs = firebasedatabase.getDocs;
 window.getDoc = firebasedatabase.getDoc;
@@ -85,3 +114,6 @@ window.query = firebasedatabase.query;
 window.limit = firebasedatabase.limit;
 window.getUserInfo = getUserInfo;
 window.isLogin = isLogin;
+window.Timestamp = firebasedatabase.Timestamp;
+window.uploadFile = uploadFile;
+window.thumbnailFile = thumbnailFile;
