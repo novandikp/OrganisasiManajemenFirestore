@@ -4,8 +4,18 @@ export default class UserRepository {
     this.id = "user_";
   }
 
-  async isExistEmail(email) {
-    const q = query(this.collection, where("email", "==", email), limit(1));
+  async isExistEmail(email, id = null) {
+    let q;
+    if (id) {
+      q = query(
+        this.collection,
+        where("email", "==", email),
+        where("id", "!=", id),
+        limit(1)
+      );
+    } else {
+      q = query(this.collection, where("email", "==", email), limit(1));
+    }
     const docSnap = await getDocs(q);
     if (docSnap.size > 0) {
       const doc = docSnap.docs[0];
@@ -41,8 +51,21 @@ export default class UserRepository {
       user.jabatan = doc(db, "jabatan", "anggota");
       const id = uuid(this.id);
       const docUser = doc(db, "users", id);
+      user.status = false;
       const docSnap = await setDoc(docUser, user);
       return responseResult(true, docSnap, "Berhasil mendaftar");
+    }
+  }
+
+  async update(user) {
+    const check = await this.isExistEmail(user.email);
+    if (check) {
+      return responseResult(false, null, "Email sudah terdaftar");
+    } else {
+      const docUser = doc(db, "users", user.id);
+      delete user.id;
+      const docSnap = await setDoc(docUser, user);
+      return responseResult(true, docSnap, "Berhasil mengubah data");
     }
   }
 }
