@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+   <link>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   <link href="../style/dashboard.css" rel="stylesheet">
+   </link>
+   </head>
+   <body>
+      <div class="nav-side-menu">
+         <div class="brand">Brand Logo</div>
+         <i class="fa fa-bars fa-2x toggle-btn" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" data-bs-target="#menu-content"></i>
+         <div class="menu-list">
+            <ul id="menu-content" class="menu-content collapse out">
+               <li class="nav-item">
+                  <a class="nav-link" href="#">
+                  <i class="fa fa-dashboard fa-lg"></i> Dashboard
+                  </a>
+               </li>
+               <li class="nav-item">
+                <a  class="nav-link" href="#">
+                <i class="fa fa-user fa-lg"></i> Profile
+                </a>
+             </li>
+             <li class="nav-item">
+                <a class="nav-link" href="#">
+                <i class="fa fa-sitemap fa-lg"></i> Jabatan
+                </a>
+             </li>
+               <li class="nav-item">
+                <a class="nav-link" href="#">
+                <i class="fa fa-users fa-lg"></i> Anggota
+                </a>
+             </li>
+             <li class="nav-item">
+                <a class="nav-link" href="#">
+                <i class="fa fa-newspaper-o fa-lg"></i> Blog
+                </a>
+             </li>
+             <li class="nav-item">
+                <a class="nav-link" href="#">
+                <i class="fa fa-tasks fa-lg"></i> Tugas
+                </a>
+             </li>
+             
+             <li data-bs-toggle="collapse" data-bs-target="#finance" class="collapsed nav-item">
+                <a class="nav-link" href="#"><i class="fa fa-globe fa-lg"></i> Keuangan <span class="arrow"></span></a>
+             </li>
+             <ul class="sub-menu collapse" id="finance">
+                <li>Kas</li>
+                <li>Pemasukan dan Pengeluaran</li>
+             </ul>
+            
+             <li class="nav-item">
+                <a class="nav-link" href="#">
+                <i class="fa fa-cog fa-lg"></i> Pengaturan
+                </a>
+             </li>
+             <li class="nav-item" data-access='sign-out'>
+                <a class="nav-link" href="#">
+                <i class="fa fa-sign-out fa-lg"></i> Sign Out
+                </a>
+             </li>
+              
+            </ul>
+         </div>
+      </div>
+
+
+   <!-- Wrapper -->
+      <div class="wrapper">
+          <div class="">
+            <h1>Hello World</h1>
+          </div>
+          
+      </div>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+      <script type="module" src="../script/app.js"></script>
+   </body>
+</html>
