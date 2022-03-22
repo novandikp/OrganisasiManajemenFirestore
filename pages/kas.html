@@ -14,7 +14,6 @@
     crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link href="../style/dashboard.css" rel="stylesheet">
-
 </link>
 
 </head>
@@ -27,7 +26,7 @@
         <div class="menu-list">
             <ul id="menu-content" class="navbar-nav menu-content collapse out ">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">
+                    <a class="nav-link " href="user.html">
                         <i class="fa fa-dashboard fa-lg"></i> Dashboard
                     </a>
                 </li>
@@ -57,12 +56,12 @@
                     </a>
                 </li>
 
-                <li data-bs-toggle="collapse" data-bs-target="#finance" class="collapsed nav-item">
+                <li data-bs-toggle="collapse" data-bs-target="#finance" class="collapsed nav-item active">
                     <a class="nav-link" href="#"><i class="fa fa-globe fa-lg"></i> Keuangan <span
                             class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="finance">
-                    <li><a href="kas.html">Kas</a></li>
+                    <li class="active"><a href="kas.html">Kas</a></li>
                     <li>Pemasukan dan Pengeluaran</li>
                 </ul>
 
@@ -87,12 +86,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-5">
-                        <h1 class="m-0">Dashboard</h1>
+                        <h1 class="m-0">Kas Keanggotaan</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard</li>
+                            <li class="breadcrumb-item"><a href="user.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Keuangan</a></li>
+                            <li class="breadcrumb-item active">Kas</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -100,10 +100,11 @@
         </div>
     </div>
 
-    <div class="wrapper padd-right-wrap card-top mt-3">
-        <nav class="navbar">
+    <div class="wrapper padd-right-wrap card-top">
+
+        <nav class="navbar navbar-light bg-light">
             <div class="container-fluid">
-                <button type="button" class="btn btn-primary btn-md mb-2" >+ Tambah Data</button>
+                <button type="button" class="btn btn-primary btn-md" style="margin: 20px 0;">+ Tambah Data</button>
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
@@ -113,25 +114,71 @@
     </div>
 
     <div class="wrapper padd-right-wrap">
-        <div class="card shadow item-list">
-            <div class="card-body">
-            <div class="row">
-              
-              <div class="col-md-9 col-sm-9 item-info">
-                <h5>Budi</h5>
-                <p>Software Engineer</p>
-                <p class="text-muted">500m away</p>
-              </div>
-              <div class="col-md-3 col-sm-3">
-                  <div class="float-sm-right d-grid gap-2 d-md-block mt-2">
-                    <button class="btn btn-secondary btn-sm ml-2"><i class="fa fa-info me-2"></i>Detail</button>
-                    <button class="btn btn-primary btn-sm ml-2"><i class="fa fa-pencil me-2"></i>Edit</button>
-                    <button class="btn btn-danger btn-sm ml-2"><i class="fa fa-trash me-2"></i>Hapus</button>
-                  </div>
-              </div>
-            </div>
-        </div>
-          </div>
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th scope="col" id="No">NO</th>
+                    <th scope="col">User</th>
+                    <th scope="col">Tangihan</th>
+                    <th scope="col">Created_at</th>
+                    <th scope="col">Status</th>
+                    <th scope="col" class="action">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row" id="number">1</th>
+                    <td id="Nama_tagihan">Triyono</td>
+                    <td id="tagihan"><span>Rp </span>200000</td>
+                    <td id="Created_at">Sumenep</td>
+                    <td id="Status">Anggota racana</td>
+                    <td id="action">
+                        <button type="button" class="btn btn-success btn-sm"><span class="material-icons">
+                                done_all
+                            </span></button>
+                        <button type="button" class="btn btn-danger btn-sm"><span class="material-icons">
+                                delete
+                            </span></button>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" id="number">2</th>
+                    <td id="Nama_tagihan">Andia</td>
+                    <td id="tagihan"><span>Rp </span>400000</td>
+                    <td id="Created_at">Kalimantan</td>
+                    <td id="Status">Anggota racana</td>
+                    <td id="action">
+                        <button type="button" class="btn btn-success btn-sm"><span class="material-icons">
+                                done_all
+                            </span></button>
+                        <button type="button" class="btn btn-danger btn-sm"><span class="material-icons">
+                                delete
+                            </span></button>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" id="number">3</th>
+                    <td id="Nama_tagihan">Donia</td>
+                    <td id="tagihan"><span>Rp </span>100000</td>
+                    <td id="Created_at">Surabaya</td>
+                    <td id="Status">Anggota racana</td>
+                    <td id="action">
+                        <button type="button" class="btn btn-success btn-sm"><span class="material-icons">
+                                done_all
+                            </span></button>
+                        <button type="button" class="btn btn-danger btn-sm"><span class="material-icons">
+                                delete
+                            </span></button>
+                    </td>
+                </tr>
+                <!-- <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                    <td>@fat</td>
+                </tr> -->
+            </tbody>
+        </table>
     </div>
     <!-- conten -->
 
