@@ -74,7 +74,7 @@ function getUserInfo() {
 
 function signOut() {
   localStorage.removeItem("user_info");
-  window.location.href = base_url("masuk");
+  redirect_to("masuk");
 }
 
 $("[data-access='sign-out']").click(function () {
@@ -116,10 +116,12 @@ function base_url(param = "/") {
   if (!param.includes(".html")) {
     param = param + ".html";
   }
-
   return window.location.origin + param;
 }
 
+function redirect_to(url) {
+  window.location.href = base_url(url);
+}
 const params = new Proxy(new URLSearchParams(window.location.search), {
   get: (searchParams, prop) => searchParams.get(prop),
 });
@@ -128,7 +130,7 @@ const chipper = new Chipper("OKE123");
 // Middleware
 if (document.URL.includes("/pages")) {
   if (!isLogin()) {
-    // window.location.href = base_url("masuk");
+    // redirect_to("masuk");
   }
 }
 //
@@ -153,3 +155,4 @@ window.thumbnailFile = thumbnailFile;
 window.Chipper = chipper;
 window.params = params;
 window.base_url = base_url;
+window.redirect_to = redirect_to;

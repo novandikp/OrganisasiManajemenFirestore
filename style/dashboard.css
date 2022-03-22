@@ -67,15 +67,14 @@
 .nav-side-menu li .sub-menu li:hover {
   background-color: #020203;
 }
-/* .nav-side-menu ul .sub-menu li:before,
-.nav-side-menu li .sub-menu li:before {
-  font-family: FontAwesome;
-  content: "\f105";
-  display: inline-block;
-  padding-left: 10px;
-  padding-right: 10px;
-  vertical-align: middle;
-} */
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin-bottom: 0;
+}
 .nav-side-menu li {
   padding-left: 0px;
   border-left: 3px solid #2e353d;
