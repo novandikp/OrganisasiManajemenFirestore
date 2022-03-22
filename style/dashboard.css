@@ -177,24 +177,41 @@ h5 {
   transition: all 1s ease;
 }
 
-.card-top{
+.card-top {
   padding-top: 30rem;
 }
 
-.shadow-wrap{
+.shadow-wrap {
   box-shadow: 0 10px 10px rgba(0, 7, 15, 0.096);
 }
 
-.padd-right-wrap{
+.padd-right-wrap {
   padding-right: 2rem;
 }
-
-
 
 .wrapper {
   padding-left: 20.5rem;
   padding-top: 0.3rem;
   padding-bottom: 0.32rem;
+}
+
+.item-info {
+  padding-left: 0.5rem;
+}
+.item-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
+
+.item-info p {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.item-list {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.5rem;
 }
 
 @media (max-width: 767px) {
@@ -206,11 +223,10 @@ h5 {
     padding-bottom: 0.5rem;
   }
 
-  .tabel-user{
+  .tabel-user {
     padding-left: 20.5rem;
     padding-top: 10.3rem;
     padding-bottom: 0.32rem;
-  
   }
 
   @media (max-width: 767px) {
@@ -248,10 +264,6 @@ h5 {
     padding-left: 20px;
     line-height: 50px !important;
   }
-}
-
-#number, #No{
-  text-align: center;
 }
 
 @media (min-width: 767px) {

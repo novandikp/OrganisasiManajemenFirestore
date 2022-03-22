@@ -98,11 +98,10 @@
         </div>
     </div>
 
-    <div class="wrapper padd-right-wrap card-top">
-
-        <nav class="navbar navbar-light bg-light">
+    <div class="wrapper padd-right-wrap card-top mt-3">
+        <nav class="navbar">
             <div class="container-fluid">
-                <button type="button" class="btn btn-primary btn-md" style="margin: 20px 0;">+ Tambah Data</button>
+                <button type="button" class="btn btn-primary btn-md mb-2" >+ Tambah Data</button>
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
@@ -112,59 +111,25 @@
     </div>
 
     <div class="wrapper padd-right-wrap">
-        <table class="table table-striped ">
-            <thead>
-                <tr>
-                    <th scope="col" id="No">NO</th>
-                    <th scope="col">Nama</th>
-                    <th scope="col">No Telp</th>
-                    <th scope="col">Alamat</th>
-                    <th scope="col">Jabatan</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row" id="number">1</th>
-                    <td id="Nama">Triyono</td>
-                    <td id="No_telp">089123311</td>
-                    <td id="Alamar">Sumenep</td>
-                    <td id="Jabatan">Anggota racana</td>
-                    <td id="action">
-                        <button type="button" class="btn btn-primary btn-sm">Edit</button>
-                        <button type="button" class="btn btn-danger btn-sm">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row" id="number">2</th>
-                    <td id="Nama">Rifan</td>
-                    <td id="No_telp">0983322112</td>
-                    <td id="Alamar">Sampang</td>
-                    <td id="Jabatan">Anggota racana</td>
-                    <td id="action">
-                        <button type="button" class="btn btn-primary btn-sm">Edit</button>
-                        <button type="button" class="btn btn-danger btn-sm">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row" id="number">3</th>
-                    <td id="Nama">Rifan</td>
-                    <td id="No_telp">0983322112</td>
-                    <td id="Alamar">Sampang</td>
-                    <td id="Jabatan">Anggota racana</td>
-                    <td id="action">
-                        <button type="button" class="btn btn-primary btn-sm">Edit</button>
-                        <button type="button" class="btn btn-danger btn-sm">Delete</button>
-                    </td>
-                </tr>
-                <!-- <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                    <td>@fat</td>
-                </tr> -->
-            </tbody>
-        </table>
+        <div class="card shadow item-list">
+            <div class="card-body">
+            <div class="row">
+              
+              <div class="col-md-9 col-sm-9 item-info">
+                <h5>Budi</h5>
+                <p>Software Engineer</p>
+                <p class="text-muted">500m away</p>
+              </div>
+              <div class="col-md-3 col-sm-3">
+                  <div class="float-sm-right d-grid gap-2 d-md-block mt-2">
+                    <button class="btn btn-secondary btn-sm ml-2"><i class="fa fa-info me-2"></i>Detail</button>
+                    <button class="btn btn-primary btn-sm ml-2"><i class="fa fa-pencil me-2"></i>Edit</button>
+                    <button class="btn btn-danger btn-sm ml-2"><i class="fa fa-trash me-2"></i>Hapus</button>
+                  </div>
+              </div>
+            </div>
+        </div>
+          </div>
     </div>
     <!-- conten -->
 
