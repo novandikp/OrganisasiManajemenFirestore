@@ -1,3 +1,78 @@
+body {
+  margin: 0px;
+  padding: 0px;
+}
+.nav-link:focus,
+.nav-link:hover {
+  color: #e1ffff;
+}
+
+.breadcrumb {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  list-style: none;
+  background-color: #e9ecef;
+  border-radius: 0.25rem;
+}
+
+.breadcrumb-item + .breadcrumb-item {
+  padding-left: 0.5rem;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  float: left;
+  padding-right: 0.5rem;
+  color: #6c757d;
+  content: "/";
+}
+
+.breadcrumb-item + .breadcrumb-item:hover::before {
+  text-decoration: underline;
+}
+
+.breadcrumb-item + .breadcrumb-item:hover::before {
+  text-decoration: none;
+}
+
+.breadcrumb-item.active {
+  color: #6c757d;
+}
+.content-header {
+  padding: 15px 0.5rem;
+}
+
+.text-sm .content-header {
+  padding: 10px 0.5rem;
+}
+
+.content-header h1 {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.text-sm .content-header h1 {
+  font-size: 1.5rem;
+}
+
+.content-header .breadcrumb {
+  background-color: transparent;
+  line-height: 1.8rem;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.breadcrumb-item a {
+  text-decoration: none;
+}
+
+.text-sm .content-header .breadcrumb {
+  line-height: 1.5rem;
+}
+
 .nav-side-menu {
   overflow: auto;
   font-family: verdana;
@@ -116,7 +191,6 @@ h5 {
     padding-bottom: 0.5rem;
   }
 
-
   .nav-side-menu {
     position: relative;
     width: 100vw;
@@ -147,11 +221,14 @@ h5 {
     display: block;
   }
 }
-body {
-  margin: 0px;
-  padding: 0px;
-}
-.nav-link:focus,
-.nav-link:hover {
-  color: #e1ffff;
+@media (min-width: 576px) {
+  .float-sm-left {
+    float: left !important;
+  }
+  .float-sm-right {
+    float: right !important;
+  }
+  .float-sm-none {
+    float: none !important;
+  }
 }
