@@ -250,9 +250,10 @@ h5 {
   }
 }
 
-#number, #No{
+#number, #No, #action, .action{
   text-align: center;
 }
+
 
 @media (min-width: 767px) {
   .nav-side-menu .menu-list .menu-content {
