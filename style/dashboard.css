@@ -58,12 +58,16 @@
   line-height: 28px;
   border-bottom: 1px solid #23282e;
   margin-left: 0px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 .nav-side-menu ul .sub-menu li:hover,
 .nav-side-menu li .sub-menu li:hover {
   background-color: #020203;
 }
-.nav-side-menu ul .sub-menu li:before,
+/* .nav-side-menu ul .sub-menu li:before,
 .nav-side-menu li .sub-menu li:before {
   font-family: FontAwesome;
   content: "\f105";
@@ -71,7 +75,7 @@
   padding-left: 10px;
   padding-right: 10px;
   vertical-align: middle;
-}
+} */
 .nav-side-menu li {
   padding-left: 0px;
   border-left: 3px solid #2e353d;
