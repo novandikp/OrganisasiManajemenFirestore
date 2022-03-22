@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js";
-
+import Chipper from "./library/Chipper.js";
 import * as firebasedatabase from "https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -100,6 +100,8 @@ function thumbnailFile(input, image) {
   }
 }
 
+const chipper = new Chipper("OKE123");
+
 window.db = db;
 window.getDocs = firebasedatabase.getDocs;
 window.getDoc = firebasedatabase.getDoc;
@@ -117,3 +119,4 @@ window.isLogin = isLogin;
 window.Timestamp = firebasedatabase.Timestamp;
 window.uploadFile = uploadFile;
 window.thumbnailFile = thumbnailFile;
+window.Chipper = chipper;

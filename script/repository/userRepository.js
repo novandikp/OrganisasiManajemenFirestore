@@ -32,6 +32,7 @@ export default class UserRepository {
   async login(user) {
     const data = await this.isExistEmail(user.email);
     if (data) {
+      user.password = Chipper.encrypt(user.password);
       if (data.password == user.password) {
         localStorage.setItem("user_info", JSON.stringify(data));
         return responseResult(true, data, "Berhasil login");
@@ -47,7 +48,12 @@ export default class UserRepository {
     const check = await this.isExistEmail(user.email);
     if (check) {
       return responseResult(false, null, "Email sudah terdaftar");
+    } else if (user.password.length < 6) {
+      return responseResult(false, null, "Password minimal 6 karakter");
+    } else if (user.password != user.password2) {
+      return responseResult(false, null, "Password tidak sama");
     } else {
+      user.password = Chipper.encrypt(user.password);
       user.jabatan = doc(db, "jabatan", "anggota");
       const id = uuid(this.id);
       const docUser = doc(db, "users", id);

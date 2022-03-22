@@ -1,26 +1,26 @@
-$(document).ready(() => {
+import UserRepository from "../repository/userRepository.js";
+$(document).ready(function () {
+  const userRepo = new UserRepository();
+
   $("#register-form").submit(function (e) {
+    const button = $(this).find("button");
+    button.prop("disabled", true);
+    button.text("Loading...");
     e.preventDefault();
-
-    const data = new FormData($(this));
-
-    if (data.get("password") !== data.get("password-confirm")) {
-      const user = {
-        email: data.get("email"),
-        password: data.get("password"),
-        nama: data.get("nama"),
-        alamat: data.get("alamat"),
-        no_hp: data.get("no_hp"),
-      };
-      userRepo.register(user).then((result) => {
-        if (result.status) {
-          window.location.href = "index.html";
-        } else {
-          alert(result.message);
-        }
+    let values = {};
+    $(this)
+      .serializeArray()
+      .forEach((element) => {
+        values[element.name] = element.value;
       });
-    } else {
-      alert("Password tidak sama");
-    }
+    userRepo.register(values).then(function (result) {
+      button.prop("disabled", false);
+      button.text("Sign in");
+      if (result.status) {
+        window.location.href = "index.html";
+      } else {
+        alert(result.message);
+      }
+    });
   });
 });
