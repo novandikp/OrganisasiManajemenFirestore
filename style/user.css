@@ -1,6 +1,8 @@
 body {
     min-height: 100vh;
     min-height: -webkit-fill-available;
+    margin: 0px;
+    padding: 0px;
   }
   
   html {
@@ -15,6 +17,16 @@ body {
     max-height: 100vh;
     overflow-x: auto;
     overflow-y: hidden;
+  }
+
+  .nav-side-menu {
+    overflow: auto;
+    background-color: #2e353d;
+    position: fixed;
+    top: 0px;
+    width: 300px;
+    height: 100%;
+    color: #e1ffff;
   }
   
   .b-example-divider {
@@ -96,8 +108,22 @@ body {
     user-select: none;
 }
 
+
 @media (min-width: 768px) {
     .bd-placeholder-img-lg {
         font-size: 3.5rem;
     }
+}
+
+@media (min-width: 768px){
+  .nav-side-menu .menu-list .menu-content {
+    display: block;
+  }
+}
+
+@media (max-width: 768px){
+  .d-flex .flex-column .flex-shrink-0 .p-3 .text-white .bg-dark main{
+    width: 4.5rem;
+    display: block;
+  }
 }
