@@ -9,7 +9,7 @@ export default class BlogRepository {
     const docSnap = await getDocs(q);
     const data = [];
     await docSnap.forEach(async (element) => {
-      const temp = element.data();
+      const temp = await element.data();
       temp.user_id = await getDoc(element.ref());
       data.push(temp);
     });

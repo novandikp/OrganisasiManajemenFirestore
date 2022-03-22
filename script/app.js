@@ -139,6 +139,8 @@ window.db = db;
 window.getDocs = firebasedatabase.getDocs;
 window.getDoc = firebasedatabase.getDoc;
 window.collection = firebasedatabase.collection;
+
+window.fbcollection = firebasedatabase.collection;
 window.doc = firebasedatabase.doc;
 window.setDoc = firebasedatabase.setDoc;
 window.collectionGroup = firebasedatabase.collectionGroup;
