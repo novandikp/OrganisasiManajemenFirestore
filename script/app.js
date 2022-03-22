@@ -72,6 +72,15 @@ function getUserInfo() {
   }
 }
 
+function signOut() {
+  localStorage.removeItem("user_info");
+  window.location.href = base_url("masuk");
+}
+
+$("[data-access='sign-out']").click(function () {
+  signOut();
+});
+
 function uploadFile(file, path, callback = defFunc, error = errFunc) {
   $.ajax({
     url: "https://content.dropboxapi.com/2/files/upload",
@@ -100,7 +109,29 @@ function thumbnailFile(input, image) {
   }
 }
 
+function base_url(param = "/") {
+  if (param[0] != "/") {
+    param = "/" + param;
+  }
+  if (!param.includes(".html")) {
+    param = param + ".html";
+  }
+
+  return window.location.origin + param;
+}
+
+const params = new Proxy(new URLSearchParams(window.location.search), {
+  get: (searchParams, prop) => searchParams.get(prop),
+});
 const chipper = new Chipper("OKE123");
+
+// Middleware
+if (document.URL.includes("/pages")) {
+  if (!isLogin()) {
+    // window.location.href = base_url("masuk");
+  }
+}
+//
 
 window.db = db;
 window.getDocs = firebasedatabase.getDocs;
@@ -120,3 +151,5 @@ window.Timestamp = firebasedatabase.Timestamp;
 window.uploadFile = uploadFile;
 window.thumbnailFile = thumbnailFile;
 window.Chipper = chipper;
+window.params = params;
+window.base_url = base_url;
