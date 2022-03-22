@@ -1,49 +1,55 @@
 <html lang="en">
-   <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Register Form</title>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" />
-      <link rel="stylesheet" href="./style/auth.css">
-      </link>
-   </head>
-   <body class="bg-primary">
-      <!-- Login Form -->
-      <div class="card shadow form-signin py-5 px-4">
-         <form id="register-form">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./style/auth.css">
+    </link>
+</head>
+
+<body class="bg-primary">
+    <!-- Login Form -->
+    <div class="card shadow form-signin py-5 px-4">
+        <form id="register-form">
             <h1 class="h3 mb-3 font-weight-normal">Register</h1>
-            
+
             <div class="form-group mt-2">
-               <label for="inputEmail" class="sr-only">Nama</label>
-               <input type="text" id="inputEmail" name="nama" class="form-control" placeholder="Nama" required >
+                <label for="inputEmail" class="sr-only">Nama</label>
+                <input type="text" id="inputEmail" name="nama" class="form-control" placeholder="Nama" required>
             </div>
             <div class="form-group mt-2">
-               <label for="inputEmail" class="sr-only">Alamat</label>
-               <input type="text" id="inputEmail" name="alamat" class="form-control" placeholder="Alamat" required >
+                <label for="inputEmail" class="sr-only">Alamat</label>
+                <input type="text" id="inputEmail" name="alamat" class="form-control" placeholder="Alamat" required>
             </div>
             <div class="form-group mt-2">
-               <label for="inputEmail" class="sr-only">No Telepon</label>
-               <input type="text" id="inputEmail" name="no_hp" class="form-control" placeholder="No Telepon" required >
+                <label for="inputEmail" class="sr-only">No Telepon</label>
+                <input type="text" id="inputEmail" name="no_hp" class="form-control" placeholder="No Telepon" required>
             </div>
-            
+
             <div class="form-group mt-2">
-               <label for="inputEmail" class="sr-only">Email address</label>
-               <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
-            </div>
-            <div class="form-group mt-2">
-               <label for="inputPassword" class="sr-only">Password</label>
-               <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <label for="inputEmail" class="sr-only">Email address</label>
+                <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
             </div>
             <div class="form-group mt-2">
-               <label for="inputPassword" class="sr-only">Konfirmasi Password</label>
-               <input type="password" name="password2" id="inputPassword" class="form-control" placeholder="Password" required>
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
             </div>
-            <button class="btn btn-primary btn-block mt-3" type="submit">Sign up</button>
-         </form>
-      </div>
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-      <script type="module" src="./script/app.js"></script>
-      <script type="module" src="./script/pages/register.js"></script>
-    
-   </body>
+            <div class="form-group mt-2">
+                <label for="inputPassword" class="sr-only">Konfirmasi Password</label>
+                <input type="password" name="password2" id="inputPassword" class="form-control" placeholder="Password" required>
+            </div>
+            <div class="d-grid gap-2 d-md-block">
+                <button class="btn btn-primary btn-block mt-3" type="submit">Sign in</button>
+                <a class="btn btn-outline-danger mt-3" href="masuk.html">Back</a>
+            </div>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="module" src="./script/app.js"></script>
+    <script type="module" src="./script/pages/register.js"></script>
+
+</body>
+
 </html>
