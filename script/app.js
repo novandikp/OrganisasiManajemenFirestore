@@ -143,6 +143,7 @@ window.collection = firebasedatabase.collection;
 window.fbcollection = firebasedatabase.collection;
 window.doc = firebasedatabase.doc;
 window.setDoc = firebasedatabase.setDoc;
+window.deleteDoc = firebasedatabase.deleteDoc;
 window.collectionGroup = firebasedatabase.collectionGroup;
 window.responseResult = responseResult;
 window.uuid = uuid;
