@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<link>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User | Pengaturan</title>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="../style/profile.css">
+<link href="../style/dashboard.css" rel="stylesheet">
+
+</link>
+</head>
+
+<body>
+    <div class="nav-side-menu">
+        <div class="brand">SISMANSI</div>
+        <i class="fa fa-bars fa-2x toggle-btn" data-bs-toggle="collapse" aria-expanded="false"
+            aria-controls="collapseExample" data-bs-target="#menu-content"></i>
+        <div class="menu-list">
+            <ul id="menu-content" class="navbar-nav menu-content collapse out ">
+                <li class="nav-item">
+                    <a class="nav-link" href="user.html">
+                        <i class="fa fa-dashboard fa-lg"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="#">
+                        <i class="fa fa-user fa-lg"></i> Profile
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="jabatan.html">
+                        <i class="fa fa-sitemap fa-lg"></i> Jabatan
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="anggota.html">
+                        <i class="fa fa-users fa-lg"></i> Anggota
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-newspaper-o fa-lg"></i> Blog
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-tasks fa-lg"></i> Tugas
+                    </a>
+                </li>
+
+                <li data-bs-toggle="collapse" data-bs-target="#finance" class="collapsed nav-item">
+                    <a class="nav-link" href="#"><i class="fa fa-globe fa-lg"></i> Keuangan <span
+                            class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="finance">
+                    <li><a href="kas.html">Kas</a></li>
+                    <li><a href="debit_kredit.html">Pemasukan dan Pengeluaran</a></li>
+                </ul>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">
+                        <i class="fa fa-cog fa-lg"></i> Pengaturan
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-sign-out fa-lg"></i> Sign Out
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="wrapper shadow-wrap">
+        <!-- conten -->
+        <div class="content-header ">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-5">
+                        <h1 class="m-0">Pengaturan</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="user.html">Home</a></li>
+                            <li class="breadcrumb-item active">Pengaturan</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+    </div>
+
+    <div class="wrapper padd-right-wrap list-data">
+        <div class="d-flex align-items-center">
+
+        </div>
+    </div>
+
+
+    <div class="wrapper padd-right-wrap ">
+        <section class="content" style="margin-top: 1.3rem;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card " style="margin-bottom: 1rem;">
+                            <div class="card-header bg-success text-light">
+                                <h5 class="card-title ">Profile</h5>
+                            </div>
+                            <div class="card-body box-profile ">
+                                <div class="text-center">
+                                    <img class="img-size rounded-circle" src="../script/assets/img/avatar5.png"
+                                        alt="User profile picture">
+                                </div>
+                                <div class="name-padd text-center">
+                                    <h3 class="profile-username " style="padding-bottom: 5px;">Riyo Admin</h3>
+                                    <p class="text-light  badge bg-warning ">Jabatan | Anggota</p>
+
+                                </div>
+
+                                <ul class="list-group list-group-unbordered mb-3">
+                                    <li class="list-group-item border-0">
+                                        <b>Email</b> :<p class="pull-right email-header">Novandi Kevin Pratama</p>
+                                    </li>
+                                    <li class="list-group-item border-0">
+                                        <b>No Telp</b> :<p class="pull-right phone-header">088888</p>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+
+                        <!-- card ganti foto -->
+                        <div class="card " style="margin-bottom: 1rem;">
+                            <div class="card-header bg-danger text-light">
+                                <h5 class="card-title ">Ganti Foto</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="input-group">
+                                    <input type="file" class="form-control" id="inputGroupFile04"
+                                        aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                    <button class="btn btn-outline-success" type="button"
+                                        id="inputGroupFileAddon04">Ganti</button>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                    </div>
+
+                    <!-- BioData -->
+                    <div class="col-lg-8">
+                        <div class="card" style="margin-bottom: 1rem;">
+                            <div class="card-header bg-primary text-light">
+                                <h5 class="card-title ">Biodata</h5>
+                            </div>
+                            <div class="card-body">
+                                <!-- Form profile -->
+                                <form class="form-horizontal">
+
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Nama</label>
+                                        <input type="text" class="form-control" id="Ganti-nama"
+                                            placeholder="Masukkan Nama">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="ganti-email"
+                                            placeholder="Masukkan email baru">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Password lama</label>
+                                        <input type="password" class="form-control" id="password-lama"
+                                            placeholder="Masukkan email baru">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Password Baru</label>
+                                        <input type="password" class="form-control" id="password-baru"
+                                            placeholder="Masukkan email baru">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlTextarea1" class="form-label">Alamat</label>
+                                        <textarea class="form-control" id="ganti-alamat" rows="3"
+                                            placeholder="Alamat Lengkap"></textarea>
+                                    </div>
+                                </form>
+                                <!-- <a href="#" class="btn btn-primary btn-md mt-4 pull-right" id="edit_bio">Save</a> -->
+                            </div>
+                        </div>
+
+                        <!-- Deskripsi -->
+                        <div class="card" style="margin-bottom: 1rem;">
+                            <div class="card-header bg-secondary text-light">
+                                <h5 class="card-title active">Deskripsi</h5>
+                            </div>
+                            <div class=" card-body">
+                                <!-- Form Deskripsi -->
+                                <form class="form-horizontal">
+
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Hoby</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1"
+                                            placeholder="Masukkan Hoby">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlTextarea1" class="form-label">Siapa Saya</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                            placeholder="Ceritakan dirimu"></textarea>
+                                    </div>
+                                </form>
+                                <!-- <a href="#" class="btn btn-primary btn-md mt-4 pull-right" id="edit_bio">Save</a> -->
+                            </div>
+                        </div>
+
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary pull-right" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop">
+                            Save Changes
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header bg-warning text-light">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Warning</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Pastikan Data yang dimasukkan sudah benar</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save Changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+        </section>
+    </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script type="module" src="../script/app.js"></script>
+    <script src="../script/pages/profile.js"></script>
+</body>
+
+</html>

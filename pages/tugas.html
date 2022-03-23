@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>User | Jabatan</title>
+<title>User | Tugas</title>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -15,6 +15,7 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link href="../style/dashboard.css" rel="stylesheet">
 </link>
+
 </head>
 
 <body>
@@ -25,7 +26,7 @@
         <div class="menu-list">
             <ul id="menu-content" class="navbar-nav menu-content collapse out ">
                 <li class="nav-item">
-                    <a class="nav-link" href="user.html">
+                    <a class="nav-link " href="user.html">
                         <i class="fa fa-dashboard fa-lg"></i> Dashboard
                     </a>
                 </li>
@@ -35,7 +36,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">
+                    <a class="nav-link" href="#">
                         <i class="fa fa-sitemap fa-lg"></i> Jabatan
                     </a>
                 </li>
@@ -50,17 +51,17 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link active" href="#">
                         <i class="fa fa-tasks fa-lg"></i> Tugas
                     </a>
                 </li>
 
-                <li data-bs-toggle="collapse" data-bs-target="#finance" class="collapsed nav-item">
+                <li data-bs-toggle="collapse" data-bs-target="#finance" class="collapsed nav-item ">
                     <a class="nav-link" href="#"><i class="fa fa-globe fa-lg"></i> Keuangan <span
                             class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="finance">
-                    <li><a href="kas.html">Kas</a></li>
+                    <li class="active"><a href="kas.html">Kas</a></li>
                     <li><a href="debit_kredit.html">Pemasukan dan Pengeluaran</a></li>
                 </ul>
 
@@ -85,12 +86,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-5">
-                        <h1 class="m-0">Jabatan</h1>
+                        <h1 class="m-0">Tugas</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Jabatan</li>
+                            <li class="breadcrumb-item"><a href="user.html">Home</a></li>
+                            <li class="breadcrumb-item active">Tugas</li>
+
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -98,81 +100,70 @@
         </div>
     </div>
 
-    <!-- main conten -->
-    <div class="wrapper padd-right-wrap card-top mt-3">
-        <nav class="navbar">
-            <div class="container-fluid">
-                <button type="button" class="btn btn-primary btn-md mb-2">+ Tambah Data</button>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
-        </nav>
-    </div>
 
-    <!-- tabel isi -->
-    <div class="wrapper padd-right-wrap">
-        <div class="table-responsive">
-            <table class="table table-striped table-bordered table-hover table-sm">
-                <thead>
-                    <tr>
-                        <th scope="col" id="No">NO</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">Jabatan</th>
-                        <th scope="col">Deskripsi</th>
-                        <!-- <th scope="col" class="action">Aksi</th> -->
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row" id="number">1</th>
-                        <td id="Nama_user">Triyono</td>
-                        <td id="Jabatan">Anggota</td>
-                        <td id="Deskripsi">Anggota racana</td>
-                        <!-- <td id="action">
-                            <a href="#" class="btn btn-sm btn-primary"><i class="fa fa-pencil me-2"></i>Edit</a>
-                            <a href="#" class="btn btn-sm btn-danger"><i class="fa fa-trash me-2"></i>Hapus</a>
-                            <a href="#" class="btn btn-sm btn-secondary"><i class="fa fa-info me-2"></i>Detail</a>
-                        </td> -->
-                    </tr>
-                    <tr>
-                        <th scope="row" id="number">2</th>
-                        <td id="Nama_user">Andia</td>
-                        <td id="Jabatan">Ketua</td>
-                        <td id="Deskripsi">Anggota racana</td>
-                        <!-- <td id="action">
-                            <a href="#" class="btn btn-sm btn-primary"><i class="fa fa-pencil me-2"></i>Edit</a>
-                            <a href="#" class="btn btn-sm btn-danger"><i class="fa fa-trash me-2"></i>Hapus</a>
-                            <a href="#" class="btn btn-sm btn-secondary"><i class="fa fa-info me-2"></i>Detail</a> -->
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row" id="number">3</th>
-                        <td id="Nama_user">Donia</td>
-                        <td id="Jabatan">Sekretaris</td>
-                        <td id="Deskripsi">Anggota racana</td>
-                        <!-- <td id="action">
-                            <a href="#" class="btn btn-sm btn-primary"><i class="fa fa-pencil me-2"></i>Edit</a>
-                            <a href="#" class="btn btn-sm btn-danger"><i class="fa fa-trash me-2"></i>Hapus</a>
-                            <a href="#" class="btn btn-sm btn-secondary"><i class="fa fa-info me-2"></i>Detail</a>
-                        </td> -->
-                    </tr>
-                    <!-- <tr>
-                  <th scope="row">3</th>
-                  <td colspan="2">Larry the Bird</td>
-                  <td>@twitter</td>
-                  <td>@fat</td>
-              </tr> -->
-                </tbody>
-            </table>
+    <!-- headr conten -->
+    <div class="wrapper padd-right-wrap card-top mt-3">
+        <!-- <nav class="navbar">
+            <div class="container-fluid">
+                <button type="button" class="btn btn-primary btn-md mb-2">+ Tambah Tugas</button>
+                <!-- <form class="d-flex pull-right" id="formSearch">
+                    <input class="form-control me-2" type="search" id="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form> -->
+        <!-- </div>
+        </nav> -->
+
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header bg-info text-light">
+                    <h5 class="card-title">Daftar Tugas</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Active</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link tab" href="#">Link</a>
+                        </li>
+                        <li class="nav-item tab">
+                            <a class="nav-link tab" href="#">Link</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled">Disabled</a>
+                        </li>
+                    </ul>
+
+                    <!-- datar tugas -->
+                    <div class="card" style="margin-top: 1rem;">
+                        <div class="card-body ">
+                            <h6 id="Judul-tugas">Tugas 1</h6>
+                            <p id="deskripsi-tugas">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+                                itaque sed adipisci
+                                quia ullam, ab accusamus assumenda perferendis laborum in! Nulla ducimus nisi iste
+                                aspernatur atque aut distinctio necessitatibus illum!</p>
+                        </div>
+                    </div>
+                    <div class="card" style="margin-top: 1rem;">
+                        <div class="card-body ">
+                            <h6 id="Judul-tugas">Tugas 2</h6>
+                            <p id="deskripsi-tugas">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+                                itaque sed adipisci
+                                quia ullam, ab accusamus assumenda perferendis laborum in! Nulla ducimus nisi iste
+                                aspernatur atque aut distinctio necessitatibus illum!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <!-- akhir header content -->
+
+    <!-- menu conten -->
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script type="module" src="../script/app.js"></script>
 </body>
 
 </html>
