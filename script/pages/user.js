@@ -12,11 +12,9 @@ $(document).ready(function () {
 
   const updateUser = async function (user) {
     const docUser = doc(db, "users", user.id);
-    if (docUser.data().foto) {
-      user.foto = docUser.data().foto;
-    }
+
     delete user.id;
-    return setDoc(docUser, user).then((docSnap) => {
+    return updateDoc(docUser, user).then((docSnap) => {
       return responseResult(true, docSnap, "Berhasil mengubah data");
     });
   };
@@ -99,11 +97,10 @@ $(document).ready(function () {
         buttons: {
           confirm: function () {
             elemen.attr("disabled", true);
-            getUser(id).then(async (user) => {
-              const temp = await user.data();
-              temp.status = true;
-              temp.id = id;
-              await updateUser(temp);
+            const temp = {};
+            temp.status = true;
+            temp.id = id;
+            updateUser(temp).then(() => {
               getUsers();
             });
           },
@@ -116,31 +113,22 @@ $(document).ready(function () {
       e.preventDefault();
       const id = $("#detailModal").attr("data-id");
       $(this).find("button").attr("disabled", true);
-      getUser(id)
-        .then(async (user) => {
-          const temp = await user.data();
-          const data = {
-            id: id,
-            nama: $("#nama").val(),
-            email: $("#email").val(),
-            alamat: $("#alamat").val(),
-            no_hp: $("#no_hp").val(),
-            jabatan: doc(db, "jabatan", $("#jabatan").val()),
-            password: temp.password,
-            status: temp.status,
-          };
-          updateUser(data).then((result) => {
-            $("#detailModal").removeAttr("data-id");
-            $(this).find("button").removeAttr("disabled");
-            if (result.status) {
-              $("#detailModal").modal("hide");
-              getUsers();
-            }
-          });
-        })
-        .catch(() => {
-          $(this).find("button").removeAttr("disabled");
-        });
+      const data = {
+        id: id,
+        nama: $("#nama").val(),
+        email: $("#email").val(),
+        alamat: $("#alamat").val(),
+        no_hp: $("#no_hp").val(),
+        jabatan: doc(db, "jabatan", $("#jabatan").val()),
+      };
+      updateUser(data).then((result) => {
+        $("#detailModal").removeAttr("data-id");
+        $(this).find("button").removeAttr("disabled");
+        if (result.status) {
+          $("#detailModal").modal("hide");
+          getUsers();
+        }
+      });
     });
     $(".list-data").on("click", ".item-hapus", async function () {
       const id = $(this).data("id");
