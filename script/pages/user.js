@@ -13,13 +13,14 @@ $(document).ready(function () {
   const updateUser = async function (user) {
     const docUser = doc(db, "users", user.id);
     delete user.id;
-    const docSnap = await setDoc(docUser, user);
-    return responseResult(true, docSnap, "Berhasil mengubah data");
+    return setDoc(docUser, user).then((docSnap) => {
+      return responseResult(true, docSnap, "Berhasil mengubah data");
+    });
   };
 
   const fetchJabatan = async function () {
     const q = collection(db, "jabatan");
-    getDocs(q).then(function (docSnap) {
+    return getDocs(q).then(function (docSnap) {
       $("#jabatan").empty();
       docSnap.forEach((doc) => {
         const data = doc.data();
@@ -31,7 +32,7 @@ $(document).ready(function () {
 
   const itemLoad = () => {
     $(".list-data").empty();
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 4; i++) {
       const item = `<div class="card shadow skeleton item-list">
       <div class="card-body ">
       <div class="row">
@@ -64,7 +65,8 @@ $(document).ready(function () {
         $("#email").val(data.email);
         $("#alamat").val(data.alamat);
         $("#no_hp").val(data.no_hp);
-        $("#jabatan").val(data.jabatan);
+        $(`#jabatan option[value='${data.jabatan}']`).attr("selected", true);
+
         $("#detailModal").modal("show");
         $("#detailModal button[type=submit]").hide();
       });
@@ -78,7 +80,7 @@ $(document).ready(function () {
         $("#email").val(data.email);
         $("#alamat").val(data.alamat);
         $("#no_hp").val(data.no_hp);
-        $("#jabatan").val(data.jabatan);
+        $(`#jabatan option[value='${data.jabatan}']`).attr("selected", true);
         $("#detailModal").modal("show");
         $("#detailModal").attr("data-id", data.id);
         $("#detailModal button[type=submit]").show();
@@ -109,7 +111,7 @@ $(document).ready(function () {
 
     $("#detailModal").on("submit", "form", async function (e) {
       e.preventDefault();
-      const id = $("#detailModal").data("id");
+      const id = $("#detailModal").attr("data-id");
       $(this).find("button").attr("disabled", true);
       getUser(id)
         .then(async (user) => {
@@ -125,6 +127,7 @@ $(document).ready(function () {
             status: temp.status,
           };
           updateUser(data).then((result) => {
+            $("#detailModal").removeAttr("data-id");
             $(this).find("button").removeAttr("disabled");
             if (result.status) {
               $("#detailModal").modal("hide");
@@ -182,7 +185,7 @@ $(document).ready(function () {
                 <p class="text-muted">${element.alamat}</p>
               </div>
               <div class="col-md-3 col-sm-3">
-                  <div class="float-sm-right d-grid gap-2 d-md-block mt-3">
+                  <div class="float-sm-right d-grid gap-2 d-xl-block mt-3">
                     <button data-detail='${JSON.stringify(
                       element
                     )}' class="btn btn-secondary btn-sm ml-2 item-detail"><i class="fa fa-info me-2"></i>Detail</button>
@@ -210,7 +213,7 @@ $(document).ready(function () {
                 <p class="text-muted">${element.alamat}</p>
               </div>
               <div class="col-md-3 col-sm-3">
-                  <div class="float-sm-right d-grid gap-2 d-md-block mt-3">
+                  <div class="float-sm-right d-grid gap-2 d-xl-block mt-3">
                     <button data-detail='${JSON.stringify(
                       element
                     )}' class="btn btn-secondary btn-sm ml-2 item-detail"><i class="fa fa-info me-2"></i>Detail</button>
