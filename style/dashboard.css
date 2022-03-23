@@ -45,7 +45,7 @@ body {
   color: #e1ffff;
 }
 
-.tab:hover{
+.tab:hover {
   color: #0f8ee2;
 }
 
@@ -243,8 +243,6 @@ h5 {
   padding-right: 2rem;
 }
 
-
-
 .wrapper {
   padding-left: 20.5rem;
   padding-top: 0.3rem;
@@ -272,6 +270,60 @@ h5 {
   padding-left: 0.5rem;
 }
 
+.profilepic {
+  position: relative;
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #111;
+}
+
+.profilepic:hover .profilepic__content {
+  opacity: 1;
+}
+
+.profilepic:hover .profilepic__image {
+  opacity: 0.5;
+}
+
+.profilepic__image {
+  object-fit: cover;
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.profilepic__content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.profilepic__icon {
+  color: white;
+  padding-bottom: 8px;
+}
+
+.fas {
+  font-size: 20px;
+}
+
+.profilepic__text {
+  text-transform: uppercase;
+  font-size: 12px;
+  width: 50%;
+  text-align: center;
+}
+
 .skeleton {
   position: relative;
   width: 100%;
@@ -279,7 +331,7 @@ h5 {
   border-radius: 4px;
   background-color: #eee !important;
   border-color: #eee;
-  /* color: transparent !important; */
+  color: transparent !important;
   user-select: none;
   cursor: default;
 }
@@ -349,7 +401,7 @@ h5 {
   }
 }
 
-.form-group{
+.form-group {
   margin-bottom: 1rem;
 }
 

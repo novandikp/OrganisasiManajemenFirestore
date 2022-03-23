@@ -13,7 +13,7 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="../style/profile.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
 <link href="../style/dashboard.css" rel="stylesheet">
 
 </link>
@@ -112,32 +112,30 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-4">
-                        <div class="card " style="margin-bottom: 1rem;">
-                            <div class="card-header bg-success text-light">
-                                <h5 class="card-title ">Profile</h5>
-                            </div>
-                            <div class="card-body box-profile ">
-                                <div class="text-center">
-                                    <img class="img-size rounded-circle" src="../script/assets/img/avatar5.png"
-                                        alt="User profile picture">
+                        <div class="card card-primary card-outline " style="margin-bottom: 1rem;">
+                            <div class="card-body box-profile skeleton">
+                                <input type="file" id="profile_upload" style="display:none"/> 
+                                <div class="d-flex justify-content-center my-2 ">
+                                    <div class="profilepic" id="profile_image" >
+                                        <img class="profilepic__image"  width="150" height="150" alt="Profibild" />
+                                        <div class="profilepic__content">
+                                          <span class="profilepic__icon"><i class="fa fa-camera"></i></span>
+                                          <span class="profilepic__text">Edit Profile</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="name-padd text-center">
-                                    <h3 class="profile-username " style="padding-bottom: 5px;">Riyo Admin</h3>
-                                    <p class="text-light  badge bg-warning ">Jabatan | Anggota</p>
-
+                                <div class="name-padd text-center mt-2">
+                                    <h3 class="profile-username skeleton" style="padding-bottom: 5px;">Riyo Admin</h3>
+                                    <p class="text-light skeleton  badge bg-warning mb-2">Jabatan | Anggota</p>
                                 </div>
-
                                 <ul class="list-group list-group-unbordered mb-3">
-                                    <li class="list-group-item border-0">
+                                    <li class="list-group-item skeleton border-0">
                                         <b>Email</b> :<p class="pull-right email-header">Novandi Kevin Pratama</p>
                                     </li>
-                                    <li class="list-group-item border-0">
+                                    <li class="list-group-item border-0 skeleton">
                                         <b>No Telp</b> :<p class="pull-right phone-header">088888</p>
                                     </li>
-
                                 </ul>
-
-
                             </div>
                             <!-- /.card-body -->
 
@@ -152,81 +150,45 @@
                             </div>
                             <div class="card-body">
                                 <!-- Form profile -->
-                                <form class="form-horizontal">
+                                <form class="form-horizontal" id="profile-form">
                                     <div class="form-group mt-2 row">
-                                        <label for="inputEmail3" class="col-sm-2 col-form-label">Nama</label>
+                                        <label for="nama" class="col-sm-2 col-form-label">Nama</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" name="nama" id="inputEmail3"
+                                            <input type="text" class="form-control skeleton" name="nama" id="nama"
                                                 placeholder="Nama Lengkap">
                                         </div>
                                     </div>
 
                                     <div class="form-group mt-2 row">
-                                        <label for="inputEmail3" class="col-sm-2 col-form-label">No Telp</label>
+                                        <label for="no_hp" class="col-sm-2 col-form-label">No Telp</label>
                                         <div class="col-sm-10">
-                                            <input type="text" name="no_hp" class="form-control" id="inputEmail3"
+                                            <input type="text" name="no_hp" class="form-control skeleton" id="no_hp"
                                                 placeholder="No Telp">
                                         </div>
                                     </div>
                                     <div class="form-group mt-2 row">
-                                        <label for="inputEmail3" class="col-sm-2 col-form-label">Alamat</label>
+                                        <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
                                         <div class="col-sm-10">
-                                            <textarea class="form-control" name="alamat" id="inputEmail3"
+                                            <textarea class="form-control skeleton"  name="alamat" id="alamat"
                                                 placeholder="Alamat"></textarea>
                                         </div>
                                     </div>
-
+                                    
+                               
+                                <button type="submit" class="btn btn-primary btn-sm mt-4 pull-right" id="edit_bio">Edit Biodata</button>
                                 </form>
-                                <!-- <a href="#" class="btn btn-primary btn-sm mt-4 pull-right" id="edit_bio">Edit
-                                    Biodata</a> -->
-                            </div>
-                        </div>
-
-                        <div class="card" style="margin-bottom: 1rem;">
-                            <div class="card-header bg-secondary text-light">
-                                <h5 class="card-title active">Deskripsi</h5>
-                            </div>
-                            <div class=" card-body">
-                                <div class="table-reponsive-lg">
-                                    <table class="table ">
-
-                                        <tbody>
-                                            <tr>
-                                                <td>Hobi</td>
-                                                <td>:</td>
-                                                <td>Badminton</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Keterangan</td>
-                                                <td>:</td>
-                                                <td>
-                                                    <p style="text-align:justify">Lorem ipsum dolor sit amet consectetur
-                                                        adipisicing elit.
-                                                        Accusantium expedita aspernatur, provident quidem eius quisquam
-                                                        odit perferendis debitis atque possimus esse placeat molestiae
-                                                        aliquid. Quos sunt nostrum et officia facere?</p>
-                                                </td>
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                    <!-- <a href="#" class="btn btn-primary btn-sm" id="edit_deskripsi">Edit Deskripsi</a> -->
-                                </div>
-
                             </div>
 
                         </div>
-
                     </div>
                 </div>
-
+            </div>  
         </section>
     </div>
 
-    </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
     <script type="module" src="../script/app.js"></script>
     <script src="../script/pages/profile.js"></script>
 </body>

@@ -13,11 +13,14 @@ $(document).ready(function () {
       .forEach((element) => {
         values[element.name] = element.value;
       });
+    if (values.password2) {
+      delete values.password2;
+    }
     userRepo.register(values).then(function (result) {
       button.prop("disabled", false);
       button.text("Sign in");
       if (result.status) {
-        window.location.href = "index.html";
+        redirect_to("pages/user");
       } else {
         alert(result.message);
       }
