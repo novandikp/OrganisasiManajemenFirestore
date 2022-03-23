@@ -136,15 +136,24 @@
                                     </li>
 
                                 </ul>
-
-
                             </div>
                             <!-- /.card-body -->
-
+                        </div>
+                        <div class="card " style="margin-bottom: 1rem;">
+                            <div class="card-header bg-info text-light">
+                                <h5 class="card-title ">Ganti Foto</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="input-group mb-3">
+                                    <label class="input-group-text" for="inputGroupFile01">Upload</label>
+                                    <input type="file" class="form-control" id="inputGroupFile01">
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
                         </div>
                     </div>
 
-                    <!-- Deskripsi -->
+                    <!-- BioData -->
                     <div class="col-lg-8">
                         <div class="card" style="margin-bottom: 1rem;">
                             <div class="card-header bg-primary text-light">
@@ -153,64 +162,58 @@
                             <div class="card-body">
                                 <!-- Form profile -->
                                 <form class="form-horizontal">
-                                    <div class="form-group mt-2 row">
-                                        <label for="inputEmail3" class="col-sm-2 col-form-label">Nama</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" name="nama" id="inputEmail3"
-                                                placeholder="Nama Lengkap">
-                                        </div>
-                                    </div>
 
-                                    <div class="form-group mt-2 row">
-                                        <label for="inputEmail3" class="col-sm-2 col-form-label">No Telp</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" name="no_hp" class="form-control" id="inputEmail3"
-                                                placeholder="No Telp">
-                                        </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Nama</label>
+                                        <input type="text" class="form-control" id="Ganti-nama"
+                                            placeholder="Masukkan Nama">
                                     </div>
-                                    <div class="form-group mt-2 row">
-                                        <label for="inputEmail3" class="col-sm-2 col-form-label">Alamat</label>
-                                        <div class="col-sm-10">
-                                            <textarea class="form-control" name="alamat" id="inputEmail3"
-                                                placeholder="Alamat"></textarea>
-                                        </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="ganti-email"
+                                            placeholder="Masukkan email baru">
                                     </div>
-
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Password lama</label>
+                                        <input type="password" class="form-control" id="password-lama"
+                                            placeholder="Masukkan email baru">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Password Baru</label>
+                                        <input type="password" class="form-control" id="password-baru"
+                                            placeholder="Masukkan email baru">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlTextarea1" class="form-label">Alamat</label>
+                                        <textarea class="form-control" id="ganti-alamat" rows="3"
+                                            placeholder="Alamat Lengkap"></textarea>
+                                    </div>
                                 </form>
-                                <a href="#" class="btn btn-primary btn-sm mt-4 pull-right" id="edit_bio">Save</a>
+                                <a href="#" class="btn btn-primary btn-md mt-4 pull-right" id="edit_bio">Save</a>
                             </div>
                         </div>
 
+                        <!-- Deskripsi -->
                         <div class="card" style="margin-bottom: 1rem;">
                             <div class="card-header bg-secondary text-light">
                                 <h5 class="card-title active">Deskripsi</h5>
                             </div>
                             <div class=" card-body">
-                                <div class="table-reponsive-lg">
-                                    <table class="table ">
+                                <!-- Form Deskripsi -->
+                                <form class="form-horizontal">
 
-                                        <tbody>
-                                            <tr>
-                                                <td>Hobi</td>
-                                                <td>:</td>
-                                                <td>Badminton</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Keterangan</td>
-                                                <td>:</td>
-                                                <td>
-                                                    <p style="text-align:justify">Lorem ipsum dolor sit amet consectetur
-                                                        adipisicing elit.
-                                                        Accusantium expedita aspernatur, provident quidem eius quisquam
-                                                        odit perferendis debitis atque possimus esse placeat molestiae
-                                                        aliquid. Quos sunt nostrum et officia facere?</p>
-                                                </td>
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                    <a href="#" class="btn btn-primary btn-sm pull-right" id="edit_deskripsi">Save</a>
-                                </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Hoby</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1"
+                                            placeholder="Masukkan Hoby">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlTextarea1" class="form-label">Siapa Saya</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                            placeholder="Ceritakan dirimu"></textarea>
+                                    </div>
+                                </form>
+                                <a href="#" class="btn btn-primary btn-md mt-4 pull-right" id="edit_bio">Save</a>
 
                             </div>
 
