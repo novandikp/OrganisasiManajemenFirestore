@@ -130,7 +130,14 @@ const chipper = new Chipper("OKE123");
 // Middleware
 if (document.URL.includes("/pages")) {
   if (!isLogin()) {
-    // redirect_to("masuk");
+    redirect_to("masuk");
+  }
+} else if (
+  document.URL.includes("/masuk.html") ||
+  document.URL.includes("/register.html")
+) {
+  if (isLogin()) {
+    redirect_to("pages/anggota");
   }
 }
 //
