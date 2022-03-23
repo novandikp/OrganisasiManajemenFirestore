@@ -97,7 +97,7 @@ body {
 }
 
 .content-header .breadcrumb {
-  background-color: transparent;
+  background-color: #fff;
   line-height: 1.8rem;
   margin-bottom: 0;
   padding: 0;
@@ -262,7 +262,7 @@ h5 {
   border-radius: 4px;
   background-color: #eee !important;
   border-color: #eee;
-  color: transparent !important;
+  /* color: transparent !important; */
   user-select: none;
   cursor: default;
 }
