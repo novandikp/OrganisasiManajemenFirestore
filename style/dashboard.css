@@ -45,6 +45,10 @@ body {
   color: #e1ffff;
 }
 
+.tab:hover{
+  color: #0f8ee2;
+}
+
 .breadcrumb {
   display: -ms-flexbox;
   display: flex;
