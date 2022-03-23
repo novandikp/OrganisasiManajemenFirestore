@@ -32,7 +32,7 @@ $(document).ready(function () {
 
   const itemLoad = () => {
     $(".list-data").empty();
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 4; i++) {
       const item = `<div class="card shadow skeleton item-list">
       <div class="card-body ">
       <div class="row">
@@ -185,7 +185,7 @@ $(document).ready(function () {
                 <p class="text-muted">${element.alamat}</p>
               </div>
               <div class="col-md-3 col-sm-3">
-                  <div class="float-sm-right d-grid gap-2 d-md-block mt-3">
+                  <div class="float-sm-right d-grid gap-2 d-xl-block mt-3">
                     <button data-detail='${JSON.stringify(
                       element
                     )}' class="btn btn-secondary btn-sm ml-2 item-detail"><i class="fa fa-info me-2"></i>Detail</button>
@@ -213,7 +213,7 @@ $(document).ready(function () {
                 <p class="text-muted">${element.alamat}</p>
               </div>
               <div class="col-md-3 col-sm-3">
-                  <div class="float-sm-right d-grid gap-2 d-md-block mt-3">
+                  <div class="float-sm-right d-grid gap-2 d-xl-block mt-3">
                     <button data-detail='${JSON.stringify(
                       element
                     )}' class="btn btn-secondary btn-sm ml-2 item-detail"><i class="fa fa-info me-2"></i>Detail</button>
