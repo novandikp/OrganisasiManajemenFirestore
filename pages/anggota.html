@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>User | Dashboard</title>
+<title>User | Anggota</title>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -13,7 +13,8 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link href="../style/dashboard.css" rel="stylesheet"></link>
+<link href="../style/dashboard.css" rel="stylesheet">
+</link>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
 </head>
 
@@ -25,7 +26,7 @@
         <div class="menu-list">
             <ul id="menu-content" class="navbar-nav menu-content collapse out ">
                 <li class="nav-item">
-                    <a class="nav-link " href="#">
+                    <a class="nav-link " href="user.html">
                         <i class="fa fa-dashboard fa-lg"></i> Dashboard
                     </a>
                 </li>
@@ -101,7 +102,7 @@
     <div class="wrapper padd-right-wrap card-top mt-3">
         <nav class="navbar">
             <div class="container-fluid">
-                
+
                 <form class="d-flex pull-right" id="formSearch">
                     <input class="form-control me-2" type="search" id="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
@@ -112,71 +113,75 @@
 
     <div class="wrapper padd-right-wrap list-data">
         <div class="d-flex align-items-center">
-          
+
         </div>
     </div>
+
+
     <!-- conten -->
-    <div class="modal fade " id="detailModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade " id="detailModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="staticBackdropLabel">Detail Anggota</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form>
-            <div class="modal-body">
-              <!-- Detail Anggota -->
-          
-                    <div class="row m-3">
-                        <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="">Nama</label>
-                            <input type="text" class="form-control" id="nama" placeholder="Nama" disabled>
-                        </div>
-                        </div>
-                       
-                        <div class="col-md-12">
-                        <div class="form-group mt-2">
-                            <label for="">Jabatan</label>
-                            <select  class="form-control" id="jabatan" placeholder="Jabatan" disabled></select>
-                        </div>
-                        </div>
-                        <div class="col-md-12">
-                        <div class="form-group mt-2">
-                            <label for="">Alamat</label>
-                            <input type="text" class="form-control" id="alamat" placeholder="Unit Kerja" disabled>
-                        </div>
-                        </div>
-                 
-                        <div class="col-md-6">
-                        <div class="form-group mt-2">
-                            <label for="">Email</label>
-                            <input type="text" class="form-control" id="email" placeholder="Email" disabled>
-                        </div>
-                        </div>
-                        <div class="col-md-6">
-                        <div class="form-group mt-2">
-                            <label for="">No. HP</label>
-                            <input type="text" class="form-control" id="no_hp" placeholder="No. HP" disabled>
-                        </div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Detail Anggota</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form>
+                    <div class="modal-body">
+                        <!-- Detail Anggota -->
+
+                        <div class="row m-3">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="">Nama</label>
+                                    <input type="text" class="form-control" id="nama" placeholder="Nama" disabled>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group mt-2">
+                                    <label for="">Jabatan</label>
+                                    <select class="form-control" id="jabatan" placeholder="Jabatan" disabled></select>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group mt-2">
+                                    <label for="">Alamat</label>
+                                    <input type="text" class="form-control" id="alamat" placeholder="Unit Kerja"
+                                        disabled>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group mt-2">
+                                    <label for="">Email</label>
+                                    <input type="text" class="form-control" id="email" placeholder="Email" disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mt-2">
+                                    <label for="">No. HP</label>
+                                    <input type="text" class="form-control" id="no_hp" placeholder="No. HP" disabled>
+                                </div>
+                            </div>
                         </div>
                     </div>
-          </div>
-          
-            <div class="modal-footer">
-                <button class="btn btn-primary" type="submit">Simpan</button>
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" type="submit">Simpan</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
             </div>
-        </form>
-          </div>
         </div>
-      </div>
-      
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
-        <script type="module" src="../script/app.js"></script>
-        <script type="module" src="../script/pages/user.js?v1"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <script type="module" src="../script/app.js"></script>
+    <script type="module" src="../script/pages/user.js?v1"></script>
 </body>
 
 </html>
