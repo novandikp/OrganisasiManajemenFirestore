@@ -2,141 +2,242 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>WEBSITE APLIKASI ORGANISASI</title>
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="style/blog.css" rel="stylesheet" />
+    <meta charset="utf-8">
+    <title>Bloggy - Personal Blog Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free Website Template" name="keywords">
+    <meta content="Free Website Template" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="style/index.css" rel="stylesheet">
 </head>
 
 <body>
-    <!--head-->
-    <div class="container">
-        <header class="blog-header py-3">
-            <div class="row flex-nowrap justify-content-between align-items-center">
-                <div class="col-4 pt-1">
-                    <a class="text-muted" href="index.html">HOME</a>
+    <div class="content">
+        <!-- Navbar Start -->
+        <div class="container p-0">
+            <nav class="navbar navbar-expand-lg bg-secondary navbar-dark">
+                <a href="" class="navbar-brand d-block d-lg-none">Navigation</a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav m-auto">
+                        <a href="index.html" class="nav-item nav-link active">Home</a>
+                        <a href="#" class="nav-item nav-link">About</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Login</a>
+                            <div class="dropdown-menu">
+                                <a href="masuk.html" class="dropdown-item">Sign In</a>
+                                <a href="register.html" class="dropdown-item">Register</a>
+                            </div>
+                        </div>
+                        <a href="#" class="nav-item nav-link">Contact</a>
+                    </div>
                 </div>
-                <div class="col-4 text-center">
-                    <a class="blog-header-logo text-dark" href="#">Logo Organisasi</a>
-                </div>
-                <div class="col-4 d-flex justify-content-end align-items-center">
-                    <a class="text-muted" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-3">
-                        <circle cx="10.5" cy="10.5" r="7.5"></circle>
-                        <line x1="21" y1="21" x2="15.8" y2="15.8"></line>
-                     </svg>
-                    </a>
-                    <a class="btn btn-sm btn-outline-secondary" href="masuk.html">Sign up</a>
-                </div>
-            </div>
-        </header>
-        <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
-            <div class="col-md-6 px-0">
-                <h1 class="display-4 font-italic">JUDUL/SEBUAH NAMA ORGANISASI PENGGUNA</h1>
-                <p class="lead my-3">Deskripsi singkat mengenai Visi-Misi Organisasi pengguna.</p>
-                <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading</a></p>
-            </div>
+            </nav>
         </div>
-        <div class="row my-2">
-            <div class="col-md-6">
-                <div class="card flex-md-row mb-4 shadow-sm h-md-250">
-                    <div class="card-body d-flex flex-column align-items-start">
-                        <strong class="d-inline-block mb-2 text-primary">BLOG</strong>
-                        <h3 class="mb-0">
-                            <a class="text-dark" href="blog.html">Judul Blog</a>
-                        </h3>
-                        <div class="mb-1 text-muted">23 Maret 2022</div>
-                        <p class="card-text mb-auto">Deskripsi materi blog singkat.</p>
-                        <a href="blog.html">Continue reading</a>
-                    </div>
-                    <img class="card-img-right flex-auto d-none d-lg-block img-thumb-blog" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="Card image cap">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card flex-md-row mb-4 shadow-sm h-md-250">
-                    <div class="card-body d-flex flex-column align-items-start">
-                        <strong class="d-inline-block mb-2 text-success">Informasi INTERNAL</strong>
-                        <h3 class="mb-0">
-                            <a class="text-dark" href="blog.html">Profil Organisasi</a>
-                        </h3>
-                        <div class="mb-1 text-muted">23 Maret 2022</div>
-                        <p class="card-text mb-auto">Sejarah dan penjelasan organisasi.</p>
-                        <a href="blog.html">Continue reading</a>
-                    </div>
-                    <img class="card-img-right flex-auto d-none d-lg-block img-thumb-blog" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="Card image cap">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card flex-md-row mb-4 shadow-sm h-md-250">
-                    <div class="card-body d-flex flex-column align-items-start">
-                        <strong class="d-inline-block mb-2 text-primary">BLOG</strong>
-                        <h3 class="mb-0">
-                            <a class="text-dark" href="blog.html">Judul Blog</a>
-                        </h3>
-                        <div class="mb-1 text-muted">23 Maret 2022</div>
-                        <p class="card-text mb-auto">Deskripsi materi blog singkat.</p>
-                        <a href="blog.html">Continue reading</a>
-                    </div>
-                    <img class="card-img-right flex-auto d-none d-lg-block img-thumb-blog" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="Card image cap">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card flex-md-row mb-4 shadow-sm h-md-250">
-                    <div class="card-body d-flex flex-column align-items-start">
-                        <strong class="d-inline-block mb-2 text-success">Informasi INTERNAL</strong>
-                        <h3 class="mb-0">
-                            <a class="text-dark" href="blog.html">Struktur Organisasi</a>
-                        </h3>
-                        <div class="mb-1 text-muted">23 Maret 2022</div>
-                        <p class="card-text mb-auto">Gambar dan Struktur Organisasi.</p>
-                        <a href="blog.html">Continue reading</a>
-                    </div>
-                    <img class="card-img-right flex-auto d-none d-lg-block img-thumb-blog" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="Card image cap">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card flex-md-row mb-4 shadow-sm h-md-250">
-                    <div class="card-body d-flex flex-column align-items-start">
-                        <strong class="d-inline-block mb-2 text-primary">BLOG</strong>
-                        <h3 class="mb-0">
-                            <a class="text-dark" href="blog.html">Judul Blog</a>
-                        </h3>
-                        <div class="mb-1 text-muted">23 Maret 2022</div>
-                        <p class="card-text mb-auto">Deskripsi materi blog singkat.</p>
-                        <a href="blog.html">Continue reading</a>
-                    </div>
-                    <img class="card-img-right flex-auto d-none d-lg-block img-thumb-blog" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="Card image cap">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card flex-md-row mb-4 shadow-sm h-md-250">
-                    <div class="card-body d-flex flex-column align-items-start">
-                        <strong class="d-inline-block mb-2 text-success">Informasi INTERNAL</strong>
-                        <h3 class="mb-0">
-                            <a class="text-dark" href="blog.html">SCHEDULE EVENT/KEGIATAN</a>
-                        </h3>
-                        <div class="mb-1 text-muted">23 Maret 2022</div>
-                        <p class="card-text mb-auto">Tampilan event/kegiatan.</p>
-                        <a href="blog.html">Continue reading</a>
-                    </div>
-                    <img class="card-img-right flex-auto d-none d-lg-block img-thumb-blog" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="Card image cap">
-                </div>
-            </div>
-        </div>
-    </div>
-    <footer class="blog-footer">
-        <p>
-            <a href="#">Back to top</a>
-        </p>
-    </footer>
+        <!-- Navbar End -->
 
+        <!-- Carousel Start -->
+        <div class="container p-0">
+            <div id="blog-carousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="w-100" src="script/assets/img/banner.jpg" alt="Image">
+                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                            <h2 class="mb-3 text-white font-weight-bold">Lorem ipsum dolor sit amet</h2>
+                            <div class="d-flex text-white">
+                                <small class="mr-2"><i class="fa fa-calendar-alt"></i> 01-Jan-2045</small>
+                                <small class="mr-2"><i class="fa fa-folder"></i> Web Design</small>
+                                <small class="mr-2"><i class="fa fa-comments"></i> 15 Comments</small>
+                            </div>
+                            <a href="" class="btn btn-lg btn-outline-light mt-4">Read More</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="w-100" src="script/assets/img/banner1.jpg" alt="Image">
+                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                            <h2 class="text-white font-weight-bold">Lorem ipsum dolor sit amet</h2>
+                            <div class="d-flex">
+                                <small class="mr-2"><i class="fa fa-calendar-alt"></i> 01-Jan-2045</small>
+                                <small class="mr-2"><i class="fa fa-folder"></i> Web Design</small>
+                                <small class="mr-2"><i class="fa fa-comments"></i> 15 Comments</small>
+                            </div>
+                            <a href="" class="btn btn-lg btn-outline-light mt-4">Read More</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="w-100" src="script/assets/img/banner2.jpg" alt="Image">
+                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                            <h2 class="text-white font-weight-bold">Lorem ipsum dolor sit amet</h2>
+                            <div class="d-flex">
+                                <small class="mr-2"><i class="fa fa-calendar-alt"></i> 01-Jan-2045</small>
+                                <small class="mr-2"><i class="fa fa-folder"></i> Web Design</small>
+                                <small class="mr-2"><i class="fa fa-comments"></i> 15 Comments</small>
+                            </div>
+                            <a href="" class="btn btn-lg btn-outline-light mt-4">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#blog-carousel" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#blog-carousel" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+            </div>
+        </div>
+        <!-- Carousel End -->
+
+
+        <!-- Blog List Start -->
+        <div class="container bg-white pt-5">
+            <div class="row blog-item px-3 pb-5">
+                <div class="col-md-5">
+                    <img class="img-fluid mb-4 mb-md-0" src="img/blog-1.jpg" alt="Image">
+                </div>
+                <div class="col-md-7">
+                    <h3 class="mt-md-4 px-md-3 mb-2 py-2 bg-white font-weight-bold">Lorem ipsum dolor sit amet</h3>
+                    <div class="d-flex mb-3">
+                        <small class="mr-2 text-muted"><i class="fa fa-calendar-alt"></i> 01-Jan-2045</small>
+                        <small class="mr-2 text-muted"><i class="fa fa-folder"></i> Web Design</small>
+                        <small class="mr-2 text-muted"><i class="fa fa-comments"></i> 15 Comments</small>
+                    </div>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu suscipit orci velit id libero
+                    </p>
+                    <a class="btn btn-link p-0" href="">Read More <i class="fa fa-angle-right"></i></a>
+                </div>
+            </div>
+            <div class="row blog-item px-3 pb-5">
+                <div class="col-md-5">
+                    <img class="img-fluid mb-4 mb-md-0" src="img/blog-2.jpg" alt="Image">
+                </div>
+                <div class="col-md-7">
+                    <h3 class="mt-md-4 px-md-3 mb-2 py-2 bg-white font-weight-bold">Lorem ipsum dolor sit amet</h3>
+                    <div class="d-flex mb-3">
+                        <small class="mr-2 text-muted"><i class="fa fa-calendar-alt"></i> 01-Jan-2045</small>
+                        <small class="mr-2 text-muted"><i class="fa fa-folder"></i> Web Design</small>
+                        <small class="mr-2 text-muted"><i class="fa fa-comments"></i> 15 Comments</small>
+                    </div>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu suscipit orci velit id libero
+                    </p>
+                    <a class="btn btn-link p-0" href="">Read More <i class="fa fa-angle-right"></i></a>
+                </div>
+            </div>
+            <div class="row blog-item px-3 pb-5">
+                <div class="col-md-5">
+                    <img class="img-fluid mb-4 mb-md-0" src="img/blog-3.jpg" alt="Image">
+                </div>
+                <div class="col-md-7">
+                    <h3 class="mt-md-4 px-md-3 mb-2 py-2 bg-white font-weight-bold">Lorem ipsum dolor sit amet</h3>
+                    <div class="d-flex mb-3">
+                        <small class="mr-2 text-muted"><i class="fa fa-calendar-alt"></i> 01-Jan-2045</small>
+                        <small class="mr-2 text-muted"><i class="fa fa-folder"></i> Web Design</small>
+                        <small class="mr-2 text-muted"><i class="fa fa-comments"></i> 15 Comments</small>
+                    </div>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu suscipit orci velit id libero
+                    </p>
+                    <a class="btn btn-link p-0" href="">Read More <i class="fa fa-angle-right"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Blog List End -->
+
+        <!-- Blog List Start -->
+        <div class="container bg-white pt-5">
+            <div class="row blog-item px-3 pb-5">
+                <div class="col-md-5">
+                    <img class="img-fluid mb-4 mb-md-0" src="img/blog-4.jpg" alt="Image">
+                </div>
+                <div class="col-md-7">
+                    <h3 class="mt-md-4 px-md-3 mb-2 py-2 bg-white font-weight-bold">Lorem ipsum dolor sit amet</h3>
+                    <div class="d-flex mb-3">
+                        <small class="mr-2 text-muted"><i class="fa fa-calendar-alt"></i> 01-Jan-2045</small>
+                        <small class="mr-2 text-muted"><i class="fa fa-folder"></i> Web Design</small>
+                        <small class="mr-2 text-muted"><i class="fa fa-comments"></i> 15 Comments</small>
+                    </div>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu suscipit orci velit id libero
+                    </p>
+                    <a class="btn btn-link p-0" href="">Read More <i class="fa fa-angle-right"></i></a>
+                </div>
+            </div>
+            <div class="row blog-item px-3 pb-5">
+                <div class="col-md-5">
+                    <img class="img-fluid mb-4 mb-md-0" src="img/blog-5.jpg" alt="Image">
+                </div>
+                <div class="col-md-7">
+                    <h3 class="mt-md-4 px-md-3 mb-2 py-2 bg-white font-weight-bold">Lorem ipsum dolor sit amet</h3>
+                    <div class="d-flex mb-3">
+                        <small class="mr-2 text-muted"><i class="fa fa-calendar-alt"></i> 01-Jan-2045</small>
+                        <small class="mr-2 text-muted"><i class="fa fa-folder"></i> Web Design</small>
+                        <small class="mr-2 text-muted"><i class="fa fa-comments"></i> 15 Comments</small>
+                    </div>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu suscipit orci velit id libero
+                    </p>
+                    <a class="btn btn-link p-0" href="">Read More <i class="fa fa-angle-right"></i></a>
+                </div>
+            </div>
+            <div class="row blog-item px-3 pb-5">
+                <div class="col-md-5">
+                    <img class="img-fluid mb-4 mb-md-0" src="img/blog-6.jpg" alt="Image">
+                </div>
+                <div class="col-md-7">
+                    <h3 class="mt-md-4 px-md-3 mb-2 py-2 bg-white font-weight-bold">Lorem ipsum dolor sit amet</h3>
+                    <div class="d-flex mb-3">
+                        <small class="mr-2 text-muted"><i class="fa fa-calendar-alt"></i> 01-Jan-2045</small>
+                        <small class="mr-2 text-muted"><i class="fa fa-folder"></i> Web Design</small>
+                        <small class="mr-2 text-muted"><i class="fa fa-comments"></i> 15 Comments</small>
+                    </div>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu suscipit orci velit id libero
+                    </p>
+                    <a class="btn btn-link p-0" href="">Read More <i class="fa fa-angle-right"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Blog List End -->
+
+
+        <!-- Footer Start -->
+        <div class="container py-4 bg-secondary text-center">
+            <p class="m-0 text-white">
+                &copy; <a class="text-white font-weight-bold" href="#">Your Site Name</a>. All Rights Reserved. Designed by <a class="text-white font-weight-bold" href="https://htmlcodex.com">HTML Codex</a>
+            </p>
+        </div>
+        <!-- Footer End -->
+    </div>
+    </div>
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
 </body>
 
 </html>
