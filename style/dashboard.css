@@ -45,7 +45,7 @@ body {
   color: #e1ffff;
 }
 
-.tab:hover{
+.tab:hover {
   color: #0f8ee2;
 }
 
@@ -232,8 +232,6 @@ h5 {
   padding-right: 2rem;
 }
 
-
-
 .wrapper {
   padding-left: 20.5rem;
   padding-top: 0.3rem;
@@ -322,7 +320,7 @@ h5 {
   border-radius: 4px;
   background-color: #eee !important;
   border-color: #eee;
-  /* color: transparent !important; */
+  color: transparent !important;
   user-select: none;
   cursor: default;
 }
@@ -392,7 +390,7 @@ h5 {
   }
 }
 
-.form-group{
+.form-group {
   margin-bottom: 1rem;
 }
 

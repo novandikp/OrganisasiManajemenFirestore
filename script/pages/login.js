@@ -21,7 +21,7 @@ $(document).ready(function () {
       button.prop("disabled", false);
       button.text("Sign in");
       if (result.status) {
-        window.location.href = "index.html";
+        redirect_to("pages/user");
       } else {
         alert(result.message);
       }
