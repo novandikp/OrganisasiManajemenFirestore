@@ -193,7 +193,7 @@
                                             placeholder="Alamat Lengkap"></textarea>
                                     </div>
                                 </form>
-                                <a href="#" class="btn btn-primary btn-md mt-4 pull-right" id="edit_bio">Save</a>
+                                <!-- <a href="#" class="btn btn-primary btn-md mt-4 pull-right" id="edit_bio">Save</a> -->
                             </div>
                         </div>
 
@@ -217,11 +217,38 @@
                                             placeholder="Ceritakan dirimu"></textarea>
                                     </div>
                                 </form>
-                                <a href="#" class="btn btn-primary btn-md mt-4 pull-right" id="edit_bio">Save</a>
-
+                                <!-- <a href="#" class="btn btn-primary btn-md mt-4 pull-right" id="edit_bio">Save</a> -->
                             </div>
-
                         </div>
+
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary pull-right" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop">
+                            Save Changes
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header bg-warning text-light">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Warning</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Pastikan Data yang dimasukkan sudah benar</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save Changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
 
                     </div>
                 </div>
