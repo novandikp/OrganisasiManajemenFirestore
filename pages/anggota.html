@@ -13,10 +13,8 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link href="../style/dashboard.css" rel="stylesheet">
-
-</link>
-
+<link href="../style/dashboard.css" rel="stylesheet"></link>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
 </head>
 
 <body>
@@ -119,12 +117,13 @@
     </div>
     <!-- conten -->
     <div class="modal fade " id="detailModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="staticBackdropLabel">Detail Anggota</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <form>
             <div class="modal-body">
               <!-- Detail Anggota -->
           
@@ -139,7 +138,7 @@
                         <div class="col-md-12">
                         <div class="form-group mt-2">
                             <label for="">Jabatan</label>
-                            <input type="text" class="form-control" id="jabatan" placeholder="Jabatan" disabled>
+                            <select  class="form-control" id="jabatan" placeholder="Jabatan" disabled></select>
                         </div>
                         </div>
                         <div class="col-md-12">
@@ -165,13 +164,17 @@
           </div>
           
             <div class="modal-footer">
+                <button class="btn btn-primary" type="submit">Simpan</button>
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
+        </form>
           </div>
         </div>
       </div>
+      
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
         <script type="module" src="../script/app.js"></script>
         <script type="module" src="../script/pages/user.js?v1"></script>
 </body>

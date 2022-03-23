@@ -17,6 +17,18 @@ $(document).ready(function () {
     return responseResult(true, docSnap, "Berhasil mengubah data");
   };
 
+  const fetchJabatan = async function () {
+    const q = collection(db, "jabatan");
+    getDocs(q).then(function (docSnap) {
+      $("#jabatan").empty();
+      docSnap.forEach((doc) => {
+        const data = doc.data();
+        data.id = doc.id;
+        $("#jabatan").append(`<option value="${data.id}">${data.id}</option>`);
+      });
+    });
+  };
+
   const itemLoad = () => {
     $(".list-data").empty();
     for (let i = 0; i < 3; i++) {
@@ -44,34 +56,105 @@ $(document).ready(function () {
   };
 
   const itemEvent = () => {
-    $(".list-data").on("click", ".item-detail", function () {
+    $(".list-data").on("click", ".item-detail", async function () {
+      fetchJabatan().then(() => {
+        const data = $(this).data("detail");
+        $("#detailModal input,#detailModal select").attr("disabled", true);
+        $("#nama").val(data.nama);
+        $("#email").val(data.email);
+        $("#alamat").val(data.alamat);
+        $("#no_hp").val(data.no_hp);
+        $("#jabatan").val(data.jabatan);
+        $("#detailModal").modal("show");
+        $("#detailModal button[type=submit]").hide();
+      });
+    });
+
+    $(".list-data").on("click", ".item-edit", function () {
       const data = $(this).data("detail");
-      $("#nama").val(data.nama);
-      $("#email").val(data.email);
-      $("#alamat").val(data.alamat);
-      $("#no_hp").val(data.no_hp);
-      $("#jabatan").val(data.jabatan);
-      $("#detailModal").modal("show");
+      fetchJabatan().then(() => {
+        $("#detailModal input,#detailModal select").removeAttr("disabled");
+        $("#nama").val(data.nama);
+        $("#email").val(data.email);
+        $("#alamat").val(data.alamat);
+        $("#no_hp").val(data.no_hp);
+        $("#jabatan").val(data.jabatan);
+        $("#detailModal").modal("show");
+        $("#detailModal").attr("data-id", data.id);
+        $("#detailModal button[type=submit]").show();
+      });
     });
 
     $(".list-data").on("click", ".item-setuju", function () {
       const id = $(this).data("id");
-      $(this).attr("disabled", true);
-      getUser(id).then(async (user) => {
-        const temp = await user.data();
-        temp.status = true;
-        temp.id = id;
-        await updateUser(temp);
-        getUsers();
+      const elemen = $(this);
+      $.confirm({
+        title: "Konfirmasi",
+        content: "Apakah anda yakin untuk menyetujui data ini?",
+        buttons: {
+          confirm: function () {
+            elemen.attr("disabled", true);
+            getUser(id).then(async (user) => {
+              const temp = await user.data();
+              temp.status = true;
+              temp.id = id;
+              await updateUser(temp);
+              getUsers();
+            });
+          },
+          cancel: function () {},
+        },
       });
+    });
+
+    $("#detailModal").on("submit", "form", async function (e) {
+      e.preventDefault();
+      const id = $("#detailModal").data("id");
+      $(this).find("button").attr("disabled", true);
+      getUser(id)
+        .then(async (user) => {
+          const temp = await user.data();
+          const data = {
+            id: id,
+            nama: $("#nama").val(),
+            email: $("#email").val(),
+            alamat: $("#alamat").val(),
+            no_hp: $("#no_hp").val(),
+            jabatan: doc(db, "jabatan", $("#jabatan").val()),
+            password: temp.password,
+            status: temp.status,
+          };
+          updateUser(data).then((result) => {
+            $(this).find("button").removeAttr("disabled");
+            if (result.status) {
+              $("#detailModal").modal("hide");
+              getUsers();
+            }
+          });
+        })
+        .catch(() => {
+          $(this).find("button").removeAttr("disabled");
+        });
     });
     $(".list-data").on("click", ".item-hapus", async function () {
       const id = $(this).data("id");
-      $(this).attr("disabled", true);
-      await deleteUser(id);
-      getUsers();
+      const element = $(this);
+      $.confirm({
+        title: "Konfirmasi",
+        content: "Apakah anda yakin untuk menghapus data ini?",
+        buttons: {
+          confirm: function () {
+            element.attr("disabled", true);
+            deleteUser(id).then(() => {
+              getUsers();
+            });
+          },
+          cancel: function () {},
+        },
+      });
     });
   };
+
   const getUsers = (search = "") => {
     itemLoad();
     const q = query(
@@ -103,7 +186,9 @@ $(document).ready(function () {
                     <button data-detail='${JSON.stringify(
                       element
                     )}' class="btn btn-secondary btn-sm ml-2 item-detail"><i class="fa fa-info me-2"></i>Detail</button>
-                    <button class="btn btn-primary btn-sm ml-2"><i class="fa fa-pencil me-2"></i>Edit</button>
+                    <button data-detail='${JSON.stringify(
+                      element
+                    )}' class="btn btn-primary btn-sm ml-2 item-edit"><i class="fa fa-pencil me-2"></i>Edit</button>
                     <button data-id='${
                       element.id
                     }' class="btn btn-danger btn-sm ml-2 item-hapus"><i class="fa fa-trash me-2"></i>Hapus</button>
@@ -148,8 +233,9 @@ $(document).ready(function () {
 
   $("#formSearch").on("submit", (e) => {
     e.preventDefault();
-
-    getUsers($("#search").val());
+    if ($("#search").val() != "") {
+      getUsers($("#search").val());
+    }
   });
 
   $("#search").on("search", function (evt) {
