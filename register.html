@@ -9,43 +9,58 @@
     </link>
 </head>
 
-<body class="bg-primary">
+<body>
     <!-- Login Form -->
-    <div class="card shadow form-signin py-5 px-4">
-        <form id="register-form">
-            <h1 class="h3 mb-3 font-weight-normal">Register</h1>
-
-            <div class="form-group mt-2">
-                <label for="inputEmail" class="sr-only">Nama</label>
-                <input type="text" id="inputEmail" name="nama" class="form-control" placeholder="Nama" required>
+    <div class="container px-4 py-5 mx-auto">
+    <div class="card card0">
+        <div class="d-flex flex-lg-row flex-column-reverse">
+            <div class="card card1">
+                <div class="row justify-content-center my-auto">
+                    <div class="col-md-8 col-10 my-5">
+                        <h3 class="mb-5 text-center heading">Welcome to (Name Organization)</h3>
+                        <h6 class="msg-info">Please create new account</h6>
+                        <div class="form-group"> 
+                            <label class="form-control-label text-muted">Nama Lengkap</label> 
+                            <input type="text" id="nama" name="nama" placeholder="Nama Lengkap" class="form-control"> 
+                        </div>
+                        <div class="form-group"> 
+                            <label class="form-control-label text-muted">Alamat</label> 
+                            <input type="alamat" id="psw" name="alamat" placeholder="Alamat" class="form-control"> 
+                        </div>
+                        <div class="form-group"> 
+                            <label class="form-control-label text-muted">No Telepon</label> 
+                            <input type="no telpon" id="telp" name="telp" placeholder="No Telpon" class="form-control"> 
+                        </div>
+                        <div class="form-group"> 
+                            <label class="form-control-label text-muted">Email address</label> 
+                            <input type="email address" id="email" name="email" placeholder="Email address" class="form-control"> 
+                        </div>
+                        <div class="form-group"> 
+                            <label class="form-control-label text-muted">Password</label> 
+                            <input type="password" id="psw" name="psw" placeholder="Password" class="form-control">
+                        </div>
+                        <div class="form-group"> 
+                            <label class="form-control-label text-muted">Konfirmasi Password</label> 
+                            <input type="konfirmasi" id="knpsw" name="knpsw" placeholder="Konfirmasi Password" class="form-control"> 
+                        </div>
+                        <div class="row justify-content-center my-3 px-3"> 
+                            <button class="btn-block btn-color">Sign Up</button> 
+                        </div>
+                        <div class="bottom text-center mb-5">
+                            <p href="register.html" class="sm-text mx-auto mb-3">Already have an account?<br><button class="btn btn-white ml-2">Sign In</button></p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="form-group mt-2">
-                <label for="inputEmail" class="sr-only">Alamat</label>
-                <input type="text" id="inputEmail" name="alamat" class="form-control" placeholder="Alamat" required>
+            <div class="card card2">
+                <div class="my-auto mx-md-5 px-md-5 right">
+                    <h3 class="text-white">We are more than just a Organization</h3> <small class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</small>
+                </div>
             </div>
-            <div class="form-group mt-2">
-                <label for="inputEmail" class="sr-only">No Telepon</label>
-                <input type="text" id="inputEmail" name="no_hp" class="form-control" placeholder="No Telepon" required>
-            </div>
-
-            <div class="form-group mt-2">
-                <label for="inputEmail" class="sr-only">Email address</label>
-                <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
-            </div>
-            <div class="form-group mt-2">
-                <label for="inputPassword" class="sr-only">Password</label>
-                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
-            </div>
-            <div class="form-group mt-2">
-                <label for="inputPassword" class="sr-only">Konfirmasi Password</label>
-                <input type="password" name="password2" id="inputPassword" class="form-control" placeholder="Password" required>
-            </div>
-            <div class="d-grid gap-2 d-md-block">
-                <button class="btn btn-primary btn-block mt-3" type="submit">Sign in</button>
-                <a class="btn btn-outline-danger mt-3" href="masuk.html">Back</a>
-            </div>
-        </form>
+        </div>
     </div>
+</div>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script type="module" src="./script/app.js"></script>
     <script type="module" src="./script/pages/register.js"></script>
