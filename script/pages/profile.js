@@ -1,20 +1,20 @@
 $(document).ready(() => {
-  $("#profileForm").on("submit", (e) => {
-    const data = new FormData($(this));
-    const user = {
-      nama: data.get("nama"),
-      alamat: data.get("alamat"),
-      no_hp: data.get("no_hp"),
-      email: getUserInfo().email,
-      password: getUserInfo().password,
-    };
-
-    userRepo.update(user).then((result) => {
-      if (result.status) {
-        window.location.href = "index.html";
-      } else {
-        alert(result.message);
-      }
+  const getUser = async function (id) {
+    const docUser = doc(db, "users", id);
+    return getDoc(docUser).then((docSnap) => {
+      return docSnap;
+    });
+  };
+  getUser(getUserInfo().id).then(async (user) => {
+    const temp = await user.data();
+    $(".email-header").text(temp.email);
+    $(".profile-username ").text(temp.nama);
+    $("input[name='nama']").val(temp.nama);
+    $(".email-header").text(temp.email);
+    $("input[name='no_hp']").val(temp.no_hp);
+    $("textarea[name='alamat']").text(temp.alamat);
+    getDoc(temp.jabatan).then((jabatan) => {
+      $(".badge").text(jabatan.id);
     });
   });
 });

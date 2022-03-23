@@ -12,6 +12,9 @@ $(document).ready(function () {
 
   const updateUser = async function (user) {
     const docUser = doc(db, "users", user.id);
+    if (docUser.data().foto) {
+      user.foto = docUser.data().foto;
+    }
     delete user.id;
     return setDoc(docUser, user).then((docSnap) => {
       return responseResult(true, docSnap, "Berhasil mengubah data");
