@@ -20,7 +20,7 @@ $(document).ready(function () {
     berkas.created_at = new Date().toISOString();
     berkas.updated_at = new Date().toISOString();
     berkas.id = uuid("berkas_");
-    berkas.deskripsi = $("textarea[name='deskripsi_berkas']").text();
+    berkas.deskripsi = $("textarea[name='deskripsi_berkas']").val();
     berkas.author = doc(db, "users", getUserInfo().id);
     uploadFile(fileImage, berkas.id).then((url) => {
       berkas.dokumen = url;
@@ -28,6 +28,7 @@ $(document).ready(function () {
       setDoc(berkasBaru, berkas).then((doc) => {
         $("#formBerkas").trigger("reset");
         btn.removeAttr("disabled");
+        getBerkas();
       });
     });
   });
@@ -41,7 +42,7 @@ $(document).ready(function () {
         
         <div class="col-md-9 col-sm-9 item-info">
           <h5 class="skeleton">a</h5>
-          <small class="text-muted skeleton">a</small>
+          <small class="text-muted skeleton">a</small><br/>
           <small class="text-muted skeleton">a</small>
         </div>
         <div class="col-md-3 col-sm-3">
@@ -96,7 +97,9 @@ $(document).ready(function () {
               
               <div class="col-md-9 col-sm-9 item-info">
                 <h5>${element.nama_berkas}</h5>
-                <small class="text-muted">${element.deskripsi}</small>
+                <small class="text-muted">${
+                  element.deskripsi ? element.deskripsi : "(Tanpa Deskripsi)"
+                }</small><br/>
                 <small class="text-muted">${format_date(
                   element.created_at
                 )}</small>
