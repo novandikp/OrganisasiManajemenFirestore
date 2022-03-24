@@ -73,7 +73,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                     <a class="nav-link" id="sign-out" href="#">
+                    <a class="nav-link" id="sign-out" href="#">
                         <i class="fa fa-sign-out fa-lg"></i> Sign Out
                     </a>
                 </li>
@@ -130,16 +130,17 @@
                                         <option>Label 2</option>
                                         <option>Label 3</option>
                                     </select>
-                                    <button data-bs-target="#formLabelModal" data-bs-toggle="modal" class="ms-2 btn btn-primary">Tambah</button>
+                                    <button data-bs-target="#formLabelModal" data-bs-toggle="modal"
+                                        class="ms-2 btn btn-primary">Tambah</button>
                                 </div>
-                                
+
                             </div>
                             <div class="form-group">
                                 <label for="inputDescription" class="fw-bold">Deskripsi Blog</label>
                                 <textarea id="inputDescription" class="form-control" placeholder="Masukkan Deskripsi"
                                     rows="6"></textarea>
                             </div>
-                          
+
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -158,13 +159,19 @@
                                 <div class="input-group mb-3">
                                     <input type="file" class="form-control" id="imageBlog">
                                 </div>
-                                <img src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" id="preview-image"  class="preview-image d-none" alt="Responsive image">
+                                <img src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" id="preview-image"
+                                    class="preview-image d-none" alt="Responsive image">
                             </div>
                         </div>
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
-                    <button id="btn-upload"  class="btn btn-success pull-right" style="margin-top: 1rem;">Publish Blog</button>
+                    <button id="btn-upload" class="btn btn-success pull-right" style="margin-top: 1rem;">Publish
+                        Blog</button>
+                    <a href="blog.html" id="btn-cancel" class="btn btn-secondary pull-right"
+                        style="margin-top: 1rem; margin-right: 1rem;">Cancel</a>
+
+
                 </div>
 
             </div>
@@ -172,34 +179,34 @@
         </section>
     </div>
     <div class="modal fade " id="formLabelModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog  modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Tambah Label</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form id="formLabel">
-                <div class="modal-body">
-                    <!-- Detail Anggota -->
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Tambah Label</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="formLabel">
+                    <div class="modal-body">
+                        <!-- Detail Anggota -->
 
-                    <div class="row m-3">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="">Nama</label>
-                                <input type="text" class="form-control mt-1" id="inputLabel" placeholder="Nama" >
+                        <div class="row m-3">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="">Nama</label>
+                                    <input type="text" class="form-control mt-1" id="inputLabel" placeholder="Nama">
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="modal-footer">
-                    <button class="btn btn-primary" type="submit">Simpan</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </form>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" type="submit">Simpan</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
     </div>
 
     </div>
@@ -210,7 +217,7 @@
     <script src="https://cdn.jsdelivr.net/npm/suneditor@latest/src/lang/ko.js"></script>
     <script type="module" src="../script/app.js"></script>
     <script type="module" src="../script/pages/form_blogs.js"></script>
-    
+
 </body>
 
 </html>
