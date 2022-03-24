@@ -51,18 +51,18 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="template.html">
+                    <a class="nav-link" href="tugas.html">
                         <i class="fa fa-tasks fa-lg"></i> Arsip
                     </a>
                 </li>
 
-                <li data-bs-toggle="collapsed" data-bs-target="#finance" class="collapsed nav-item active">
+                <li data-bs-toggle="collapse" data-bs-target="#finance" class="collapsed nav-item active">
                     <a class="nav-link" href="#"><i class="fa fa-globe fa-lg"></i> Keuangan <span
                             class="arrow"></span></a>
                 </li>
-                <ul class="sub-menu collapse" id="finance">
-                    <li><a href="kas.html">Kas</a></li>
-                    <li class="active">Pemasukan dan Pengeluaran</li>
+                <ul class="sub-menu collapse show" id="finance">
+                    <li ><a href="kas.html">Kas</a></li>
+                    <li class="active"><a href="debit_kredit.html">Pemasukan dan Pengeluaran</a></li>
                 </ul>
 
                 <li class="nav-item">
@@ -106,11 +106,11 @@
                 <div class="row">
                     <div class="col-md-4">
                         <label for="" class="fw-bold">Dari</label>
-                        <input type="date" class="form-control" id="filter-date" value="2022-01-01">
+                        <input type="date" class="form-control" id="start-filter-date">
                     </div>
                     <div class="col-md-4">
                         <label for="" class="fw-bold">Sampai</label>
-                        <input type="date" class="form-control" id="filter-date" value="2022-01-01">
+                        <input type="date" class="form-control" id="end-filter-date">
                     </div>
                     <div class="col-md-4">
                         <label for="" class="fw-bold"> </label>
@@ -131,12 +131,13 @@
                     <div class="card-header bg-primary bg-gradient text-light">
                         <h5 class="card-title">Input Debit & Kredit</h5>
                     </div>
+                    <form id="formKeuangan">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-6">
                                 <label for="formFile" class="form-label fw-bold">Pilih Tipe Transaksi</label>
-                                <select class="form-select form-select mb-3" aria-label=".form-select-lg example">
-                                    <option selected>Tipe Transaksi</option>
+                                <select class="form-select form-select mb-3" name="tipe" required aria-label=".form-select-lg example">
+                                    <option value="">Tipe Transaksi</option>
                                     <option value="1">Kredit</option>
                                     <option value="2">Debit</option>
 
@@ -146,9 +147,8 @@
                                     <label for="formFile" class="form-label fw-bold">Masukkan Jumlah</label>
                                     <div class="input-group ">
                                         <span class="input-group-text">Rp</span>
-                                        <input type="text" class="form-control" aria-label="Amount"
-                                            placeholder="10.000">
-                                        <span class="input-group-text">.00</span>
+                                        <input required type="text" class="form-control" id="nominal" name="nominal" aria-label="Amount" placeholder="Masukkan Nominal">
+                                     
                                     </div>
                                 </div>
 
@@ -157,51 +157,48 @@
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1" class="form-label fw-bold">Tanggal
                                         Transaksi</label>
-                                    <input type="date" class="form-control" id="exampleFormControlInput1"
-                                        placeholder="name@example.com" value="">
+                                    <input type="date" required class="form-control" name="tanggalKeuangan" id="tanggalKeuangan">
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleFormControlTextarea1"
                                         class="form-label fw-bold">Keterangan</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+                                    <textarea name="keterangan" required class="form-control" id="exampleFormControlTextarea1" rows="2"
                                         placeholder="Masukkan keterangan"></textarea>
-                                    <small>Contoh keterangan pemasukan dan pengeluaran untuk Gathering</small>
+                                    <small class="text-muted">Contoh keterangan pemasukan dan pengeluaran untuk Gathering</small>
                                 </div>
-                                <button type="button" class="btn btn-success pull-right">Submit</button>
+                                <button type="submit" class="btn btn-success pull-right">Submit</button>
 
                             </div>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
 
             <!-- daftar anggota lunas -->
             <div class="col-lg-12">
                 <div class="card mt-3 margin-top">
-                    <div class="card-header bg-secondary bg-gradient text-light">
-                        <h5 class="card-title">Daftar Debit dan Kredit</h5>
+                    <div class="card-header bg-light  text-center">
+                        <h5  class="card-title">Saldo : <span class="fw-bold" id="saldo">50.0000</span></h5>
                     </div>
-                    <div class="card-body">
-                        <div class="list-data mb-5">
-                            <div class="card item-list">
-                                <div class="card-body ">
-                                    <div class="row">
+                    <div class="card-header bg-secondary text-light">
+                        <h5 class="card-title">Daftar Pemasukan dan Pengeluaran</h5>
+                    </div>
+                </div>
+                <div class="list-data mb-5">
+                    <div class="card shadow skeleton item-list">
+                        <div class="card-body ">
+                            <div class="row">
 
-                                        <div class="col-md-9 col-sm-9 item-info">
-                                            <h5 class="fw-bold">Debit / Kredit</h5>
-                                            <p class="mt-1">Mulai Tanggal : </p>
-                                            <p class="mt-1">Sampai Tanggal : </p>
-                                            <p class="mt-1">Deskripsi : Lorem ipsum dolor sit amet consectetur
-                                                adipisicing
-                                                elit. Similique expedita impedit voluptates veniam, recusandae corporis,
-                                                ullam porro hic neque repudiandae assumenda quo officia minima saepe,
-                                                voluptas laborum consequatur possimus. Repellendus!</p>
+                                <div class="col-md-9 col-sm-9 item-info">
+                                    <h5 class="">Nama Anggota</h5>
+                                    <p class="">No Hp</p>
+                                    <p class="">ads</p>
+                                    <p class="">asds</p>
+                                </div>
+                                <div class="col-md-3 col-sm-3">
+                                    <div class="float-sm-right d-grid gap-2 d-md-block mt-3">
 
-                                        </div>
-                                        <div class="col-md-3 col-sm-3 mt-3">
-                                            <button type="button" class="btn btn-primary pull-right">Detail</button>
-
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -209,11 +206,15 @@
                     </div>
                 </div>
             </div>
+
+            <!--  -->
         </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script type="module" src="../script/app.js"></script>
+    <script type="module" src="../script/pages/keuangan.js"></script>
 </body>
 
 </html>

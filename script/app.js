@@ -143,6 +143,7 @@ function base_url(param = "/", params = "") {
 function redirect_to(url) {
   window.location.href = base_url(url);
 }
+
 function findGetParameter(parameterName) {
   var result = null,
     tmp = [];
@@ -155,6 +156,14 @@ function findGetParameter(parameterName) {
     });
   return result;
 }
+
+//Format Tanggal untuk default input
+Date.prototype.toDateInputValue = function () {
+  var local = new Date(this);
+  local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+  return local.toJSON().slice(0, 10);
+};
+
 const chipper = new Chipper("OKE123");
 function format_date(date) {
   const options = {
@@ -209,3 +218,4 @@ window.base_url = base_url;
 window.redirect_to = redirect_to;
 window.format_date = format_date;
 window.formatRupiah = formatRupiah;
+window.orderBy = firebasedatabase.orderBy;

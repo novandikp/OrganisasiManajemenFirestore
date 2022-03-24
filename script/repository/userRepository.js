@@ -33,7 +33,7 @@ export default class UserRepository {
     const data = await this.isExistEmail(user.email);
     if (data) {
       user.password = Chipper.encrypt(user.password);
-      if (data.password == user.password && !data.status) {
+      if (data.password == user.password) {
         localStorage.setItem("user_info", JSON.stringify(data));
         return responseResult(true, data, "Berhasil login");
       } else {

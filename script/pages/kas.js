@@ -21,7 +21,33 @@ $(document).ready(function () {
     });
   };
 
+  const itemLoad = () => {
+    $(".list-data").empty();
+    for (let i = 0; i < 4; i++) {
+      const item = `<div class="card shadow skeleton item-list">
+      <div class="card-body skeleton">
+      <div class="row">
+        
+        <div class="col-md-9 col-sm-9 item-info">
+          <h5 class="skeleton">a</h5>
+          <p class="text-success fw-bold skeleton">a</p>
+          <small class="text-muted skeleton">a</small><br/>
+          <small class="text-muted skeleton">a</small>
+        </div>
+        <div class="col-md-3 col-sm-3">
+            <div class="float-sm-right skeleton d-grid gap-2 d-xl-block mt-3">
+                </div>
+        </div>
+      </div>
+  </div>
+  </div>`;
+
+      $(".list-data").append(item);
+    }
+  };
+
   const getDataTagihan = () => {
+    itemLoad();
     const q = query(collection(db, "kas"));
     getDocs(q).then((docSnap) => {
       $(".list-data").empty();
@@ -153,6 +179,7 @@ $(document).ready(function () {
       });
     });
   };
+
   itemEvent();
   getUsers();
   getDataTagihan();
