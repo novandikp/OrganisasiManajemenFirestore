@@ -21,7 +21,7 @@ $(document).ready(function () {
       button.prop("disabled", false);
       button.text("Sign in");
       if (result.status) {
-        redirect_to("pages/user");
+        redirect_to("pages/dashboard");
       } else {
         alert(result.message);
       }
