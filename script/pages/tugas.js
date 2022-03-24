@@ -127,6 +127,20 @@ $(document).ready(function () {
       });
     });
   };
+
   itemEvent();
+
+  $("#formSearch").on("submit", (e) => {
+    e.preventDefault();
+    if ($("#search").val() != "") {
+      getBerkas($("#search").val());
+    }
+  });
+
+  $("#search").on("search", function (evt) {
+    if ($(this).val().length == 0) {
+      getBerkas();
+    }
+  });
   getBerkas();
 });
