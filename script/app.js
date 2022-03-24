@@ -143,6 +143,7 @@ function base_url(param = "/", params = "") {
 function redirect_to(url) {
   window.location.href = base_url(url);
 }
+
 function findGetParameter(parameterName) {
   var result = null,
     tmp = [];
@@ -155,6 +156,14 @@ function findGetParameter(parameterName) {
     });
   return result;
 }
+
+//Format Tanggal untuk default input
+Date.prototype.toDateInputValue = function () {
+  var local = new Date(this);
+  local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+  return local.toJSON().slice(0, 10);
+};
+
 const chipper = new Chipper("OKE123");
 function format_date(date) {
   const options = {
@@ -182,12 +191,38 @@ if (document.URL.includes("/pages")) {
 }
 //
 
+// Update Login Info
+function updateLoginInfo() {
+  if (isLogin()) {
+    const date = new Date(localStorage.getItem("recent_update_info"));
+    const now = new Date();
+    if (date - now == 600000) {
+      const user = getUserInfo();
+      console.log("cekakun");
+      localStorage.setItem("recent_update_info", new Date().toISOString);
+      firebasedatabase
+        .getDoc(firebasedatabase.doc(db, "users", user.id))
+        .then(async (snap) => {
+          const recentData = snap.data();
+          recentData.id = snap.id;
+          const jabatan = await firebasedatabase.getDoc(recentData.jabatan);
+          recentData.jabatan = jabatan.id;
+          recentData.detailJabatan = jabatan.data();
+          localStorage.setItem("user_info", JSON.stringify(recentData));
+        })
+        .catch(() => {
+          signOut();
+        });
+    }
+  }
+}
+
+updateLoginInfo();
+
 window.db = db;
 window.getDocs = firebasedatabase.getDocs;
 window.getDoc = firebasedatabase.getDoc;
 window.collection = firebasedatabase.collection;
-
-window.fbcollection = firebasedatabase.collection;
 window.doc = firebasedatabase.doc;
 window.setDoc = firebasedatabase.setDoc;
 window.updateDoc = firebasedatabase.updateDoc;
@@ -209,3 +244,4 @@ window.base_url = base_url;
 window.redirect_to = redirect_to;
 window.format_date = format_date;
 window.formatRupiah = formatRupiah;
+window.orderBy = firebasedatabase.orderBy;

@@ -1,15 +1,13 @@
 $(document).ready(function () {
-  const getBlog = async function (id) {
+  // Hapus Blog
+  const deleteBlog = function (id) {
     const docBlog = doc(db, "blogs", id);
-    const docSnap = await getDoc(docBlog);
-    return docSnap;
-  };
-  const deleteBlog = async function (id) {
-    const docBlog = doc(db, "blogs", id);
-    const docSnap = await deleteDoc(docBlog);
-    return docSnap;
+    return deleteDoc(docBlog).then((docsnap) => {
+      return responseResult(true, docsnap.data(), "Berhasil Menghapus Blog");
+    });
   };
 
+  // Skeleton Item
   const itemLoad = () => {
     $(".list-data").empty();
     for (let i = 0; i < 4; i++) {
@@ -39,6 +37,7 @@ $(document).ready(function () {
     }
   };
 
+  // Event Item
   const itemEvent = () => {
     $(".list-data").on("click", ".item-hapus", async function () {
       const id = $(this).data("id");
@@ -59,6 +58,7 @@ $(document).ready(function () {
     });
   };
 
+  //Fetch Data
   const getBlogs = (search = "") => {
     itemLoad();
     const q = query(
@@ -71,9 +71,9 @@ $(document).ready(function () {
       $(".list-data").empty();
       querySnapshot.forEach(async (doc) => {
         const element = doc.data();
-        const user = await getDoc(element.author);
+        // const user = await getDoc(element.author);
         const label = await getDoc(element.category);
-        element.user = await user.data();
+        // element.user = await user.data();
         element.label = await label.id;
         element.id = doc.id;
 

@@ -1,5 +1,6 @@
 $(document).ready(function () {
   let fileImage;
+  //Text area editor
   const editor = SUNEDITOR.create(
     document.getElementById("inputDescription") || "inputDescription",
     {
@@ -21,12 +22,14 @@ $(document).ready(function () {
     }
   );
 
+  //Event Ketika gambar berubah
   $("#imageBlog").on("change", function (e) {
     fileImage = e.target.files[0];
     thumbnailFile(this, $("#preview-image"));
     $("#preview-image").removeClass("d-none");
   });
 
+  // Ubah label
   const fetchLabels = () => {
     $("#labelBlog").empty();
     getDocs(collection(db, "labels")).then((snap) => {
@@ -40,6 +43,7 @@ $(document).ready(function () {
 
   fetchLabels();
 
+  // Tambah label
   $("#formLabel").on("submit", function (e) {
     e.preventDefault();
     const label = $("#inputLabel").val();
@@ -50,13 +54,14 @@ $(document).ready(function () {
       $("#formLabelModal").modal("hide");
     });
   });
+
+  //Simpan Blog
   $("#btn-upload").on("click", function (e) {
     e.preventDefault();
     console.log(editor.getContents());
     const blog = {};
     blog.title = $("#title").val();
     blog.description = editor.getContents();
-
     blog.category = doc(db, "labels", $("#labelBlog").val());
     blog.created_at = new Date().toISOString();
     blog.updated_at = new Date().toISOString();

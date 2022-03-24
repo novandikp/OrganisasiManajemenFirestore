@@ -23,6 +23,7 @@ $(document).ready(function () {
       $(".list-data").append(item);
     }
   };
+
   const getBlogs = (search = "") => {
     itemLoad();
     const q = query(
@@ -74,5 +75,6 @@ $(document).ready(function () {
       });
     });
   };
+
   getBlogs();
 });
