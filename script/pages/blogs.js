@@ -89,9 +89,9 @@ $(document).ready(function () {
                           element.title
                         }</a>
                     </h3>
-                    <div class="mb-1 text-muted ">${format_date(
+                    <small class="mb-1 text-muted ">${format_date(
                       element.created_at
-                    )}</div>
+                    )}</small>
                     <div class="text-blog">${element.description}</div>
                     <div class="d-grid gap-2 d-xl-block mt-3 w-100">
                         <a href="${base_url(
