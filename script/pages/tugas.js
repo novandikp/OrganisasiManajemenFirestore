@@ -22,12 +22,17 @@ $(document).ready(function () {
     berkas.id = uuid("berkas_");
     berkas.deskripsi = $("textarea[name='deskripsi_berkas']").val();
     berkas.author = doc(db, "users", getUserInfo().id);
+
     uploadFile(fileImage, berkas.id).then((url) => {
       berkas.dokumen = url;
       const berkasBaru = doc(db, "berkas", berkas.id);
       setDoc(berkasBaru, berkas).then((doc) => {
         $("#formBerkas").trigger("reset");
         btn.removeAttr("disabled");
+        $.alert({
+          title: "Berhasil",
+          content: "Berhasil menambahkan berkas",
+        });
         getBerkas();
       });
     });

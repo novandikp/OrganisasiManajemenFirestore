@@ -54,9 +54,9 @@ $(document).ready(function () {
                           element.title
                         }</a>
                     </h3>
-                    <div class="mb-1 text-muted ">${format_date(
+                    <small class="mb-1 text-muted ">${format_date(
                       element.created_at
-                    )} </div>
+                    )} </small>
                     
                     <div class="text-blog">${element.description}</div>
                     <a href="blog.html?id=${element.id}">Lanjutkan Membaca</a>
