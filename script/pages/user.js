@@ -1,9 +1,4 @@
 $(document).ready(function () {
-  const getUser = async function (id) {
-    const docUser = doc(db, "users", id);
-    const docSnap = await getDoc(docUser);
-    return docSnap;
-  };
   const deleteUser = async function (id) {
     const docUser = doc(db, "users", id);
     const docSnap = await deleteDoc(docUser);

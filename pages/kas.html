@@ -14,6 +14,7 @@
     crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link href="../style/dashboard.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
 </link>
 
 </head>
@@ -60,7 +61,7 @@
                     <a class="nav-link" href="#"><i class="fa fa-globe fa-lg"></i> Keuangan <span
                             class="arrow"></span></a>
                 </li>
-                <ul class="sub-menu collapse" id="finance">
+                <ul class="sub-menu collapse show" id="finance">
                     <li class="active"><a href="kas.html">Kas</a></li>
                     <li><a href="debit_kredit.html">Pemasukan dan Pengeluaran</a></li>
                 </ul>
@@ -100,17 +101,7 @@
         </div>
     </div>
 
-    <!-- <div class="wrapper padd-right-wrap card-top mt-3">
-        <nav class="navbar">
-            <div class="container-fluid">
-                <button type="button" class="btn btn-primary btn-md mb-2">+ Tambah Data</button>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
-        </nav>
-    </div> -->
+  
 
     <!-- tabel isi -->
     <div class="wrapper padd-right-wrap card-top mt-3">
@@ -118,55 +109,53 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header bg-primary bg-gradient text-light">
-                        <h5 class="card-title">Input Kas</h5>
+                        <h5 class="card-title">Buat Tagihan Kas</h5>
                     </div>
+                    <form id="form-tagihan">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-6">
-                                <label for="formFile" class="form-label fw-bold">Jabatan</label>
-                                <select class="form-select form-select mb-3" aria-label=".form-select-lg example">
-                                    <option selected>Pilih Jabatan</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>
+                                
                                 <label for="formFile" class="form-label fw-bold">Nama</label>
-                                <select class="form-select form-select mb-3" aria-label=".form-select-lg example">
-                                    <option selected>Nama</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                <select class="form-select mb-3" id="select-anggota" aria-label=".form-select-lg example">
+                                    
                                 </select>
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label fw-bold">Masukkan Jumlah</label>
                                     <div class="input-group ">
                                         <span class="input-group-text">Rp</span>
-                                        <input type="text" class="form-control" aria-label="Amount"
-                                            placeholder="10.000">
-                                        <span class="input-group-text">.00</span>
+                                        <input type="text" name="jumlahUang" class="form-control" aria-label="Amount"
+                                            placeholder="Masukkan Nominal">
+                                       
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input " type="checkbox" value="sudah"
+                                            id="flagBayar">
+                                        <label class="form-check-label" for="flagBayar">
+                                            Sudah dibayar
+                                        </label>
                                     </div>
                                 </div>
 
                             </div>
                             <div class="col-lg-6">
+                                
                                 <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label fw-bold">Tanggal
-                                        Input</label>
-                                    <input type="date" class="form-control" id="exampleFormControlInput1"
-                                        placeholder="name@example.com" value="">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleFormControlTextarea1"
+                                    <label for="keterangan"
                                         class="form-label fw-bold">Keterangan</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"
+                                    <textarea class="form-control" id="keterangan" rows="4"
                                         placeholder="Masukkan keterangan"></textarea>
-                                    <small>Contoh keterangan pembayaran kas anggota</small>
+                                    <small class="text-muted">Contoh Keterangan : Kas Bulan Januari 2022</small>
                                 </div>
-                                <button type="button" class="btn btn-success pull-right">Bayar</button>
+                              
 
                             </div>
                         </div>
+                        <button type="submit" class="btn btn-success pull-right mb-4">Buat Tagihan Kas</button>
                     </div>
+                    </form>
                 </div>
             </div>
 
@@ -176,27 +165,22 @@
                     <div class="card-header bg-secondary bg-gradient text-light">
                         <h5 class="card-title">Daftar Kas Anggota</h5>
                     </div>
-                    <div class="card-body">
-                        <div class="list-data mb-5">
-                            <div class="card item-list">
-                                <div class="card-body ">
-                                    <div class="row">
+                  
+                </div>
+                <div class="list-data mb-5">
+                    <div class="card shadow skeleton item-list">
+                        <div class="card-body ">
+                            <div class="row">
 
-                                        <div class="col-md-9 col-sm-9 item-info">
-                                            <h5 class="">Nama Anggota</h5>
-                                            <p class="">Jabatan</p>
-                                            <p class="">Jumlah Tanggungan</p>
+                                <div class="col-md-9 col-sm-9 item-info">
+                                    <h5 class="">Nama Anggota</h5>
+                                    <p class="">No Hp</p>
+                                    <p class="">ads</p>
+                                    <p class="">asds</p>
+                                </div>
+                                <div class="col-md-3 col-sm-3">
+                                    <div class="float-sm-right d-grid gap-2 d-md-block mt-3">
 
-                                        </div>
-                                        <div class="col-md-3 col-sm-3 mt-3">
-                                            <div class="form-check">
-                                                <input class="form-check-input " type="checkbox" value=""
-                                                    id="flexCheckDefault">
-                                                <label class="form-check-label" for="flexCheckDefault">
-                                                    Sudah lunas
-                                                </label>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -209,6 +193,9 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-</body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+        <script type="module" src="../script/app.js"></script>
+        <script src="../script/pages/kas.js"></script>
+    </body>
 
 </html>
