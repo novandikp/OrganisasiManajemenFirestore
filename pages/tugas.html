@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>User | Tugas</title>
+<title>User | Arsip</title>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -12,7 +12,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
-    
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link href="../style/dashboard.css" rel="stylesheet">
@@ -54,7 +54,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="#">
-                        <i class="fa fa-tasks fa-lg"></i> Tugas
+                        <i class="fa fa-tasks fa-lg"></i> Arsip
                     </a>
                 </li>
 
@@ -88,12 +88,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-5">
-                        <h1 class="m-0">Tugas</h1>
+                        <h1 class="m-0">Arsip</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="user.html">Home</a></li>
-                            <li class="breadcrumb-item active">Tugas</li>
+                            <li class="breadcrumb-item active">Arsip</li>
 
                         </ol>
                     </div><!-- /.col -->
@@ -103,74 +103,86 @@
     </div>
 
 
-    <!-- headr conten -->
+    <!-- navabar conten -->
     <div class="wrapper padd-right-wrap card-top mt-3">
-       
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand"></a>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+    </div>
 
+    <!-- Form berkas -->
+    <div class="wrapper padd-right-wrap card-top">
         <div class="row">
             <div class="col-lg-12">
-                <div class="card">
+                <div class="card ">
                     <div class="card-header bg-info text-light">
-                        <h5 class="card-title">Upload Berkas</h5>
+                        <h5 class="card-title">Upload Arsip</h5>
                     </div>
                     <form id="formBerkas">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label fw-bold">Nama Berkas</label>
-                                    <input required name="nama_berkas" class="form-control" type="text" placeholder="Nama Berkas"
-                                        aria-label="default input example">
-                                        
-                                    <small>Upload nama berkas contoh : Proposal Kegiatan Meet Gathering</small>
-                                </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label fw-bold">Nama
+                                            Berkas</label>
+                                        <input required name="nama_berkas" class="form-control" type="text"
+                                            placeholder="Nama Berkas" aria-label="default input example">
 
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="formFile" class="form-label fw-bold">Upload berkas</label>
-                                    <input name="berkas" required class="form-control" type="file" id="formFile">
+                                        <small>Upload nama berkas contoh : Proposal Kegiatan Meet Gathering</small>
+                                    </div>
+
                                 </div>
-                                
-                            </div>
-                            <div class="col-md-12">
-                                <div class="mb-3">
-                                    <label for="formFile" class="form-label fw-bold">Deskripsi</label>
-                                    <textarea name="deskripsi_berkas" required class="form-control"></textarea>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="formFile" class="form-label fw-bold">Upload berkas</label>
+                                        <input name="berkas" required class="form-control" type="file" id="formFile">
+                                    </div>
+
                                 </div>
-                                
+                                <div class="col-md-12">
+                                    <div class="mb-3">
+                                        <label for="formFile" class="form-label fw-bold">Deskripsi</label>
+                                        <textarea name="deskripsi_berkas" required class="form-control"></textarea>
+                                    </div>
+
+                                </div>
                             </div>
+                            <button type="submit" class="btn btn-primary pull-right mb-2">Upload</button>
                         </div>
-                        <button type="submit" class="btn btn-primary pull-right mb-2">Upload</button>
-                    </div>
                     </form>
                 </div>
             </div>
             <div class="col-12">
                 <div class="card" style="margin-top: 1rem;">
                     <div class="card-header text-light bg-secondary">
-                        <h5 class="card-title">Daftar Berkas Upload</h5>
+                        <h5 class="card-title">Daftar Arsip</h5>
                     </div>
                 </div>
                 <div class="list-data mb-5">
                     <div class="card shadow skeleton item-list">
                         <div class="card-body ">
-                        <div class="row">
-                          
-                          <div class="col-md-9 col-sm-9 item-info">
-                            <h5 class="">Nama Anggota</h5>
-                            <p class="">No Hp</p>
-                            <p class="">ads</p>
-                            <p class="">asds</p>
-                          </div>
-                          <div class="col-md-3 col-sm-3">
-                              <div class="float-sm-right d-grid gap-2 d-md-block mt-3">
-                                
-                              </div>
-                          </div>
+                            <div class="row">
+
+                                <div class="col-md-9 col-sm-9 item-info">
+                                    <h5 class="">Nama Anggota</h5>
+                                    <p class="">No Hp</p>
+                                    <p class="">ads</p>
+                                    <p class="">asds</p>
+                                </div>
+                                <div class="col-md-3 col-sm-3">
+                                    <div class="float-sm-right d-grid gap-2 d-md-block mt-3">
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                      </div>
                 </div>
             </div>
         </div>
@@ -183,9 +195,9 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
-        <script type="module" src="../script/app.js"></script>
-        <script src="../script/pages/tugas.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <script type="module" src="../script/app.js"></script>
+    <script src="../script/pages/tugas.js"></script>
 </body>
 
 </html>
