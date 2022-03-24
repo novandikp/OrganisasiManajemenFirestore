@@ -127,6 +127,16 @@ const params = new Proxy(new URLSearchParams(window.location.search), {
   get: (searchParams, prop) => searchParams.get(prop),
 });
 const chipper = new Chipper("OKE123");
+function format_date(date) {
+  const options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  const dateTemp = new Date(date);
+  return dateTemp.toLocaleDateString("id-ID", options);
+}
 
 // Middleware
 if (document.URL.includes("/pages")) {
@@ -168,3 +178,4 @@ window.Chipper = chipper;
 window.params = params;
 window.base_url = base_url;
 window.redirect_to = redirect_to;
+window.format_date = format_date;

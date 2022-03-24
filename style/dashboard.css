@@ -347,6 +347,37 @@ h5 {
   content: "";
 }
 
+.img-thumb-blog {
+  width: 400px;
+  height: 250px;
+  object-fit: cover;
+}
+
+.card-img-right {
+  height: 100%;
+  border-radius: 0 3px 3px 0;
+}
+
+.flex-auto {
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.h-250 {
+  height: 250px;
+}
+.preview-image {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
+.text-blog {
+  max-height: 80px;
+  overflow: hidden;
+}
+a {
+  text-decoration: none;
+}
 @keyframes shimmer {
   100% {
     transform: translateX(100%);
@@ -397,6 +428,9 @@ h5 {
 @media (min-width: 769px) {
   .nav-side-menu .menu-list .menu-content {
     display: block;
+  }
+  .h-md-250 {
+    height: 250px;
   }
 }
 @media (min-width: 576px) {

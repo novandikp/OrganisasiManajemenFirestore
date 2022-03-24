@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>User | Blog edit</title>
+<title>User | Anggota</title>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -13,10 +13,9 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="../style/profile.css">
 <link href="../style/dashboard.css" rel="stylesheet">
-
 </link>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
 </head>
 
 <body>
@@ -27,12 +26,12 @@
         <div class="menu-list">
             <ul id="menu-content" class="navbar-nav menu-content collapse out ">
                 <li class="nav-item">
-                    <a class="nav-link" href="user.html">
+                    <a class="nav-link " href="user.html">
                         <i class="fa fa-dashboard fa-lg"></i> Dashboard
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="#">
+                    <a class="nav-link" href="#">
                         <i class="fa fa-user fa-lg"></i> Profile
                     </a>
                 </li>
@@ -42,12 +41,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="anggota.html">
+                    <a class="nav-link active" href="anggota.html">
                         <i class="fa fa-users fa-lg"></i> Anggota
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">
+                    <a class="nav-link" href="#">
                         <i class="fa fa-newspaper-o fa-lg"></i> Blog
                     </a>
                 </li>
@@ -67,7 +66,7 @@
                 </ul>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="#">
+                    <a class="nav-link" href="#">
                         <i class="fa fa-cog fa-lg"></i> Pengaturan
                     </a>
                 </li>
@@ -83,16 +82,16 @@
 
     <div class="wrapper shadow-wrap">
         <!-- conten -->
-        <div class="content-header ">
+        <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-5">
-                        <h1 class="m-0">Blog edit</h1>
+                        <h1 class="m-0">Daftar Blog</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="user.html">Home</a></li>
-                            <li class="breadcrumb-item active">Blog edit</li>
+                            <li class="breadcrumb-item"><a href="">Home</a></li>
+                            <li class="breadcrumb-item active">Anggota</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -100,89 +99,29 @@
         </div>
     </div>
 
-    <div class="wrapper padd-right-wrap list-data">
-        <div class="d-flex align-items-center">
-
-        </div>
-    </div>
-
-    <!-- colum kiri -->
-    <div class="wrapper padd-right-wrap ">
-        <section class="content">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header bg-primary text-light">
-                            <h5 class="card-title">General</h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label for="inputName" class="fw-bold">Nama Blog</label>
-                                <input type="text" id="inputName" class="form-control" value="" placeholder="Nama Blog">
-                            </div>
-                            <div class="form-group">
-                                <label for="inputDescription" class="fw-bold">Deskripsi Blog</label>
-                                <textarea id="inputDescription" class="form-control" placeholder="Masukkan Deskripsi"
-                                    rows="4"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputStatus" class="fw-bold">Label</label>
-                                <select id="inputStatus" class="form-control custom-select">
-                                    <option disabled>Label 4</option>
-                                    <option>Label 1</option>
-                                    <option>Label 2</option>
-                                    <option>Label 3</option>
-
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputClientCompany" class="fw-bold">Tanggal</label>
-                                <input type="date" id="calender" class="form-control" value="2022-01-01">
-                            </div>
-                            <div class="form-group">
-                                <label for="inputProjectLeader" class="fw-bold">Penulis</label>
-                                <input type="text" id="inputProjectLeader" class="form-control" value=""
-                                    placeholder="Masukkan Penulis">
-                            </div>
-
-                        </div>
-                        <!-- /.card-body -->
-                    </div>
-                    <!-- /.card -->
-                </div>
-
-                <!-- upload foto -->
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header bg-secondary text-light">
-                            <h5 class="card-title">Files</h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label for="inputName" class="fw-bold">Pilih Foto</label>
-                                <div class="input-group mb-3">
-                                    <label class="input-group-text" for="inputGroupFile01">Upload</label>
-                                    <input type="file" class="form-control" id="inputGroupFile01">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.card-body -->
-                    </div>
-                    <!-- /.card -->
-                    <input type="submit" value="Upload" class="btn btn-success pull-right" style="margin-top: 1rem;">
-                </div>
-
+    <div class="wrapper padd-right-wrap card-top mt-3">
+        <nav class="navbar">
+            <div class="container-fluid">
+                <a href="./form_blog.html" class="btn btn-primary btn-md mb-2">+ Tambah Blog</a>
+                <form class="d-flex pull-right" id="formSearch">
+                    <input class="form-control me-2" type="search" id="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
             </div>
-
-        </section>
+        </nav>
     </div>
 
+    <div class="wrapper padd-right-wrap list-data">
+        
     </div>
+
+
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
     <script type="module" src="../script/app.js"></script>
-    <script src="../script/pages/profile.js"></script>
+    <script type="module" src="../script/pages/blogs.js"></script>
 </body>
 
 </html>

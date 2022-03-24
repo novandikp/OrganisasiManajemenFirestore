@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<link>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User | Blog edit</title>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="../style/profile.css">
+<link href="../style/dashboard.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/suneditor@latest/dist/css/suneditor.min.css" rel="stylesheet">
+
+</link>
+</head>
+
+<body>
+    <div class="nav-side-menu">
+        <div class="brand">SISMANSI</div>
+        <i class="fa fa-bars fa-2x toggle-btn" data-bs-toggle="collapse" aria-expanded="false"
+            aria-controls="collapseExample" data-bs-target="#menu-content"></i>
+        <div class="menu-list">
+            <ul id="menu-content" class="navbar-nav menu-content collapse out ">
+                <li class="nav-item">
+                    <a class="nav-link" href="user.html">
+                        <i class="fa fa-dashboard fa-lg"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="#">
+                        <i class="fa fa-user fa-lg"></i> Profile
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="jabatan.html">
+                        <i class="fa fa-sitemap fa-lg"></i> Jabatan
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="anggota.html">
+                        <i class="fa fa-users fa-lg"></i> Anggota
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">
+                        <i class="fa fa-newspaper-o fa-lg"></i> Blog
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-tasks fa-lg"></i> Tugas
+                    </a>
+                </li>
+
+                <li data-bs-toggle="collapse" data-bs-target="#finance" class="collapsed nav-item">
+                    <a class="nav-link" href="#"><i class="fa fa-globe fa-lg"></i> Keuangan <span
+                            class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="finance">
+                    <li><a href="kas.html">Kas</a></li>
+                    <li><a href="debit_kredit.html">Pemasukan dan Pengeluaran</a></li>
+                </ul>
+
+                <li class="nav-item">
+                    <a class="nav-link " href="#">
+                        <i class="fa fa-cog fa-lg"></i> Pengaturan
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-sign-out fa-lg"></i> Sign Out
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="wrapper shadow-wrap">
+        <!-- conten -->
+        <div class="content-header ">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-5">
+                        <h1 class="m-0">Blog edit</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="user.html">Home</a></li>
+                            <li class="breadcrumb-item active">Blog edit</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+    </div>
+
+    <div class="wrapper padd-right-wrap list-data">
+        <div class="d-flex align-items-center">
+
+        </div>
+    </div>
+
+    <!-- colum kiri -->
+    <div class="wrapper padd-right-wrap ">
+        <section class="content">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-primary text-light">
+                            <h5 class="card-title">General</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="title" class="fw-bold">Nama Blog</label>
+                                <input type="text" id="title" class="form-control" value="" placeholder="Nama Blog">
+                            </div>
+                            <div class="form-group">
+                                <label for="labelBlog" class="fw-bold">Label</label>
+                                <div class="d-flex">
+                                    <select id="labelBlog" class="form-control custom-select">
+                                        <option disabled>Label 4</option>
+                                        <option>Label 1</option>
+                                        <option>Label 2</option>
+                                        <option>Label 3</option>
+                                    </select>
+                                    <button data-bs-target="#formLabelModal" data-bs-toggle="modal" class="ms-2 btn btn-primary">Tambah</button>
+                                </div>
+                                
+                            </div>
+                            <div class="form-group">
+                                <label for="inputDescription" class="fw-bold">Deskripsi Blog</label>
+                                <textarea id="inputDescription" class="form-control" placeholder="Masukkan Deskripsi"
+                                    rows="6"></textarea>
+                            </div>
+                          
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+
+                <!-- upload foto -->
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-secondary text-light">
+                            <h5 class="card-title">Files</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="inputName" class="fw-bold">Pilih Foto</label>
+                                <div class="input-group mb-3">
+                                    <input type="file" class="form-control" id="imageBlog">
+                                </div>
+                                <img src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" id="preview-image"  class="preview-image d-none" alt="Responsive image">
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                    <button id="btn-upload"  class="btn btn-success pull-right" style="margin-top: 1rem;">Publish Blog</button>
+                </div>
+
+            </div>
+
+        </section>
+    </div>
+    <div class="modal fade " id="formLabelModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Tambah Label</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="formLabel">
+                <div class="modal-body">
+                    <!-- Detail Anggota -->
+
+                    <div class="row m-3">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="">Nama</label>
+                                <input type="text" class="form-control mt-1" id="inputLabel" placeholder="Nama" >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="submit">Simpan</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/suneditor@latest/dist/suneditor.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/suneditor@latest/src/lang/ko.js"></script>
+    <script type="module" src="../script/app.js"></script>
+    <script type="module" src="../script/pages/form_blogs.js"></script>
+    
+</body>
+
+</html>
