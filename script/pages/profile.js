@@ -20,8 +20,10 @@ $(document).ready(() => {
     $(".email-header").text(temp.email);
     $(".profile-username ").text(temp.nama);
     $("input[name='nama']").val(temp.nama);
+    $("input[name='nama']").attr("placeholder", "Masukkan Nama");
     $(".email-header").text(temp.email);
     $("input[name='no_hp']").val(temp.no_hp);
+    $("input[name='no_hp']").attr("placeholder", "Masukkan Nomer Telepon");
     $("textarea[name='alamat']").text(temp.alamat);
     if (temp.fotoprofile) {
       $(".profilepic__image").attr("src", temp.fotoprofile);
