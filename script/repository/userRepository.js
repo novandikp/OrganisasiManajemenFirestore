@@ -23,6 +23,7 @@ export default class UserRepository {
       user.id = doc.id;
       const jabatan = await getDoc(user.jabatan);
       user.jabatan = jabatan.id;
+      user.detailJabatan = jabatan.data();
       return user;
     } else {
       return null;
@@ -33,9 +34,11 @@ export default class UserRepository {
     const data = await this.isExistEmail(user.email);
     if (data) {
       user.password = Chipper.encrypt(user.password);
-      if (data.password == user.password) {
+      if (data.password == user.password && data.status) {
         localStorage.setItem("user_info", JSON.stringify(data));
         return responseResult(true, data, "Berhasil login");
+      } else if (data.status == false) {
+        return responseResult(false, null, "Akun belum diverifikasi");
       } else {
         return responseResult(false, null, "Password salah");
       }
@@ -63,15 +66,15 @@ export default class UserRepository {
     }
   }
 
-  async update(user) {
-    const check = await this.isExistEmail(user.email);
-    if (check) {
-      return responseResult(false, null, "Email sudah terdaftar");
-    } else {
-      const docUser = doc(db, "users", user.id);
-      delete user.id;
-      const docSnap = await setDoc(docUser, user);
-      return responseResult(true, docSnap, "Berhasil mengubah data");
-    }
-  }
+  // async update(user) {
+  //   const check = await this.isExistEmail(user.email);
+  //   if (check) {
+  //     return responseResult(false, null, "Email sudah terdaftar");
+  //   } else {
+  //     const docUser = doc(db, "users", user.id);
+  //     delete user.id;
+  //     const docSnap = await setDoc(docUser, user);
+  //     return responseResult(true, docSnap, "Berhasil mengubah data");
+  //   }
+  // }
 }

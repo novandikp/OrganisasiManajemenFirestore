@@ -173,6 +173,7 @@ $(document).ready(function () {
       getDataKeuangan();
     });
   });
+
   itemEvent();
   getDataKeuangan();
 });

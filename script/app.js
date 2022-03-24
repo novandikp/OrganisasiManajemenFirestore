@@ -191,12 +191,38 @@ if (document.URL.includes("/pages")) {
 }
 //
 
+// Update Login Info
+function updateLoginInfo() {
+  if (isLogin()) {
+    const date = new Date(localStorage.getItem("recent_update_info"));
+    const now = new Date();
+    if (date - now == 600000) {
+      const user = getUserInfo();
+      console.log("cekakun");
+      localStorage.setItem("recent_update_info", new Date().toISOString);
+      firebasedatabase
+        .getDoc(firebasedatabase.doc(db, "users", user.id))
+        .then(async (snap) => {
+          const recentData = snap.data();
+          recentData.id = snap.id;
+          const jabatan = await firebasedatabase.getDoc(recentData.jabatan);
+          recentData.jabatan = jabatan.id;
+          recentData.detailJabatan = jabatan.data();
+          localStorage.setItem("user_info", JSON.stringify(recentData));
+        })
+        .catch(() => {
+          signOut();
+        });
+    }
+  }
+}
+
+updateLoginInfo();
+
 window.db = db;
 window.getDocs = firebasedatabase.getDocs;
 window.getDoc = firebasedatabase.getDoc;
 window.collection = firebasedatabase.collection;
-
-window.fbcollection = firebasedatabase.collection;
 window.doc = firebasedatabase.doc;
 window.setDoc = firebasedatabase.setDoc;
 window.updateDoc = firebasedatabase.updateDoc;
