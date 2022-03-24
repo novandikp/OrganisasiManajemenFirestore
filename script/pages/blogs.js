@@ -94,7 +94,10 @@ $(document).ready(function () {
                     )}</div>
                     <div class="text-blog">${element.description}</div>
                     <div class="d-grid gap-2 d-xl-block mt-3 w-100">
-                        <a href="#" class="btn btn-secondary btn-block btn-sm ">Lihat Preview</a>
+                        <a href="${base_url(
+                          "blog",
+                          "?id=" + element.id
+                        )}" class="btn btn-secondary btn-block btn-sm ">Lihat Preview</a>
                         <a  href="#" class="btn btn-primary btn-block btn-sm ">Edit</a>
                         <button  data-id="${
                           element.id

@@ -1,4 +1,8 @@
 $(document).ready(function () {
+  const id = findGetParameter("id");
+  if (!id) {
+    redirect_to("index");
+  }
   const itemLoad = () => {
     $(".list-data").empty();
     for (let i = 0; i < 4; i++) {
@@ -23,56 +27,21 @@ $(document).ready(function () {
       $(".list-data").append(item);
     }
   };
-  const getBlogs = (search = "") => {
-    itemLoad();
-    const q = query(
-      collection(db, "blogs"),
-      where("title", ">=", search),
-      where("title", "<=", search + "~")
-    );
+  const getBlogs = async () => {
+    const dokumen = doc(db, "blogs", id);
+    const data = await getDoc(dokumen);
+    const element = data.data();
+    const user = await getDoc(element.author);
+    const label = await getDoc(element.category);
+    element.user = await user.data();
+    element.label = await label.id;
+    $(".blog-post-title").text(element.title);
 
-    getDocs(q).then(async (querySnapshot) => {
-      $(".list-data").empty();
-      querySnapshot.forEach(async (doc) => {
-        const element = doc.data();
-        const user = await getDoc(element.author);
-        const label = await getDoc(element.category);
-        element.user = await user.data();
-        element.label = await label.id;
-        element.id = doc.id;
-
-        let item = `<div class="col-md-6">
-        <div class="d-md-flex align-items-center">
-        <div class="col-md-12">
-            <div class="card  flex-md-row mb-4 shadow-sm h-md-250">
-                <div class="card-body d-flex flex-column align-items-start">
-                    <strong class="d-inline-block mb-2 text-primary ">${
-                      element.label
-                    }</strong>
-                    <h3 class="mb-0">
-                        <a class="text-dark " href="blog.html">${
-                          element.title
-                        }</a>
-                    </h3>
-                    <div class="mb-1 text-muted ">${format_date(
-                      element.created_at
-                    )} </div>
-                    
-                    <div class="text-blog">${element.description}</div>
-                    <a href="blog.html">Lanjutkan Membaca</a>
-                  
-                </div>
-                <img class="card-img-right flex-auto d-none d-lg-block img-thumb-blog" src="${
-                  element.image
-                }" alt="Card image cap">
-            </div>
-        </div>
-    </div>
-        </div>`;
-
-        $(".list-data").append(item);
-      });
-    });
+    $("#tanggalDibuat").text(format_date(element.created_at));
+    $("#penulis").text(element.user.name);
+    $(".image-blog").attr("src", element.image);
+    $(".blog-content").html(element.description);
+    $(".skeleton").removeClass("skeleton");
   };
   getBlogs();
 });

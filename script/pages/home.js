@@ -59,7 +59,7 @@ $(document).ready(function () {
                     )} </div>
                     
                     <div class="text-blog">${element.description}</div>
-                    <a href="blog.html">Lanjutkan Membaca</a>
+                    <a href="blog.html?id=${element.id}">Lanjutkan Membaca</a>
                   
                 </div>
                 <img class="card-img-right flex-auto d-none d-lg-block img-thumb-blog" src="${

@@ -110,22 +110,31 @@ function thumbnailFile(input, image) {
   }
 }
 
-function base_url(param = "/") {
+function base_url(param = "/", params = "") {
   if (param[0] != "/") {
     param = "/" + param;
   }
   if (!param.includes(".html")) {
     param = param + ".html";
   }
-  return window.location.origin + param;
+  return window.location.origin + param + params;
 }
 
 function redirect_to(url) {
   window.location.href = base_url(url);
 }
-const params = new Proxy(new URLSearchParams(window.location.search), {
-  get: (searchParams, prop) => searchParams.get(prop),
-});
+function findGetParameter(parameterName) {
+  var result = null,
+    tmp = [];
+  location.search
+    .substr(1)
+    .split("&")
+    .forEach(function (item) {
+      tmp = item.split("=");
+      if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+    });
+  return result;
+}
 const chipper = new Chipper("OKE123");
 function format_date(date) {
   const options = {
@@ -175,7 +184,7 @@ window.Timestamp = firebasedatabase.Timestamp;
 window.uploadFile = upload;
 window.thumbnailFile = thumbnailFile;
 window.Chipper = chipper;
-window.params = params;
+window.findGetParameter = findGetParameter;
 window.base_url = base_url;
 window.redirect_to = redirect_to;
 window.format_date = format_date;

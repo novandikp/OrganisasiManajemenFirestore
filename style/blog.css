@@ -186,3 +186,7 @@ a {
   height: 250px;
   object-fit: cover;
 }
+.image-blog {
+  height: 400px;
+  object-fit: cover;
+}
