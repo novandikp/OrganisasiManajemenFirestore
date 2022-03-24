@@ -83,7 +83,7 @@ function signOut() {
   redirect_to("masuk");
 }
 
-$("[data-access='sign-out']").click(function () {
+$("#sign-out").click(function () {
   signOut();
 });
 
