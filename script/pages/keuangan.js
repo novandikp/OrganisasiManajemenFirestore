@@ -48,6 +48,39 @@ $(document).ready(function () {
     });
   };
 
+  const deleteKeuangan = (id) => {
+    const recentData = doc(db, "keuangan", id);
+    return getDoc(recentData).then((data) => {
+      const dataTemp = data.data();
+      if (dataTemp.debit == 0) {
+        keuanganRepository.addPemasukan(dataTemp.nominal);
+      } else {
+        keuanganRepository.addPengeluaran(dataTemp.nominal);
+      }
+      return deleteDoc(recentData);
+    });
+  };
+
+  const itemEvent = () => {
+    $(".list-data").on("click", ".item-hapus", async function () {
+      const id = $(this).data("id");
+      const element = $(this);
+      $.confirm({
+        title: "Konfirmasi",
+        content: "Apakah anda yakin untuk menghapus data ini?",
+        buttons: {
+          confirm: function () {
+            element.attr("disabled", true);
+            deleteKeuangan(id).then((data) => {
+              getDataKeuangan();
+            });
+          },
+          cancel: function () {},
+        },
+      });
+    });
+  };
+
   const itemLoad = () => {
     $(".list-data").empty();
     for (let i = 0; i < 4; i++) {
@@ -78,14 +111,24 @@ $(document).ready(function () {
     const q = query(
       collection(db, "keuangan"),
       orderBy("tanggalKeuangan", "desc"),
-      orderBy("created_at", "desc")
+      orderBy("created_at", "desc"),
+      where(
+        "tanggalKeuangan",
+        ">=",
+        new Date($("#start-filter-date").val()).toISOString()
+      ),
+
+      where(
+        "tanggalKeuangan",
+        "<=",
+        new Date($("#end-filter-date").val() + " 23:59:59").toISOString()
+      )
     );
     getDocs(q).then((docSnap) => {
       $(".list-data").empty();
       docSnap.forEach(async (docSnapshot) => {
         const dataTemp = docSnapshot.data();
         dataTemp.id = docSnapshot.id;
-        console.log(dataTemp);
         let item = `<div class="card shadow item-list">
         <div class="card-body">
         <div class="row">
@@ -117,13 +160,19 @@ $(document).ready(function () {
     });
   };
 
+  $("#refreshData").on("click", function () {
+    getDataKeuangan();
+  });
+
   $("#formKeuangan").on("submit", function (e) {
     e.preventDefault();
     addKeuangan().then(() => {
       $("#formKeuangan").trigger("reset");
+
+      $("#tanggalKeuangan").val(new Date().toDateInputValue());
       getDataKeuangan();
     });
   });
-
+  itemEvent();
   getDataKeuangan();
 });

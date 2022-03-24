@@ -1,4 +1,8 @@
+import KeuanganRepository from "../repository/keuanganRepository.js";
+import KasRepository from "../repository/kasRepository.js";
 $(document).ready(function () {
+  const keuanganRepository = new KeuanganRepository();
+  const kasRepository = new KasRepository();
   //Format Uang
   $("input[name='jumlahUang']").on("keyup", function () {
     var jumlahUangRupiah = formatRupiah($(this).val());
@@ -17,6 +21,13 @@ $(document).ready(function () {
     };
     const kasBaru = doc(db, "kas", uuid("kas_"));
     return setDoc(kasBaru, data).then((docSnap) => {
+      if (data.status) {
+        addKeuangan({
+          keterangan: "Pembayaran Tagihan Kas",
+          nominal: data.jumlahUang,
+          tipe: "2",
+        });
+      }
       return responseResult(true, docSnap, "Berhasil menambahkan data");
     });
   };
@@ -100,19 +111,63 @@ $(document).ready(function () {
     });
   };
 
+  const addKeuangan = (values) => {
+    values.tanggalKeuangan = new Date().toISOString();
+    values.user_id = doc(db, "users", getUserInfo().id);
+    values.created_at = new Date().toISOString();
+    values.nominal = parseInt(values.nominal.replace(/\./g, ""));
+    if (values.tipe == "2") {
+      values.debit = values.nominal;
+      values.kredit = 0;
+      keuanganRepository.addPemasukan(values.nominal);
+      kasRepository.tambahKas(values.nominal);
+    } else {
+      values.kredit = values.nominal;
+      values.debit = 0;
+      keuanganRepository.addPengeluaran(values.nominal);
+      kasRepository.kurangKas(values.nominal);
+    }
+
+    const keuanganBaru = doc(db, "keuangan", uuid("keuangan_"));
+    return setDoc(keuanganBaru, values).then((docSnap) => {
+      return responseResult(true, docSnap, "Berhasil menambahkan data");
+    });
+  };
+
   const bayarTagihan = (id) => {
     const data = {
       status: true,
       update_at: new Date().toISOString(),
     };
-    return updateDoc(doc(db, "kas", id), data).then((docSnap) => {
-      return responseResult(true, docSnap, "Berhasil mengubah data");
+    const dataRecent = doc(db, "kas", id);
+    return getDoc(dataRecent).then((snap) => {
+      const dataTemp = snap.data();
+      addKeuangan({
+        keterangan: "Pembayaran Tagihan Kas",
+        nominal: dataTemp.jumlahUang,
+        tipe: "2",
+      });
+
+      return updateDoc(dataRecent, data).then((docSnap) => {
+        return responseResult(true, docSnap, "Berhasil mengubah data");
+      });
     });
   };
 
   const hapusTagihan = (id) => {
-    return deleteDoc(doc(db, "kas", id)).then((docSnap) => {
-      return responseResult(true, docSnap, "Berhasil menghapus data");
+    const dataRecent = doc(db, "kas", id);
+    return getDoc(dataRecent).then((snap) => {
+      const dataTemp = snap.data();
+      if (dataTemp.status) {
+        addKeuangan({
+          keterangan: "Penghapusan Tagihan Kas",
+          nominal: dataTemp.jumlahUang,
+          tipe: "1",
+        });
+      }
+      return deleteDoc(dataRecent).then((docSnap) => {
+        return responseResult(true, docSnap, "Berhasil menghapus data");
+      });
     });
   };
 

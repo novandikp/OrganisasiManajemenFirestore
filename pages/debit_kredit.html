@@ -13,6 +13,8 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
 <link href="../style/dashboard.css" rel="stylesheet">
 </link>
 
@@ -100,28 +102,7 @@
         </div>
     </div>
 
-    <div class="wrapper padd-right-wrap card-top mt-3">
-        <nav class="navbar">
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-4">
-                        <label for="" class="fw-bold">Dari</label>
-                        <input type="date" class="form-control" id="start-filter-date">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="" class="fw-bold">Sampai</label>
-                        <input type="date" class="form-control" id="end-filter-date">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="" class="fw-bold"> </label>
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-success" type="button">Tampilkan</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </div>
+
 
     <!-- tabel isi -->
     <div class="wrapper padd-right-wrap mt-3">
@@ -138,8 +119,8 @@
                                 <label for="formFile" class="form-label fw-bold">Pilih Tipe Transaksi</label>
                                 <select class="form-select form-select mb-3" name="tipe" required aria-label=".form-select-lg example">
                                     <option value="">Tipe Transaksi</option>
-                                    <option value="1">Kredit</option>
-                                    <option value="2">Debit</option>
+                                    <option value="2">Pemasukan</option>
+                                    <option value="1">Pengeluaran</option>
 
                                 </select>
 
@@ -179,10 +160,28 @@
             <div class="col-lg-12">
                 <div class="card mt-3 margin-top">
                     <div class="card-header bg-light  text-center">
-                        <h5  class="card-title">Saldo : <span class="fw-bold" id="saldo">50.0000</span></h5>
+                        <h5  class="card-title">Saldo : <span class="fw-bold" id="saldo">0</span></h5>
                     </div>
                     <div class="card-header bg-secondary text-light">
                         <h5 class="card-title">Daftar Pemasukan dan Pengeluaran</h5>
+                    </div>
+                </div>
+                <div class="my-4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="" class="fw-bold">Dari</label>
+                            <input type="date" class="form-control" id="start-filter-date">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="" class="fw-bold">Sampai</label>
+                            <input type="date" class="form-control" id="end-filter-date">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="" class="fw-bold"> </label>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-success" id="refreshData" type="button">Tampilkan</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="list-data mb-5">
@@ -213,6 +212,8 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
         <script type="module" src="../script/app.js"></script>
     <script type="module" src="../script/pages/keuangan.js"></script>
 </body>
