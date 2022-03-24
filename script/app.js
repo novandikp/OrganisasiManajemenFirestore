@@ -89,7 +89,9 @@ $("#sign-out").click(function () {
 
 async function upload(file, name) {
   const storage = getStorage();
-  const storageRef = ref(storage, name);
+  const extension = file.name.substring(file.name.lastIndexOf(".") + 1);
+  const filename = name + "." + extension;
+  const storageRef = ref(storage, filename);
   return uploadBytes(storageRef, file).then((snapshot) => {
     return getDownloadURL(storageRef).then((url) => {
       return Promise.resolve(url);
