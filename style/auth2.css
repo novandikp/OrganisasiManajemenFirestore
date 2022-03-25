@@ -4,6 +4,30 @@ body {
     height: 100%;
     background-color: #2e353d;
     background-repeat: no-repeat;
+    align-items: center;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.container form .user-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+form .user-details .form-group {
+    margin: 20px 0 12px 0;
+    width: calc(100% / 2 - 20px);
+}
+
+.user-details .form-group .form-control-label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
 }
 
 input,
@@ -91,7 +115,7 @@ button:focus {
 }
 
 .login-card {
-    width: 500px;
+    width: 800px;
 }
 
 .btn-color:hover {
@@ -130,35 +154,12 @@ a:hover {
     font-size: 15px;
 }
 
-@media screen and (max-width: 992px) {
-    .card1 {
-        width: 100%;
-        padding: 40px 30px 10px 30px;
-    }
-    .card2 {
-        width: 100%;
-    }
-    .right {
-        margin-top: 100px !important;
-        margin-bottom: 100px !important;
-    }
-}
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 500px) {
     .container {
-        padding: 10px !important;
+        max-width: 100%;
     }
-    .card2 {
-        padding: 50px;
-    }
-    .right {
-        margin-top: 50px !important;
-        margin-bottom: 50px !important;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .login-card {
+    form .user-details .form-group {
+        margin-bottom: 15px;
         width: 100%;
     }
 }
