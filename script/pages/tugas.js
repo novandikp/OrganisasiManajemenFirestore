@@ -1,47 +1,46 @@
-$(document).ready(function () {
-  let fileImage;
-  $("input[name='berkas']").on("change", function (e) {
-    fileImage = e.target.files[0];
-  });
-
-  const deleteBerkas = async function (id) {
-    const docUser = doc(db, "berkas", id);
-    const docSnap = await deleteDoc(docUser);
-    return docSnap;
-  };
-
-  $("#formBerkas").submit(function (e) {
-    e.preventDefault();
-    const berkas = {};
-    const btn = $("button[type='submit']");
-    btn.attr("disabled", true);
-    console.log("loading");
-    berkas.nama_berkas = $("input[name='nama_berkas']").val();
-    berkas.created_at = new Date().toISOString();
-    berkas.updated_at = new Date().toISOString();
-    berkas.id = uuid("berkas_");
-    berkas.deskripsi = $("textarea[name='deskripsi_berkas']").val();
-    berkas.author = doc(db, "users", getUserInfo().id);
-
-    uploadFile(fileImage, berkas.id).then((url) => {
-      berkas.dokumen = url;
-      const berkasBaru = doc(db, "berkas", berkas.id);
-      setDoc(berkasBaru, berkas).then((doc) => {
-        $("#formBerkas").trigger("reset");
-        btn.removeAttr("disabled");
-        $.alert({
-          title: "Berhasil",
-          content: "Berhasil menambahkan berkas",
-        });
-        getBerkas();
-      });
+$(document).ready(function() {
+    let fileImage;
+    $("input[name='berkas']").on("change", function(e) {
+        fileImage = e.target.files[0];
     });
-  });
 
-  const itemLoad = () => {
-    $(".list-data").empty();
-    for (let i = 0; i < 4; i++) {
-      const item = `<div class="card shadow skeleton item-list">
+    const deleteBerkas = async function(id) {
+        const docUser = doc(db, "berkas", id);
+        const docSnap = await deleteDoc(docUser);
+        return docSnap;
+    };
+
+    $("#formBerkas").submit(function(e) {
+        e.preventDefault();
+        const berkas = {};
+        const btn = $("button[type='submit']");
+        btn.attr("disabled", true);
+        berkas.nama_berkas = $("input[name='nama_berkas']").val();
+        berkas.created_at = new Date().toISOString();
+        berkas.updated_at = new Date().toISOString();
+        berkas.id = uuid("berkas_");
+        berkas.deskripsi = $("textarea[name='deskripsi_berkas']").val();
+        berkas.author = doc(db, "users", getUserInfo().id);
+
+        uploadFile(fileImage, berkas.id).then((url) => {
+            berkas.dokumen = url;
+            const berkasBaru = doc(db, "berkas", berkas.id);
+            setDoc(berkasBaru, berkas).then((doc) => {
+                $("#formBerkas").trigger("reset");
+                btn.removeAttr("disabled");
+                $.alert({
+                    title: "Berhasil",
+                    content: "Berhasil menambahkan berkas",
+                });
+                getBerkas();
+            });
+        });
+    });
+
+    const itemLoad = () => {
+        $(".list-data").empty();
+        for (let i = 0; i < 4; i++) {
+            const item = `<div class="card shadow skeleton item-list">
       <div class="card-body skeleton">
       <div class="row">
         
@@ -58,45 +57,45 @@ $(document).ready(function () {
   </div>
   </div>`;
 
-      $(".list-data").append(item);
-    }
-  };
+            $(".list-data").append(item);
+        }
+    };
 
-  function itemEvent() {
-    $(".list-data").on("click", ".item-hapus", async function () {
-      const id = $(this).data("id");
-      const element = $(this);
-      $.confirm({
-        title: "Konfirmasi",
-        content: "Apakah anda yakin untuk menghapus data ini?",
-        buttons: {
-          confirm: function () {
-            element.attr("disabled", true);
-            deleteBerkas(id).then(() => {
-              getBerkas();
+    function itemEvent() {
+        $(".list-data").on("click", ".item-hapus", async function() {
+            const id = $(this).data("id");
+            const element = $(this);
+            $.confirm({
+                title: "Konfirmasi",
+                content: "Apakah anda yakin untuk menghapus data ini?",
+                buttons: {
+                    confirm: function() {
+                        element.attr("disabled", true);
+                        deleteBerkas(id).then(() => {
+                            getBerkas();
+                        });
+                    },
+                    cancel: function() {},
+                },
             });
-          },
-          cancel: function () {},
-        },
-      });
-    });
-  }
+        });
+    }
 
-  const getBerkas = (search = "") => {
-    itemLoad();
-    const q = query(
-      collection(db, "berkas"),
-      where("nama_berkas", ">=", search),
-      where("nama_berkas", "<=", search + "~")
-    );
+    const getBerkas = (search = "") => {
+        itemLoad();
+        const q = query(
+            collection(db, "berkas"),
+            where("nama_berkas", ">=", search),
+            where("nama_berkas", "<=", search + "~")
+        );
 
-    getDocs(q).then(async (querySnapshot) => {
-      $(".list-data").empty();
-      querySnapshot.forEach(async (doc) => {
-        const element = doc.data();
-        element.id = doc.id;
+        getDocs(q).then(async(querySnapshot) => {
+            $(".list-data").empty();
+            querySnapshot.forEach(async(doc) => {
+                const element = doc.data();
+                element.id = doc.id;
 
-        let item = `<div class="card shadow item-list">
+                let item = `<div class="card shadow item-list">
             <div class="card-body">
             <div class="row">
               
@@ -123,24 +122,24 @@ $(document).ready(function () {
         </div>
         </div>`;
 
-        $(".list-data").append(item);
-      });
+                $(".list-data").append(item);
+            });
+        });
+    };
+
+    itemEvent();
+
+    $("#formSearch").on("submit", (e) => {
+        e.preventDefault();
+        if ($("#search").val() != "") {
+            getBerkas($("#search").val());
+        }
     });
-  };
 
-  itemEvent();
-
-  $("#formSearch").on("submit", (e) => {
-    e.preventDefault();
-    if ($("#search").val() != "") {
-      getBerkas($("#search").val());
-    }
-  });
-
-  $("#search").on("search", function (evt) {
-    if ($(this).val().length == 0) {
-      getBerkas();
-    }
-  });
-  getBerkas();
+    $("#search").on("search", function(evt) {
+        if ($(this).val().length == 0) {
+            getBerkas();
+        }
+    });
+    getBerkas();
 });
