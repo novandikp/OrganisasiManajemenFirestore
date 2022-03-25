@@ -7,11 +7,8 @@
 <title>User | Profile</title>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
 <link href="../style/dashboard.css" rel="stylesheet">
@@ -22,36 +19,35 @@
 <body>
     <div class="nav-side-menu">
         <div class="brand">SISMANSI</div>
-        <i class="fa fa-bars fa-2x toggle-btn" data-bs-toggle="collapse" aria-expanded="false"
-            aria-controls="collapseExample" data-bs-target="#menu-content"></i>
+        <i class="fa fa-bars fa-2x toggle-btn" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" data-bs-target="#menu-content"></i>
         <div class="menu-list">
             <ul id="menu-content" class="navbar-nav menu-content collapse out ">
                 <li class="nav-item">
-                    <a class="nav-link" href="dashboard.html">
+                    <a class="nav-link " href="dashboard.html">
                         <i class="fa fa-dashboard fa-lg"></i> Dashboard
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">
+                    <a class="nav-link active" href="profile.html">
                         <i class="fa fa-user fa-lg"></i> Profile
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" id="akses_jabatan">
                     <a class="nav-link" href="jabatan.html">
                         <i class="fa fa-sitemap fa-lg"></i> Jabatan
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" id="akses_anggota">
                     <a class="nav-link" href="anggota.html">
                         <i class="fa fa-users fa-lg"></i> Anggota
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" id="akses_blog">
                     <a class="nav-link" href="blog.html">
                         <i class="fa fa-newspaper-o fa-lg"></i> Blog
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" id="akses_arsip">
                     <a class="nav-link" href="tugas.html">
                         <i class="fa fa-tasks fa-lg"></i> Arsip
                     </a>
@@ -62,8 +58,8 @@
                             class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="finance">
-                    <li><a href="kas.html">Kas</a></li>
-                    <li><a href="debit_kredit.html">Pemasukan dan Pengeluaran</a></li>
+                    <li id="akses_kas"><a href="kas.html">Kas</a></li>
+                    <li id="akses_keuangan"><a href="debit_kredit.html">Pemasukan dan Pengeluaran</a></li>
                 </ul>
 
                 <li class="nav-item">
@@ -88,15 +84,19 @@
                 <div class="row mb-2">
                     <div class="col-sm-5">
                         <h1 class="m-0">Profile</h1>
-                    </div><!-- /.col -->
+                    </div>
+                    <!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="user.html">Home</a></li>
                             <li class="breadcrumb-item active">Profile</li>
                         </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
         </div>
     </div>
 
@@ -130,10 +130,12 @@
                                 </div>
                                 <ul class="list-group list-group-unbordered mb-3">
                                     <li class="list-group-item skeleton border-0">
-                                        <b>Email</b> :<p class="pull-right email-header">Novandi Kevin Pratama</p>
+                                        <b>Email</b> :
+                                        <p class="pull-right email-header">Novandi Kevin Pratama</p>
                                     </li>
                                     <li class="list-group-item border-0 skeleton">
-                                        <b>No Telp</b> :<p class="pull-right phone-header">088888</p>
+                                        <b>No Telp</b> :
+                                        <p class="pull-right phone-header">088888</p>
                                     </li>
                                 </ul>
                             </div>
@@ -154,29 +156,25 @@
                                     <div class="form-group mt-2 row">
                                         <label for="nama" class="col-sm-2 col-form-label">Nama</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control skeleton" name="nama" id="nama"
-                                                placeholder="">
+                                            <input type="text" class="form-control skeleton" name="nama" id="nama" placeholder="">
                                         </div>
                                     </div>
 
                                     <div class="form-group mt-2 row">
                                         <label for="no_hp" class="col-sm-2 col-form-label">No Telp</label>
                                         <div class="col-sm-10">
-                                            <input type="text" name="no_hp" class="form-control skeleton" id="no_hp"
-                                                placeholder="">
+                                            <input type="text" name="no_hp" class="form-control skeleton" id="no_hp" placeholder="">
                                         </div>
                                     </div>
                                     <div class="form-group mt-2 row">
                                         <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
                                         <div class="col-sm-10">
-                                            <textarea class="form-control skeleton" name="alamat" id="alamat"
-                                                placeholder=""></textarea>
+                                            <textarea class="form-control skeleton" name="alamat" id="alamat" placeholder=""></textarea>
                                         </div>
                                     </div>
 
 
-                                    <button type="submit" class="btn btn-primary btn-sm mt-4 pull-right"
-                                        id="edit_bio">Edit Biodata</button>
+                                    <button type="submit" class="btn btn-primary btn-sm mt-4 pull-right" id="edit_bio">Edit Biodata</button>
                                 </form>
                             </div>
 
@@ -187,8 +185,7 @@
         </section>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
     <script type="module" src="../script/app.js"></script>
     <script src="../script/pages/profile.js"></script>
