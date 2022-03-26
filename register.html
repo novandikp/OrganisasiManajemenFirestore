@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register Form</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./style/auth.css">
+    <link rel="stylesheet" href="./style/auth2.css">
     </link>
 </head>
 
 <body>
     <!-- Login Form -->
-    <div class="container px-4 py-5 mx-auto">
-        <div class="card card0">
-            <div class="d-flex flex-lg-row flex-column-reverse">
-                <div class="card card1">
-                    <div class="row justify-content-center my-auto">
-                        <div class="col-md-8 col-10 my-5">
-                            <h3 class="mb-5 text-center heading">ORGANIZATION</h3>
-                            <h6 class="msg-info">Please create new account</h6>
+    <div class="container px-4 py-5 mx-auto login-card">
+        <div class="card">
+            <div class="row justify-content-center my-auto">
+                <div class="details col-md-8 col-10 my-5">
+                    <h3 class="mb-5 text-center heading">ORGANIZATION</h3>
+                    <h6 class="msg-info">Please create new account</h6>
+                    <form action="#">
+                        <div class="user-details">
                             <div class="form-group">
                                 <label class="form-control-label text-muted">Name</label>
                                 <input type="text" id="nama" name="nama" placeholder="Type your full name" class="form-control">
@@ -43,23 +43,23 @@
                                 <label class="form-control-label text-muted">Confirm Password</label>
                                 <input type="password" id="konfirmpsw" name="konfirmpsw" placeholder="Type your confirm password" class="form-control">
                             </div>
-                            <div class="row justify-content-center my-3 px-3">
-                                <button class="btn-block btn-color" type="submit">Sign Up</button>
-                            </div>
-                            <div class="bottom text-center mb-1">
-                                <p href="masuk.html" class="sm-text mx-auto mb-3">Already have an account?</p>
-                                <a class="btn btn-white ml-2" href="masuk.html">Sign In</a>
-                            </div>
                         </div>
+
+                    </form>
+
+                    <div class="row justify-content-center my-3 px-3">
+                        <button class="btn-block btn-color" type="submit">Sign Up</button>
                     </div>
-                </div>
-                <div class="card card2">
-                    <div class="my-auto mx-md-5 px-md-5 right">
-                        <h3 class="text-white">We are more than just a Organization</h3> <small class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</small>
+                    <div class="bottom text-center mb-1">
+                        <p href="masuk.html" class="sm-text mx-auto mb-3">Already have an account?</p>
+                        <a class="btn btn-white ml-2" href="masuk.html">Sign In</a>
                     </div>
+                    </form>
                 </div>
             </div>
+
         </div>
+
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
