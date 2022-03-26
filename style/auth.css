@@ -41,12 +41,7 @@ button:focus {
     border-radius: 0;
     border: none;
     width: 100%;
-    padding: 40px 30px 10px 30px;
-}
-
-#logo {
-    width: 70px;
-    height: 60px;
+    padding: 40px 10px 0px 0px;
 }
 
 .heading {
@@ -91,7 +86,7 @@ button:focus {
 }
 
 .login-card {
-    width: 500px;
+    width: 650px;
 }
 
 .btn-color:hover {
@@ -131,12 +126,12 @@ a:hover {
 }
 
 @media screen and (max-width: 768px) {
-    .card1 {
+    .login-card {
         width: 100%;
     }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 578px) {
     .login-card {
         width: 100%;
     }

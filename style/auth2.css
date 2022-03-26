@@ -68,11 +68,6 @@ button:focus {
     padding: 40px 30px 10px 30px;
 }
 
-#logo {
-    width: 70px;
-    height: 60px;
-}
-
 .form-control-label {
     font-size: 12px;
     margin-left: 15px;
@@ -126,7 +121,7 @@ a:hover {
     font-size: 15px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 500px) {
     .container {
         max-width: 100%;
     }
