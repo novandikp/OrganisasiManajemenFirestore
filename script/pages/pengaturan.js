@@ -1,0 +1,67 @@
+$(document).ready(function() {
+    const saveValue = (key, value) => {
+        const config = doc(db, "pengaturan", key);
+        setDoc(config, { value: value });
+    };
+
+    const saveBlob = (key, value) => {
+        uploadFile(value, key).then((url) => {
+            const config = doc(db, "pengaturan", key);
+            setDoc(config, { value: url });
+        });
+    };
+
+    const profileContent = () => {
+        const content = $("#formPengaturan input , #formPengaturan textarea");
+        content.each(function(index, elemen) {
+            if ($(this).attr("type") == "file") {
+                saveBlob($(this).attr("name"), $(this).prop("files")[0]);
+            } else {
+                saveValue($(this).attr("name"), $(this).val());
+            }
+        });
+    };
+
+    const getPengaturan = () => {
+        const content = $("#formPengaturan input , #formPengaturan textarea");
+        content.prop("disabled", true);
+        const pengaturan = collection(db, "pengaturan");
+        getDocs(pengaturan).then((snapshot) => {
+            snapshot.forEach((doc) => {
+                const data = doc.data();
+                if (
+                    $("#formPengaturan [name='" + doc.id + "']").attr("type") != "file"
+                ) {
+                    $("#formPengaturan [name='" + doc.id + "']").val(data.value);
+                } else {
+                    $("#formPengaturan [data-for='" + doc.id + "']").attr(
+                        "src",
+                        data.value
+                    );
+                }
+
+                $(
+                    "#formPengaturan input[name='" +
+                    doc.id +
+                    "'] , #formPengaturan textarea[name='" +
+                    doc.id +
+                    "']"
+                ).removeAttr("disabled");
+            });
+        });
+    };
+
+    $("#formPengaturan input[type='file']").on("change", function(e) {
+        thumbnailFile(
+            this,
+            $(".img-preview[data-for='" + $(this).attr("name") + "']")
+        );
+    });
+
+    $("#formPengaturan").on("submit", function(e) {
+        e.preventDefault();
+        profileContent();
+    });
+
+    getPengaturan();
+});

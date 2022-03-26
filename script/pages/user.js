@@ -7,7 +7,10 @@ $(document).ready(function() {
 
     const updateUser = async function(user) {
         const docUser = doc(db, "users", user.id);
-
+        if (user.id == getUserInfo().jabatan) {
+            localStorage.removeItem("recent_update_info");
+            updateLoginInfo();
+        }
         delete user.id;
         return updateDoc(docUser, user).then((docSnap) => {
             return responseResult(true, docSnap, "Berhasil mengubah data");

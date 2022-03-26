@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" />
+
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
+    <style>
+        .cover {
+            background: url("https://assets.promediateknologi.com/crop/0x0:0x0/x/photo/2022/03/06/1934060455.jpg");
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .dark-overlay {
+            background: rgba(13, 110, 253, 0.85);
+            min-height: 70%;
+        }
+        
+        .nav-link {
+            font-weight: bold;
+        }
+        
+        .header-content {
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            color: white !important;
+        }
+        
+        .body {
+            height: 500px;
+        }
+        
+        .divider {
+            border-bottom: 3px solid #a8a8a8;
+            width: 100px;
+            margin-top: 20px;
+        }
+        
+        .divider-white {
+            border-bottom: 3px solid #fff;
+            width: 100px;
+            margin-top: 20px;
+        }
+        
+        .list-kategori .list-group-item {
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        .img-blog {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        .content-blog-card {
+            height: 100px;
+            overflow: hidden;
+        }
+        
+        @media only screen and (max-width: 768px) {
+            .header-content {
+                /* height: 400px; */
+                padding-left: 12px;
+            }
+        }
+        
+        @media only screen and (max-width: 480px) {
+            .header-content {
+                /* height: 100vh; */
+                text-align: center;
+            }
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary" id="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse py-1" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                </ul>
+                <div class="btn btn-outline-primary">Login</div>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <div class="row mt-5 mb-4">
+            <div class="col-md-8">
+                <div class="row my-4">
+                    <div class="">
+                        <!-- Detail Article -->
+                        <!-- Title -->
+                        <h3 class="fw-bold">
+                            <a href="#">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </a>
+                        </h3>
+                        <!-- Date -->
+                        <div class="text-muted">
+                            <i class="fa fa-calendar"></i>
+                            <span>
+                  <time datetime="2020-03-05"> March 05, 2020 </time>
+                  <i class="fa fa-user"></i>
+                  <span>Novandi</span>
+                            </span>
+                        </div>
+                        <!-- Author -->
+
+                        <!-- Image -->
+                        <img src="https://assets.pikiran-rakyat.com/crop/0x0:658x378/x/photo/2022/03/05/968822567.jpg" alt="" class="img-blog my-2" />
+                        <p>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit facilis quas dolore, explicabo quam laborum ad possimus! Ipsa aperiam obcaecati deleniti numquam nam, impedit, culpa qui labore perspiciatis deserunt omnis? Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Inventore architecto ipsa voluptates ducimus porro maxime dicta doloremque corporis ad. Odit ex nihil qui fuga magnam nam, consectetur accusantium illo sed?
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <!-- Search -->
+                <form action="">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" />
+                        <div class="input-group-append">
+                            <button class="btn btn-secondary" type="submit">
+                  <i class="fa fa-search"></i>
+                </button>
+                        </div>
+                    </div>
+                </form>
+                <!-- List Kategori -->
+                <div class="list-group list-kategori mt-4">
+                    <a href="#" class="list-group-item list-group-item-action active fw-bold">
+              Kategori
+            </a>
+                    <a href="#" class="list-group-item list-group-item-action">Kategori 1</a
+            >
+            <a href="#" class="list-group-item list-group-item-action"
+              >Kategori 2</a
+            >
+            <a href="#" class="list-group-item list-group-item-action"
+              >Kategori 3</a
+            >
+            <a href="#" class="list-group-item list-group-item-action"
+              >Kategori 4</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="body"></div>
+    <footer class="bg-dark text-white pb-4 pt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <p>&copy; 2020 - Blog</p>
+          </div>
+          <div class="col-md-6">
+            <!-- Link Sosial Media -->
+            <ul class="list-inline pull-right">
+              <li class="list-inline-item">
+                <a href="#" class="text-white">
+                  <i class="fa fa-facebook"></i>
+                </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#" class="text-white">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#" class="text-white">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#" class="text-white">
+                            <i class="fa fa-google-plus"></i>
+                        </a>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </footer>
+</body>
+
+</html>

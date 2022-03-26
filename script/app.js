@@ -179,7 +179,7 @@ if (document.URL.includes("/pages")) {
     document.URL.includes("/register.html")
 ) {
     if (isLogin()) {
-        // redirect_to("pages/anggota");
+        redirect_to("pages/dashboard");
     }
 }
 //
