@@ -3,10 +3,11 @@ $(document).ready(function() {
     const userRepo = new UserRepository();
 
     $("#register-form").submit(function(e) {
+        e.preventDefault();
+
         const button = $(this).find("button");
         button.prop("disabled", true);
         button.text("Loading...");
-        e.preventDefault();
         let values = {};
         $(this)
             .serializeArray()
@@ -18,7 +19,7 @@ $(document).ready(function() {
         }
         userRepo.register(values).then(function(result) {
             button.prop("disabled", false);
-            button.text("Sign in");
+            button.text("Daftar");
             if (result.status) {
                 redirect_to("pages/user");
             } else {
