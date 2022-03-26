@@ -1,17 +1,17 @@
-$(document).ready(function () {
-  // Hapus Blog
-  const deleteBlog = function (id) {
-    const docBlog = doc(db, "blogs", id);
-    return deleteDoc(docBlog).then((docsnap) => {
-      return responseResult(true, docsnap.data(), "Berhasil Menghapus Blog");
-    });
-  };
+$(document).ready(function() {
+    // Hapus Blog
+    const deleteBlog = function(id) {
+        const docBlog = doc(db, "blogs", id);
+        return deleteDoc(docBlog).then((docsnap) => {
+            return responseResult(true, docsnap.data(), "Berhasil Menghapus Blog");
+        });
+    };
 
-  // Skeleton Item
-  const itemLoad = () => {
-    $(".list-data").empty();
-    for (let i = 0; i < 4; i++) {
-      const item = `<div class="d-md-flex align-items-center">
+    // Skeleton Item
+    const itemLoad = () => {
+        $(".list-data").empty();
+        for (let i = 0; i < 4; i++) {
+            const item = `<div class="d-md-flex align-items-center">
       <div class="col-md-12">
           <div class="card  flex-md-row mb-4 shadow-sm h-md-250 skeleton">
               <div class="card-body d-flex flex-column align-items-start">
@@ -33,51 +33,51 @@ $(document).ready(function () {
       </div>
   </div>`;
 
-      $(".list-data").append(item);
-    }
-  };
+            $(".list-data").append(item);
+        }
+    };
 
-  // Event Item
-  const itemEvent = () => {
-    $(".list-data").on("click", ".item-hapus", async function () {
-      const id = $(this).data("id");
-      const element = $(this);
-      $.confirm({
-        title: "Konfirmasi",
-        content: "Apakah anda yakin untuk menghapus data ini?",
-        buttons: {
-          confirm: function () {
-            element.attr("disabled", true);
-            deleteBlog(id).then(() => {
-              getBlogs();
+    // Event Item
+    const itemEvent = () => {
+        $(".list-data").on("click", ".item-hapus", async function() {
+            const id = $(this).data("id");
+            const element = $(this);
+            $.confirm({
+                title: "Konfirmasi",
+                content: "Apakah anda yakin untuk menghapus data ini?",
+                buttons: {
+                    confirm: function() {
+                        element.attr("disabled", true);
+                        deleteBlog(id).then(() => {
+                            getBlogs();
+                        });
+                    },
+                    cancel: function() {},
+                },
             });
-          },
-          cancel: function () {},
-        },
-      });
-    });
-  };
+        });
+    };
 
-  //Fetch Data
-  const getBlogs = (search = "") => {
-    itemLoad();
-    const q = query(
-      collection(db, "blogs"),
-      where("title", ">=", search),
-      where("title", "<=", search + "~")
-    );
+    //Fetch Data
+    const getBlogs = (search = "") => {
+        itemLoad();
+        const q = query(
+            collection(db, "blogs"),
+            where("title", ">=", search),
+            where("title", "<=", search + "~")
+        );
 
-    getDocs(q).then(async (querySnapshot) => {
-      $(".list-data").empty();
-      querySnapshot.forEach(async (doc) => {
-        const element = doc.data();
-        // const user = await getDoc(element.author);
-        const label = await getDoc(element.category);
-        // element.user = await user.data();
-        element.label = await label.id;
-        element.id = doc.id;
+        getDocs(q).then(async(querySnapshot) => {
+            $(".list-data").empty();
+            querySnapshot.forEach(async(doc) => {
+                const element = doc.data();
+                // const user = await getDoc(element.author);
+                const label = await getDoc(element.category);
+                // element.user = await user.data();
+                element.label = await label.id;
+                element.id = doc.id;
 
-        let item = `<div class="d-md-flex align-items-center">
+                let item = `<div class="d-md-flex align-items-center">
         <div class="col-md-12">
             <div class="card  flex-md-row mb-4 shadow-sm h-md-250">
                 <div class="card-body d-flex flex-column align-items-start">
@@ -98,7 +98,10 @@ $(document).ready(function () {
                           "blog",
                           "?id=" + element.id
                         )}" class="btn btn-secondary btn-block btn-sm ">Lihat Preview</a>
-                        <a  href="#" class="btn btn-primary btn-block btn-sm ">Edit</a>
+                        <a  href="${base_url(
+                          "pages/edit_blog",
+                          "?id=" + element.id
+                        )}" class="btn btn-primary btn-block btn-sm ">Edit</a>
                         <button  data-id="${
                           element.id
                         }" class="btn btn-danger btn-block btn-sm item-hapus">Hapus</button>
@@ -112,23 +115,23 @@ $(document).ready(function () {
         </div>
     </div>`;
 
-        $(".list-data").append(item);
-      });
+                $(".list-data").append(item);
+            });
+        });
+    };
+
+    $("#formSearch").on("submit", (e) => {
+        e.preventDefault();
+        if ($("#search").val() != "") {
+            getBlogs($("#search").val());
+        }
     });
-  };
 
-  $("#formSearch").on("submit", (e) => {
-    e.preventDefault();
-    if ($("#search").val() != "") {
-      getBlogs($("#search").val());
-    }
-  });
-
-  $("#search").on("search", function (evt) {
-    if ($(this).val().length == 0) {
-      getBlogs();
-    }
-  });
-  itemEvent();
-  getBlogs();
+    $("#search").on("search", function(evt) {
+        if ($(this).val().length == 0) {
+            getBlogs();
+        }
+    });
+    itemEvent();
+    getBlogs();
 });
