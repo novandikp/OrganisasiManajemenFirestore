@@ -33,13 +33,13 @@ form .user-details .form-group {
 input,
 textarea {
     background-color: #f3e5f5;
-    border-radius: 50px !important;
-    padding: 12px 15px 12px 15px !important;
+    border-radius: 30px !important;
+    padding: 10px 10px 10px 10px !important;
     width: 100%;
     box-sizing: border-box;
     border: none !important;
     border: 1px solid #f3e5f5 !important;
-    font-size: 16px !important;
+    font-size: 10px !important;
     color: #000 !important;
     font-weight: 400;
 }
@@ -92,7 +92,7 @@ button:focus {
 }
 
 .login-card {
-    width: 800px;
+    width: 650px;
 }
 
 .btn-color:hover {
@@ -126,12 +126,18 @@ a:hover {
     font-size: 15px;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 768px) {
     .container {
         max-width: 100%;
     }
     form .user-details .form-group {
-        margin-bottom: 15px;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .login-card {
         width: 100%;
     }
 }

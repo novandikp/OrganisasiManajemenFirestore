@@ -10,12 +10,12 @@ input,
 textarea {
     background-color: #f3e5f5;
     border-radius: 50px !important;
-    padding: 12px 15px 12px 15px !important;
+    padding: 10px 10px 10px 10px !important;
     width: 100%;
     box-sizing: border-box;
     border: none !important;
     border: 1px solid #f3e5f5 !important;
-    font-size: 16px !important;
+    font-size: 10px !important;
     color: #000 !important;
     font-weight: 400;
 }
@@ -103,7 +103,7 @@ button:focus {
     border-radius: 50px;
     color: #27296d;
     background-color: #fff;
-    padding: 8px 40px;
+    padding: 8px 20px;
     cursor: pointer;
     border: 2px solid #27296d !important;
 }
@@ -130,30 +130,9 @@ a:hover {
     font-size: 15px;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 768px) {
     .card1 {
         width: 100%;
-        padding: 40px 30px 10px 30px;
-    }
-    .card2 {
-        width: 100%;
-    }
-    .right {
-        margin-top: 100px !important;
-        margin-bottom: 100px !important;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .container {
-        padding: 10px !important;
-    }
-    .card2 {
-        padding: 50px;
-    }
-    .right {
-        margin-top: 50px !important;
-        margin-bottom: 50px !important;
     }
 }
 
