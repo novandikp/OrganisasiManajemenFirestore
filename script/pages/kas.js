@@ -2,6 +2,7 @@ import BulananRepository from "../repository/bulananRepository.js";
 import KasRepository from "../repository/kasRepository.js";
 $(document).ready(function() {
     const kasRepository = new KasRepository();
+    const dataKas = [];
     //Format Uang
     $("input[name='jumlahUang']").on("keyup", function() {
         var jumlahUangRupiah = formatRupiah($(this).val());
@@ -59,6 +60,7 @@ $(document).ready(function() {
     const getDataTagihan = () => {
         itemLoad();
         const q = query(collection(db, "kas"));
+        dataKas.length = 0;
         getDocs(q).then((docSnap) => {
             $(".list-data").empty();
             docSnap.forEach(async(docSnapshot) => {
@@ -68,7 +70,7 @@ $(document).ready(function() {
                 //Ambil User
                 const user = await getDoc(dataTemp.user_id);
                 dataTemp.user = await user.data();
-
+                dataKas.push(dataTemp);
                 let buttonBayar = "";
 
                 if (dataTemp.status) {
@@ -80,31 +82,35 @@ $(document).ready(function() {
             <i class="fa fa-money me-1"></i>Bayar
             </button>`;
                 }
+
                 let item = `<div class="card shadow item-list">
-        <div class="card-body">
-        <div class="row">
-          
-          <div class="col-md-9 col-sm-9 item-info">
-            <h5>${dataTemp.user.nama}</h5>
-            <p class="text-success fw-bold">${dataTemp.jumlahUang}</p>
-            <small class="text-muted">${
-              dataTemp.keterangan ? dataTemp.keterangan : "(Tanpa Deskripsi)"
-            }</small><br/>
-            <small class="text-muted">${format_date(
-              dataTemp.created_at
-            )}</small>
-          </div>
-          <div class="col-md-3 col-sm-3">
-              <div class="float-sm-right d-grid gap-2 d-xl-block mt-3">
-              ${buttonBayar} 
-              <button data-id='${
-                dataTemp.id
-              }' class="btn btn-danger btn-sm ml-2 item-hapus"><i class="fa fa-trash me-2"></i>Hapus</button>
-              </div>
-          </div>
-        </div>
-    </div>
-    </div>`;
+                                <div class="card-body">
+                                <div class="row">  
+                                <div class="col-md-9 col-sm-9 item-info">
+                                    <h5>${dataTemp.user.nama}</h5>
+                                    <p class="text-success fw-bold">${
+                                      dataTemp.jumlahUang
+                                    }</p>
+                                    <small class="text-muted">${
+                                      dataTemp.keterangan
+                                        ? dataTemp.keterangan
+                                        : "(Tanpa Deskripsi)"
+                                    }</small><br/>
+                                    <small class="text-muted">${format_date(
+                                      dataTemp.created_at
+                                    )}</small>
+                                </div>
+                                <div class="col-md-3 col-sm-3">
+                                    <div class="float-sm-right d-grid gap-2 d-xl-block mt-3">
+                                    ${buttonBayar} 
+                                    <button data-id='${
+                                      dataTemp.id
+                                    }' class="btn btn-danger btn-sm ml-2 item-hapus"><i class="fa fa-trash me-2"></i>Hapus</button>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>`;
                 $(".list-data").append(item);
             });
         });
@@ -171,6 +177,64 @@ $(document).ready(function() {
         });
     };
 
+    const exportExcel = () => {
+        const data = {
+            nama: "Kas",
+            data: [],
+        };
+
+        data.data = dataKas.map((item) => {
+            return {
+                tanggal: format_date(item.created_at),
+                untuk: item.user.nama,
+                jumlahUang: item.jumlahUang,
+                status: item.status ? "Sudah Dibayar" : "Belum dibayar",
+            };
+        });
+        // ExcelJS
+        const workbook = new ExcelJS.Workbook();
+        const worksheet = workbook.addWorksheet("Sheet 1");
+        worksheet.columns = [
+            { header: "Nama", key: "untuk", width: 30 },
+            { header: "Tanggal Tagihan", key: "tanggal", width: 30 },
+            { header: "Nominal", key: "jumlahUang", width: 30 },
+            { header: "Status", key: "status", width: 30 },
+        ];
+        worksheet.addRows(data.data);
+        workbook.xlsx
+            .writeBuffer()
+            .then((buffer) =>
+                saveAs(new Blob([buffer]), `Laporan Kas_${Date.now()}.xlsx`)
+            )
+            .catch((err) => console.log("Error writing excel export", err));
+    };
+
+    const exportPDF = () => {
+        const dokumen = new jsPDF();
+        const data = dataKas.map((item) => {
+            return {
+                tanggal: format_date(item.created_at),
+                untuk: item.user.nama,
+                jumlahUang: item.jumlahUang,
+                status: item.status ? "Sudah Dibayar" : "Belum dibayar",
+            };
+        });
+        dokumen.autoTable({
+            columns: [
+                { header: "Nama", dataKey: "untuk" },
+                { header: "Tanggal Tagihan", dataKey: "tanggal" },
+                { header: "Nominal", dataKey: "jumlahUang" },
+                { header: "Status", dataKey: "status" },
+            ],
+            body: data,
+            margin: { top: 35 },
+            didDrawPage: function(data) {
+                dokumen.text("Daftar Kas", 15, 30);
+            },
+        });
+        dokumen.save(`Laporan Kas_${Date.now()}.pdf`);
+    };
+
     const itemEvent = () => {
         $(".list-data").on("click", ".item-hapus", async function() {
             const id = $(this).data("id");
@@ -206,6 +270,10 @@ $(document).ready(function() {
                 },
             });
         });
+
+        $("#btn-excel").on("click", exportExcel);
+
+        $("#btn-pdf").on("click", exportPDF);
     };
 
     $("#form-tagihan").submit(function(e) {
