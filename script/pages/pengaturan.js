@@ -15,7 +15,9 @@ $(document).ready(function() {
         const content = $("#formPengaturan input , #formPengaturan textarea");
         content.each(function(index, elemen) {
             if ($(this).attr("type") == "file") {
-                saveBlob($(this).attr("name"), $(this).prop("files")[0]);
+                if ($(this).prop("files").length > 0) {
+                    saveBlob($(this).attr("name"), $(this).prop("files")[0]);
+                }
             } else {
                 saveValue($(this).attr("name"), $(this).val());
             }
@@ -37,6 +39,9 @@ $(document).ready(function() {
                     $("#formPengaturan [data-for='" + doc.id + "']").attr(
                         "src",
                         data.value
+                    );
+                    $("#formPengaturan [data-for='" + doc.id + "']").removeClass(
+                        "d-none"
                     );
                 }
 

@@ -104,77 +104,81 @@
     <div class="wrapper padd-right-wrap ">
 
         <div class="row">
-            <div class="col-lg-3 col-6">
+            <div class="col-xl-3 col-md-6">
                 <!-- small box -->
-                <div class="card card-me mg-top">
+                <div class="card card-me skeleton mg-top">
                     <div class="card-body card-body-me bg-info text-light">
                         <div class="d-inline-flex">
-                            <div class="inner d-block" style="margin-right: 4.5rem;">
-                                <h3 class="fw-bold">150++</h3>
-                                <p>Postingan</p>
-                            </div>
-                            <div class="fs-1 pull-right">
+                            <div class="fs-1 me-3">
                                 <i class="bi bi-file-earmark-post"></i>
                             </div>
+                            <div class="inner d-block">
+                                <h5 class="fw-bold" id="rekap_blog">0</h5>
+                                <p>Postingan</p>
+                            </div>
+
                         </div>
-                        <a href="#" class="small-box-footer btn btn-outline-light mg-top ">More info<i
+                        <a href="blog.html" class="small-box-footer btn btn-outline-light mg-top ">More info<i
                                 class="bi bi-arrow-right-circle-fill mg-left"></i></a>
                     </div>
                 </div>
             </div>
             <!-- ./col -->
-            <div class="col-lg-3 col-6">
+            <div class="col-xl-3 col-md-6">
                 <!-- small box -->
-                <div class="card card-me mg-top">
+                <div class="card card-me skeleton mg-top">
                     <div class="card-body card-body-me bg-success text-light">
                         <div class="d-inline-flex">
-                            <div class="inner d-block" style="margin-right: 4.5rem;">
-                                <h3 class="fw-bold">54</h3>
-                                <p>Populasi</p>
+                            <div class="fs-1 me-3">
+                                <i class="bi bi-people-fill"></i>
                             </div>
-                            <div class="fs-1 pull-right">
-                                <i class="bi bi-bar-chart-fill"></i>
+                            <div class="inner d-block">
+                                <h5 class="fw-bold" id="rekap_anggota">0</h5>
+                                <p>Anggota</p>
                             </div>
+
                         </div>
-                        <a href="#" class="small-box-footer btn btn-outline-light mg-top ">More info<i
+                        <a href="anggota.html" class="small-box-footer btn btn-outline-light mg-top ">More info<i
                                 class="bi bi-arrow-right-circle-fill mg-left"></i></a>
                     </div>
                 </div>
             </div>
             <!-- ./col -->
-            <div class="col-lg-3 col-6">
+            <div class="col-xl-3 col-md-6">
                 <!-- small box -->
-                <div class="card card-me mg-top">
+                <div class="card card-me skeleton mg-top">
                     <div class="card-body card-body-me bg-warning text-light">
                         <div class="d-inline-flex">
-                            <div class="inner d-block" style="margin-right: 4.5rem;">
-                                <h3 class="fw-bold">99++</h3>
-                                <p>User Regis</p>
+                            <div class="fs-1 me-3">
+                                <i class="bi bi-archive"></i>
                             </div>
-                            <div class="fs-1 pull-right">
-                                <i class="bi bi-person-badge"></i>
+                            <div class="inner d-block">
+                                <h5 class="fw-bold ">Rp.<span id="rekap_kas">0</span></h5>
+                                <p>Kas</p>
                             </div>
+
                         </div>
-                        <a href="#" class="small-box-footer btn btn-outline-light mg-top ">More info<i
+                        <a href="kas.html" class="small-box-footer btn btn-outline-light mg-top ">More info<i
                                 class="bi bi-arrow-right-circle-fill mg-left"></i></a>
                     </div>
                 </div>
             </div>
             <!-- ./col -->
-            <div class="col-lg-3 col-6">
+            <div class="col-xl-3 col-md-6">
                 <!-- small box -->
-                <div class="card card-me mg-top">
+                <div class="card card-me skeleton mg-top">
                     <div class="card-body card-body-me bg-danger text-light">
                         <div class="d-inline-flex">
-                            <div class="inner d-block" style="margin-right: 4.5rem;">
-                                <h3 class="fw-bold">99++</h3>
-                                <p>Pengunjung</p>
-                            </div>
-                            <div class="fs-1 pull-right">
+                            <div class="fs-1 me-3">
                                 <i class="bi bi-graph-up-arrow"></i>
                             </div>
+                            <div class="inner d-block">
+                                <h5 class="fw-bold">Rp.<span id="rekap_keuangan">0</span></h5>
+                                <p>Saldo Keuangan</p>
+                            </div>
+
                         </div>
-                        <a href="#" class="small-box-footer btn btn-outline-light mg-top ">More info<i
+                        <a href="debit_kredit.html" class="small-box-footer btn btn-outline-light mg-top ">More info<i
                                 class="bi bi-arrow-right-circle-fill mg-left"></i></a>
                     </div>
                 </div>
@@ -184,28 +188,32 @@
 
         <!-- Chart -->
         <div class="row">
-            <!-- chart pengunjung -->
-            <div class="col-lg-7">
+            <!-- chart garis -->
+            <div class="col-lg-12">
                 <div class="card mg-top">
                     <div class="card-header bg-primary text-light">
-                        <h5 class=" card-title">Grafik Pengunjung<i class="bi bi-pie-chart-fill mg-left"></i></h5>
+                        <h5 class=" card-title">Grafik Garis Lingkaran<i class="bi bi-pie-chart-fill mg-left"></i></h5>
                     </div>
                     <div class="card-body">
-                        <h1>Isi chart</h1>
+                        <div class="chart-container">
 
+                            <canvas id="chartPie"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Chart 2 -->
-            <div class="col-lg-5">
+            <!-- Chart tabung -->
+            <div class="col-lg-12">
                 <div class="card mg-top">
                     <div class="card-header bg-secondary text-light">
-                        <h5 class="card-title">Grafik Aktivitas User<i class="bi bi-graph-up mg-left"></i></h5>
+                        <h5 class="card-title">Grafik Batang Batang<i class="bi bi-graph-up mg-left"></i></h5>
 
                     </div>
                     <div class="card-body">
-                        <h1>Isi chart</h1>
+                        <div class="chart-container">
+                            <canvas id="chartBar"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -232,10 +240,11 @@
 
 
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script type="module" src="../script/app.js"></script>
-    <script type="module" src="../script/pages/user.js?v1"></script>
+    <script type="module" src="../script/pages/dashboard.js"></script>
 </body>
 
 </html>

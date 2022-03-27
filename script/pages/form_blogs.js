@@ -1,4 +1,6 @@
+import BlogRepository from "../repository/blogRepository.js";
 $(document).ready(function() {
+    const blogRepo = new BlogRepository();
     let fileImage;
     //Text area editor
     const editor = SUNEDITOR.create(
@@ -69,6 +71,7 @@ $(document).ready(function() {
             blog.image = url;
             const blogs = doc(db, "blogs", id);
             setDoc(blogs, blog).then((doc) => {
+                blogRepo.tambahBlog();
                 redirect_to("pages/blog");
             });
         });

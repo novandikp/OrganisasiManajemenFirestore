@@ -1,7 +1,10 @@
+import AnggotaRepository from "../repository/anggotaRepository.js";
 $(document).ready(function() {
+    const anggotaRepo = new AnggotaRepository();
     const deleteUser = async function(id) {
         const docUser = doc(db, "users", id);
         const docSnap = await deleteDoc(docUser);
+        anggotaRepo.kurangAnggota();
         return docSnap;
     };
 
@@ -101,6 +104,7 @@ $(document).ready(function() {
                         temp.status = true;
                         temp.id = id;
                         updateUser(temp).then(() => {
+                            anggotaRepo.tambahAnggota();
                             getUsers();
                         });
                     },

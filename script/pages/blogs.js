@@ -1,9 +1,12 @@
+import BlogRepository from "../repository/blogRepository.js";
 $(document).ready(function() {
+    const blogRepo = new BlogRepository();
     // Hapus Blog
     const deleteBlog = function(id) {
         const docBlog = doc(db, "blogs", id);
         return deleteDoc(docBlog).then((docsnap) => {
-            return responseResult(true, docsnap.data(), "Berhasil Menghapus Blog");
+            blogRepo.kurangBlog();
+            return responseResult(true, [], "Berhasil Menghapus Blog");
         });
     };
 
