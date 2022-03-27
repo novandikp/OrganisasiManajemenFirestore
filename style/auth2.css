@@ -110,6 +110,11 @@ button:focus {
 }
 
 a {
+    text-decoration: none;
+    text-align: center;
+}
+
+a {
     color: #000;
 }
 
