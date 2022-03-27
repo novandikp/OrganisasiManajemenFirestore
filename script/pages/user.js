@@ -2,7 +2,7 @@ import AnggotaRepository from "../repository/anggotaRepository.js";
 $(document).ready(function() {
     const anggotaRepo = new AnggotaRepository();
     const dataUser = [];
-    const doc = new jsPDF();
+    const dokumen = new jsPDF();
     const deleteUser = async function(id) {
         const docUser = doc(db, "users", id);
         const docSnap = await deleteDoc(docUser);
@@ -278,7 +278,7 @@ $(document).ready(function() {
     };
 
     const exportPDF = () => {
-        doc.autoTable({
+        dokumen.autoTable({
             columns: [
                 { header: "Nama", dataKey: "nama" },
                 { header: "Alamat", dataKey: "alamat" },
@@ -288,10 +288,10 @@ $(document).ready(function() {
             body: dataUser,
             margin: { top: 35 },
             didDrawPage: function(data) {
-                doc.text("Daftar Anggota", 15, 30);
+                dokumen.text("Daftar Anggota", 15, 30);
             },
         });
-        doc.save(`Laporan Anggota_${Date.now()}.pdf`);
+        dokumen.save(`Laporan Anggota_${Date.now()}.pdf`);
     };
 
     $("#formSearch").on("submit", (e) => {
