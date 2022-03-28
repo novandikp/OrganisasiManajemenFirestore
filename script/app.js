@@ -181,7 +181,8 @@ if (document.URL.includes("/pages")) {
     }
 } else if (
     document.URL.includes("/masuk.html") ||
-    document.URL.includes("/register.html")
+    document.URL.includes("/register.html") ||
+    document.URL.includes("/info.html")
 ) {
     if (isLogin()) {
         redirect_to("pages/dashboard");
