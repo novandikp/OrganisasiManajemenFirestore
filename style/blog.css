@@ -1,5 +1,7 @@
 /* stylelint-disable selector-list-comma-newline-after */
 
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@100;400&family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@100;400&family=Montserrat:wght@500;800&display=swap');
 .blog-header {
     line-height: 1;
     border-bottom: 1px solid #e5e5e5;
@@ -20,7 +22,8 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    font-family: 'Jost', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .display-4 {
@@ -195,4 +198,51 @@ a {
 .image-blog {
     height: 400px;
     object-fit: cover;
+}
+
+.btn-sign{
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 100px;
+    color: white;
+}
+
+.btn-sign:hover{
+    background-color: white;
+    color: #2FA4FF;
+}
+
+.btn-sign-in{
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 100px;
+    color: #2FA4FF;
+}
+
+.btn-sign-in:hover{
+    background-color: white;
+    color: #2FA4FF;
+}
+
+.first-container{
+    background-color: #2FA4FF;
+    transition: 0.1s linear;
+}
+
+.nav-transparan{
+    background-color: rgba(61, 161, 255, 0.452);
+    color: #2FA4FF;
+    transition: 0.1s linear;
+}
+
+/* gif */
+.bg-gif{
+    background-color: white;
+    background-image: url(web_FP2.gif);
+    background-size: cover;
+    color: #2FA4FF;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-position-x: 20px;
+    
 }

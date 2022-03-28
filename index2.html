@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>SISMANSI | Sistem Manajemen Organisasi</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="style/blog.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="first-container navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
+        <div class="container nav-container">
+            <div class="container-fluid d-flex px-4">
+                <a class="navbar-brand fw-bold fs-2" href="#">SISMANSI</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="d-flex justify-content-end align-items-center ms-auto ">
+                        <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active text-light" aria-current="page" href="#">About</a>
+                        <a class="nav-link active text-light" aria-current="page" href="#">Post</a>
+                        <a class="nav-link active text-light" aria-current="page" href="#">Contact</a>
+                        <a class="btn  btn-sign-in mx-3" href="masuk.html">Sign In</a>
+                        <a class="btn  btn-sign " href="masuk.html">Sign up</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Konten -->
+    <div class="py-5">
+        <div class="p-3 p-md-5 text-white rounded d-flex align-items-center bg-gif" style="width: 100%; height: 580px;">
+            <div class=" container col-7" style="color: #051367;">
+
+                <h1 class="fw-bold lh-base">SISTEM MANAJEMEN ORGANISASI MAHASISWA <br />TERMUDAH DAN EFISIEN</h1>
+                <p class="fs-5">Hanya dengan registrasi akun, dapatkan <br />kemudahan manajemen organisasi anda</p>
+            </div>
+            <div class=" container col-2">
+                <h1 class="fw-bold lh-base"></h1>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="row my-2 list-data">
+
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <script type="module" src="../script/app.js"></script>
+    <script type="module" src="../script/pages/home.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $(window).scroll(function () {
+
+                var height = $('.first-container').height();
+                var scrollTop = $(window).scrollTop();
+
+                if (scrollTop >= height) {
+                    $('.first-container').addClass('nav-transparan');
+                } else {
+                    $('.first-container').removeClass('nav-transparan');
+                }
+
+            });
+        });
+
+        // window.onscroll = function () { scrollFunction };
+        // function scrollFunction() {
+        //     if (document.body.scroll > 20 || document.documentElement.scroll > 20) {
+        //         $('nav-trans').addClass('nav-transparan')
+        //     }
+        // }
+
+        // window.onscroll = function () { scrollFunction() };
+        // function scrollFunction() {
+        //     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+
+        //         document.getElementById("navbar").style.background = "none";
+        //     }
+        // }
+    </script>
+</body>
+
+</html>
