@@ -54,7 +54,7 @@
                 </li>
 
                 <li data-bs-toggle="collapse" data-bs-target="#finance" class="collapsed nav-item">
-                    <a class="nav-link" href="#"><i class="fa fa-globe fa-lg"></i> Keuangan <span
+                    <a class="nav-link" href="#"><i class="fa fa-money fa-lg"></i> Keuangan <span
                             class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="finance">
@@ -107,131 +107,38 @@
         <section class="content" style="margin-top: 1.3rem;">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-4">
-                        <div class="card " style="margin-bottom: 1rem;">
-                            <div class="card-header bg-info text-light">
-                                <h5 class="card-title ">Profile</h5>
-                            </div>
-                            <div class="card-body box-profile ">
-                                <div class="text-center">
-                                    <img class="img-size rounded-circle" src="../script/assets/img/avatar5.png" alt="User profile picture">
-                                </div>
-                                <div class="name-padd text-center">
-                                    <h3 class="profile-username " style="padding-bottom: 5px;">Riyo Admin</h3>
-                                    <p class="text-light  badge bg-warning ">Jabatan | Anggota</p>
 
-                                </div>
-
-                                <ul class="list-group list-group-unbordered mb-3">
-                                    <li class="list-group-item border-0">
-                                        <b>Email</b> :
-                                        <p class="pull-right email-header">Novandi Kevin Pratama</p>
-                                    </li>
-                                    <li class="list-group-item border-0">
-                                        <b>No Telp</b> :
-                                        <p class="pull-right phone-header">088888</p>
-                                    </li>
-
-                                </ul>
-                            </div>
-                            <!-- /.card-body -->
-                        </div>
-
-                        <!-- card ganti foto -->
-                        <div class="card " style="margin-bottom: 1rem;">
-                            <div class="card-header bg-info text-light">
-                                <h5 class="card-title ">Ganti Foto</h5>
-                            </div>
-                            <div class="card-body">
-                                <div class="input-group">
-                                    <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                                    <button class="btn btn-outline-primary" type="button" id="inputGroupFileAddon04">Ganti</button>
-                                </div>
-                            </div>
-                            <!-- /.card-body -->
-                        </div>
-                    </div>
 
                     <!-- BioData -->
-                    <div class="col-lg-8">
+                    <div class="col-lg-12">
                         <div class="card" style="margin-bottom: 1rem;">
                             <div class="card-header bg-primary text-light">
-                                <h5 class="card-title ">Biodata</h5>
+                                <h5 class="card-title ">Pengaturan</h5>
                             </div>
                             <div class="card-body">
                                 <!-- Form profile -->
-                                <form class="form-horizontal">
+                                <form class="form-horizontal" id="formPengaturan">
 
                                     <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Nama</label>
-                                        <input type="text" class="form-control" id="Ganti-nama" placeholder="Masukkan Nama">
+                                        <label for="exampleFormControlInput1" class="form-label">Nama Organisasi</label>
+                                        <input type="text" class="form-control" name="judul_cover" id="Ganti-nama" placeholder="Masukkan Nama">
                                     </div>
                                     <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="ganti-email" placeholder="Masukkan email baru">
+                                        <label for="exampleFormControlInput1" class="form-label">Dekripsi</label>
+                                        <textarea type="email" class="form-control" name="dekripsi_cover" rows="3" id="ganti-email" placeholder="Masukkan email baru"></textarea>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Password lama</label>
-                                        <input type="password" class="form-control" id="password-lama" placeholder="Masukkan email baru">
+                                        <label for="exampleFormControlTextarea1" class="form-label">Cover Depan</label>
+                                        <input class="form-control" type="file" name="cover" id="cover">
+                                        <!-- Preview Gambar -->
+                                        <img data-for="cover" alt="Preview" class="img-preview mt-1 d-none">
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Password Baru</label>
-                                        <input type="password" class="form-control" id="password-baru" placeholder="Masukkan email baru">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlTextarea1" class="form-label">Alamat</label>
-                                        <textarea class="form-control" id="ganti-alamat" rows="3" placeholder="Alamat Lengkap"></textarea>
-                                    </div>
+                                    <button type="submit" class="btn btn-primary" id="edit_bio">Simpan Perubahan</button>
+
                                 </form>
-                                <!-- <a href="#" class="btn btn-primary btn-md mt-4 pull-right" id="edit_bio">Save</a> -->
                             </div>
                         </div>
 
-                        <!-- Deskripsi -->
-                        <div class="card" style="margin-bottom: 1rem;">
-                            <div class="card-header bg-secondary text-light">
-                                <h5 class="card-title active">Deskripsi</h5>
-                            </div>
-                            <div class=" card-body">
-                                <!-- Form Deskripsi -->
-                                <form class="form-horizontal">
-
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Hoby</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Hoby">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlTextarea1" class="form-label">Siapa Saya</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Ceritakan dirimu"></textarea>
-                                    </div>
-                                </form>
-                                <!-- <a href="#" class="btn btn-primary btn-md mt-4 pull-right" id="edit_bio">Save</a> -->
-                            </div>
-                        </div>
-
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary pull-right" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                            Save Changes
-                        </button>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header bg-warning text-light">
-                                        <h5 class="modal-title" id="staticBackdropLabel">Warning</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p>Pastikan Data yang dimasukkan sudah benar</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save Changes</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
         </section>
@@ -240,7 +147,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <script type="module" src="../script/app.js"></script>
-    <script src="../script/pages/profile.js"></script>
+    <script src="../script/pages/pengaturan.js"></script>
 </body>
 
 </html>

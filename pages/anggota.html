@@ -52,7 +52,7 @@
                 </li>
 
                 <li data-bs-toggle="collapse" data-bs-target="#finance" class="collapsed nav-item">
-                    <a class="nav-link" href="#"><i class="fa fa-globe fa-lg"></i> Keuangan <span
+                    <a class="nav-link" href="#"><i class="fa fa-money fa-lg"></i> Keuangan <span
                             class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="finance">
@@ -99,26 +99,34 @@
     </div>
 
     <div class="wrapper padd-right-wrap card-top mt-3">
-        <nav class="navbar">
-            <div class="container-fluid">
 
-                <form class="d-flex pull-right" id="formSearch">
+        <div class=" row">
+            <div class="col-md-6 mb-2">
+                <div class="btn-group" role="group">
+                    <button id="btnGroupDrop1" type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Export
+                      </button>
+                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                        <button class="dropdown-item" id="btn-excel">Excel</button>
+                        <button class="dropdown-item" id="btn-pdf">PDF</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <form class="d-flex ms-auto" id="formSearch">
                     <input class="form-control me-2" type="search" id="search" placeholder="Pencarian Nama" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
-        </nav>
+        </div>
     </div>
 
     <div class="wrapper padd-right-wrap list-data">
-        <div class="d-flex align-items-center">
-
-        </div>
     </div>
 
 
     <!-- conten -->
-    <div class="modal fade " id="detailModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="detailModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -174,6 +182,10 @@
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+    <script src="https://unpkg.com/jspdf-autotable@3.5.22/dist/jspdf.plugin.autotable.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/exceljs@1.13.0/dist/exceljs.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
     <script type="module" src="../script/app.js"></script>

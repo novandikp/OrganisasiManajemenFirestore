@@ -1,13 +1,21 @@
+import AnggotaRepository from "../repository/anggotaRepository.js";
 $(document).ready(function() {
+    const anggotaRepo = new AnggotaRepository();
+    const dataUser = [];
+    const dokumen = new jsPDF();
     const deleteUser = async function(id) {
         const docUser = doc(db, "users", id);
         const docSnap = await deleteDoc(docUser);
+        anggotaRepo.kurangAnggota();
         return docSnap;
     };
 
     const updateUser = async function(user) {
         const docUser = doc(db, "users", user.id);
-
+        if (user.id == getUserInfo().jabatan) {
+            localStorage.removeItem("recent_update_info");
+            updateLoginInfo();
+        }
         delete user.id;
         return updateDoc(docUser, user).then((docSnap) => {
             return responseResult(true, docSnap, "Berhasil mengubah data");
@@ -98,6 +106,7 @@ $(document).ready(function() {
                         temp.status = true;
                         temp.id = id;
                         updateUser(temp).then(() => {
+                            anggotaRepo.tambahAnggota();
                             getUsers();
                         });
                     },
@@ -127,6 +136,7 @@ $(document).ready(function() {
                 }
             });
         });
+
         $(".list-data").on("click", ".item-hapus", async function() {
             const id = $(this).data("id");
             if (id == getUserInfo().id) {
@@ -154,6 +164,10 @@ $(document).ready(function() {
                 });
             }
         });
+
+        $("#btn-excel").on("click", exportExcel);
+
+        $("#btn-pdf").on("click", exportPDF);
     };
 
     const getUsers = (search = "") => {
@@ -163,7 +177,8 @@ $(document).ready(function() {
             where("nama", ">=", search),
             where("nama", "<=", search + "~")
         );
-
+        dataUser.length = 0;
+        $("#btn-excel , #btn-pdf").prop("disabled", true);
         getDocs(q).then(async(querySnapshot) => {
             $(".list-data").empty();
             querySnapshot.forEach(async(doc) => {
@@ -171,6 +186,10 @@ $(document).ready(function() {
                 const jabatan = await getDoc(element.jabatan);
                 element.jabatan = jabatan.id;
                 element.id = doc.id;
+                element.nama_jabatan = jabatan.data().jabatan;
+                if (element.status) {
+                    dataUser.push(element);
+                }
 
                 let item = `<div class="card shadow item-list">
             <div class="card-body">
@@ -230,6 +249,49 @@ $(document).ready(function() {
                 $(".list-data").append(item);
             });
         });
+        $("#btn-excel , #btn-pdf").removeAttr("disabled");
+    };
+
+    const exportExcel = () => {
+        const data = {
+            nama: "Anggota",
+            data: dataUser,
+        };
+
+        // ExcelJS
+        const workbook = new ExcelJS.Workbook();
+        const worksheet = workbook.addWorksheet("Sheet 1");
+        worksheet.columns = [
+            { header: "Nama", key: "nama", width: 30 },
+            { header: "Email", key: "email", width: 30 },
+            { header: "No HP", key: "no_hp", width: 30 },
+            { header: "Alamat", key: "alamat", width: 30 },
+            { header: "Jabatan", key: "nama_jabatan", width: 30 },
+        ];
+        worksheet.addRows(data.data);
+        workbook.xlsx
+            .writeBuffer()
+            .then((buffer) =>
+                saveAs(new Blob([buffer]), `Laporan Anggota_${Date.now()}.xlsx`)
+            )
+            .catch((err) => console.log("Error writing excel export", err));
+    };
+
+    const exportPDF = () => {
+        dokumen.autoTable({
+            columns: [
+                { header: "Nama", dataKey: "nama" },
+                { header: "Alamat", dataKey: "alamat" },
+                { header: "No Telp", dataKey: "no_hp" },
+                { header: "Jabatan", dataKey: "nama_jabatan" },
+            ],
+            body: dataUser,
+            margin: { top: 35 },
+            didDrawPage: function(data) {
+                dokumen.text("Daftar Anggota", 15, 30);
+            },
+        });
+        dokumen.save(`Laporan Anggota_${Date.now()}.pdf`);
     };
 
     $("#formSearch").on("submit", (e) => {
@@ -244,6 +306,7 @@ $(document).ready(function() {
             getUsers();
         }
     });
+
     itemEvent();
     getUsers();
 });

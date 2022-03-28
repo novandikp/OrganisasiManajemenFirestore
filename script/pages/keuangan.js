@@ -1,90 +1,93 @@
 import KeuanganRepository from "../repository/keuanganRepository.js";
-$(document).ready(function () {
-  const keuanganRepository = new KeuanganRepository();
-  //Default Value untuk Tanggal
-  $("#start-filter-date").val(new Date().toDateInputValue());
-  $("#end-filter-date").val(new Date().toDateInputValue());
-  $("#tanggalKeuangan").val(new Date().toDateInputValue());
+import BulananRepository from "../repository/bulananRepository.js";
+$(document).ready(function() {
+    const keuanganRepository = new KeuanganRepository();
+    //Default Value untuk Tanggal
+    $("#start-filter-date").val(new Date().toDateInputValue());
+    $("#end-filter-date").val(new Date().toDateInputValue());
+    $("#tanggalKeuangan").val(new Date().toDateInputValue());
 
-  //Keuangan
-  $("#nominal").on("keyup", function () {
-    $(this).val(formatRupiah($(this).val()));
-  });
-
-  const fetchSaldo = () => {
-    keuanganRepository.getSaldo().then((saldo) => {
-      if (saldo >= 0) {
-        $("#saldo").text("Rp. " + formatRupiah(saldo.toString()));
-      } else {
-        $("#saldo").text("-Rp. " + formatRupiah(saldo.toString()));
-      }
+    //Keuangan
+    $("#nominal").on("keyup", function() {
+        $(this).val(formatRupiah($(this).val()));
     });
-  };
 
-  const addKeuangan = () => {
-    let values = {};
-    $("#formKeuangan")
-      .serializeArray()
-      .forEach((element) => {
-        values[element.name] = element.value;
-      });
-    values.tanggalKeuangan = new Date(values.tanggalKeuangan).toISOString();
-    values.user_id = doc(db, "users", getUserInfo().id);
-    values.created_at = new Date().toISOString();
-    values.nominal = parseInt(values.nominal.replace(/\./g, ""));
-    if (values.tipe == "2") {
-      values.debit = values.nominal;
-      values.kredit = 0;
-      keuanganRepository.addPemasukan(values.nominal);
-    } else {
-      values.kredit = values.nominal;
-      values.debit = 0;
-      keuanganRepository.addPengeluaran(values.nominal);
-    }
+    const fetchSaldo = () => {
+        keuanganRepository.getSaldo().then((saldo) => {
+            if (saldo >= 0) {
+                $("#saldo").text("Rp. " + formatRupiah(saldo.toString()));
+            } else {
+                $("#saldo").text("-Rp. " + formatRupiah(saldo.toString()));
+            }
+        });
+    };
 
-    const keuanganBaru = doc(db, "keuangan", uuid("keuangan_"));
-    return setDoc(keuanganBaru, values).then((docSnap) => {
-      return responseResult(true, docSnap, "Berhasil menambahkan data");
-    });
-  };
-
-  const deleteKeuangan = (id) => {
-    const recentData = doc(db, "keuangan", id);
-    return getDoc(recentData).then((data) => {
-      const dataTemp = data.data();
-      if (dataTemp.debit == 0) {
-        keuanganRepository.addPemasukan(dataTemp.nominal);
-      } else {
-        keuanganRepository.addPengeluaran(dataTemp.nominal);
-      }
-      return deleteDoc(recentData);
-    });
-  };
-
-  const itemEvent = () => {
-    $(".list-data").on("click", ".item-hapus", async function () {
-      const id = $(this).data("id");
-      const element = $(this);
-      $.confirm({
-        title: "Konfirmasi",
-        content: "Apakah anda yakin untuk menghapus data ini?",
-        buttons: {
-          confirm: function () {
-            element.attr("disabled", true);
-            deleteKeuangan(id).then((data) => {
-              getDataKeuangan();
+    const addKeuangan = () => {
+        let values = {};
+        $("#formKeuangan")
+            .serializeArray()
+            .forEach((element) => {
+                values[element.name] = element.value;
             });
-          },
-          cancel: function () {},
-        },
-      });
-    });
-  };
+        values.tanggalKeuangan = new Date(values.tanggalKeuangan).toISOString();
+        values.user_id = doc(db, "users", getUserInfo().id);
+        values.created_at = new Date().toISOString();
+        values.nominal = parseInt(values.nominal.replace(/\./g, ""));
+        const bulanRepo = new BulananRepository(values.tanggalKeuangan);
+        if (values.tipe == "2") {
+            values.debit = values.nominal;
+            values.kredit = 0;
+            bulanRepo.addPemasukan(values.nominal);
+        } else {
+            values.kredit = values.nominal;
+            values.debit = 0;
+            bulanRepo.addPengeluaran(values.nominal);
+        }
 
-  const itemLoad = () => {
-    $(".list-data").empty();
-    for (let i = 0; i < 4; i++) {
-      const item = `<div class="card shadow skeleton item-list">
+        const keuanganBaru = doc(db, "keuangan", uuid("keuangan_"));
+        return setDoc(keuanganBaru, values).then((docSnap) => {
+            return responseResult(true, docSnap, "Berhasil menambahkan data");
+        });
+    };
+
+    const deleteKeuangan = (id) => {
+        const recentData = doc(db, "keuangan", id);
+        return getDoc(recentData).then((data) => {
+            const dataTemp = data.data();
+            const bulanRepo = new BulananRepository(dataTemp.tanggalKeuangan);
+            if (dataTemp.debit == 0) {
+                bulanRepo.addPemasukan(dataTemp.nominal);
+            } else {
+                bulanRepo.addPengeluaran(dataTemp.nominal);
+            }
+            return deleteDoc(recentData);
+        });
+    };
+
+    const itemEvent = () => {
+        $(".list-data").on("click", ".item-hapus", async function() {
+            const id = $(this).data("id");
+            const element = $(this);
+            $.confirm({
+                title: "Konfirmasi",
+                content: "Apakah anda yakin untuk menghapus data ini?",
+                buttons: {
+                    confirm: function() {
+                        element.attr("disabled", true);
+                        deleteKeuangan(id).then((data) => {
+                            getDataKeuangan();
+                        });
+                    },
+                    cancel: function() {},
+                },
+            });
+        });
+    };
+
+    const itemLoad = () => {
+        $(".list-data").empty();
+        for (let i = 0; i < 4; i++) {
+            const item = `<div class="card shadow skeleton item-list">
       <div class="card-body skeleton">
       <div class="row">
         
@@ -101,35 +104,35 @@ $(document).ready(function () {
   </div>
   </div>`;
 
-      $(".list-data").append(item);
-    }
-  };
+            $(".list-data").append(item);
+        }
+    };
 
-  const getDataKeuangan = () => {
-    itemLoad();
+    const getDataKeuangan = () => {
+        itemLoad();
 
-    const q = query(
-      collection(db, "keuangan"),
-      orderBy("tanggalKeuangan", "desc"),
-      orderBy("created_at", "desc"),
-      where(
-        "tanggalKeuangan",
-        ">=",
-        new Date($("#start-filter-date").val()).toISOString()
-      ),
+        const q = query(
+            collection(db, "keuangan"),
+            orderBy("tanggalKeuangan", "desc"),
+            orderBy("created_at", "desc"),
+            where(
+                "tanggalKeuangan",
+                ">=",
+                new Date($("#start-filter-date").val()).toISOString()
+            ),
 
-      where(
-        "tanggalKeuangan",
-        "<=",
-        new Date($("#end-filter-date").val() + " 23:59:59").toISOString()
-      )
-    );
-    getDocs(q).then((docSnap) => {
-      $(".list-data").empty();
-      docSnap.forEach(async (docSnapshot) => {
-        const dataTemp = docSnapshot.data();
-        dataTemp.id = docSnapshot.id;
-        let item = `<div class="card shadow item-list">
+            where(
+                "tanggalKeuangan",
+                "<=",
+                new Date($("#end-filter-date").val() + " 23:59:59").toISOString()
+            )
+        );
+        getDocs(q).then((docSnap) => {
+            $(".list-data").empty();
+            docSnap.forEach(async(docSnapshot) => {
+                const dataTemp = docSnapshot.data();
+                dataTemp.id = docSnapshot.id;
+                let item = `<div class="card shadow item-list">
         <div class="card-body">
         <div class="row">
           
@@ -154,26 +157,26 @@ $(document).ready(function () {
         </div>
     </div>
     </div>`;
-        $(".list-data").append(item);
-      });
-      fetchSaldo();
-    });
-  };
+                $(".list-data").append(item);
+            });
+            fetchSaldo();
+        });
+    };
 
-  $("#refreshData").on("click", function () {
+    $("#refreshData").on("click", function() {
+        getDataKeuangan();
+    });
+
+    $("#formKeuangan").on("submit", function(e) {
+        e.preventDefault();
+        addKeuangan().then(() => {
+            $("#formKeuangan").trigger("reset");
+
+            $("#tanggalKeuangan").val(new Date().toDateInputValue());
+            getDataKeuangan();
+        });
+    });
+
+    itemEvent();
     getDataKeuangan();
-  });
-
-  $("#formKeuangan").on("submit", function (e) {
-    e.preventDefault();
-    addKeuangan().then(() => {
-      $("#formKeuangan").trigger("reset");
-
-      $("#tanggalKeuangan").val(new Date().toDateInputValue());
-      getDataKeuangan();
-    });
-  });
-
-  itemEvent();
-  getDataKeuangan();
 });

@@ -83,14 +83,19 @@ $("#sign-out").click(function() {
 
 async function upload(file, name) {
     const storage = getStorage();
-    const extension = file.name.substring(file.name.lastIndexOf(".") + 1);
-    const filename = name + "." + extension;
+    const filename = getFileName(file, name);
     const storageRef = ref(storage, filename);
     return uploadBytes(storageRef, file).then((snapshot) => {
         return getDownloadURL(storageRef).then((url) => {
+            console.log(url);
             return Promise.resolve(url);
         });
     });
+}
+
+function getFileName(file, name) {
+    const extension = file.name.substring(file.name.lastIndexOf(".") + 1);
+    return name + "." + extension;
 }
 
 function formatRupiah(angka) {
@@ -176,10 +181,11 @@ if (document.URL.includes("/pages")) {
     }
 } else if (
     document.URL.includes("/masuk.html") ||
-    document.URL.includes("/register.html")
+    document.URL.includes("/register.html") ||
+    document.URL.includes("/info.html")
 ) {
     if (isLogin()) {
-        // redirect_to("pages/anggota");
+        redirect_to("pages/dashboard");
     }
 }
 //
@@ -256,6 +262,7 @@ window.getUserInfo = getUserInfo;
 window.isLogin = isLogin;
 window.Timestamp = firebasedatabase.Timestamp;
 window.uploadFile = upload;
+window.getFileName = getFileName;
 window.thumbnailFile = thumbnailFile;
 window.Chipper = chipper;
 window.findGetParameter = findGetParameter;

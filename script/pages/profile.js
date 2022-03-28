@@ -21,7 +21,7 @@ $(document).ready(() => {
         $(".profile-username ").text(temp.nama);
         $("input[name='nama']").val(temp.nama);
         $("input[name='nama']").attr("placeholder", "Masukkan Nama");
-        $(".email-header").text(temp.email);
+        $(".phone-header").text(temp.no_hp);
         $("input[name='no_hp']").val(temp.no_hp);
         $("input[name='no_hp']").attr("placeholder", "Masukkan Nomer Telepon");
         $("textarea[name='alamat']").text(temp.alamat);

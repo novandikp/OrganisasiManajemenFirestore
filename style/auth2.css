@@ -39,7 +39,7 @@ textarea {
     box-sizing: border-box;
     border: none !important;
     border: 1px solid #f3e5f5 !important;
-    font-size: 10px !important;
+    font-size: 10.5pt !important;
     color: #000 !important;
     font-weight: 400;
 }
@@ -68,14 +68,9 @@ button:focus {
     padding: 40px 30px 10px 30px;
 }
 
-#logo {
-    width: 70px;
-    height: 60px;
-}
-
 .form-control-label {
     font-size: 12px;
-    margin-left: 15px;
+    margin-left: 10px;
 }
 
 .back-color {
@@ -86,7 +81,7 @@ button:focus {
     border-radius: 50px;
     color: #fff;
     background-image: linear-gradient(to right, #626fe6, #27296d);
-    padding: 15px;
+    padding: 8px;
     cursor: pointer;
     border: none !important;
 }
@@ -104,7 +99,7 @@ button:focus {
     border-radius: 50px;
     color: #27296d;
     background-color: #fff;
-    padding: 8px 40px;
+    padding: 6px 40px;
     cursor: pointer;
     border: 2px solid #27296d !important;
 }
@@ -112,6 +107,11 @@ button:focus {
 .btn-white:hover {
     color: #fff;
     background-image: linear-gradient(to right, #626fe6, #27296d);
+}
+
+a {
+    text-decoration: none;
+    text-align: center;
 }
 
 a {
@@ -126,7 +126,7 @@ a:hover {
     font-size: 15px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 500px) {
     .container {
         max-width: 100%;
     }

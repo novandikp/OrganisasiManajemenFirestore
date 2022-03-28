@@ -6,37 +6,6 @@ body {
     background-repeat: no-repeat;
 }
 
-input,
-textarea {
-    background-color: #f3e5f5;
-    border-radius: 50px !important;
-    padding: 10px 10px 10px 10px !important;
-    width: 100%;
-    box-sizing: border-box;
-    border: none !important;
-    border: 1px solid #f3e5f5 !important;
-    font-size: 10.5pt !important;
-    color: #000 !important;
-    font-weight: 400;
-}
-
-input:focus,
-textarea:focus {
-    -moz-box-shadow: none !important;
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
-    border: 1px solid #d500f9 !important;
-    outline-width: 0;
-    font-weight: 400;
-}
-
-button:focus {
-    -moz-box-shadow: none !important;
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
-    outline-width: 0;
-}
-
 .card {
     border-radius: 0;
     border: none;
@@ -48,18 +17,9 @@ button:focus {
     margin-bottom: 60px !important;
 }
 
-.form-control-label {
-    font-size: 12px;
-    margin-left: 15px;
-}
-
 .msg-info {
     padding-left: 15px;
     margin-bottom: 30px;
-}
-
-.back-color {
-    color: #27296d;
 }
 
 .btn-color {
@@ -95,21 +55,9 @@ button:focus {
     background-image: linear-gradient(to right, #626fe6, #27296d);
 }
 
-a {
-    color: #000;
-}
-
-a:hover {
-    color: #000;
-}
-
 .bottom {
     width: 100%;
     margin-top: 50px !important;
-}
-
-.sm-text {
-    font-size: 15px;
 }
 
 @media screen and (max-width: 768px) {
