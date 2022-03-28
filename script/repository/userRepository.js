@@ -56,6 +56,9 @@ export default class UserRepository {
         } else if (user.password != user.password2) {
             return responseResult(false, null, "Password tidak sama");
         } else {
+            if (user.password2) {
+                delete user.password2;
+            }
             user.password = Chipper.encrypt(user.password);
             user.jabatan = doc(db, "jabatan", "anggota");
             const id = uuid(this.id);
