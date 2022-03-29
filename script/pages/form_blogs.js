@@ -71,8 +71,9 @@ $(document).ready(function() {
             blog.image = url;
             const blogs = doc(db, "blogs", id);
             setDoc(blogs, blog).then((doc) => {
-                blogRepo.tambahBlog();
-                redirect_to("pages/blog");
+                blogRepo.tambahBlog().then(() => {
+                    redirect_to("pages/blog");
+                });
             });
         });
     });

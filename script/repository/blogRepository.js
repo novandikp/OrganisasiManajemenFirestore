@@ -9,9 +9,9 @@ export default class BlogRepository {
         });
     }
 
-    tambahBlog() {
-        this.getRekap().then((saldo) => {
-            updateDoc(this.rekap, { value: saldo + 1 });
+    async tambahBlog() {
+        return this.getRekap().then((saldo) => {
+            return updateDoc(this.rekap, { value: saldo + 1 });
         });
     }
 
