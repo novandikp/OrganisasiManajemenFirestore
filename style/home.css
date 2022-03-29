@@ -44,9 +44,9 @@
 }
 
 .list-group-item.selected {
-    background-color: #74b9ff;
-    border-color: #74b9ff;
-    color: white;
+    font-weight: bold;
+    background-color: rgb(236, 236, 236);
+    border-color: rgb(236, 236, 236);
 }
 
 .divider-white {
@@ -143,17 +143,21 @@ a {
     }
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 980px) {
+    .bg-sm-primary {
+        background-color: #0d6efd!important;
+    }
     .btn-sign-in {
         display: block;
         margin-top: 20px;
+        margin-bottom: 20px;
     }
+}
+
+@media only screen and (max-width: 480px) {
     .header-content {
         /* height: 100vh; */
         text-align: center;
-    }
-    .bg-sm-primary {
-        background-color: #0d6efd!important;
     }
     .divider-white {
         margin: 0 auto;

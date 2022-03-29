@@ -1,14 +1,14 @@
-$(document).ready(function () {
-  const id = findGetParameter("kategori");
-  if (!id) {
-    redirect_to("index");
-  }
-  $("#kategori_query").text(id);
+$(document).ready(function() {
+    const id = findGetParameter("kategori");
+    if (!id) {
+        redirect_to("index");
+    }
+    $("#kategori_query").text(id);
 
-  const itemLoad = () => {
-    $(".list-data").empty();
-    for (let i = 0; i < 4; i++) {
-      const item = `<div class="row my-4">
+    const itemLoad = () => {
+        $(".list-data").empty();
+        for (let i = 0; i < 4; i++) {
+            const item = `<div class="row my-4">
               <div class="col-md-12">
                   <div class="card">
                       <div class="row">
@@ -38,30 +38,30 @@ $(document).ready(function () {
               </div>
           </div>`;
 
-      $("#list-blog").append(item);
-    }
-  };
+            $("#list-blog").append(item);
+        }
+    };
 
-  const getBlogs = () => {
-    itemLoad();
-    const docKategori = doc(db, "labels", id);
-    const q = query(
-      collection(db, "blogs"),
-      where("category", "==", docKategori)
-    );
+    const getBlogs = () => {
+        itemLoad();
+        const docKategori = doc(db, "labels", id);
+        const q = query(
+            collection(db, "blogs"),
+            where("category", "==", docKategori)
+        );
 
-    getDocs(q).then(async (querySnapshot) => {
-      $("#list-blog").empty();
-      querySnapshot.forEach(async (doc) => {
-        const element = doc.data();
-        const user = await getDoc(element.author);
-        const label = await getDoc(element.category);
-        element.user = await user.data();
-        element.label = await label.id;
-        element.id = doc.id;
-        console.log(element);
-        let item = $(
-          $.parseHTML(`<div class="row my-4">
+        getDocs(q).then(async(querySnapshot) => {
+            $("#list-blog").empty();
+            querySnapshot.forEach(async(doc) => {
+                const element = doc.data();
+                const user = await getDoc(element.author);
+                const label = await getDoc(element.category);
+                element.user = await user.data();
+                element.label = await label.id;
+                element.id = doc.id;
+                console.log(element);
+                let item = $(
+                    $.parseHTML(`<div class="row my-4">
                   <div class="col-md-12">
                       <div class="card">
                           <div class="row">
@@ -97,54 +97,69 @@ $(document).ready(function () {
                       </div>
                   </div>
               </div>`)
-        );
-        item.find(".content-blog-card *").removeAttr("style");
-        item.find(".content-blog-card *").css("font-size", "12pt");
-        item.find(".content-blog-card *").addClass("fw-light");
-        $("#list-blog").append(item);
-      });
-    });
-  };
+                );
+                item.find(".content-blog-card *").removeAttr("style");
+                item.find(".content-blog-card *").css("font-size", "12pt");
+                item.find(".content-blog-card *").addClass("fw-light");
+                $("#list-blog").append(item);
+            });
+        });
+    };
 
-  const loadConfig = () => {
-    getDocs(collection(db, "pengaturan")).then((doc) => {
-      const config = {};
-      doc.forEach((snap) => {
-        config[snap.id] = snap.data().value;
-      });
-      $(".skeleton").removeClass("skeleton");
-      $("#judulFooter").text(config.judul_cover);
-    });
-  };
+    const loadConfig = () => {
+        getDocs(collection(db, "pengaturan")).then((doc) => {
+            const config = {};
+            doc.forEach((snap) => {
+                config[snap.id] = snap.data().value;
+            });
+            $(".skeleton").removeClass("skeleton");
+            $("#judulFooter").text(config.judul_cover);
+            $("#ikon").attr("src", config.ikon);
+            $(".fa-twitter").parent().attr("target", "_blank");
+            $(".fa-instagram").parent().attr("target", "_blank");
+            $(".fa-twitter")
+                .parent()
+                .attr("href", "https://twitter.com/" + config.twitter);
+            $(".fa-instagram")
+                .parent()
+                .attr("href", "https://instagram.com/" + config.instagram);
+            $(".fa-twitter")
+                .parent()
+                .attr("href", "https://twitter.com/" + config.twitter);
+            $(".fa-instagram")
+                .parent()
+                .attr("href", "https://instagram.com/" + config.instagram);
+        });
+    };
 
-  const loadLabel = () => {
-    getDocs(collection(db, "labels")).then((doc) => {
-      $(".list-label").empty();
-      doc.forEach((snap) => {
-        const element = snap.data();
-        element.id = snap.id;
-        const item = `<a href="${base_url(
+    const loadLabel = () => {
+        getDocs(collection(db, "labels")).then((doc) => {
+            $(".list-label").empty();
+            doc.forEach((snap) => {
+                const element = snap.data();
+                element.id = snap.id;
+                const item = `<a href="${base_url(
           "kategori",
           "?kategori=" + element.id
         )}" class="list-group-item list-group-item-action ${
           element.id == id ? "selected" : ""
         }">${element.label}</a>`;
-        $(".list-label").append(item);
-      });
-    });
-  };
+                $(".list-label").append(item);
+            });
+        });
+    };
 
-  loadLabel();
-  loadConfig();
-  getBlogs();
+    loadLabel();
+    loadConfig();
+    getBlogs();
 
-  $("#tahun").text(new Date().getFullYear());
+    $("#tahun").text(new Date().getFullYear());
 
-  if (isLogin()) {
-    $(".btn-sign-in").html(`<i class = "fa fa-user me-2"> </i>Anggota`);
-    $(".btn-sign-in").attr("href", base_url("pages/dashboard"));
-  } else {
-    $(".btn-sign-in").html(`<i class = "fa fa-sign-in me-2"> </i>Login`);
-    $(".btn-sign-in").attr("href", base_url("masuk"));
-  }
+    if (isLogin()) {
+        $(".btn-sign-in").html(`<i class = "fa fa-user me-2"> </i>Anggota`);
+        $(".btn-sign-in").attr("href", base_url("pages/dashboard"));
+    } else {
+        $(".btn-sign-in").html(`<i class = "fa fa-sign-in me-2"> </i>Login`);
+        $(".btn-sign-in").attr("href", base_url("masuk"));
+    }
 });

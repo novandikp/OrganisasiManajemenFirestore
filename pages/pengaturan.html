@@ -10,7 +10,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="../style/profile.css">
+<link rel="stylesheet" href="../style/pengaturan.css">
 <link href="../style/dashboard.css?v=1.0" rel="stylesheet">
 
 </link>
@@ -127,6 +127,7 @@
                                         <label for="exampleFormControlInput1" class="form-label">Dekripsi</label>
                                         <textarea type="email" class="form-control" name="dekripsi_cover" rows="3" id="ganti-email" placeholder="Masukkan email baru"></textarea>
                                     </div>
+
                                     <div class="mb-3">
                                         <label for="exampleFormControlTextarea1" class="form-label">Cover Depan</label>
                                         <img data-for="cover" alt="Preview" class="img-preview mt-1 d-none">
@@ -135,7 +136,31 @@
                                         <!-- Preview Gambar -->
 
                                     </div>
-                                    <button type="submit" class="btn btn-primary" id="edit_bio">Simpan Perubahan</button>
+
+                                    <div class="mb-3 row">
+                                        <div class="col-sm-4">
+                                            <label>Ikon</label>
+                                            <img data-for="ikon" class="img-fluid d-none" src="https://upload.wikimedia.org/wikipedia/commons/8/85/Exponential_Function_%28Abs_Imag_Part_at_Infinity%29_Density.png" />
+                                            <input type="file" name="ikon" id="ikon" class="form-control">
+                                            <small class="text-muted ms-1">Disarankan Ikon berukuran 120x120</small>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <!-- Sosial Media -->
+                                            <div class="d-flex flex-column justify-content-center mt-md-0 mt-3">
+
+                                                <div class="form-group">
+                                                    <label for="exampleFormControlInput1" class="form-label">Instagram</label>
+                                                    <input type="text" class="form-control" name="instagram" id="instagram" placeholder="Masukkan Instagram">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleFormControlInput1" class="form-label">Twitter</label>
+                                                    <input type="text" class="form-control" name="twitter" id="twitter" placeholder="Masukkan Twitter">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary mt-2" id="edit_bio">Simpan Perubahan</button>
 
                                 </form>
                             </div>
@@ -148,8 +173,9 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-    <script type="module" src="../script/app.js"></script>
-    <script src="../script/pages/pengaturan.js"></script>
+    <script type="module" src="../script/app.js?v=1.2"></script>
+    <script src="../script/pages/pengaturan.js?v=1.2"></script>
+
 </body>
 
 </html>

@@ -1,147 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" />
 
-    <link
-      href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
-      rel="stylesheet"
-    />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
     <link href="style/home.css" rel="stylesheet" />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <title>Document</title>
-  </head>
+</head>
 
-  <body>
-    <nav
-      class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary"
-      id="navbar"
-    >
-      <div class="container">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+<body>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary" id="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" id="ikon" alt="" width="40" height="40" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse py-1" id="navbarNav">
-          <ul class="navbar-nav me-auto">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.html"
-                >Home</a
+            <div class="collapse navbar-collapse py-1" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a
               >
             </li>
           </ul>
           <a href="masuk.html" class="btn btn-sign-in"></a>
+            </div>
         </div>
-      </div>
     </nav>
     <div class="container mb-5">
-      <div class="row home-content my-5">
-        <div class="col-lg-8">
-          <h3 class="fw-bold" id="kategori_query"></h3>
-          <div class="divider"></div>
+        <div class="row home-content my-5">
+            <div class="col-lg-8">
+                <h3 class="fw-bold" id="kategori_query"></h3>
+                <div class="divider"></div>
 
-          <!-- List Blog -->
-          <div id="list-blog"></div>
-        </div>
-        <div class="col-lg-4">
-          <div class="px-1">
-            <form action="hasil.html">
-              <div class="input-group">
-                <input
-                  type="text"
-                  name="cari"
-                  class="form-control"
-                  placeholder="Search"
-                />
-                <div class="input-group-append">
-                  <button class="btn btn-secondary" type="submit">
+                <!-- List Blog -->
+                <div id="list-blog"></div>
+            </div>
+            <div class="col-lg-4">
+                <div class="px-1">
+                    <form action="hasil.html">
+                        <div class="input-group">
+                            <input type="text" name="cari" class="form-control" placeholder="Search" />
+                            <div class="input-group-append">
+                                <button class="btn btn-secondary" type="submit">
                     <i class="fa fa-search"></i>
                   </button>
-                </div>
-              </div>
-            </form>
-            <!-- List Kategori -->
-            <div class="list-group list-kategori mt-4">
-              <a
-                href="#"
-                class="list-group-item list-group-item-action active fw-bold"
-              >
+                            </div>
+                        </div>
+                    </form>
+                    <!-- List Kategori -->
+                    <div class="list-group list-kategori mt-4">
+                        <a href="#" class="list-group-item list-group-item-action active fw-bold">
                 Kategori
               </a>
-              <div class="list-label"></div>
+                        <div class="list-label"></div>
+                    </div>
+                </div>
+                <!-- Search -->
             </div>
-          </div>
-          <!-- Search -->
         </div>
-      </div>
     </div>
     <footer class="bg-dark text-white pb-4 pt-5 mt-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <p>
-              &copy; <span id="tahun">2020</span> -
-              <span id="judulFooter"></span>
-            </p>
-          </div>
-          <div class="col-md-6">
-            <!-- Link Sosial Media -->
-            <ul class="list-inline pull-md-right">
-              <li class="list-inline-item">
-                <a href="#" class="text-white">
-                  <i class="fa fa-facebook"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#" class="text-white">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#" class="text-white">
-                  <i class="fa fa-instagram"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#" class="text-white">
-                  <i class="fa fa-google-plus"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>
+                        &copy; <span id="tahun">2020</span> -
+                        <span id="judulFooter"></span>
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <!-- Link Sosial Media -->
+                    <ul class="list-inline pull-md-right">
+                        <li class="list-inline-item">
+                            <a href="#" class="text-white">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" class="text-white">
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
     </footer>
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-      crossorigin="anonymous"
-    ></script>
-    <script type="module" src="script/app.js?v=1.1"></script>
-    <script src="script/pages/blogcategory.js"></script>
-  </body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="module" src="script/app.js?v=1.2"></script>
+    <script src="script/pages/blogcategory.js?v=1.2"></script>
+</body>
+
 </html>

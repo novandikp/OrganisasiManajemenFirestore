@@ -1,0 +1,14 @@
+.img-size {
+    width: 150px;
+    margin: 20px;
+}
+
+.name-padd {
+    padding-bottom: 20px;
+}
+
+[data-for="ikon"] {
+    display: block;
+    height: 120px;
+    width: 120px;
+}

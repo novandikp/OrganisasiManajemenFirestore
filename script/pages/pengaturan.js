@@ -57,10 +57,7 @@ $(document).ready(function() {
     };
 
     $("#formPengaturan input[type='file']").on("change", function(e) {
-        thumbnailFile(
-            this,
-            $(".img-preview[data-for='" + $(this).attr("name") + "']")
-        );
+        thumbnailFile(this, $("[data-for='" + $(this).attr("name") + "']"));
     });
 
     $("#formPengaturan").on("submit", function(e) {
