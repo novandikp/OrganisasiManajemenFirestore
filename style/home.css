@@ -1,5 +1,4 @@
 .cover {
-    background: url("http://smkislam1durenan.sch.id/wp-content/uploads/2021/09/pramgaruda021.jpeg");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -25,10 +24,23 @@
     text-shadow: 1px 1px rgba(1, 1, 1, 0.5);
 }
 
+.image-blog {
+    max-height: 450px;
+    width: 100%;
+    object-fit: cover;
+}
+
 .divider {
     border-bottom: 3px solid #a8a8a8;
     width: 100px;
     margin-top: 20px;
+}
+
+.list-group-item.active {
+    z-index: 2;
+    color: #fff;
+    background-color: #757ce8;
+    border-color: #757ce8;
 }
 
 .divider-white {

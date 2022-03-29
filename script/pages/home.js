@@ -106,7 +106,8 @@ $(document).ready(function() {
             });
             $(".skeleton").removeClass("skeleton");
             $("#judul_cover").text(config.judul_cover);
-            console.log(config);
+            $("#judulFooter").text(config.judul_cover);
+            $(".cover").css("background-image", `url(${config.cover})`);
             $("#dekripsi_cover").text(config.dekripsi_cover);
         });
     };
