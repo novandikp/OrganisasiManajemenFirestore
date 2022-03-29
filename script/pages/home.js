@@ -71,7 +71,9 @@ $(document).ready(function() {
                                             ${element.title}
                                         </a>
                                     </h4>
-                                    <small class="text-muted">Kamis, 27 Agustus 2022</small>
+                                    <small class="text-muted">${format_date(
+                                      element.created_at
+                                    )}</small>
                                     <div class="content-blog-card  mt-3 text-secondary">
                                        ${element.description} 
                                     </div>
