@@ -43,6 +43,12 @@
     border-color: #757ce8;
 }
 
+.list-group-item.selected {
+    background-color: #74b9ff;
+    border-color: #74b9ff;
+    color: white;
+}
+
 .divider-white {
     border-bottom: 3px solid #fff;
     width: 100px;
@@ -50,8 +56,8 @@
 }
 
 .list-kategori .list-group-item {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 a {
