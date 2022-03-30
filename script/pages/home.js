@@ -53,7 +53,6 @@ $(document).ready(function() {
                 element.user = await user.data();
                 element.label = await label.id;
                 element.id = doc.id;
-                console.log(element);
                 let item = $(
                     $.parseHTML(`<div class="row my-4">
                 <div class="col-md-12">

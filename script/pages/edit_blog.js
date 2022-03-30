@@ -62,7 +62,6 @@ $(document).ready(function() {
                     `<option value="${element.id}">${element.id}</option>`
                 );
             });
-            console.log("k");
             getBlogs();
         });
     };

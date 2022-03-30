@@ -87,7 +87,6 @@ async function upload(file, name) {
     const storageRef = ref(storage, filename);
     return uploadBytes(storageRef, file).then((snapshot) => {
         return getDownloadURL(storageRef).then((url) => {
-            console.log(url);
             return Promise.resolve(url);
         });
     });
@@ -229,7 +228,6 @@ function restrictedAccess() {
             if (value == true) {
                 aksesArray.push(index);
             } else if (value == false) {
-                console.log(index);
                 $("#" + index).hide();
             }
         });

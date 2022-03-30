@@ -45,7 +45,6 @@ export default class BulananRepository {
     addPemasukan(amount) {
         this.getSaldo().then((saldo) => {
             this.data.saldo = saldo + amount;
-            console.log(this.data);
             setDoc(this.rekap, this.data);
             this.keuanganRepo.addPemasukan(amount);
         });
