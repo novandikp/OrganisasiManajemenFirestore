@@ -52,7 +52,7 @@ export default class BulananRepository {
 
     addPengeluaran(amount) {
         this.getSaldo().then((saldo) => {
-            this.data.saldo = saldo + amount;
+            this.data.saldo = saldo - amount;
             setDoc(this.rekap, this.data);
             this.keuanganRepo.addPengeluaran(amount);
         });
