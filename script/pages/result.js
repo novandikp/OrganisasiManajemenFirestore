@@ -59,7 +59,6 @@ $(document).ready(function() {
                 element.user = await user.data();
                 element.label = await label.id;
                 element.id = doc.id;
-                console.log(element);
                 let item = $(
                     $.parseHTML(`<div class="row my-4">
                     <div class="col-md-12">
@@ -102,12 +101,9 @@ $(document).ready(function() {
                 item.find(".content-blog-card *").css("font-size", "12pt");
                 item.find(".content-blog-card *").addClass("fw-light");
                 $("#list-blog").append(item);
-            });
-            if ($("#list-blog").html().trim().length == 0) {
-                $("#data-not-found").removeClass("d-none");
-            } else {
                 $("#data-not-found").addClass("d-none");
-            }
+            });
+            $("#data-not-found").removeClass("d-none");
         });
     };
 
