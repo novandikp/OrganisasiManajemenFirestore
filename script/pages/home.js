@@ -46,7 +46,7 @@ $(document).ready(function() {
 
         getDocs(q).then(async(querySnapshot) => {
             $("#list-blog").empty();
-            querySnapshot.forEach(async(doc) => {
+            await querySnapshot.forEach(async(doc) => {
                 const element = doc.data();
                 const user = await getDoc(element.author);
                 const label = await getDoc(element.category);
@@ -97,6 +97,12 @@ $(document).ready(function() {
                 item.find(".content-blog-card *").addClass("fw-light");
                 $("#list-blog").append(item);
             });
+
+            if ($("#list-blog").html().trim().length == 0) {
+                $("#data-not-found").removeClass("d-none");
+            } else {
+                $("#data-not-found").addClass("d-none");
+            }
         });
     };
 
