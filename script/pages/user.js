@@ -43,13 +43,13 @@ $(document).ready(function() {
       <div class="card-body ">
       <div class="row">
         
-        <div class="col-md-9 col-sm-9 item-info">
+        <div class="col-md-8 col-sm-8 item-info">
           <h5 class="">Nama Anggota</h5>
           <p class="">No Hp</p>
           <p class="">ads</p>
           <p class="">asds</p>
         </div>
-        <div class="col-md-3 col-sm-3">
+        <div class="col-md-4 col-sm-4">
             <div class="float-sm-right d-grid gap-2 d-md-block mt-3">
               
             </div>
@@ -195,13 +195,13 @@ $(document).ready(function() {
             <div class="card-body">
             <div class="row">
               
-              <div class="col-md-9 col-sm-9 item-info">
+              <div class="col-md-8 col-sm-8 item-info">
                 <h5>${element.nama}</h5>
                 <p class="text-muted">${element.email}</p>
                 <p class="text-muted">${element.no_hp}</p>
                 <p class="text-muted">${element.alamat}</p>
               </div>
-              <div class="col-md-3 col-sm-3">
+              <div class="col-md-4 col-sm-4">
                   <div class="float-sm-right d-grid gap-2 d-xl-block mt-3">
                     <button data-detail='${JSON.stringify(
                       element

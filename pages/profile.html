@@ -9,7 +9,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css?v=1.3" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js?v=1.3" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css?v=1.3">
-<link href="../style/dashboard.css?v=1.0" rel="stylesheet">
+<link href="../style/dashboard.css?v=1.1" rel="stylesheet">
 
 </link>
 </head>
@@ -109,7 +109,7 @@
         <section class="content" style="margin-top: 1.3rem;">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-4">
+                    <div class="col-xl-4">
                         <div class="card card-primary card-outline " style="margin-bottom: 1rem;">
                             <div class="card-body box-profile skeleton">
                                 <input type="file" id="profile_upload" style="display:none" />
@@ -123,17 +123,17 @@
                                     </div>
                                 </div>
                                 <div class="name-padd text-center mt-2">
-                                    <h3 class="profile-username skeleton" style="padding-bottom: 5px;">Riyo Admin</h3>
-                                    <p class="text-light skeleton  badge bg-warning mb-2">Jabatan | Anggota</p>
+                                    <h5 class="profile-username skeleton my-1" style="padding-bottom: 5px;">Riyo Admin</h5>
+                                    <p class="text-light skeleton  badge mb-2">Jabatan | Anggota</p>
                                 </div>
                                 <ul class="list-group list-group-unbordered mb-3">
                                     <li class="list-group-item skeleton border-0">
-                                        <b>Email</b> :
-                                        <p class="pull-right email-header">Novandi Kevin Pratama</p>
+                                        <b>Email</b> :<br/>
+                                        <p class="mt-1 email-header">Novandi Kevin Pratama</p>
                                     </li>
                                     <li class="list-group-item border-0 skeleton">
-                                        <b>No Telp</b> :
-                                        <p class="pull-right phone-header">088888</p>
+                                        <b>No Telp</b> :<br/>
+                                        <p class="mt-1 phone-header">088888</p>
                                     </li>
                                 </ul>
                             </div>
@@ -143,30 +143,30 @@
                     </div>
 
                     <!-- Deskripsi -->
-                    <div class="col-lg-8">
+                    <div class="col-xl-8">
                         <div class="card" style="margin-bottom: 1rem;">
-                            <div class="card-header bg-primary text-light">
+                            <div class="card-header bg-header text-light">
                                 <h5 class="card-title ">Biodata</h5>
                             </div>
                             <div class="card-body">
                                 <!-- Form profile -->
                                 <form class="form-horizontal" id="profile-form">
                                     <div class="form-group mt-2 row">
-                                        <label for="nama" class="col-sm-2 col-form-label">Nama</label>
-                                        <div class="col-sm-10">
+                                        <label for="nama" class="col-lg-2 col-form-label">Nama</label>
+                                        <div class="col-lg-10">
                                             <input type="text" class="form-control skeleton" name="nama" id="nama" placeholder="">
                                         </div>
                                     </div>
 
                                     <div class="form-group mt-2 row">
-                                        <label for="no_hp" class="col-sm-2 col-form-label">No Telp</label>
-                                        <div class="col-sm-10">
+                                        <label for="no_hp" class="col-lg-2 col-form-label">No Telp</label>
+                                        <div class="col-lg-10">
                                             <input type="text" name="no_hp" class="form-control skeleton" id="no_hp" placeholder="">
                                         </div>
                                     </div>
                                     <div class="form-group mt-2 row">
-                                        <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
-                                        <div class="col-sm-10">
+                                        <label for="alamat" class="col-lg-2 col-form-label">Alamat</label>
+                                        <div class="col-lg-10">
                                             <textarea class="form-control skeleton" name="alamat" id="alamat" placeholder=""></textarea>
                                         </div>
                                     </div>

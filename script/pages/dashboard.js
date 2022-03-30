@@ -74,20 +74,22 @@ $(document).ready(function() {
     };
 
     const randomColor = (length) => {
-        let color = [];
-        for (let i = 0; i < length; i++) {
-            const colorTemp = `rgba(${Math.floor(Math.random() * 255)},
-           ${Math.floor(Math.random() * 255)}, ${Math.floor(
-        Math.random() * 255
-      )})`;
-
-            if (color.indexOf(colorTemp) === -1) {
-                color.push(colorTemp);
-            } else {
-                i--;
-            }
-        }
-        return color;
+        let colorSelected = [
+            "rgba(132, 94, 194)",
+            "rgba(214, 93, 177)",
+            "rgba(255, 111, 145)",
+            "rgba(255, 150, 113)",
+            "rgba(255, 199, 95)",
+            "rgba(0, 201, 167)",
+            "rgba(0, 137, 186)",
+            "rgba(132, 94, 194)",
+            "rgba(44, 115, 210)",
+            "rgba(0, 129, 207)",
+            "rgba(0, 142, 155)",
+            "rgba(0, 139, 201)",
+        ];
+        colorSelected.length = length;
+        return colorSelected;
     };
 
     chartRekap();

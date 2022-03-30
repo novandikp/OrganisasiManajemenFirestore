@@ -1,43 +1,17 @@
-@font-face {
-    font-family: "Material Icons";
-    font-style: normal;
-    font-weight: 400;
-    src: url(https://example.com/MaterialIcons-Regular.eot);
-    /* For IE6-8 */
-    src: local("Material Icons"), local("MaterialIcons-Regular"), url(https://example.com/MaterialIcons-Regular.woff2) format("woff2"), url(https://example.com/MaterialIcons-Regular.woff) format("woff"), url(https://example.com/MaterialIcons-Regular.ttf) format("truetype");
-}
-
-.material-icons {
-    font-family: "Material Icons";
-    font-weight: normal;
-    font-style: normal;
-    font-size: 20px;
-    /* Preferred icon size */
-    display: inline-block;
-    line-height: 1;
-    text-align: center;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-    justify-content: center;
-    /* Support for all WebKit browsers. */
-    -webkit-font-smoothing: antialiased;
-    /* Support for Safari and Chrome. */
-    text-rendering: optimizeLegibility;
-    /* Support for Firefox. */
-    -moz-osx-font-smoothing: grayscale;
-    /* Support for IE. */
-    font-feature-settings: "liga";
-}
-
 body {
     margin: 0px;
     padding: 0px;
 }
 
-.nav-link:focus,
+.nav-item a {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.82rem;
+}
+
+.nav-item .fa {
+    margin-right: 8px;
+}
+
 .nav-link:hover {
     color: #e1ffff;
 }
@@ -65,8 +39,36 @@ body {
     padding: 0.75rem 1rem;
     margin-bottom: 1rem;
     list-style: none;
-    background-color: #e9ecef;
+    background-color: #e8edff;
     border-radius: 0.25rem;
+}
+
+.bg-one {
+    background-color: #6b61e6;
+}
+
+.bg-two {
+    background-color: #8cabfe;
+}
+
+.bg-three {
+    background-color: #60b0e5;
+}
+
+.bg-four {
+    background-color: #40d2f0;
+}
+
+.bg-header {
+    background-color: #958dfc;
+}
+
+.bg-subheader {
+    background-color: #5059c0;
+}
+
+.badge {
+    background-color: #474099;
 }
 
 .breadcrumb-item+.breadcrumb-item {
@@ -110,7 +112,7 @@ body {
 }
 
 .content-header .breadcrumb {
-    background-color: #fff;
+    background-color: #e8edff;
     line-height: 1.8rem;
     margin-bottom: 0;
     padding: 0;
@@ -126,10 +128,9 @@ body {
 
 .nav-side-menu {
     overflow: auto;
-    font-family: verdana;
     font-size: 12px;
     font-weight: 200;
-    background-color: #0984e3;
+    background-color: #e8edff;
     position: fixed;
     top: 0px;
     width: 300px;
@@ -140,11 +141,12 @@ body {
 .nav-side-menu .brand {
     padding-top: 1rem;
     padding-bottom: 1rem;
-    background-color: #00cec9;
+    background-color: #6b61e6;
     line-height: 50px;
     display: block;
     text-align: center;
     font-size: 25px;
+    font-weight: bold;
 }
 
 .nav-side-menu .toggle-btn {
@@ -176,6 +178,7 @@ body {
 .nav-side-menu ul .sub-menu li.active {
     border-left: 3px solid #1e3799;
     background-color: #1e3799;
+    color: white;
 }
 
 .nav-side-menu ul .sub-menu li.active,
@@ -190,7 +193,7 @@ body {
 
 .nav-side-menu ul .sub-menu li,
 .nav-side-menu li .sub-menu li {
-    background-color: #6a89cc;
+    background-color: #9269ff;
     border: none;
     line-height: 28px;
     border-bottom: 1px solid #23282e;
@@ -211,6 +214,10 @@ body {
     background-color: #74b9ff;
 }
 
+.sub-menu.collapse.show a {
+    color: white
+}
+
 p,
 h1,
 h2,
@@ -222,12 +229,12 @@ h5 {
 
 .nav-side-menu li {
     padding-left: 0px;
-    border-bottom: 1px solid #74b9ff;
+    border-bottom: 3px solid #DDE5FC;
 }
 
 .nav-side-menu li a {
     text-decoration: none;
-    color: #e1ffff;
+    color: #6b61e6;
 }
 
 .nav-side-menu li a i {
@@ -252,6 +259,7 @@ h5 {
 
 .shadow-wrap {
     box-shadow: 0 10px 10px rgba(0, 7, 15, 0.096);
+    background-color: #e8edff;
 }
 
 .padd-right-wrap {
@@ -420,7 +428,6 @@ a {
     .nav-side-menu {
         position: relative;
         width: 100vw;
-        margin-bottom: 10px;
     }
     .nav-side-menu .toggle-btn {
         display: block;
@@ -477,6 +484,9 @@ a {
 @media (min-width: 769px) {
     .nav-side-menu .menu-list .menu-content {
         display: block;
+    }
+    .nav-side-menu {
+        margin-bottom: 0;
     }
     .h-md-250 {
         height: 250px;
