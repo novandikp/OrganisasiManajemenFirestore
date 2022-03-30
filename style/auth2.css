@@ -2,7 +2,7 @@ body {
     color: #000;
     overflow-x: hidden;
     height: 100%;
-    background-color: #2e353d;
+    background-color: #0d6efd;
     background-repeat: no-repeat;
     align-items: center;
 }
@@ -24,17 +24,11 @@ form .user-details .form-group {
     width: calc(100% / 2 - 20px);
 }
 
-.user-details .form-group .form-control-label {
-    display: block;
-    font-weight: 500;
-    margin-bottom: 5px;
-}
-
 input,
 textarea {
     background-color: #f3e5f5;
     border-radius: 30px !important;
-    padding: 10px 10px 10px 10px !important;
+    padding: 10px 20px 10px 20px !important;
     width: 100%;
     box-sizing: border-box;
     border: none !important;
@@ -81,7 +75,8 @@ button:focus {
     border-radius: 50px;
     color: #fff;
     background-image: linear-gradient(to right, #626fe6, #27296d);
-    padding: 8px;
+    padding: 10px 15px;
+    margin-top: 12px;
     cursor: pointer;
     border: none !important;
 }

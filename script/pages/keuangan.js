@@ -1,5 +1,5 @@
-import KeuanganRepository from "../repository/keuanganRepository.js";
-import BulananRepository from "../repository/bulananRepository.js";
+import KeuanganRepository from "../repository/keuanganRepository.js?v=1.3";
+import BulananRepository from "../repository/bulananRepository.js?v=1.3";
 $(document).ready(function() {
     const keuanganRepository = new KeuanganRepository();
     //Default Value untuk Tanggal

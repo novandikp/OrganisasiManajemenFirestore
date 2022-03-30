@@ -1,4 +1,4 @@
-import BlogRepository from "../repository/blogRepository.js";
+import BlogRepository from "../repository/blogRepository.js?v=1.3";
 $(document).ready(function() {
     const blogRepo = new BlogRepository();
     // Hapus Blog

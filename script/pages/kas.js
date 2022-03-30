@@ -1,5 +1,5 @@
-import BulananRepository from "../repository/bulananRepository.js";
-import KasRepository from "../repository/kasRepository.js";
+import BulananRepository from "../repository/bulananRepository.js?v=1.3";
+import KasRepository from "../repository/kasRepository.js?v=1.3";
 $(document).ready(function() {
     const kasRepository = new KasRepository();
     const dataKas = [];

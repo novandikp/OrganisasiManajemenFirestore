@@ -34,12 +34,13 @@ $(document).ready(function() {
     };
 
     const setDataChart = (rekap) => {
+        const color = randomColor(rekap.id.length);
         const data = {
             labels: rekap.id,
             datasets: [{
                 label: rekap.id,
-                backgroundColor: randomColor(rekap.id.length),
-                borderColor: randomColor(rekap.id.length),
+                backgroundColor: color,
+                borderColor: color,
                 data: rekap.value,
             }, ],
         };

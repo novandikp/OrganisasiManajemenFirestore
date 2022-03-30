@@ -1,4 +1,4 @@
-import KeuanganRepository from "./keuanganRepository.js";
+import KeuanganRepository from "./keuanganRepository.js?v=1.3";
 export default class BulananRepository {
     constructor(date) {
         this.date = new Date(date);

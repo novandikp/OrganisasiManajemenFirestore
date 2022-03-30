@@ -11,9 +11,9 @@ $(document).ready(function() {
         });
     };
 
-    const profileContent = () => {
+    const profileContent = async() => {
         const content = $("#formPengaturan input , #formPengaturan textarea");
-        content.each(function(index, elemen) {
+        return content.each(function(index, elemen) {
             if ($(this).attr("type") == "file") {
                 if ($(this).prop("files").length > 0) {
                     saveBlob($(this).attr("name"), $(this).prop("files")[0]);
@@ -62,7 +62,12 @@ $(document).ready(function() {
 
     $("#formPengaturan").on("submit", function(e) {
         e.preventDefault();
-        profileContent();
+        profileContent().then(() => {
+            $.alert({
+                title: "Berhasil",
+                content: "Data berhasil disimpan",
+            });
+        });
     });
 
     getPengaturan();

@@ -1,4 +1,4 @@
-import AnggotaRepository from "../repository/anggotaRepository.js";
+import AnggotaRepository from "../repository/anggotaRepository.js?v=1.3";
 $(document).ready(function() {
     const anggotaRepo = new AnggotaRepository();
     const dataUser = [];

@@ -1,4 +1,4 @@
-import UserRepository from "../repository/userRepository.js";
+import UserRepository from "../repository/userRepository.js?v=1.3";
 $(document).ready(function() {
     const userRepo = new UserRepository();
 
@@ -21,7 +21,10 @@ $(document).ready(function() {
             if (result.status) {
                 redirect_to("info");
             } else {
-                alert(result.message);
+                $.alert({
+                    title: "Error",
+                    content: result.message,
+                });
             }
         });
     });

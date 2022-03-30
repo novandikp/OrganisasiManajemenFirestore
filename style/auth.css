@@ -2,7 +2,7 @@ body {
     color: #000;
     overflow-x: hidden;
     height: 100%;
-    background-color: #2e353d;
+    background-color: #0d6efd;
     background-repeat: no-repeat;
 }
 
@@ -10,7 +10,7 @@ input,
 textarea {
     background-color: #f3e5f5;
     border-radius: 50px !important;
-    padding: 10px 10px 10px 10px !important;
+    padding: 10px 20px 10px 20px !important;
     width: 100%;
     box-sizing: border-box;
     border: none !important;
@@ -66,14 +66,14 @@ button:focus {
     border-radius: 50px;
     color: #fff;
     background-image: linear-gradient(to right, #626fe6, #27296d);
-    padding: 15px;
+    padding: 10px 15px;
     cursor: pointer;
     border: none !important;
     margin-top: 40px;
 }
 
 .login-card {
-    width: 650px;
+    width: 500px;
 }
 
 .btn-color:hover {
@@ -85,8 +85,9 @@ button:focus {
     border-radius: 50px;
     color: #27296d;
     background-color: #fff;
-    padding: 8px 20px;
+    padding: 8px 15px;
     cursor: pointer;
+    font-size: 11pt;
     border: 2px solid #27296d !important;
 }
 
@@ -105,7 +106,7 @@ a:hover {
 
 .bottom {
     width: 100%;
-    margin-top: 50px !important;
+    margin-top: 30px !important;
 }
 
 .sm-text {
