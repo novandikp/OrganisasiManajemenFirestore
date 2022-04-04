@@ -71,6 +71,20 @@ body {
     background-color: #474099;
 }
 
+.btn-load-more {
+    background-color: #474099;
+    color: #fff;
+    border-color: #474099;
+    display: block;
+    width: 100%;
+}
+
+.btn-load-more:hover {
+    background-color: #2e86de;
+    color: #fff;
+    border-color: #2e86de;
+}
+
 .breadcrumb-item+.breadcrumb-item {
     padding-left: 0.5rem;
 }

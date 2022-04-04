@@ -3,7 +3,8 @@ import KasRepository from "../repository/kasRepository.js?v=1.3";
 $(document).ready(function() {
     const kasRepository = new KasRepository();
     let idanggota = "";
-    const dataKas = [];
+    let lastItem;
+    const itemShow = 2;
 
     //Format Uang
     $("input[name='jumlahUang']").on("keyup", function() {
@@ -35,25 +36,27 @@ $(document).ready(function() {
     };
 
     const itemLoad = () => {
-        $(".list-data").empty();
-        for (let i = 0; i < 4; i++) {
+        if (!lastItem) {
+            $(".list-data").empty();
+        }
+        for (let i = 0; i < itemShow; i++) {
             const item = `<div class="card shadow skeleton item-list">
-      <div class="card-body skeleton">
-      <div class="row">
-        
-        <div class="col-md-9 col-sm-9 item-info">
-          <h5 class="skeleton">a</h5>
-          <p class="text-success fw-bold skeleton">a</p>
-          <small class="text-muted skeleton">a</small><br/>
-          <small class="text-muted skeleton">a</small>
-        </div>
-        <div class="col-md-3 col-sm-3">
-            <div class="float-sm-right skeleton d-grid gap-2 d-xl-block mt-3">
+                <div class="card-body skeleton">
+                <div class="row">
+                    
+                    <div class="col-md-9 col-sm-9 item-info">
+                    <h5 class="skeleton">a</h5>
+                    <p class="text-success fw-bold skeleton">a</p>
+                    <small class="text-muted skeleton">a</small><br/>
+                    <small class="text-muted skeleton">a</small>
+                    </div>
+                    <div class="col-md-3 col-sm-3">
+                        <div class="float-sm-right skeleton d-grid gap-2 d-xl-block mt-3">
+                            </div>
+                    </div>
                 </div>
-        </div>
-      </div>
-  </div>
-  </div>`;
+            </div>
+            </div>`;
 
             $(".list-data").append(item);
         }
@@ -61,31 +64,51 @@ $(document).ready(function() {
 
     const getDataTagihan = () => {
         itemLoad();
-        const q = query(collection(db, "kas"));
-        dataKas.length = 0;
-        getDocs(q).then((docSnap) => {
-            $(".list-data").empty();
-            docSnap.forEach(async(docSnapshot) => {
-                const dataTemp = docSnapshot.data();
-                dataTemp.id = docSnapshot.id;
+        let q;
 
+        //Pembuatan QUery
+        if (lastItem) {
+            q = query(
+                collection(db, "kas"),
+                orderBy("created_at", "desc"),
+                where("created_at", "<=", lastItem.created_at),
+                limit(itemShow + 1)
+            );
+            $(".btn-load-more").remove();
+        } else {
+            q = query(
+                collection(db, "kas"),
+                orderBy("created_at", "desc"),
+                limit(itemShow + 1)
+            );
+            $(".list-data").empty();
+        }
+
+        getDocs(q).then((docSnap) => {
+            var index = itemShow + 1;
+            $(".card.shadow.skeleton.item-list").remove();
+            docSnap.forEach(async(docSnapshot) => {
+                const dataTemp = await docSnapshot.data();
+
+                dataTemp.id = docSnapshot.id;
                 //Ambil User
                 const user = await getDoc(dataTemp.user_id);
                 dataTemp.user = await user.data();
-                dataKas.push(dataTemp);
-                let buttonBayar = "";
+                index--;
+                if (index > 0) {
+                    let buttonBayar = "";
 
-                if (dataTemp.status) {
-                    buttonBayar = `<button class="btn btn-success btn-sm" disabled>
+                    if (dataTemp.status) {
+                        buttonBayar = `<button class="btn btn-success btn-sm" disabled>
             <i class="fa fa-check me-1"> </i>Lunas
             </button>`;
-                } else {
-                    buttonBayar = `<button class="btn btn-primary btn-sm item-bayar"  data-id='${dataTemp.id}'>
+                    } else {
+                        buttonBayar = `<button class="btn btn-primary btn-sm item-bayar"  data-id='${dataTemp.id}'>
             <i class="fa fa-money me-1"></i>Bayar
             </button>`;
-                }
+                    }
 
-                let item = `<div class="card shadow item-list">
+                    let item = `<div class="card shadow item-list">
                                 <div class="card-body">
                                 <div class="row">  
                                 <div class="col-md-9 col-sm-9 item-info">
@@ -113,9 +136,33 @@ $(document).ready(function() {
                                 </div>
                             </div>
                         </div>`;
-                $(".list-data").append(item);
+                    $(".list-data").append(item);
+                } else {
+                    lastItem = dataTemp;
+                    let loadMore = `<button class="btn btn-load-more">Tampilkan Lebih banyak</button>`;
+                    $(".list-data").append(loadMore);
+                }
             });
         });
+    };
+
+    const fetchDataLaporan = async() => {
+        const promise = [];
+        const q = query(collection(db, "kas"), orderBy("created_at", "desc"));
+        await getDocs(q).then((docSnap) => {
+            docSnap.forEach(async(docSnapshot) => {
+                const dataTemp = docSnapshot.data();
+                dataTemp.id = docSnapshot.id;
+                //Ambil User
+                const data = getDoc(dataTemp.user_id).then((user) => {
+                    dataTemp.user = user.data();
+                    return dataTemp;
+                });
+
+                promise.push(data);
+            });
+        });
+        return Promise.all(promise);
     };
 
     const addKeuangan = (values) => {
@@ -179,65 +226,72 @@ $(document).ready(function() {
         });
     };
 
-    const exportExcel = () => {
-        const data = {
-            nama: "Kas",
-            data: [],
-        };
-
-        data.data = dataKas.map((item) => {
-            return {
-                tanggal: format_date(item.created_at),
-                untuk: item.user.nama,
-                jumlahUang: item.jumlahUang,
-                status: item.status ? "Sudah Dibayar" : "Belum dibayar",
+    const exportExcel = async() => {
+        await fetchDataLaporan().then((result) => {
+            const data = {
+                nama: "Kas",
+                data: [],
             };
+
+            data.data = result.map((item) => {
+                return {
+                    tanggal: format_date(item.created_at),
+                    untuk: item.user.nama,
+                    jumlahUang: item.jumlahUang,
+                    status: item.status ? "Sudah Dibayar" : "Belum dibayar",
+                };
+            });
+            // ExcelJS
+            const workbook = new ExcelJS.Workbook();
+            const worksheet = workbook.addWorksheet("Sheet 1");
+            worksheet.columns = [
+                { header: "Nama", key: "untuk", width: 30 },
+                { header: "Tanggal Tagihan", key: "tanggal", width: 30 },
+                { header: "Nominal", key: "jumlahUang", width: 30 },
+                { header: "Status", key: "status", width: 30 },
+            ];
+            worksheet.addRows(data.data);
+            workbook.xlsx
+                .writeBuffer()
+                .then((buffer) =>
+                    saveAs(new Blob([buffer]), `Laporan Kas_${Date.now()}.xlsx`)
+                )
+                .catch((err) => console.log("Error writing excel export", err));
         });
-        // ExcelJS
-        const workbook = new ExcelJS.Workbook();
-        const worksheet = workbook.addWorksheet("Sheet 1");
-        worksheet.columns = [
-            { header: "Nama", key: "untuk", width: 30 },
-            { header: "Tanggal Tagihan", key: "tanggal", width: 30 },
-            { header: "Nominal", key: "jumlahUang", width: 30 },
-            { header: "Status", key: "status", width: 30 },
-        ];
-        worksheet.addRows(data.data);
-        workbook.xlsx
-            .writeBuffer()
-            .then((buffer) =>
-                saveAs(new Blob([buffer]), `Laporan Kas_${Date.now()}.xlsx`)
-            )
-            .catch((err) => console.log("Error writing excel export", err));
     };
 
-    const exportPDF = () => {
-        const dokumen = new jsPDF();
-        const data = dataKas.map((item) => {
-            return {
-                tanggal: format_date(item.created_at),
-                untuk: item.user.nama,
-                jumlahUang: item.jumlahUang,
-                status: item.status ? "Sudah Dibayar" : "Belum dibayar",
-            };
+    const exportPDF = async() => {
+        await fetchDataLaporan().then((result) => {
+            const dokumen = new jsPDF();
+            const data = result.map((item) => {
+                return {
+                    tanggal: format_date(item.created_at),
+                    untuk: item.user.nama,
+                    jumlahUang: item.jumlahUang,
+                    status: item.status ? "Sudah Dibayar" : "Belum dibayar",
+                };
+            });
+            dokumen.autoTable({
+                columns: [
+                    { header: "Nama", dataKey: "untuk" },
+                    { header: "Tanggal Tagihan", dataKey: "tanggal" },
+                    { header: "Nominal", dataKey: "jumlahUang" },
+                    { header: "Status", dataKey: "status" },
+                ],
+                body: data,
+                margin: { top: 35 },
+                didDrawPage: function(data) {
+                    dokumen.text("Daftar Kas", 15, 30);
+                },
+            });
+            dokumen.save(`Laporan Kas_${Date.now()}.pdf`);
         });
-        dokumen.autoTable({
-            columns: [
-                { header: "Nama", dataKey: "untuk" },
-                { header: "Tanggal Tagihan", dataKey: "tanggal" },
-                { header: "Nominal", dataKey: "jumlahUang" },
-                { header: "Status", dataKey: "status" },
-            ],
-            body: data,
-            margin: { top: 35 },
-            didDrawPage: function(data) {
-                dokumen.text("Daftar Kas", 15, 30);
-            },
-        });
-        dokumen.save(`Laporan Kas_${Date.now()}.pdf`);
     };
 
     const itemEvent = () => {
+        $(".list-data").on("click", ".btn-load-more", async function() {
+            getDataTagihan();
+        });
         $(".list-data").on("click", ".item-hapus", async function() {
             const id = $(this).data("id");
             const element = $(this);
@@ -248,6 +302,7 @@ $(document).ready(function() {
                     confirm: function() {
                         element.attr("disabled", true);
                         hapusTagihan(id).then(() => {
+                            lastItem = null;
                             getDataTagihan();
                         });
                     },
@@ -265,6 +320,7 @@ $(document).ready(function() {
                     confirm: function() {
                         element.attr("disabled", true);
                         bayarTagihan(id).then(() => {
+                            lastItem = null;
                             getDataTagihan();
                         });
                     },
@@ -283,6 +339,7 @@ $(document).ready(function() {
         createTagihan().then((docSnap) => {
             $("#form-tagihan")[0].reset();
             $("#form-tagihan button[type='submit']").prop("disabled", true);
+            lastItem = null;
             getDataTagihan();
         });
     });
