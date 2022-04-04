@@ -114,15 +114,23 @@
                             <div class="row">
                                 <div class="col-lg-6">
 
-                                    <label for="formFile" class="form-label fw-bold">Nama</label>
-                                    <select class="form-select mb-3" id="select-anggota" aria-label=".form-select-lg example">
+
+                                    <!-- <select class="form-select mb-3" id="select-anggota" aria-label=".form-select-lg example">
                                     
-                                </select>
+                                    </select> -->
+                                    <div class="mb-3">
+                                        <label for="formFile" class="form-label fw-bold">Nama</label>
+                                        <input type="text" list="anggotaList" class="form-control " required autocomplete=true id="anggota_select" />
+                                        <datalist id="anggotaList">
+    
+                                        </datalist>
+                                    </div>
+
                                     <div class="mb-3">
                                         <label for="formFile" class="form-label fw-bold">Masukkan Jumlah</label>
                                         <div class="input-group ">
                                             <span class="input-group-text">Rp</span>
-                                            <input type="text" name="jumlahUang" class="form-control" aria-label="Amount" placeholder="Masukkan Nominal">
+                                            <input type="text" required name="jumlahUang" class="form-control" aria-label="Amount" placeholder="Masukkan Nominal">
 
                                         </div>
                                     </div>
@@ -140,7 +148,7 @@
 
                                     <div class="mb-3">
                                         <label for="keterangan" class="form-label fw-bold">Keterangan</label>
-                                        <textarea class="form-control" id="keterangan" rows="4" placeholder="Masukkan keterangan"></textarea>
+                                        <textarea required class="form-control" id="keterangan" rows="4" placeholder="Masukkan keterangan"></textarea>
                                         <small class="text-muted">Contoh Keterangan : Kas Bulan Januari 2022</small>
                                     </div>
 

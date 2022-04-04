@@ -2,7 +2,9 @@ import BulananRepository from "../repository/bulananRepository.js?v=1.4";
 import KasRepository from "../repository/kasRepository.js?v=1.3";
 $(document).ready(function() {
     const kasRepository = new KasRepository();
+    let idanggota = "";
     const dataKas = [];
+
     //Format Uang
     $("input[name='jumlahUang']").on("keyup", function() {
         var jumlahUangRupiah = formatRupiah($(this).val());
@@ -11,7 +13,7 @@ $(document).ready(function() {
 
     const createTagihan = () => {
         const data = {
-            user_id: doc(db, "users", $("#select-anggota").val()),
+            user_id: doc(db, "users", idanggota),
             created_by: doc(db, "users", getUserInfo().id),
             created_at: new Date().toISOString(),
             update_at: new Date().toISOString(),
@@ -280,6 +282,7 @@ $(document).ready(function() {
         e.preventDefault();
         createTagihan().then((docSnap) => {
             $("#form-tagihan")[0].reset();
+            $("#form-tagihan button[type='submit']").prop("disabled", true);
             getDataTagihan();
         });
     });
@@ -290,18 +293,53 @@ $(document).ready(function() {
         // Disable all input
         $("#form-tagihan").find("input").prop("disabled", true);
         getDocs(q).then(async(querySnapshot) => {
-            $("#select-anggota").empty();
+            $("#anggotalist").empty();
             querySnapshot.forEach(async(doc) => {
                 const element = doc.data();
                 element.id = doc.id;
 
-                const option = `<option value="${element.id}">${element.nama}</option>`;
-                $("#select-anggota").append(option);
-
+                const options = `<option value="${element.nama}" data-value="${element.id}"/>`;
+                $("#anggotaList").append(options);
                 $("#form-tagihan").find("input").prop("disabled", false);
             });
         });
     };
+
+    $("#form-tagihan").on("keydown", "input, select", function(e) {
+        if (e.which === 13) {
+            var self = $(this),
+                form = self.parents("form:eq(0)"),
+                focusable,
+                next;
+            focusable = form.find("input").filter(":visible");
+            next = focusable.eq(focusable.index(this) + 1);
+            if (next.length) {
+                next.focus();
+            }
+            return false;
+        }
+    });
+
+    $("#form-tagihan button[type='submit']").prop("disabled", true);
+
+    $("#anggota_select").on("input", function(e) {
+        var value = $(this).val();
+        const messageError =
+            '<small id="errorAnggota" class="text-danger">Pilih salah satu anggota.</small>';
+
+        if ($('#anggotaList [value="' + value + '"]').data("value")) {
+            if ($("#errorAnggota").length > 0) {
+                $("#errorAnggota").remove();
+            }
+            idanggota = $('#anggotaList [value="' + value + '"]').data("value");
+            $("#form-tagihan button[type='submit']").prop("disabled", false);
+        } else {
+            if ($("#errorAnggota").length == 0) {
+                $(this).after(messageError);
+            }
+            $("#form-tagihan button[type='submit']").prop("disabled", true);
+        }
+    });
 
     itemEvent();
     getUsers();
