@@ -26,6 +26,7 @@ $(document).ready(function() {
     //Event Ketika gambar berubah
     $("#imageBlog").on("change", function(e) {
         fileImage = e.target.files[0];
+        $(this).removeClass("is-invalid");
         thumbnailFile(this, $("#preview-image"));
         $("#preview-image").removeClass("d-none");
     });
@@ -56,25 +57,52 @@ $(document).ready(function() {
         });
     });
 
+    $("body").on("keyup", "input", function() {
+        $(this).removeClass("is-invalid");
+    });
+
+    const validate = () => {
+        let validation = true;
+        if ($("#title").val().trim() == "") {
+            $("#title").addClass("is-invalid");
+            validation = false;
+        }
+        if (!fileImage) {
+            $("#imageBlog").addClass("is-invalid");
+            validation = false;
+        }
+
+        if ($($.parseHTML(editor.getContents())).text().trim() == "") {
+            $("#suneditor_inputDescription").after(
+                "<small class='text-danger'>Harap isi konten</small>"
+            );
+        }
+        return validation;
+    };
+
     //Simpan Blog
     $("#btn-upload").on("click", function(e) {
         e.preventDefault();
-        const blog = {};
-        blog.title = $("#title").val();
-        blog.description = editor.getContents();
-        blog.category = doc(db, "labels", $("#labelBlog").val());
-        blog.created_at = new Date().toISOString();
-        blog.updated_at = new Date().toISOString();
-        blog.author = doc(db, "users", getUserInfo().id);
-        const id = uuid("blogs_");
-        uploadFile(fileImage, id).then((url) => {
-            blog.image = url;
-            const blogs = doc(db, "blogs", id);
-            setDoc(blogs, blog).then((doc) => {
-                blogRepo.tambahBlog().then(() => {
-                    redirect_to("pages/blog");
+        if (validate()) {
+            $("#btn-upload").text("Proses Publikasi...");
+            $("#btn-upload").attr("disabled", true);
+            const blog = {};
+            blog.title = $("#title").val();
+            blog.description = editor.getContents();
+            blog.category = doc(db, "labels", $("#labelBlog").val());
+            blog.created_at = new Date().toISOString();
+            blog.updated_at = new Date().toISOString();
+            blog.author = doc(db, "users", getUserInfo().id);
+            const id = uuid("blogs_");
+            uploadFile(fileImage, id).then((url) => {
+                blog.image = url;
+                const blogs = doc(db, "blogs", id);
+                setDoc(blogs, blog).then((doc) => {
+                    blogRepo.tambahBlog().then(() => {
+                        redirect_to("pages/blog");
+                    });
                 });
             });
-        });
+        }
     });
 });

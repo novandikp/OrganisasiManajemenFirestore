@@ -1,7 +1,12 @@
 $(document).ready(function() {
+    let lastItem;
+    const itemShow = 5;
+
     const itemLoad = () => {
-        $(".list-data").empty();
-        for (let i = 0; i < 4; i++) {
+        if (!lastItem) {
+            $(".list-data").empty();
+        }
+        for (let i = 0; i < itemShow; i++) {
             const item = `<div class="card shadow skeleton item-list">
           <div class="card-body skeleton">
           <div class="row">
@@ -24,14 +29,28 @@ $(document).ready(function() {
 
     const getDataJabatan = () => {
         itemLoad();
-        const q = query(collection(db, "jabatan"));
+        const q = query(
+            collection(db, "jabatan"),
+            where("jabatan", ">=", lastItem ? lastItem.jabatan : ""),
+            orderBy("jabatan"),
+            limit(itemShow + 1)
+        );
         getDocs(q).then((docSnap) => {
-            $(".list-data").empty();
+            if (!lastItem) {
+                $(".list-data").empty();
+            } else {
+                $(".btn-load-more").remove();
+            }
+            $(".card.shadow.skeleton.item-list").remove();
+
+            let index = itemShow + 1;
             docSnap.forEach(async(docSnapshot) => {
                 const dataTemp = docSnapshot.data();
                 dataTemp.id = docSnapshot.id;
+                index--;
 
-                let item = `<div class="card shadow item-list">
+                if (index > 0) {
+                    let item = `<div class="card shadow item-list">
             <div class="card-body">
             <div class="row">
               
@@ -48,7 +67,12 @@ $(document).ready(function() {
             </div>
         </div>
         </div>`;
-                $(".list-data").append(item);
+                    $(".list-data").append(item);
+                } else {
+                    lastItem = dataTemp;
+                    let loadMore = `<button class="btn btn-load-more">Tampilkan Lebih banyak</button>`;
+                    $(".list-data").append(loadMore);
+                }
             });
         });
     };
@@ -176,6 +200,9 @@ $(document).ready(function() {
     };
 
     const itemEvent = () => {
+        $(".list-data").on("click", ".btn-load-more", async function() {
+            getDataJabatan($("#search").val());
+        });
         $(".list-data").on("click", ".item-hapus", async function() {
             const id = $(this).data("id");
             const element = $(this);

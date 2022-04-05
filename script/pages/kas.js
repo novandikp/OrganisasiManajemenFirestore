@@ -4,7 +4,7 @@ $(document).ready(function() {
     const kasRepository = new KasRepository();
     let idanggota = "";
     let lastItem;
-    const itemShow = 2;
+    const itemShow = 3;
 
     //Format Uang
     $("input[name='jumlahUang']").on("keyup", function() {
@@ -63,37 +63,11 @@ $(document).ready(function() {
     };
 
     const getDataTagihan = () => {
-        itemLoad();
-        let q;
-
-        //Pembuatan QUery
-        if (lastItem) {
-            q = query(
-                collection(db, "kas"),
-                orderBy("created_at", "desc"),
-                where("created_at", "<=", lastItem.created_at),
-                limit(itemShow + 1)
-            );
-            $(".btn-load-more").remove();
-        } else {
-            q = query(
-                collection(db, "kas"),
-                orderBy("created_at", "desc"),
-                limit(itemShow + 1)
-            );
-            $(".list-data").empty();
-        }
-
-        getDocs(q).then((docSnap) => {
+        $(".btn-load-more").remove();
+        fetchDataLaporan(true).then((docSnap) => {
             var index = itemShow + 1;
             $(".card.shadow.skeleton.item-list").remove();
-            docSnap.forEach(async(docSnapshot) => {
-                const dataTemp = await docSnapshot.data();
-
-                dataTemp.id = docSnapshot.id;
-                //Ambil User
-                const user = await getDoc(dataTemp.user_id);
-                dataTemp.user = await user.data();
+            docSnap.forEach(async(dataTemp) => {
                 index--;
                 if (index > 0) {
                     let buttonBayar = "";
@@ -138,7 +112,6 @@ $(document).ready(function() {
                         </div>`;
                     $(".list-data").append(item);
                 } else {
-                    lastItem = dataTemp;
                     let loadMore = `<button class="btn btn-load-more">Tampilkan Lebih banyak</button>`;
                     $(".list-data").append(loadMore);
                 }
@@ -146,10 +119,34 @@ $(document).ready(function() {
         });
     };
 
-    const fetchDataLaporan = async() => {
+    const fetchDataLaporan = async(pagination = false) => {
         const promise = [];
-        const q = query(collection(db, "kas"), orderBy("created_at", "desc"));
+
+        let q;
+        if (pagination) {
+            if (lastItem) {
+                q = query(
+                    collection(db, "kas"),
+                    orderBy("created_at", "desc"),
+                    startAt(lastItem),
+                    limit(itemShow + 1)
+                );
+            } else {
+                $(".list-data").empty();
+                q = query(
+                    collection(db, "kas"),
+                    orderBy("created_at", "desc"),
+                    limit(itemShow + 1)
+                );
+                itemLoad();
+            }
+        } else {
+            q = query(collection(db, "kas"), orderBy("created_at", "desc"));
+        }
         await getDocs(q).then((docSnap) => {
+            if (pagination) {
+                lastItem = docSnap.docs[docSnap.docs.length - 1];
+            }
             docSnap.forEach(async(docSnapshot) => {
                 const dataTemp = docSnapshot.data();
                 dataTemp.id = docSnapshot.id;

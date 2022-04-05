@@ -136,6 +136,14 @@ function base_url(param = "/", params = "") {
     return window.location.origin + param + params;
 }
 
+function assets(param = "/") {
+    if (param[0] != "/") {
+        param = "/" + param;
+    }
+
+    return window.location.origin + param;
+}
+
 function redirect_to(url) {
     window.location.href = base_url(url);
 }
@@ -240,9 +248,23 @@ function restrictedAccess() {
     }
 }
 
+function isPhoneNumber(evt) {
+    evt = evt ? evt : window.event;
+    var charCode = evt.which ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode != 43) {
+        return false;
+    }
+    return true;
+}
+
+const elementNotFound = `<div class="my-5 d-flex justify-content-center align-items-center">
+<img src="${assets("image/404.png")}" width="400" alt="" class="img-fluid" />
+</div>`;
+
 restrictedAccess();
 window.updateLoginInfo = updateLoginInfo;
 window.db = db;
+window.fb = firebasedatabase;
 window.getDocs = firebasedatabase.getDocs;
 window.getDoc = firebasedatabase.getDoc;
 window.collection = firebasedatabase.collection;
@@ -256,6 +278,10 @@ window.uuid = uuid;
 window.where = firebasedatabase.where;
 window.query = firebasedatabase.query;
 window.limit = firebasedatabase.limit;
+window.startAt = firebasedatabase.startAt;
+window.startAfter = firebasedatabase.startAfter;
+window.endAt = firebasedatabase.endAt;
+window.documentId = firebasedatabase.documentId;
 window.getUserInfo = getUserInfo;
 window.isLogin = isLogin;
 window.Timestamp = firebasedatabase.Timestamp;
@@ -269,3 +295,5 @@ window.redirect_to = redirect_to;
 window.format_date = format_date;
 window.formatRupiah = formatRupiah;
 window.orderBy = firebasedatabase.orderBy;
+window.isPhoneNumber = isPhoneNumber;
+window.elementNotFound = elementNotFound;

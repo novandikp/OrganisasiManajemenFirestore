@@ -1,7 +1,8 @@
 import AnggotaRepository from "../repository/anggotaRepository.js?v=1.3";
 $(document).ready(function() {
+    let lastItem;
+    const itemShow = 5;
     const anggotaRepo = new AnggotaRepository();
-    const dataUser = [];
     const dokumen = new jsPDF();
     const deleteUser = async function(id) {
         const docUser = doc(db, "users", id);
@@ -37,8 +38,7 @@ $(document).ready(function() {
     };
 
     const itemLoad = () => {
-        $(".list-data").empty();
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < itemShow; i++) {
             const item = `<div class="card shadow skeleton item-list">
       <div class="card-body ">
       <div class="row">
@@ -63,6 +63,9 @@ $(document).ready(function() {
     };
 
     const itemEvent = () => {
+        $(".list-data").on("click", ".btn-load-more", async function() {
+            getUsers($("#search").val());
+        });
         $(".list-data").on("click", ".item-detail", async function() {
             fetchJabatan().then(() => {
                 const data = $(this).data("detail");
@@ -107,6 +110,7 @@ $(document).ready(function() {
                         temp.id = id;
                         updateUser(temp).then(() => {
                             anggotaRepo.tambahAnggota();
+                            lastItem = null;
                             getUsers();
                         });
                     },
@@ -132,6 +136,7 @@ $(document).ready(function() {
                 $(this).find("button").removeAttr("disabled");
                 if (result.status) {
                     $("#detailModal").modal("hide");
+                    lastItem = null;
                     getUsers();
                 }
             });
@@ -156,6 +161,7 @@ $(document).ready(function() {
                         confirm: function() {
                             element.attr("disabled", true);
                             deleteUser(id).then(() => {
+                                lastItem = null;
                                 getUsers();
                             });
                         },
@@ -170,139 +176,197 @@ $(document).ready(function() {
         $("#btn-pdf").on("click", exportPDF);
     };
 
-    const getUsers = (search = "") => {
-        itemLoad();
-        const q = query(
-            collection(db, "users"),
-            where("nama", ">=", search),
-            where("nama", "<=", search + "~")
-        );
-        dataUser.length = 0;
+    const getUsers = (search) => {
         $("#btn-excel , #btn-pdf").prop("disabled", true);
-        getDocs(q).then(async(querySnapshot) => {
-            $(".list-data").empty();
-            querySnapshot.forEach(async(doc) => {
-                const element = doc.data();
-                const jabatan = await getDoc(element.jabatan);
-                element.jabatan = jabatan.id;
-                element.id = doc.id;
-                element.nama_jabatan = jabatan.data().jabatan;
-                if (element.status) {
-                    dataUser.push(element);
-                }
+        $(".btn-load-more").remove();
 
-                let item = `<div class="card shadow item-list">
-            <div class="card-body">
-            <div class="row">
-              
-              <div class="col-md-8 col-sm-8 item-info">
-                <h5>${element.nama}</h5>
-                <p class="text-muted">${element.email}</p>
-                <p class="text-muted">${element.no_hp}</p>
-                <p class="text-muted">${element.alamat}</p>
-              </div>
-              <div class="col-md-4 col-sm-4">
-                  <div class="float-sm-right d-grid gap-2 d-xl-block mt-3">
-                    <button data-detail='${JSON.stringify(
-                      element
-                    )}' class="btn btn-secondary btn-sm ml-2 item-detail"><i class="fa fa-info me-2"></i>Detail</button>
-                    <button data-detail='${JSON.stringify(
-                      element
-                    )}' class="btn btn-primary btn-sm ml-2 item-edit"><i class="fa fa-pencil me-2"></i>Edit</button>
-                    <button data-id='${
-                      element.id
-                    }' class="btn btn-danger btn-sm ml-2 item-hapus"><i class="fa fa-trash me-2"></i>Hapus</button>
-                  </div>
-              </div>
-            </div>
-        </div>
-          </div>`;
+        fetchDataUser(true, search).then((data) => {
+            $(".card.shadow.skeleton.item-list").remove();
+            if (data.length == 0) {
+                $(".list-data").html(elementNotFound);
+            } else {
+                data.forEach((element, index) => {
+                    if (index < itemShow) {
+                        let item = `<div class="card shadow item-list">
+                        <div class="card-body">
+                        <div class="row">
+                        
+                        <div class="col-md-8 col-sm-8 item-info">
+                            <h5>${element.nama}</h5>
+                            <p class="text-muted">${element.email}</p>
+                            <p class="text-muted">${element.no_hp}</p>
+                            <p class="text-muted">${element.alamat}</p>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <div class="float-sm-right d-grid gap-2 d-xl-block mt-3">
+                                <button data-detail='${JSON.stringify(
+                                  element
+                                )}' class="btn btn-secondary btn-sm ml-2 item-detail"><i class="fa fa-info me-2"></i>Detail</button>
+                                <button data-detail='${JSON.stringify(
+                                  element
+                                )}' class="btn btn-primary btn-sm ml-2 item-edit"><i class="fa fa-pencil me-2"></i>Edit</button>
+                                <button data-id='${
+                                  element.id
+                                }' class="btn btn-danger btn-sm ml-2 item-hapus"><i class="fa fa-trash me-2"></i>Hapus</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                     </div>`;
 
-                if (!element.status) {
-                    item = `<div class="card shadow item-list">
-            <div class="card-body">
-            <div class="row">
-              
-              <div class="col-md-9 col-sm-9 item-info">
-                <h5>${element.nama}</h5>
-                <p class="text-muted">${element.email}</p>
-                <p class="text-muted">${element.no_hp}</p>
-                <p class="text-muted">${element.alamat}</p>
-              </div>
-              <div class="col-md-3 col-sm-3">
-                  <div class="float-sm-right d-grid gap-2 d-xl-block mt-3">
-                    <button data-detail='${JSON.stringify(
-                      element
-                    )}' class="btn btn-secondary btn-sm ml-2 item-detail"><i class="fa fa-info me-2"></i>Detail</button>
-                    <button data-id='${
-                      element.id
-                    }' class="btn btn-success btn-sm ml-2 item-setuju"><i class="fa fa-check me-2"></i>Setujui</button>
-                    <button  data-id='${
-                      element.id
-                    }' class="btn btn-danger btn-sm ml-2 item-hapus"><i class="fa fa-trash me-2"></i>Hapus</button>
-                  </div>
-              </div>
-            </div>
-        </div>
-          </div>`;
-                }
-                $(".list-data").append(item);
-            });
+                        if (!element.status) {
+                            item = `<div class="card shadow item-list">
+                            <div class="card-body">
+                            <div class="row">
+                            
+                            <div class="col-md-9 col-sm-9 item-info">
+                                <h5>${element.nama}</h5>
+                                <p class="text-muted">${element.email}</p>
+                                <p class="text-muted">${element.no_hp}</p>
+                                <p class="text-muted">${element.alamat}</p>
+                            </div>
+                            <div class="col-md-3 col-sm-3">
+                                <div class="float-sm-right d-grid gap-2 d-xl-block mt-3">
+                                    <button data-detail='${JSON.stringify(
+                                      element
+                                    )}' class="btn btn-secondary btn-sm ml-2 item-detail"><i class="fa fa-info me-2"></i>Detail</button>
+                                    <button data-id='${
+                                      element.id
+                                    }' class="btn btn-success btn-sm ml-2 item-setuju"><i class="fa fa-check me-2"></i>Setujui</button>
+                                    <button  data-id='${
+                                      element.id
+                                    }' class="btn btn-danger btn-sm ml-2 item-hapus"><i class="fa fa-trash me-2"></i>Hapus</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>`;
+                        }
+                        $(".list-data").append(item);
+                    } else {
+                        let loadMore = `<button class="btn btn-load-more">Tampilkan Lebih banyak</button>`;
+                        $(".list-data").append(loadMore);
+                    }
+                });
+            }
         });
+
         $("#btn-excel , #btn-pdf").removeAttr("disabled");
     };
 
     const exportExcel = () => {
-        const data = {
-            nama: "Anggota",
-            data: dataUser,
-        };
+        fetchDataUser().then((dataUser) => {
+            const data = {
+                nama: "Anggota",
+                data: dataUser,
+            };
 
-        // ExcelJS
-        const workbook = new ExcelJS.Workbook();
-        const worksheet = workbook.addWorksheet("Sheet 1");
-        worksheet.columns = [
-            { header: "Nama", key: "nama", width: 30 },
-            { header: "Email", key: "email", width: 30 },
-            { header: "No HP", key: "no_hp", width: 30 },
-            { header: "Alamat", key: "alamat", width: 30 },
-            { header: "Jabatan", key: "nama_jabatan", width: 30 },
-        ];
-        worksheet.addRows(data.data);
-        workbook.xlsx
-            .writeBuffer()
-            .then((buffer) =>
-                saveAs(new Blob([buffer]), `Laporan Anggota_${Date.now()}.xlsx`)
-            )
-            .catch((err) => console.log("Error writing excel export", err));
+            // ExcelJS
+            const workbook = new ExcelJS.Workbook();
+            const worksheet = workbook.addWorksheet("Sheet 1");
+            worksheet.columns = [
+                { header: "Nama", key: "nama", width: 30 },
+                { header: "Email", key: "email", width: 30 },
+                { header: "No HP", key: "no_hp", width: 30 },
+                { header: "Alamat", key: "alamat", width: 30 },
+                { header: "Jabatan", key: "nama_jabatan", width: 30 },
+            ];
+            worksheet.addRows(data.data);
+            workbook.xlsx
+                .writeBuffer()
+                .then((buffer) =>
+                    saveAs(new Blob([buffer]), `Laporan Anggota_${Date.now()}.xlsx`)
+                )
+                .catch((err) => console.log("Error writing excel export", err));
+        });
+    };
+
+    const fetchDataUser = async(
+        paginate = false,
+        search = $("#search").val()
+    ) => {
+        const promise = [];
+        let q;
+
+        if (lastItem && paginate) {
+            q = query(
+                collection(db, "users"),
+                orderBy("nama", "asc"),
+                where("nama", ">=", search),
+                where("nama", "<=", search + "~"),
+                startAt(lastItem),
+                limit(itemShow + 1)
+            );
+            itemLoad();
+        } else if (paginate) {
+            $(".list-data").empty();
+            q = query(
+                collection(db, "users"),
+                where("nama", ">=", search),
+                where("nama", "<=", search + "~"),
+                orderBy("nama", "asc"),
+                limit(itemShow + 1)
+            );
+            itemLoad();
+        } else {
+            q = query(
+                collection(db, "users"),
+                where("nama", ">=", search),
+                where("nama", "<=", search + "~"),
+                orderBy("nama", "asc")
+            );
+        }
+
+        await getDocs(q).then((querySnapshot) => {
+            if (paginate) {
+                lastItem = querySnapshot.docs[querySnapshot.docs.length - 1];
+            }
+            querySnapshot.forEach((doc) => {
+                const element = doc.data();
+                element.id = doc.id;
+                const data = getDoc(element.jabatan).then((jabatan) => {
+                    element.jabatan = jabatan.id;
+                    element.nama_jabatan = jabatan.data().jabatan;
+                    return element;
+                });
+
+                promise.push(data);
+            });
+        });
+
+        return Promise.all(promise);
     };
 
     const exportPDF = () => {
-        dokumen.autoTable({
-            columns: [
-                { header: "Nama", dataKey: "nama" },
-                { header: "Alamat", dataKey: "alamat" },
-                { header: "No Telp", dataKey: "no_hp" },
-                { header: "Jabatan", dataKey: "nama_jabatan" },
-            ],
-            body: dataUser,
-            margin: { top: 35 },
-            didDrawPage: function(data) {
-                dokumen.text("Daftar Anggota", 15, 30);
-            },
+        fetchDataUser().then((dataUser) => {
+            dokumen.autoTable({
+                columns: [
+                    { header: "Nama", dataKey: "nama" },
+                    { header: "Alamat", dataKey: "alamat" },
+                    { header: "No Telp", dataKey: "no_hp" },
+                    { header: "Jabatan", dataKey: "nama_jabatan" },
+                ],
+                body: dataUser,
+                margin: { top: 35 },
+                didDrawPage: function(data) {
+                    dokumen.text("Daftar Anggota", 15, 30);
+                },
+            });
+            dokumen.save(`Laporan Anggota_${Date.now()}.pdf`);
         });
-        dokumen.save(`Laporan Anggota_${Date.now()}.pdf`);
     };
 
     $("#formSearch").on("submit", (e) => {
         e.preventDefault();
         if ($("#search").val() != "") {
+            lastItem = null;
             getUsers($("#search").val());
         }
     });
 
     $("#search").on("search", function(evt) {
         if ($(this).val().length == 0) {
+            lastItem = null;
             getUsers();
         }
     });

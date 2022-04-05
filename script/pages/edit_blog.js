@@ -66,6 +66,10 @@ $(document).ready(function() {
         });
     };
 
+    $("body").on("keyup", "input", function() {
+        $(this).removeClass("is-invalid");
+    });
+
     fetchLabels();
 
     // Tambah label
@@ -80,28 +84,47 @@ $(document).ready(function() {
         });
     });
 
+    const validate = () => {
+        let validation = true;
+        if ($("#title").val().trim() == "") {
+            $("#title").addClass("is-invalid");
+            validation = false;
+        }
+
+        if ($($.parseHTML(editor.getContents())).text().trim() == "") {
+            $("#suneditor_inputDescription").after(
+                "<small class='text-danger'>Harap isi konten</small>"
+            );
+        }
+        return validation;
+    };
+
     //Simpan Blog
     $("#btn-upload").on("click", function(e) {
         e.preventDefault();
-        const blog = {};
-        blog.title = $("#title").val();
-        blog.description = editor.getContents();
-        blog.category = doc(db, "labels", $("#labelBlog").val());
-        blog.updated_at = new Date().toISOString();
+        if (validate()) {
+            $("#btn-upload").text("Proses Publikasi...");
+            $("#btn-upload").prop("disabled", "true");
+            const blog = {};
+            blog.title = $("#title").val();
+            blog.description = editor.getContents();
+            blog.category = doc(db, "labels", $("#labelBlog").val());
+            blog.updated_at = new Date().toISOString();
 
-        if (fileImage) {
-            uploadFile(fileImage, id).then((url) => {
-                blog.image = url;
+            if (fileImage) {
+                uploadFile(fileImage, id).then((url) => {
+                    blog.image = url;
+                    const blogs = doc(db, "blogs", id);
+                    updateDoc(blogs, blog).then((doc) => {
+                        redirect_to("pages/blog");
+                    });
+                });
+            } else {
                 const blogs = doc(db, "blogs", id);
                 updateDoc(blogs, blog).then((doc) => {
                     redirect_to("pages/blog");
                 });
-            });
-        } else {
-            const blogs = doc(db, "blogs", id);
-            updateDoc(blogs, blog).then((doc) => {
-                redirect_to("pages/blog");
-            });
+            }
         }
     });
 });
