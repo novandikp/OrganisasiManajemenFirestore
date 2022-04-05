@@ -1,4 +1,6 @@
 $(document).ready(function() {
+    let lastItem;
+    const itemShow = 5;
     const id = findGetParameter("cari");
     if (!id) {
         redirect_to("index");
@@ -6,105 +8,147 @@ $(document).ready(function() {
     $("#cariQuery").text(id);
 
     const itemLoad = () => {
-        $(".list-data").empty();
-        for (let i = 0; i < 4; i++) {
-            const item = `<div class="row my-4">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div  class="img-blog skeleton"></div>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="py-3 content-blog">
-                                    <h4 class="mb-0">
-                                        <a href="#" class="fw-bold text-dark skeleton">
-                                           Judul Ini Adalah
-                                        </a>
-                                    </h4>
-                                    <small class="text-muted skeleton">Kamis, 27 Agustus 2022</small>
-                                    <div class="content-blog-card skeleton  mt-3 text-secondary">
-                                     
-                                    </div>
-                                    <p>
-                                        <a href="#" class="btn btn-primary skeleton">Read More</a>
-                                    </p>
-                                </div>
-    
-                            </div>
+        if (!lastItem) {
+            $(".list-data").empty();
+        }
+        for (let i = 0; i < itemShow; i++) {
+            const item = `<div class="row my-4 load-item">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div  class="img-blog skeleton"></div>
                         </div>
-    
+                        <div class="col-md-8">
+                            <div class="py-3 content-blog">
+                                <h4 class="mb-0">
+                                    <a href="#" class="fw-bold text-dark skeleton">
+                                       Judul Ini Adalah
+                                    </a>
+                                </h4>
+                                <small class="text-muted skeleton">Kamis, 27 Agustus 2022</small>
+                                <div class="content-blog-card skeleton  mt-3 text-secondary">
+                                 
+                                </div>
+                                <p>
+                                    <a href="#" class="btn btn-primary skeleton">Read More</a>
+                                </p>
+                            </div>
+
+                        </div>
                     </div>
+
                 </div>
-            </div>`;
+            </div>
+        </div>`;
 
             $("#list-blog").append(item);
         }
     };
+    $("#list-blog").on("click", ".btn-load-more", async function() {
+        getBlogs();
+    });
 
-    const getBlogs = async() => {
-        itemLoad();
-        const q = query(
-            collection(db, "blogs"),
-            where("title", ">=", id),
-            where("title", "<=", id + "~")
-        );
-
-        getDocs(q).then(async(querySnapshot) => {
-            $("#list-blog").empty();
-            await querySnapshot.forEach(async(doc) => {
-                const element = doc.data();
-                const user = await getDoc(element.author);
-                const label = await getDoc(element.category);
-                element.user = await user.data();
-                element.label = await label.id;
-                element.id = doc.id;
-                let item = $(
-                    $.parseHTML(`<div class="row my-4">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <img src="${
-                                      element.image
-                                    }" alt="" class="img-blog">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="py-3 content-blog">
-                                        <h4 class="mb-0">
-                                            <a href="#" class="fw-bold text-dark">
-                                                ${element.title}
-                                            </a>
-                                        </h4>
-                                        <small class="text-muted">${format_date(
-                                          element.created_at
-                                        )}</small>
-                                        <div class="content-blog-card  mt-3 text-secondary">
-                                           ${element.description} 
-                                        </div>
-                                        <p>
-                                            <a href="${base_url(
-                                              "blog",
-                                              "?id=" + element.id
-                                            )}" class="btn btn-primary btn-sm">Read More</a>
-                                        </p>
-                                    </div>
-    
-                                </div>
-                            </div>
-    
-                        </div>
-                    </div>
-                </div>`)
-                );
-                item.find(".content-blog-card *").removeAttr("style");
-                item.find(".content-blog-card *").css("font-size", "12pt");
-                item.find(".content-blog-card *").addClass("fw-light");
-                $("#list-blog").append(item);
+    const getBlogs = () => {
+        fetchBlog().then(async(querySnapshot) => {
+            if (querySnapshot.length > 0) {
                 $("#data-not-found").addClass("d-none");
+            } else {
+                $("#data-not-found").removeClass("d-none");
+            }
+            $(".load-item").remove();
+            let index = itemShow + 1;
+            $(".btn-load-more").remove();
+            querySnapshot.forEach(async(element) => {
+                index--;
+                if (index > 0) {
+                    let item = $(
+                        $.parseHTML(`<div class="row my-4">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="${
+                                  element.image
+                                }" alt="" class="img-blog">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="py-3 content-blog">
+                                    <h4 class="mb-0">
+                                        <a href="#" class="fw-bold text-dark">
+                                            ${element.title}
+                                        </a>
+                                    </h4>
+                                    <small class="text-muted">${format_date(
+                                      element.created_at
+                                    )}</small>
+                                    <div class="content-blog-card  mt-3 text-secondary">
+                                       ${element.description} 
+                                    </div>
+                                    <p>
+                                        <a href="${base_url(
+                                          "blog",
+                                          "?id=" + element.id
+                                        )}" class="btn btn-primary btn-sm">Read More</a>
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>`)
+                    );
+                    item.find(".content-blog-card *").removeAttr("style");
+                    item.find(".content-blog-card *").css("font-size", "12pt");
+                    item.find(".content-blog-card *").addClass("fw-light");
+                    $("#list-blog").append(item);
+                } else {
+                    let loadMore = `<button class="btn btn-load-more">Tampilkan Lebih banyak</button>`;
+                    $("#list-blog").append(loadMore);
+                }
             });
-            $("#data-not-found").removeClass("d-none");
         });
+    };
+
+    const fetchBlog = async() => {
+        const promise = [];
+        let q;
+        if (lastItem) {
+            q = query(
+                collection(db, "blogs"),
+                orderBy("title", "asc"),
+                startAt(lastItem),
+                where("title", ">=", id),
+                where("title", "<=", id + "~"),
+                limit(itemShow + 1)
+            );
+        } else {
+            $("#list-blog").empty();
+            q = query(
+                collection(db, "blogs"),
+                orderBy("title", "asc"),
+                where("title", ">=", id),
+                where("title", "<=", id + "~"),
+                limit(itemShow + 1)
+            );
+            itemLoad();
+        }
+
+        await getDocs(q).then(async(querySnapshot) => {
+            lastItem = querySnapshot.docs[querySnapshot.docs.length - 1];
+            querySnapshot.forEach((doc) => {
+                const element = doc.data();
+                const data = getDoc(element.category).then((label) => {
+                    element.label = label.id;
+                    element.id = doc.id;
+                    return element;
+                });
+                promise.push(data);
+            });
+        });
+        return Promise.all(promise);
     };
 
     const loadConfig = () => {
@@ -113,7 +157,6 @@ $(document).ready(function() {
             doc.forEach((snap) => {
                 config[snap.id] = snap.data().value;
             });
-            $(".skeleton").removeClass("skeleton");
             $("#judulFooter").text(config.judul_cover);
             $("#ikon").attr("src", config.ikon);
             $(".fa-twitter").parent().attr("target", "_blank");

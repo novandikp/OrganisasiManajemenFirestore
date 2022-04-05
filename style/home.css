@@ -71,9 +71,24 @@ a {
     object-position: center;
 }
 
+.btn-load-more {
+    background-color: #474099;
+    color: #fff;
+    border-color: #474099;
+    display: block;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.btn-load-more:hover {
+    background-color: #2e86de;
+    color: #fff;
+    border-color: #2e86de;
+}
+
 .content-blog-card {
     font-size: 12pt!important;
-    height: 100px;
+    height: 70px;
     overflow: hidden;
     margin-bottom: 10px;
 }

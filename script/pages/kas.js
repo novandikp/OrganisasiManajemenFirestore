@@ -4,7 +4,7 @@ $(document).ready(function() {
     const kasRepository = new KasRepository();
     let idanggota = "";
     let lastItem;
-    const itemShow = 3;
+    const itemShow = 5;
 
     //Format Uang
     $("input[name='jumlahUang']").on("keyup", function() {
