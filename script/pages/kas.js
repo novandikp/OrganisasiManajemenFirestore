@@ -6,6 +6,9 @@ $(document).ready(function() {
     let lastItem;
     const itemShow = 5;
 
+    $("#start-filter-date").val(new Date().toDateInputValue());
+    $("#end-filter-date").val(new Date().toDateInputValue());
+
     //Format Uang
     $("input[name='jumlahUang']").on("keyup", function() {
         var jumlahUangRupiah = formatRupiah($(this).val());
@@ -128,6 +131,17 @@ $(document).ready(function() {
                 q = query(
                     collection(db, "kas"),
                     orderBy("created_at", "desc"),
+                    where(
+                        "created_at",
+                        ">=",
+                        new Date($("#start-filter-date").val()).toISOString()
+                    ),
+                    where(
+                        "created_at",
+                        "<=",
+                        new Date($("#end-filter-date").val() + " 23:59:59").toISOString()
+                    ),
+
                     startAt(lastItem),
                     limit(itemShow + 1)
                 );
@@ -136,12 +150,35 @@ $(document).ready(function() {
                 q = query(
                     collection(db, "kas"),
                     orderBy("created_at", "desc"),
+                    where(
+                        "created_at",
+                        ">=",
+                        new Date($("#start-filter-date").val()).toISOString()
+                    ),
+                    where(
+                        "created_at",
+                        "<=",
+                        new Date($("#end-filter-date").val() + " 23:59:59").toISOString()
+                    ),
                     limit(itemShow + 1)
                 );
                 itemLoad();
             }
         } else {
-            q = query(collection(db, "kas"), orderBy("created_at", "desc"));
+            q = query(
+                collection(db, "kas"),
+                where(
+                    "created_at",
+                    ">=",
+                    new Date($("#start-filter-date").val()).toISOString()
+                ),
+                where(
+                    "created_at",
+                    "<=",
+                    new Date($("#end-filter-date").val() + " 23:59:59").toISOString()
+                ),
+                orderBy("created_at", "desc")
+            );
         }
         await getDocs(q).then((docSnap) => {
             if (pagination) {
@@ -393,6 +430,11 @@ $(document).ready(function() {
             }
             $("#form-tagihan button[type='submit']").prop("disabled", true);
         }
+    });
+
+    $("#refreshData").on("click", function() {
+        lastItem = null;
+        getDataTagihan();
     });
 
     itemEvent();
