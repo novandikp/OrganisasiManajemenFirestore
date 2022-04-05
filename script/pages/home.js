@@ -120,9 +120,8 @@ $(document).ready(function() {
                 orderBy("title", "asc"),
                 limit(itemShow + 1)
             );
-            itemLoad();
         }
-
+        itemLoad();
         await getDocs(q).then(async(querySnapshot) => {
             lastItem = querySnapshot.docs[querySnapshot.docs.length - 1];
             querySnapshot.forEach((doc) => {

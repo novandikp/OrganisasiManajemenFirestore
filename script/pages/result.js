@@ -133,9 +133,8 @@ $(document).ready(function() {
                 where("title", "<=", id + "~"),
                 limit(itemShow + 1)
             );
-            itemLoad();
         }
-
+        itemLoad();
         await getDocs(q).then(async(querySnapshot) => {
             lastItem = querySnapshot.docs[querySnapshot.docs.length - 1];
             querySnapshot.forEach((doc) => {
