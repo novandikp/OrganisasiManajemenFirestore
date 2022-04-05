@@ -8,6 +8,7 @@ $(document).ready(function() {
     $("#cariQuery").text(id);
 
     const itemLoad = () => {
+        $(".btn-load-more").remove();
         if (!lastItem) {
             $(".list-data").empty();
         }

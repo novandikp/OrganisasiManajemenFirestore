@@ -2,6 +2,7 @@ $(document).ready(function() {
     let lastItem;
     const itemShow = 5;
     const itemLoad = () => {
+        $(".btn-load-more").remove();
         if (!lastItem) {
             $(".list-data").empty();
         }
