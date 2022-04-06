@@ -135,9 +135,25 @@ $(document).ready(function() {
     };
 
     const getDataKeuangan = () => {
+        $("#refreshData").append("<i class='ms-2 fa fa-spinner'></i>");
+        // disable refresh data
+        $("#refreshData").attr("disabled", true);
         fetchDataKeuangan(true).then((docSnap) => {
             let index = itemShow + 1;
             $(".skeleton.item-list").remove();
+            $("#refreshData").removeAttr("disabled");
+            $(".fa-spinner").remove();
+            if (docSnap.saldo >= 0) {
+                $("#saldo").text("Rp. " + formatRupiah(docSnap.saldo.toString()));
+            } else {
+                $("#saldo").text("-Rp. " + formatRupiah(docSnap.saldo.toString()));
+            }
+
+            if (docSnap.data.length == 0) {
+                $(".list-data").append(elementNotFound);
+                lastItem = null;
+            }
+
             docSnap.data.forEach(async(dataTemp) => {
                 index--;
                 if (index > 0) {

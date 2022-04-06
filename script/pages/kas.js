@@ -66,10 +66,19 @@ $(document).ready(function() {
     };
 
     const getDataTagihan = () => {
+        $("#refreshData").append("<i class='ms-2 fa fa-spinner'></i>");
+        // disable refresh data
+        $("#refreshData").attr("disabled", true);
         $(".btn-load-more").remove();
         fetchDataLaporan(true).then((docSnap) => {
+            $("#refreshData").removeAttr("disabled");
+            $(".fa-spinner").remove();
             var index = itemShow + 1;
             $(".card.shadow.skeleton.item-list").remove();
+            if (docSnap.length == 0) {
+                $(".list-data").append(elementNotFound);
+                lastItem = null;
+            }
             docSnap.forEach(async(dataTemp) => {
                 index--;
                 if (index > 0) {
