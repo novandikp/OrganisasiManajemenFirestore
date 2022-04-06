@@ -219,6 +219,7 @@ $(document).ready(function() {
                                     content: result.message,
                                 });
                             }
+                            lastItem = null;
                             getDataJabatan();
 
                             element.attr("disabled", false);
@@ -243,6 +244,7 @@ $(document).ready(function() {
                     $("#jabatan").val("");
                     $("#keterangan").val("");
                     $("#selectAll").prop("checked", false);
+                    lastItem = null;
                     getDataJabatan();
                 } else {
                     $.alert({
@@ -259,6 +261,7 @@ $(document).ready(function() {
                     $("#jabatan").val("");
                     $("#keterangan").val("");
                     $("#selectAll").prop("checked", false);
+                    lastItem = null;
                     getDataJabatan();
                 } else {
                     $.alert({

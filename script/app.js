@@ -239,6 +239,12 @@ function restrictedAccess() {
                 $("#" + index).hide();
             }
         });
+        // Cek
+        if (!aksesArray.includes("akses_kas") &&
+            !aksesArray.includes("akses_keuangan")
+        ) {
+            $("[data-bs-target='#finance']").hide();
+        }
         const content = $("body").data("content");
         if (content) {
             if (!aksesArray.includes(content)) {
