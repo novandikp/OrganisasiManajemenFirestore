@@ -13,7 +13,7 @@ $(document).ready(function() {
 
     const updateUser = async function(user) {
         const docUser = doc(db, "users", user.id);
-        if (user.id == getUserInfo().jabatan) {
+        if (user.id == getUserInfo().id) {
             localStorage.removeItem("recent_update_info");
             updateLoginInfo();
         }
@@ -154,19 +154,47 @@ $(document).ready(function() {
                 });
             } else {
                 const element = $(this);
-                $.confirm({
-                    title: "Konfirmasi",
-                    content: "Apakah anda yakin untuk menghapus data ini?",
-                    buttons: {
-                        confirm: function() {
-                            element.attr("disabled", true);
-                            deleteUser(id).then(() => {
-                                lastItem = null;
-                                getUsers();
-                            });
-                        },
-                        cancel: function() {},
-                    },
+                cekForeign(id).then((data) => {
+                    let status = true;
+                    data.forEach((item) => {
+                        if (!item) {
+                            status = false;
+                        }
+                    });
+                    if (!status) {
+                        $.confirm({
+                            title: "Konfirmasi",
+                            content: "Apakah anda yakin untuk menonaktifkan akun ini?. Akun tidak bisa dihapus karena telah dipakai",
+                            buttons: {
+                                confirm: function() {
+                                    element.attr("disabled", true);
+                                    const user = {};
+                                    user.id = id;
+                                    user.status = false;
+                                    updateUser(user).then(() => {
+                                        lastItem = null;
+                                        getUsers();
+                                    });
+                                },
+                                cancel: function() {},
+                            },
+                        });
+                    } else {
+                        $.confirm({
+                            title: "Konfirmasi",
+                            content: "Apakah anda yakin untuk menghapus data ini?",
+                            buttons: {
+                                confirm: function() {
+                                    element.attr("disabled", true);
+                                    deleteUser(id).then(() => {
+                                        lastItem = null;
+                                        getUsers();
+                                    });
+                                },
+                                cancel: function() {},
+                            },
+                        });
+                    }
                 });
             }
         });
@@ -354,6 +382,35 @@ $(document).ready(function() {
             });
             dokumen.save(`Laporan Anggota_${Date.now()}.pdf`);
         });
+    };
+
+    const cekForeign = async(iduser) => {
+        const collections = [{
+                collection: "blogs",
+                field: "author",
+            },
+            {
+                collection: "kas",
+                field: "user_id",
+            },
+        ];
+        let promise = [];
+        collections.forEach(async(data) => {
+            const q = query(
+                collection(db, data.collection),
+                where(data.field, "==", doc(db, "users", iduser)),
+                limit(1)
+            );
+            const prom = getDocs(q).then((querySnapshot) => {
+                if (querySnapshot.size > 0) {
+                    return false;
+                } else {
+                    return true;
+                }
+            });
+            promise.push(prom);
+        });
+        return Promise.all(promise);
     };
 
     $("#formSearch").on("submit", (e) => {
