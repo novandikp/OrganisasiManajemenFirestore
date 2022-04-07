@@ -28,6 +28,7 @@ $(document).ready(function() {
     };
 
     const getDataJabatan = () => {
+        $(".btn-load-more").remove();
         itemLoad();
         const q = query(
             collection(db, "jabatan"),

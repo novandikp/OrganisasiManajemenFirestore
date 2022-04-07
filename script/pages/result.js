@@ -1,7 +1,7 @@
 $(document).ready(function() {
     let lastItem;
     const itemShow = 5;
-    const id = findGetParameter("cari");
+    const id = findGetParameter("cari").replaceAll("+", " ");
     if (!id) {
         redirect_to("index");
     }
