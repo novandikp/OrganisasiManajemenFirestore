@@ -93,6 +93,7 @@ $(document).ready(function() {
             blog.created_at = new Date().toISOString();
             blog.updated_at = new Date().toISOString();
             blog.author = doc(db, "users", getUserInfo().id);
+            blog.viewed = 0;
             const id = uuid("blogs_");
             uploadFile(fileImage, id).then((url) => {
                 blog.image = url;

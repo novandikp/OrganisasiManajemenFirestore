@@ -3,13 +3,27 @@ $(document).ready(function() {
     if (!id) {
         redirect_to("index");
     }
-
     const getBlogs = async() => {
         const dokumen = doc(db, "blogs", id);
         const data = await getDoc(dokumen);
         const element = data.data();
         const user = await getDoc(element.author);
         const label = await getDoc(element.category);
+
+        const dataView = localStorage.getItem("blog_view");
+        let dataJson = [];
+        if (dataView) {
+            dataJson = JSON.parse(dataView);
+        }
+        if (dataJson.indexOf(id) < 0) {
+            if (!element.viewed) {
+                element.viewed = 0;
+            }
+            dataJson.push(id);
+            const blogDoc = doc(db, "blogs", id);
+            updateDoc(blogDoc, { viewed: element.viewed + 1 });
+            localStorage.setItem("blog_view", JSON.stringify(dataJson));
+        }
         element.user = await user.data();
         element.label = await label.id;
         $("#blog-post-title").text(element.title);

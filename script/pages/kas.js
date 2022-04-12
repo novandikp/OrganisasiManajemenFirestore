@@ -270,13 +270,28 @@ $(document).ready(function() {
     };
 
     const exportExcel = async() => {
-        await fetchDataLaporan().then((result) => {
+        await fetchDataLaporan().then(async(result) => {
             const data = {
                 nama: "Kas",
                 data: [],
             };
 
+            let sudah_dibayar = 0;
+            let belum_dibayar = 0;
+            const pengaturan = doc(db, "pengaturan", "judul_cover");
+            const organisasi = await getDoc(pengaturan);
+            const nama = organisasi.data().value;
+            const tanggal =
+                new Date($("#start-filter-date").val()).toISOString().slice(0, 10) +
+                " - " +
+                new Date($("#end-filter-date").val()).toISOString().slice(0, 10);
+
             data.data = result.map((item) => {
+                if (item.status) {
+                    sudah_dibayar += parseInt(item.jumlahUang.replace(".", ""));
+                } else {
+                    belum_dibayar += parseInt(item.jumlahUang.replace(".", ""));
+                }
                 return {
                     tanggal: format_date(item.created_at),
                     untuk: item.user.nama,
@@ -293,7 +308,117 @@ $(document).ready(function() {
                 { header: "Nominal", key: "jumlahUang", width: 30 },
                 { header: "Status", key: "status", width: 30 },
             ];
+
+            let maxRow = 5 + data.data.length + 2;
+            const title = "Laporan Keuangan";
+            worksheet.mergeCells("A1", "D1");
+            worksheet.getCell("A1").value = title;
+
+            worksheet.mergeCells("A2", "D2");
+            worksheet.getCell("A2").value = nama;
+
+            worksheet.mergeCells("A3", "D3");
+            worksheet.getCell("A3").value = tanggal;
+
+            worksheet.getRow(5).values = [
+                "Nama",
+                "Tanggal Tagihan",
+                "Nominal",
+                "Status",
+            ];
+
             worksheet.addRows(data.data);
+
+            maxRow++;
+            worksheet.mergeCells("A" + maxRow, "D" + maxRow);
+            worksheet.getCell("A" + maxRow).value =
+                "Total Tagihan terbayar : " + formatRupiah(sudah_dibayar.toString());
+            maxRow++;
+            worksheet.mergeCells("A" + maxRow, "D" + maxRow);
+            worksheet.getCell("A" + maxRow).value =
+                "Total Tagihan belum terbayar: " +
+                formatRupiah(belum_dibayar.toString());
+            maxRow++;
+            worksheet.mergeCells("A" + maxRow, "D" + maxRow);
+            worksheet.getCell("A" + maxRow).value =
+                "Total Akhir : " +
+                formatRupiah((sudah_dibayar + belum_dibayar).toString());
+            maxRow++;
+            worksheet.mergeCells("A" + maxRow, "D" + maxRow);
+            worksheet.getCell("A" + maxRow).value =
+                "Dicetak tanggal : " + new Date().toDateInputValue();
+
+            worksheet.getCell("A1").font = {
+                size: 13,
+                bold: true,
+                alignment: {
+                    horizontal: "center",
+                },
+            };
+            worksheet.getCell("A2").font = {
+                size: 12,
+                alignment: {
+                    horizontal: "center",
+                },
+            };
+            worksheet.getCell("A3").font = {
+                size: 12,
+                alignment: {
+                    horizontal: "center",
+                },
+            };
+            worksheet.eachRow((row, rowNumber) => {
+                row.eachCell(function(Cell, cellNum) {
+                    if (rowNumber < 5) {
+                        Cell.alignment = {
+                            vertical: "center",
+                            horizontal: "center",
+                        };
+                    } else if (rowNumber > 5 + data.data.length + 2) {
+                        Cell.alignment = {
+                            vertical: "center",
+                            horizontal: "right",
+                        };
+                    } else {
+                        Cell.alignment = {
+                            vertical: "middle",
+                            horizontal: "middle",
+                        };
+                    }
+
+                    if (rowNumber == 5) {
+                        Cell.fill = {
+                            type: "pattern",
+                            pattern: "solid",
+                            fgColor: { argb: "FFFFFF00" },
+                            bgColor: { argb: "FF0000FF" },
+                        };
+                        Cell.border = {
+                            top: { style: "thin" },
+                            left: { style: "thin" },
+                            bottom: { style: "thin" },
+                            right: { style: "thin" },
+                        };
+                    }
+
+                    if (
+                        cellNum == 3 &&
+                        rowNumber > 5 &&
+                        rowNumber < 5 + data.data.length + 2
+                    ) {
+                        Cell.alignment = {
+                            vertical: "center",
+                            horizontal: "right",
+                        };
+                    }
+                });
+                if (rowNumber == 5 || rowNumber > 5 + data.data.length + 2) {
+                    row.font = { size: 12, bold: true };
+                } else if (rowNumber > 5) {
+                    row.font = { size: 12 };
+                }
+            });
+
             workbook.xlsx
                 .writeBuffer()
                 .then((buffer) =>
@@ -304,8 +429,15 @@ $(document).ready(function() {
     };
 
     const exportPDF = async() => {
-        await fetchDataLaporan().then((result) => {
+        await fetchDataLaporan().then(async(result) => {
             const dokumen = new jsPDF();
+            const pengaturan = doc(db, "pengaturan", "judul_cover");
+            const organisasi = await getDoc(pengaturan);
+            const nama = organisasi.data().value;
+            const tanggal =
+                new Date($("#start-filter-date").val()).toISOString().slice(0, 10) +
+                " - " +
+                new Date($("#end-filter-date").val()).toISOString().slice(0, 10);
             const data = result.map((item) => {
                 return {
                     tanggal: format_date(item.created_at),
@@ -322,9 +454,51 @@ $(document).ready(function() {
                     { header: "Status", dataKey: "status" },
                 ],
                 body: data,
-                margin: { top: 35 },
+                margin: { top: 51 },
                 didDrawPage: function(data) {
-                    dokumen.text("Daftar Kas", 15, 30);
+                    var pageSize = dokumen.internal.pageSize;
+                    var pageHeight = pageSize.height ?
+                        pageSize.height :
+                        pageSize.getHeight();
+                    var pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
+
+                    if (data.pageNumber === 1) {
+                        dokumen.setFontSize(14);
+                        dokumen.setFontType("bold");
+                        const header = "Laporan Kas";
+
+                        let textWidth =
+                            (dokumen.getStringUnitWidth(header) *
+                                dokumen.internal.getFontSize()) /
+                            dokumen.internal.scaleFactor;
+                        dokumen.text(header, (pageWidth - textWidth) / 2, 30);
+                        dokumen.setFontType("normal");
+                        dokumen.setFontSize(12);
+                        textWidth =
+                            (dokumen.getStringUnitWidth(nama) *
+                                dokumen.internal.getFontSize()) /
+                            dokumen.internal.scaleFactor;
+                        dokumen.text(nama, (pageWidth - textWidth) / 2, 37);
+
+                        textWidth =
+                            (dokumen.getStringUnitWidth(tanggal) *
+                                dokumen.internal.getFontSize()) /
+                            dokumen.internal.scaleFactor;
+                        dokumen.text(tanggal, (pageWidth - textWidth) / 2, 44);
+                    }
+                    data.settings.margin.top = 10;
+                    // Footer
+                    var str = "Page " + dokumen.internal.getNumberOfPages();
+                    if (typeof dokumen.putTotalPages === "function") {
+                        str = str;
+                    }
+                    dokumen.setFontSize(10);
+                    dokumen.text(str, data.settings.margin.left, pageHeight - 10);
+                    dokumen.text(
+                        "© " + new Date().getFullYear(),
+                        pageWidth - 30,
+                        pageHeight - 10
+                    );
                 },
             });
             dokumen.save(`Laporan Kas_${Date.now()}.pdf`);

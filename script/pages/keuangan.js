@@ -281,15 +281,28 @@ $(document).ready(function() {
     };
 
     const exportExcel = async() => {
-        await fetchDataKeuangan().then((result) => {
+        await fetchDataKeuangan().then(async(result) => {
             const data = {
                 nama: "Keuangan",
                 data: [],
             };
+            const pengaturan = doc(db, "pengaturan", "judul_cover");
+            const organisasi = await getDoc(pengaturan);
+            const nama = organisasi.data().value;
+            const tanggal =
+                new Date($("#start-filter-date").val()).toISOString().slice(0, 10) +
+                " - " +
+                new Date($("#end-filter-date").val()).toISOString().slice(0, 10);
+
+            let pemasukan = 0;
+            let pengeluaran = 0;
             let sisaSaldo = result.saldo - result.saldoMuncul;
             data.data = result.data.map((item) => {
                 sisaSaldo += item.debit;
                 sisaSaldo -= item.kredit;
+
+                pemasukan += item.debit;
+                pengeluaran -= item.kredit;
                 return {
                     tanggalKeuangan: format_date(item.tanggalKeuangan),
                     keterangan: item.keterangan,
@@ -300,6 +313,14 @@ $(document).ready(function() {
             });
 
             if (result.saldo - result.saldoMuncul != 0) {
+                pemasukan +=
+                    result.saldo - result.saldoMuncul > 0 ?
+                    result.saldo - result.saldoMuncul :
+                    0;
+                pengeluaran +=
+                    result.saldo - result.saldoMuncul < 0 ?
+                    result.saldo - result.saldoMuncul :
+                    0;
                 data.data.splice(0, 0, {
                     tanggalKeuangan: "-",
                     debit: result.saldo - result.saldoMuncul > 0 ?
@@ -324,7 +345,116 @@ $(document).ready(function() {
                 { header: "Keluar", key: "kredit", width: 30 },
                 { header: "Saldo", key: "saldo", width: 30 },
             ];
+
+            let maxRow = 5 + data.data.length + 2;
+            const title = "Laporan Keuangan";
+            worksheet.mergeCells("A1", "E1");
+            worksheet.getCell("A1").value = title;
+
+            worksheet.mergeCells("A2", "E2");
+            worksheet.getCell("A2").value = nama;
+
+            worksheet.mergeCells("A3", "E3");
+            worksheet.getCell("A3").value = tanggal;
+
+            worksheet.getRow(5).values = [
+                "Tanggal Keuangan",
+                "Keterangan",
+                "Masuk",
+                "Keluar",
+                "Saldo",
+            ];
+
             worksheet.addRows(data.data);
+
+            maxRow++;
+            worksheet.mergeCells("A" + maxRow, "E" + maxRow);
+            worksheet.getCell("A" + maxRow).value =
+                "Jumlah Pemasukan : " + formatRupiah(pemasukan.toString());
+            maxRow++;
+            worksheet.mergeCells("A" + maxRow, "E" + maxRow);
+            worksheet.getCell("A" + maxRow).value =
+                "Jumlah Pengeluaran : " + formatRupiah(pengeluaran.toString());
+            maxRow++;
+            worksheet.mergeCells("A" + maxRow, "E" + maxRow);
+            worksheet.getCell("A" + maxRow).value =
+                "Saldo Akhir : " + formatRupiah((pemasukan + pengeluaran).toString());
+            maxRow++;
+            worksheet.mergeCells("A" + maxRow, "E" + maxRow);
+            worksheet.getCell("A" + maxRow).value =
+                "Dicetak tanggal : " + new Date().toDateInputValue();
+
+            worksheet.getCell("A1").font = {
+                size: 13,
+                bold: true,
+                alignment: {
+                    horizontal: "center",
+                },
+            };
+            worksheet.getCell("A2").font = {
+                size: 12,
+                alignment: {
+                    horizontal: "center",
+                },
+            };
+            worksheet.getCell("A3").font = {
+                size: 12,
+                alignment: {
+                    horizontal: "center",
+                },
+            };
+            worksheet.eachRow((row, rowNumber) => {
+                row.eachCell(function(Cell, cellNum) {
+                    if (rowNumber < 5) {
+                        Cell.alignment = {
+                            vertical: "center",
+                            horizontal: "center",
+                        };
+                    } else if (rowNumber > 5 + data.data.length + 2) {
+                        Cell.alignment = {
+                            vertical: "center",
+                            horizontal: "right",
+                        };
+                    } else {
+                        Cell.alignment = {
+                            vertical: "middle",
+                            horizontal: "middle",
+                        };
+                    }
+
+                    if (rowNumber == 5) {
+                        Cell.fill = {
+                            type: "pattern",
+                            pattern: "solid",
+                            fgColor: { argb: "FFFFFF00" },
+                            bgColor: { argb: "FF0000FF" },
+                        };
+                        Cell.border = {
+                            top: { style: "thin" },
+                            left: { style: "thin" },
+                            bottom: { style: "thin" },
+                            right: { style: "thin" },
+                        };
+                    }
+
+                    if (
+                        cellNum > 2 &&
+                        rowNumber > 5 &&
+                        rowNumber < 5 + data.data.length + 2
+                    ) {
+                        Cell.alignment = {
+                            vertical: "center",
+                            horizontal: "right",
+                        };
+                    }
+                });
+                if (rowNumber == 5 || rowNumber > 5 + data.data.length + 2) {
+                    row.font = { size: 12, bold: true };
+                } else if (rowNumber > 5) {
+                    row.font = { size: 12 };
+                }
+            });
+
             workbook.xlsx
                 .writeBuffer()
                 .then((buffer) =>
@@ -335,8 +465,16 @@ $(document).ready(function() {
     };
 
     const exportPDF = async() => {
-        await fetchDataKeuangan().then((result) => {
+        await fetchDataKeuangan().then(async(result) => {
             const dokumen = new jsPDF();
+            const pengaturan = doc(db, "pengaturan", "judul_cover");
+            const organisasi = await getDoc(pengaturan);
+            const nama = organisasi.data().value;
+            const tanggal =
+                new Date($("#start-filter-date").val()).toISOString().slice(0, 10) +
+                " - " +
+                new Date($("#end-filter-date").val()).toISOString().slice(0, 10);
+
             let sisaSaldo = result.saldo - result.saldoMuncul;
             const dataBaru = result.data.map((item) => {
                 sisaSaldo += item.debit;
@@ -373,9 +511,51 @@ $(document).ready(function() {
                     { header: "Saldo", dataKey: "saldo" },
                 ],
                 body: dataBaru,
-                margin: { top: 34 },
+                margin: { top: 51 },
                 didDrawPage: function(data) {
-                    dokumen.text("Daftar Keuangan", 15, 30);
+                    var pageSize = dokumen.internal.pageSize;
+                    var pageHeight = pageSize.height ?
+                        pageSize.height :
+                        pageSize.getHeight();
+                    var pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
+
+                    if (data.pageNumber === 1) {
+                        dokumen.setFontSize(14);
+                        dokumen.setFontType("bold");
+                        const header = "Laporan Kas";
+
+                        let textWidth =
+                            (dokumen.getStringUnitWidth(header) *
+                                dokumen.internal.getFontSize()) /
+                            dokumen.internal.scaleFactor;
+                        dokumen.text(header, (pageWidth - textWidth) / 2, 30);
+                        dokumen.setFontType("normal");
+                        dokumen.setFontSize(12);
+                        textWidth =
+                            (dokumen.getStringUnitWidth(nama) *
+                                dokumen.internal.getFontSize()) /
+                            dokumen.internal.scaleFactor;
+                        dokumen.text(nama, (pageWidth - textWidth) / 2, 37);
+
+                        textWidth =
+                            (dokumen.getStringUnitWidth(tanggal) *
+                                dokumen.internal.getFontSize()) /
+                            dokumen.internal.scaleFactor;
+                        dokumen.text(tanggal, (pageWidth - textWidth) / 2, 44);
+                    }
+                    data.settings.margin.top = 10;
+                    // Footer
+                    var str = "Page " + dokumen.internal.getNumberOfPages();
+                    if (typeof dokumen.putTotalPages === "function") {
+                        str = str;
+                    }
+                    dokumen.setFontSize(10);
+                    dokumen.text(str, data.settings.margin.left, pageHeight - 10);
+                    dokumen.text(
+                        "© " + new Date().getFullYear(),
+                        pageWidth - 30,
+                        pageHeight - 10
+                    );
                 },
             });
             dokumen.save(`Laporan Keuangan_${Date.now()}.pdf`);

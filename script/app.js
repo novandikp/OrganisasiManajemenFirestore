@@ -263,6 +263,12 @@ function isPhoneNumber(evt) {
     return true;
 }
 
+function getAge(d1, d2) {
+    d2 = d2 || new Date();
+    var diff = d2.getTime() - d1.getTime();
+    return Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+}
+
 const elementNotFound = `<div class="my-5 d-flex justify-content-center align-items-center">
 <img src="${assets("image/404.png")}" width="400" alt="" class="img-fluid" />
 </div>`;
@@ -303,3 +309,4 @@ window.formatRupiah = formatRupiah;
 window.orderBy = firebasedatabase.orderBy;
 window.isPhoneNumber = isPhoneNumber;
 window.elementNotFound = elementNotFound;
+window.getAge = getAge;

@@ -186,12 +186,12 @@
         </div>
 
         <!-- Chart -->
-        <div class="row">
+        <div class="row my-3">
             <!-- chart garis -->
-            <div class="col-lg-12">
+            <div class="col-lg-6">
                 <div class="card mg-top">
                     <div class="card-header bg-header text-light">
-                        <h5 class=" card-title">Grafik Garis Lingkaran<i class="bi bi-pie-chart-fill mg-left"></i></h5>
+                        <h5 class=" card-title">Arus Keuangan Bulanan<i class="bi bi-pie-chart-fill mg-left"></i></h5>
                     </div>
                     <div class="card-body">
                         <div class="chart-container">
@@ -203,10 +203,10 @@
             </div>
 
             <!-- Chart tabung -->
-            <div class="col-lg-12">
+            <div class="col-lg-6">
                 <div class="card mg-top">
                     <div class="card-header bg-subheader text-light">
-                        <h5 class="card-title">Grafik Batang Batang<i class="bi bi-graph-up mg-left"></i></h5>
+                        <h5 class="card-title">Arus Keuangan Bulanan<i class="bi bi-graph-up mg-left"></i></h5>
 
                     </div>
                     <div class="card-body">
@@ -216,23 +216,124 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- 
-        <div class="row">
-            <div class="col-md-12">
+            <!-- chart garis -->
+            <div class="col-lg-6">
                 <div class="card mg-top">
-                    <div class="card-header">
-                        <h5 class="card-title">Kalender<i class="bi bi-calendar-date-fill mg-left"></i></h5>
+                    <div class="card-header bg-header text-light">
+                        <h5 class=" card-title">Postingan Bulanan<i class="bi bi-pie-chart-fill mg-left"></i></h5>
                     </div>
                     <div class="card-body">
-                        <div class="form-group">
-                            <input type="date" id="calender" class="form-control" value="2022-01-01">
-                        </div>
+                        <div class="chart-container">
 
+                            <canvas id="chartPieBlogView"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div> -->
+
+            <!-- Chart tabung -->
+            <div class="col-lg-6">
+                <div class="card mg-top">
+                    <div class="card-header bg-subheader text-light">
+                        <h5 class="card-title">Postingan Bulanan<i class="bi bi-graph-up mg-left"></i></h5>
+
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="chartBarBlogView"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- chart garis -->
+            <div class="col-lg-6">
+                <div class="card mg-top">
+                    <div class="card-header bg-header text-light">
+                        <h5 class=" card-title">Agama Anggota<i class="bi bi-pie-chart-fill mg-left"></i></h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+
+                            <canvas id="chartPieAgama"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chart tabung -->
+            <div class="col-lg-6">
+                <div class="card mg-top">
+                    <div class="card-header bg-subheader text-light">
+                        <h5 class="card-title">Agama Anggota<i class="bi bi-graph-up mg-left"></i></h5>
+
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="chartBarAgama"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- chart garis -->
+            <div class="col-lg-6">
+                <div class="card mg-top">
+                    <div class="card-header bg-header text-light">
+                        <h5 class=" card-title">Jenis Kelamin Anggota<i class="bi bi-pie-chart-fill mg-left"></i></h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+
+                            <canvas id="chartPieJenisKelamin"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chart tabung -->
+            <div class="col-lg-6">
+                <div class="card mg-top">
+                    <div class="card-header bg-subheader text-light">
+                        <h5 class="card-title">Jenis Kelamin Anggota<i class="bi bi-graph-up mg-left"></i></h5>
+
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="chartBarJenisKelamin"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- chart garis -->
+            <div class="col-lg-6">
+                <div class="card mg-top">
+                    <div class="card-header bg-header text-light">
+                        <h5 class=" card-title">Umur Anggota<i class="bi bi-pie-chart-fill mg-left"></i></h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+
+                            <canvas id="chartPieUmur"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chart tabung -->
+            <div class="col-lg-6">
+                <div class="card mg-top">
+                    <div class="card-header bg-subheader text-light">
+                        <h5 class="card-title">Umur Anggota<i class="bi bi-graph-up mg-left"></i></h5>
+
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="chartBarUmur"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
     </div>
     </div>
@@ -242,8 +343,8 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js?v=1.3"></script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js?v=1.3" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script type="module" src="../script/app.js?v=1.2.3"></script>
-    <script type="module" src="../script/pages/dashboard.js?v=1.3"></script>
+    <script type="module" src="../script/app.js?v=1.2.5"></script>
+    <script type="module" src="../script/pages/dashboard.js?v=1.5"></script>
 </body>
 
 </html>

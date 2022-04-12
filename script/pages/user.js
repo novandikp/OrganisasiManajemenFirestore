@@ -74,6 +74,12 @@ $(document).ready(function() {
                         $("#email").val(data.email);
                         $("#alamat").val(data.alamat);
                         $("#no_hp").val(data.no_hp);
+                        $("#tglLahir").val(data.tglLahir);
+                        $(`#agama option[value='${data.agama}']`).attr("selected", true);
+                        $(`#jenis_kelamin option[value='${data.jenis_kelamin}']`).attr(
+                            "selected",
+                            true
+                        );
                         $(`#jabatan option[value='${data.jabatan}']`).attr("selected", true);
 
                         $("#detailModal").modal("show");
@@ -89,6 +95,12 @@ $(document).ready(function() {
                         $("#email").val(data.email);
                         $("#alamat").val(data.alamat);
                         $("#no_hp").val(data.no_hp);
+                        $("#tglLahir").val(data.tglLahir);
+                        $(`#agama option[value='${data.agama}']`).attr("selected", true);
+                        $(`#jenis_kelamin option[value='${data.jenis_kelamin}']`).attr(
+                            "selected",
+                            true
+                        );
                         $(`#jabatan option[value='${data.jabatan}']`).attr("selected", true);
                         $("#detailModal").modal("show");
                         $("#detailModal").attr("data-id", data.id);
@@ -129,6 +141,9 @@ $(document).ready(function() {
                         email: $("#email").val(),
                         alamat: $("#alamat").val(),
                         no_hp: $("#no_hp").val(),
+                        tglLahir: new Date($("#tglLahir").val()).toISOString().slice(0, 10),
+                        agama: $("#agama").val(),
+                        jenis_kelamin: $("#jenis_kelamin").val(),
                         jabatan: doc(db, "jabatan", $("#jabatan").val()),
                     };
                     updateUser(data).then((result) => {
@@ -285,15 +300,24 @@ $(document).ready(function() {
   };
 
   const exportExcel = () => {
-    fetchDataUser().then((dataUser) => {
+    fetchDataUser().then(async (dataUser) => {
+      dataUser = dataUser.sort((a, b) => {
+        if (a.nama < b.nama) {
+          return -1;
+        }
+      });
       const data = {
         nama: "Anggota",
         data: dataUser,
       };
+      const pengaturan = doc(db, "pengaturan", "judul_cover");
+      const organisasi = await getDoc(pengaturan);
+      const nama = organisasi.data().value;
 
       // ExcelJS
       const workbook = new ExcelJS.Workbook();
       const worksheet = workbook.addWorksheet("Sheet 1");
+
       worksheet.columns = [
         { header: "Nama", key: "nama", width: 30 },
         { header: "Email", key: "email", width: 30 },
@@ -301,7 +325,88 @@ $(document).ready(function() {
         { header: "Alamat", key: "alamat", width: 30 },
         { header: "Jabatan", key: "nama_jabatan", width: 30 },
       ];
+
+      let maxRow = 4 + data.data.length + 2;
+      const title = "Laporan Anggota Aktif";
+      worksheet.mergeCells("A1", "E1");
+      worksheet.getCell("A1").value = title;
+
+      worksheet.mergeCells("A2", "E2");
+      worksheet.getCell("A2").value = nama;
+
+      worksheet.getRow(4).values = [
+        "Nama",
+        "Email",
+        "No HP",
+        "Alamat",
+        "Jabatan",
+      ];
+
       worksheet.addRows(data.data);
+
+      maxRow++;
+      worksheet.mergeCells("A" + maxRow, "E" + maxRow);
+      worksheet.getCell("A" + maxRow).value =
+        "Jumlah Anggota Aktif :" + data.data.length;
+      maxRow++;
+      worksheet.mergeCells("A" + maxRow, "E" + maxRow);
+      worksheet.getCell("A" + maxRow).value =
+        "Dicetak tanggal : " + new Date().toDateInputValue();
+
+      worksheet.getCell("A1").font = {
+        size: 13,
+        bold: true,
+        alignment: {
+          horizontal: "center",
+        },
+      };
+      worksheet.getCell("A2").font = {
+        size: 12,
+        alignment: {
+          horizontal: "center",
+        },
+      };
+      // Set table size each row
+      worksheet.eachRow((row, rowNumber) => {
+        row.eachCell(function (Cell, cellNum) {
+          if (rowNumber < 4) {
+            Cell.alignment = {
+              vertical: "center",
+              horizontal: "center",
+            };
+          } else if (rowNumber > 4 + data.data.length + 2) {
+            Cell.alignment = {
+              vertical: "center",
+              horizontal: "right",
+            };
+          } else {
+            Cell.alignment = {
+              vertical: "middle",
+              horizontal: "middle",
+            };
+          }
+
+          if (rowNumber == 4) {
+            Cell.fill = {
+              type: "pattern",
+              pattern: "solid",
+              fgColor: { argb: "FFFFFF00" },
+              bgColor: { argb: "FF0000FF" },
+            };
+            Cell.border = {
+              top: { style: "thin" },
+              left: { style: "thin" },
+              bottom: { style: "thin" },
+              right: { style: "thin" },
+            };
+          }
+        });
+        if (rowNumber == 4 || rowNumber > 4 + data.data.length + 2) {
+          row.font = { size: 12, bold: true };
+        } else if (rowNumber > 4) {
+          row.font = { size: 12 };
+        }
+      });
       workbook.xlsx
         .writeBuffer()
         .then((buffer) =>
@@ -339,12 +444,7 @@ $(document).ready(function() {
       );
       itemLoad();
     } else {
-      q = query(
-        collection(db, "users"),
-        where("nama", ">=", search),
-        where("nama", "<=", search + "~"),
-        orderBy("nama", "asc")
-      );
+      q = query(collection(db, "users"), where("status", "==", true));
     }
 
     await getDocs(q).then((querySnapshot) => {
@@ -368,7 +468,16 @@ $(document).ready(function() {
   };
 
   const exportPDF = () => {
-    fetchDataUser().then((dataUser) => {
+    fetchDataUser().then(async (dataUser) => {
+      // sort data by name
+      dataUser = dataUser.sort((a, b) => {
+        if (a.nama < b.nama) {
+          return -1;
+        }
+      });
+      const pengaturan = doc(db, "pengaturan", "judul_cover");
+      const organisasi = await getDoc(pengaturan);
+      const nama = organisasi.data().value;
       dokumen.autoTable({
         columns: [
           { header: "Nama", dataKey: "nama" },
@@ -377,9 +486,45 @@ $(document).ready(function() {
           { header: "Jabatan", dataKey: "nama_jabatan" },
         ],
         body: dataUser,
-        margin: { top: 35 },
+        margin: { top: 45 },
         didDrawPage: function (data) {
-          dokumen.text("Daftar Anggota", 15, 30);
+          var pageSize = dokumen.internal.pageSize;
+          var pageHeight = pageSize.height
+            ? pageSize.height
+            : pageSize.getHeight();
+          var pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
+
+          if (data.pageNumber === 1) {
+            dokumen.setFontSize(14);
+            dokumen.setFontType("bold");
+            const header = "Laporan Anggota Aktif";
+
+            let textWidth =
+              (dokumen.getStringUnitWidth(header) *
+                dokumen.internal.getFontSize()) /
+              dokumen.internal.scaleFactor;
+            dokumen.text(header, (pageWidth - textWidth) / 2, 30);
+            dokumen.setFontType("normal");
+            dokumen.setFontSize(12);
+            textWidth =
+              (dokumen.getStringUnitWidth(nama) *
+                dokumen.internal.getFontSize()) /
+              dokumen.internal.scaleFactor;
+            dokumen.text(nama, (pageWidth - textWidth) / 2, 37);
+          }
+          data.settings.margin.top = 10;
+          // Footer
+          var str = "Page " + dokumen.internal.getNumberOfPages();
+          if (typeof dokumen.putTotalPages === "function") {
+            str = str;
+          }
+          dokumen.setFontSize(10);
+          dokumen.text(str, data.settings.margin.left, pageHeight - 10);
+          dokumen.text(
+            "© " + new Date().getFullYear(),
+            pageWidth - 30,
+            pageHeight - 10
+          );
         },
       });
       dokumen.save(`Laporan Anggota_${Date.now()}.pdf`);
