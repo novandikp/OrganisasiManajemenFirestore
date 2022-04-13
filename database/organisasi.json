@@ -1,0 +1,1720 @@
+{
+  "__collections__": {
+    "berkas": {
+      "berkas_0f189c9a-0585-4811-9803-3823d2b06b38": {
+        "deskripsi": "Ini",
+        "dokumen": "https://firebasestorage.googleapis.com/v0/b/organisasimanajemen-6aad0.appspot.com/o/berkas_0f189c9a-0585-4811-9803-3823d2b06b38.pdf?alt=media&token=948bef8d-d2a8-4073-8bcc-4e0192e1b480",
+        "id": "berkas_0f189c9a-0585-4811-9803-3823d2b06b38",
+        "created_at": "2022-04-05T03:30:02.411Z",
+        "author": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "updated_at": "2022-04-05T03:30:02.411Z",
+        "nama_berkas": "Tambah coba",
+        "__collections__": {}
+      },
+      "berkas_323aa614-f87d-4f04-a498-3fbe01e6fa2c": {
+        "deskripsi": "Ini adalah laporan anggota",
+        "updated_at": "2022-04-07T03:44:44.839Z",
+        "created_at": "2022-04-07T03:44:44.839Z",
+        "dokumen": "https://firebasestorage.googleapis.com/v0/b/organisasimanajemen-6aad0.appspot.com/o/berkas_323aa614-f87d-4f04-a498-3fbe01e6fa2c.pdf?alt=media&token=66a9b163-e72d-409c-b83e-2009ec28caf5",
+        "nama_berkas": "Test",
+        "id": "berkas_323aa614-f87d-4f04-a498-3fbe01e6fa2c",
+        "author": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "__collections__": {}
+      },
+      "berkas_38f51b96-0aeb-411c-b054-ea8c124d3c32": {
+        "dokumen": "https://firebasestorage.googleapis.com/v0/b/organisasimanajemen-6aad0.appspot.com/o/berkas_38f51b96-0aeb-411c-b054-ea8c124d3c32?alt=media&token=54d239e2-7ffe-4db1-a990-9c056d2dc858",
+        "created_at": "2022-03-24T04:05:49.880Z",
+        "author": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "deskripsi": "",
+        "id": "berkas_38f51b96-0aeb-411c-b054-ea8c124d3c32",
+        "updated_at": "2022-03-24T04:05:49.880Z",
+        "nama_berkas": "Test berkas",
+        "__collections__": {}
+      },
+      "berkas_3c01ca2c-3f7c-4790-96c0-2bf2cf9779ac": {
+        "id": "berkas_3c01ca2c-3f7c-4790-96c0-2bf2cf9779ac",
+        "deskripsi": "Test",
+        "created_at": "2022-03-24T04:22:07.199Z",
+        "dokumen": "https://firebasestorage.googleapis.com/v0/b/organisasimanajemen-6aad0.appspot.com/o/berkas_3c01ca2c-3f7c-4790-96c0-2bf2cf9779ac.docx?alt=media&token=22c9c961-0b1a-433d-ae03-65c4fc7ec799",
+        "nama_berkas": "Progress Paper",
+        "updated_at": "2022-03-24T04:22:07.199Z",
+        "author": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "__collections__": {}
+      },
+      "berkas_4c7b477a-94a3-4523-9fa6-05fa9acb202f": {
+        "dokumen": "https://firebasestorage.googleapis.com/v0/b/organisasimanajemen-6aad0.appspot.com/o/berkas_4c7b477a-94a3-4523-9fa6-05fa9acb202f.zip?alt=media&token=fdb2c758-e2ce-4a55-b2c5-d239203a3ec5",
+        "author": {
+          "__datatype__": "documentReference",
+          "value": "users/user_f304c516-6343-45de-8d56-d87d8a262a27"
+        },
+        "updated_at": "2022-04-05T05:22:44.531Z",
+        "id": "berkas_4c7b477a-94a3-4523-9fa6-05fa9acb202f",
+        "nama_berkas": "ZIP",
+        "deskripsi": "tesr",
+        "created_at": "2022-04-05T05:22:44.531Z",
+        "__collections__": {}
+      },
+      "berkas_50e31a15-cc7a-4b29-b21d-8c86eb87cd09": {
+        "id": "berkas_50e31a15-cc7a-4b29-b21d-8c86eb87cd09",
+        "dokumen": "https://firebasestorage.googleapis.com/v0/b/organisasimanajemen-6aad0.appspot.com/o/berkas_50e31a15-cc7a-4b29-b21d-8c86eb87cd09.pdf?alt=media&token=b780dfcc-1474-4f28-857c-e242e1f2738a",
+        "updated_at": "2022-04-05T05:12:28.992Z",
+        "nama_berkas": "BMC",
+        "deskripsi": "Tugas ",
+        "author": {
+          "__datatype__": "documentReference",
+          "value": "users/user_f304c516-6343-45de-8d56-d87d8a262a27"
+        },
+        "created_at": "2022-04-05T05:12:28.992Z",
+        "__collections__": {}
+      },
+      "berkas_53247435-00e4-4489-b01a-804981ee5d58": {
+        "id": "berkas_53247435-00e4-4489-b01a-804981ee5d58",
+        "author": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "nama_berkas": "Excel",
+        "updated_at": "2022-04-07T01:53:30.419Z",
+        "dokumen": "https://firebasestorage.googleapis.com/v0/b/organisasimanajemen-6aad0.appspot.com/o/berkas_53247435-00e4-4489-b01a-804981ee5d58.xlsx?alt=media&token=397fbae4-e7f5-4813-89ea-a97874bd1211",
+        "created_at": "2022-04-07T01:53:30.419Z",
+        "deskripsi": "29,7kb",
+        "__collections__": {}
+      },
+      "berkas_57dfa351-75ce-47bc-8756-cb97601734e0": {
+        "author": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "nama_berkas": "Laporan Anggota",
+        "dokumen": "https://firebasestorage.googleapis.com/v0/b/organisasimanajemen-6aad0.appspot.com/o/berkas_57dfa351-75ce-47bc-8756-cb97601734e0.pdf?alt=media&token=abe5369b-14d8-44b9-8db6-f4725b066482",
+        "created_at": "2022-04-07T06:24:56.619Z",
+        "deskripsi": "Laporan anggota",
+        "updated_at": "2022-04-07T06:24:56.619Z",
+        "id": "berkas_57dfa351-75ce-47bc-8756-cb97601734e0",
+        "__collections__": {}
+      },
+      "berkas_7f782c1a-539d-42c0-be1d-1104e6142b30": {
+        "dokumen": "https://firebasestorage.googleapis.com/v0/b/organisasimanajemen-6aad0.appspot.com/o/berkas_7f782c1a-539d-42c0-be1d-1104e6142b30.pdf?alt=media&token=221319e8-fa1b-4be6-bbf4-2333643b51cd",
+        "nama_berkas": "Progress Paper",
+        "created_at": "2022-03-31T06:52:29.035Z",
+        "id": "berkas_7f782c1a-539d-42c0-be1d-1104e6142b30",
+        "author": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "deskripsi": "Ini adalah paper",
+        "updated_at": "2022-03-31T06:52:29.035Z",
+        "__collections__": {}
+      },
+      "berkas_9e3f0a79-776f-4f22-8d9d-5d451e9f7641": {
+        "nama_berkas": "Poster",
+        "updated_at": "2022-04-05T05:12:50.586Z",
+        "dokumen": "https://firebasestorage.googleapis.com/v0/b/organisasimanajemen-6aad0.appspot.com/o/berkas_9e3f0a79-776f-4f22-8d9d-5d451e9f7641.jpeg?alt=media&token=f3505621-66d7-4b46-b99b-5909031195ca",
+        "author": {
+          "__datatype__": "documentReference",
+          "value": "users/user_f304c516-6343-45de-8d56-d87d8a262a27"
+        },
+        "id": "berkas_9e3f0a79-776f-4f22-8d9d-5d451e9f7641",
+        "deskripsi": "hasil",
+        "created_at": "2022-04-05T05:12:50.586Z",
+        "__collections__": {}
+      },
+      "berkas_Te_77273f8a-c47a-47b3-9a2e-3809020cb837": {
+        "updated_at": "2022-04-07T04:28:05.742Z",
+        "author": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "nama_berkas": "Test Laporan",
+        "deskripsi": "Laporan",
+        "id": "berkas_Te_77273f8a-c47a-47b3-9a2e-3809020cb837",
+        "dokumen": "https://firebasestorage.googleapis.com/v0/b/organisasimanajemen-6aad0.appspot.com/o/berkas_Te_77273f8a-c47a-47b3-9a2e-3809020cb837.pdf?alt=media&token=80f71614-a70f-4c96-be63-30a00588cba0",
+        "created_at": "2022-04-07T04:28:05.742Z",
+        "__collections__": {}
+      },
+      "berkas_c6651c9c-22d8-4177-9163-138ac91bb0b8": {
+        "created_at": "2022-04-05T05:18:45.732Z",
+        "dokumen": "https://firebasestorage.googleapis.com/v0/b/organisasimanajemen-6aad0.appspot.com/o/berkas_c6651c9c-22d8-4177-9163-138ac91bb0b8.mp4?alt=media&token=519e8d41-26a7-4a6b-9af5-c6c097b5028b",
+        "deskripsi": "iya",
+        "author": {
+          "__datatype__": "documentReference",
+          "value": "users/user_f304c516-6343-45de-8d56-d87d8a262a27"
+        },
+        "nama_berkas": "Video 50 mb",
+        "updated_at": "2022-04-05T05:18:45.732Z",
+        "id": "berkas_c6651c9c-22d8-4177-9163-138ac91bb0b8",
+        "__collections__": {}
+      },
+      "berkas_c880d211-7849-4d6e-92b3-5b790efc413d": {
+        "nama_berkas": "List Anggota",
+        "deskripsi": "Daftar sementara keseluruhan anggota ",
+        "dokumen": "https://firebasestorage.googleapis.com/v0/b/organisasimanajemen-6aad0.appspot.com/o/berkas_c880d211-7849-4d6e-92b3-5b790efc413d.pdf?alt=media&token=e697aa64-7622-4577-b2c0-b8a9a3b57fbd",
+        "updated_at": "2022-03-29T01:25:25.571Z",
+        "created_at": "2022-03-29T01:25:25.571Z",
+        "id": "berkas_c880d211-7849-4d6e-92b3-5b790efc413d",
+        "author": {
+          "__datatype__": "documentReference",
+          "value": "users/user_95fdcac9-f4f5-4272-9b23-e5bac7eccc75"
+        },
+        "__collections__": {}
+      },
+      "berkas_f4f0b6fb-cc94-4b02-8f74-2818b43eb6fe": {
+        "deskripsi": "Laporan Kegiatan",
+        "nama_berkas": "Laporan Kegiatan",
+        "author": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "id": "berkas_f4f0b6fb-cc94-4b02-8f74-2818b43eb6fe",
+        "dokumen": "https://firebasestorage.googleapis.com/v0/b/organisasimanajemen-6aad0.appspot.com/o/berkas_f4f0b6fb-cc94-4b02-8f74-2818b43eb6fe?alt=media&token=11af80e2-acae-4022-9ef1-852c200d3157",
+        "created_at": "2022-03-24T04:07:31.692Z",
+        "updated_at": "2022-03-24T04:07:31.692Z",
+        "__collections__": {}
+      },
+      "berkas_fa3cbf75-8788-4a4c-b039-a2283a00f540": {
+        "dokumen": "https://firebasestorage.googleapis.com/v0/b/organisasimanajemen-6aad0.appspot.com/o/berkas_fa3cbf75-8788-4a4c-b039-a2283a00f540.mp4?alt=media&token=14dc10c1-bbca-42b0-8876-8aaec8cffb07",
+        "nama_berkas": "Data Flow",
+        "author": {
+          "__datatype__": "documentReference",
+          "value": "users/user_95fdcac9-f4f5-4272-9b23-e5bac7eccc75"
+        },
+        "created_at": "2022-04-05T16:59:00.483Z",
+        "deskripsi": "71,2 mb",
+        "updated_at": "2022-04-05T16:59:00.483Z",
+        "id": "berkas_fa3cbf75-8788-4a4c-b039-a2283a00f540",
+        "__collections__": {}
+      },
+      "berkas_fb8302fc-1b3f-4136-92fe-5753069a5009": {
+        "id": "berkas_fb8302fc-1b3f-4136-92fe-5753069a5009",
+        "dokumen": "https://firebasestorage.googleapis.com/v0/b/organisasimanajemen-6aad0.appspot.com/o/berkas_fb8302fc-1b3f-4136-92fe-5753069a5009.pptx?alt=media&token=05191cd7-5a19-42eb-aeba-813ae956d815",
+        "deskripsi": "oooo\n",
+        "author": {
+          "__datatype__": "documentReference",
+          "value": "users/user_f304c516-6343-45de-8d56-d87d8a262a27"
+        },
+        "created_at": "2022-04-05T05:21:35.137Z",
+        "updated_at": "2022-04-05T05:21:35.137Z",
+        "nama_berkas": "PPT",
+        "__collections__": {}
+      },
+      "berkas_fee8b545-4a7b-4050-a531-19ca61504827": {
+        "nama_berkas": "Presensi",
+        "created_at": "2022-04-05T05:13:25.561Z",
+        "dokumen": "https://firebasestorage.googleapis.com/v0/b/organisasimanajemen-6aad0.appspot.com/o/berkas_fee8b545-4a7b-4050-a531-19ca61504827.xlsx?alt=media&token=e354e8be-ffcb-4d33-ba81-0bc1e5c78b42",
+        "updated_at": "2022-04-05T05:13:25.561Z",
+        "deskripsi": "kelas",
+        "author": {
+          "__datatype__": "documentReference",
+          "value": "users/user_f304c516-6343-45de-8d56-d87d8a262a27"
+        },
+        "id": "berkas_fee8b545-4a7b-4050-a531-19ca61504827",
+        "__collections__": {}
+      }
+    },
+    "blogs": {
+      "blogs_46d6cef8-0548-45f1-80cb-c5129efe4117": {
+        "category": {
+          "__datatype__": "documentReference",
+          "value": "labels/Artikel"
+        },
+        "updated_at": "2022-03-30T23:40:45.020Z",
+        "created_at": "2022-03-31T01:20:47.304Z",
+        "author": {
+          "__datatype__": "documentReference",
+          "value": "users/user_95fdcac9-f4f5-4272-9b23-e5bac7eccc75"
+        },
+        "title": "Rakernas Pramuka 2022, Budi Waseso: Pengabdian Tanpa Batas",
+        "image": "https://firebasestorage.googleapis.com/v0/b/organisasimanajemen-6aad0.appspot.com/o/blogs_46d6cef8-0548-45f1-80cb-c5129efe4117.jpg?alt=media&token=3cfe3eb7-dc2b-47a3-858b-0053a68ee43a",
+        "description": "<p>Pada 30-31 Maret 2022 berlangsung Rapat Kerja Nasional (Rakernas) Gerakan<span>&nbsp;</span><a href=\"https://www.tempo.co/tag/pramuka\">Pramuka<span>&nbsp;</span></a>yang berlangsung di Cibubur, Jakarta Timur. Rakernas ini diikuti pengurus Kwarnas dan Kwarda se-Indonesia dengan tema yang diusung yakni<span>&nbsp;</span><em>Mengabdi Tanpa Batas untuk Membangun Ketangguhan Bangsa.</em>&nbsp;Tema ini sekaligus menjadi tema untuk berbagai kegiatan kepramukaan di sepanjang tahun 2022.</p><p>Kak<span>&nbsp;</span><a href=\"https://www.tempo.co/tag/budi-waseso\">Budi Waseso</a><span>&nbsp;</span>selaku Ketua Kwarnas Pramuka menjelaskan tentang pemilihan tema Rakernas&nbsp;Pramuka. Menurutnya, pengabdian harus dilakukan tanpa batas guna menciptakan generasi muda yang Tangguh. “Pada gilirannya, generasi muda dapat tangguh pula memimpin bangsa dan Negara Kesatuan Republik Indonesia,” ujarnya.</p><p>Rapat yang berlangsung selama dua hari itu membahas mengenai Program Kerja 2022 dan sejumlah kegiatan kepramukaan di tingkat nasional. Kegiatan-kegiatan tersebut antara lain Jambore Nasional di Cibubur, Perkemahan Bakti Saka Bhayangkara di Sumatera Selatan; Peran Saka di Bangka Belitung; dan Kemah Bela Negara di Bengkulu. Rakernas ini dilaksanakan secara offline dengan menerapkan protokol kesehatan secara penuh bagi para pesertanya.</p><p>Peserta Rakernas juga dihadiri oleh utusan Dewan Kerja Pramuka Penegak dan Pandega Nasional dan Dewan Kerja Pramuka Penegak dan Pandega Daerah.&nbsp; Sebelum Rakernas, diselenggarakan Rapat Paripurna Andalan Nasional. Nantinya, Peserta Rakernas akan memperoleh masukan dari pejabat Kementerian pendidikan, Kebudayaan, dan Ristek Dikti; Kementerian Dalam Negeri; dan Kementerian Agama.</p><p>Kak Budi Waseso mengungkapkan bahwa saat ini adalah 110 tahun masuknya gerakan pendidikan kepanduan di Indonesia. Pada awalnya, gerakan ini hanya diikuti oleh anak-anak bangsa asing (khususnya bangsa Belanda). Kemudian, pada 1912, Joh. P. Smits, awatan Meteorologi Batavia (Jakarta) menginisiasi untuk mengajak sejumlah anak-anak pegawai Jawatan Meteorologi untuk berlatih kepanduan.</p><p>Akhirnya, pada 1916 anak-anak pribumi berkesempatan mengikuti latihan kepanduan dan kemudian membentuk organisasi. Sejak itu, kepanduan di Hindia Belanda dan Indonesia terus berkembang. Sampai saat ini, setidaknya terdapat sekitar 20 juta Pramuka di Tanah Air.</p><p>“Kita tentu harus berusaha untuk terus menjaga agar gerakan ini tetap diminati dan bermanfaat bagi kaum muda,<span>&nbsp;</span><a href=\"https://www.tempo.co/tag/generasi\">generasi<span>&nbsp;</span></a>penerus yang nantinya akan menjadi pemimpin-pemimpin bangsa&nbsp; di segala bidang,” kata Budi Waseso.</p><p><br></p>",
+        "__collections__": {}
+      },
+      "blogs_9cc4e2f6-6e2c-474a-9c48-64678dea272d": {
+        "created_at": "2022-04-12T14:29:26.019Z",
+        "updated_at": "2022-04-12T14:29:26.019Z",
+        "category": {
+          "__datatype__": "documentReference",
+          "value": "labels/Berita"
+        },
+        "image": "https://firebasestorage.googleapis.com/v0/b/organisasimanajemen-6aad0.appspot.com/o/blogs_9cc4e2f6-6e2c-474a-9c48-64678dea272d.png?alt=media&token=7b5df4e0-fd1b-4fad-8049-03303c5383a8",
+        "description": "<p>SURABAYA – Rapat Kerja Nasional dilaksanakan secara daring pada 9 – 10 Maret 2021. Agenda hari ini (10/3/2021) sekaligus hari terakhir, diantaranya adalah Sidang Kelompok, Sidang Pleno 2, dan dilanjutkan dengan Penutupan.</p><p>Peserta dari Kwarda Jawa Timur adalah Kak H. Muhammad Arum Sabil, SP., Kak Drs. H. Bambang SW., Kak Drs. H. AR. Purmadi, Kak Endang Soelistyowati, S.Pd., S.ST., M.Kes., Kak Bambang Suyanto, S.Sos., M.Si., Kak Indawan Setyono Hadi, S.Pd,m MM., Kak Adie Kurniawan, SE., MM., dan Kak Ahmad Fawwas Robi’ Pradana.</p><p>Sidang dipimpin oleh Ketua Kwarnas Kak Budi Waseso, menyampaikan sejarah Gerakan Pramuka untuk mengingatkan seluruh peserta akan perjuangan para tokoh. Tak lupa ia mengingatkan tentang makna logo dan tema Hari Pramuka ke-60.</p><p>Kak Buwas sapaan akrabnya, juga menambahkan kegiatan kepramukaan dapat dilaksanakan secara luring maupun daring, dengan memperhatikan protokol kesehatan. Selain itu, dia juga mengingatkan supaya Gerakan Pramuka tidak digunakan sebagai sarana politik praktis. &nbsp;</p><p>Dia juga menjelaskan permasalahan Dewan Kerja Nasional sudah diselesaikan melalui rapat pleno DKN, untuk menentukan Ketua dan Wakil Ketua PAW, telah diterbitkan SK Kwarnas nomor 026 Tahun 2021 tentang Susunan Kepengurusan DKN Masa Bakti 2018-2023.</p><p>Pada Sidang kelompok 1, Kak Purmadi menyampaikan “Terima kasih karena adik-adik kami, Dewan Kerja Daerah Jawa Timur mendapat nominasi Tergiat dan Terinofatif selama Pandemi tahun 2020 Tingkat Nasional. Program utama di masa pandemi ini dapat kita teruskan dan kita lanjutkan dengan konsep dan inovasi untuk mempercepat selesainya wabah atau Pandemi Covid-19” ungkapnya dengan semangat.</p><p>Selanjutnya menanggapi tentang iuran kepada WOSM. Kak Purmadi berpendapat “iuran kepada WOSM, Kwarda Jatim mengusulkan untuk dilaksanakan rapat khusus untuk membahas permasalahan ini”.</p><p>Sedangkan Sidang Kelompok 2 Kegiatan anggota muda, yakni Jambore Nasional, Perkemahan Bakti Saka Bhayangkara, dan Perkemahan Antar Satuan Karya Nasional. Berbagai masukan dari Kwartir Daerah menjadi pembahasan yang hangat di sidang kelompok ini.</p><p>Topik-topik hangat juga dibahas di Sidang Kelompok 3 tentang arah kebijakan kwarnas tentang peta jalan Pramuka Emas Indonesia. Menanggapi hal tersebut, Kak Indawan Setyono Hadi, S.Pd., MM. menyampaikan “Supaya roadmap dapat dijalankan dengan jelas, terutama yang berkaitan dengan penguatan Pusdiklat, karena disanalah dilahirkannya seorang Pembina Pramuka berkualitas”.</p><p>selengkapnya di&nbsp;<a href=\"https://pramukarek.or.id/index/2021/03/optimis-peran-aktif-peserta-dari-jawa-timur-di-rakernas-2021/\" alt=\"https://pramukarek.or.id/index/2021/03/optimis-peran-aktif-peserta-dari-jawa-timur-di-rakernas-2021/\">https://pramukarek.or.id/index/2021/03/optimis-peran-aktif-peserta-dari-jawa-timur-di-rakernas-2021/</a>​<br></p>",
+        "viewed": 2,
+        "title": "Optimis! Peran Aktif Peserta dari Jawa Timur Di Rakernas 2021",
+        "author": {
+          "__datatype__": "documentReference",
+          "value": "users/user_114da8a2-a54d-412e-8a23-357c3dfb7027"
+        },
+        "__collections__": {}
+      },
+      "blogs_a68f5031-7ad7-4766-a1da-75724844e0d8": {
+        "viewed": 1,
+        "category": {
+          "__datatype__": "documentReference",
+          "value": "labels/Blog"
+        },
+        "description": "<p>Gerakan Pramuka atau<span>&nbsp;</span><a href=\"https://id.wikipedia.org/wiki/Kepanduan\">Kepanduan</a><span>&nbsp;</span>di<span>&nbsp;</span><a href=\"https://id.wikipedia.org/wiki/Indonesia\">Indonesia</a><span>&nbsp;</span>telah dimulai sejak tahun 1923 yang ditandai dengan didirikannya<span>&nbsp;</span><span style=\"font-size: 0.95em; font-weight: bold; color: rgb(119, 119, 119); cursor: help;\">(Belanda)</span><span>&nbsp;</span><em><a href=\"https://id.wikipedia.org/wiki/Nationale_Padvinderij_Organisatie_(NPO)\" class=\"mw-redirect\">Nationale Padvinderij Organisatie (NPO)</a></em><span>&nbsp;</span>di<span>&nbsp;</span><a href=\"https://id.wikipedia.org/wiki/Bandung\" class=\"mw-redirect\">Bandung</a>.<sup class=\"reference\"><a href=\"https://id.wikipedia.org/wiki/Gerakan_Pramuka_Indonesia#cite_note-MuseumSumpahPemuda-1\">[1]</a></sup><span>&nbsp;</span>Di<span>&nbsp;</span><a href=\"https://id.wikipedia.org/wiki/Jakarta\" class=\"mw-redirect\">Jakarta</a>, didirikan<span>&nbsp;</span><span style=\"font-size: 0.95em; font-weight: bold; color: rgb(119, 119, 119); cursor: help;\">(Belanda)</span><span>&nbsp;</span><em><a href=\"https://id.wikipedia.org/w/index.php?title=Jong_Indonesische_Padvinders-Organisatie_(JIPO)&amp;action=edit&amp;redlink=1\" class=\"new\">Jong Indonesische Padvinders-Organisatie (JIPO)</a></em><span>&nbsp;</span>pada tahun yang sama.<sup class=\"reference\"><a href=\"https://id.wikipedia.org/wiki/Gerakan_Pramuka_Indonesia#cite_note-MuseumSumpahPemuda-1\">[1]</a></sup><sup class=\"reference\"><a href=\"https://id.wikipedia.org/wiki/Gerakan_Pramuka_Indonesia#cite_note-Padvindersblad-2\">[2]</a></sup><span>&nbsp;</span>Kedua organisasi cikal bakal<span>&nbsp;</span><a href=\"https://id.wikipedia.org/wiki/Kepanduan\">kepanduan</a><span>&nbsp;</span>di<span>&nbsp;</span><a href=\"https://id.wikipedia.org/wiki/Indonesia\">Indonesia</a><span>&nbsp;</span>ini meleburkan diri menjadi satu, bernama<span>&nbsp;</span><span style=\"font-size: 0.95em; font-weight: bold; color: rgb(119, 119, 119); cursor: help;\">(Belanda)</span><span>&nbsp;</span><em><a href=\"https://id.wikipedia.org/wiki/Indonesische_Nationale_Padvinderij_Organisatie_(INPO)\" class=\"mw-redirect\">Indonesische Nationale Padvinderij Organisatie (INPO)</a></em><span>&nbsp;</span>di<span>&nbsp;</span><a href=\"https://id.wikipedia.org/wiki/Bandung\" class=\"mw-redirect\">Bandung</a><span>&nbsp;</span>pada tahun 1926.<sup class=\"reference\"><a href=\"https://id.wikipedia.org/wiki/Gerakan_Pramuka_Indonesia#cite_note-MuseumSumpahPemuda-1\">[1]</a></sup><span>&nbsp;</span>Di luar Jawa, para pelajar sekolah agama Sumatra Barat mendirikan kepanduan<span>&nbsp;</span><a href=\"https://id.wikipedia.org/wiki/El-Hilaal\">El-Hilaal</a><span>&nbsp;</span>pada tahun 1928.<sup class=\"reference\"><a href=\"https://id.wikipedia.org/wiki/Gerakan_Pramuka_Indonesia#cite_note-3\">[3]</a></sup></p><div class=\"thumbcaption\">Organisasi Kepanduan Indonesia di seputaran tahun<span>&nbsp;</span><a href=\"https://id.wikipedia.org/wiki/1920\">1920</a>-an.</div><p>Pada tanggal<span>&nbsp;</span><a href=\"https://id.wikipedia.org/wiki/26_Oktober\">26 Oktober</a><span>&nbsp;</span><a href=\"https://id.wikipedia.org/wiki/2010\">2010</a>,<span>&nbsp;</span><a href=\"https://id.wikipedia.org/wiki/Dewan_Perwakilan_Rakyat\" class=\"mw-redirect\">Dewan Perwakilan Rakyat</a><span>&nbsp;</span>mengabsahkan Undang-Undang Nomor 12 Tahun 2010 tentang Gerakan Pramuka. Berdasarkan Undang Undang ini, maka Pramuka bukan lagi satu-satunya organisasi yang boleh menyelenggarakan pendidikan kepramukaan. Organisasi profesi juga diperbolehkan untuk menyelenggarakan kegiatan kepramukaan.<sup class=\"reference\"><a href=\"https://id.wikipedia.org/wiki/Gerakan_Pramuka_Indonesia#cite_note-4\">[4]</a></sup></p>",
+        "author": {
+          "__datatype__": "documentReference",
+          "value": "users/user_f304c516-6343-45de-8d56-d87d8a262a27"
+        },
+        "created_at": "2022-04-05T05:11:09.946Z",
+        "title": "Pramuka, Sejarah, dan Pengembangan",
+        "updated_at": "2022-04-05T05:16:29.260Z",
+        "image": "https://firebasestorage.googleapis.com/v0/b/organisasimanajemen-6aad0.appspot.com/o/blogs_a68f5031-7ad7-4766-a1da-75724844e0d8.jpg?alt=media&token=72013958-4d1d-4c47-a07a-42bab7f187bf",
+        "__collections__": {}
+      },
+      "blogs_b67b08f6-f778-453a-b597-5b15b499df6d": {
+        "title": "Pramuka , Organisasi yang menyenangkan",
+        "author": {
+          "__datatype__": "documentReference",
+          "value": "users/user_f304c516-6343-45de-8d56-d87d8a262a27"
+        },
+        "category": {
+          "__datatype__": "documentReference",
+          "value": "labels/Blog"
+        },
+        "viewed": 1,
+        "created_at": "2022-04-05T05:10:26.401Z",
+        "description": "<p><strong>Gerakan Pramuka Indonesia</strong><span style=\"color: rgb(32, 33, 34); font-family: sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;\"><span>&nbsp;</span>adalah nama<span>&nbsp;</span></span><a href=\"https://id.wikipedia.org/wiki/Organisasi\">organisasi</a><span style=\"color: rgb(32, 33, 34); font-family: sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;\"><span>&nbsp;</span>pendidikan nonformal yang menyelenggarakan pendidikan<span>&nbsp;</span></span><a href=\"https://id.wikipedia.org/wiki/Kepanduan\">kepanduan</a><span style=\"color: rgb(32, 33, 34); font-family: sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;\"><span>&nbsp;</span>di<span>&nbsp;</span></span><a href=\"https://id.wikipedia.org/wiki/Indonesia\">Indonesia</a><span style=\"color: rgb(32, 33, 34); font-family: sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;\">. Kata \"</span><a href=\"https://id.wikipedia.org/wiki/Pramuka\" class=\"mw-redirect\">Pramuka</a><span style=\"color: rgb(32, 33, 34); font-family: sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;\">\" merupakan singkatan dari<span>&nbsp;</span></span><em>Praja Muda Karana</em><span style=\"color: rgb(32, 33, 34); font-family: sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;\">, yang memiliki arti Jiwa Muda yang Suka Berkarya. Tapi sebelum singkatan ini ditetapkan, kata Pramuka asalnya diambil oleh Sultan<span>&nbsp;</span></span><a href=\"https://id.wikipedia.org/wiki/Hamengkubuwono_IX\" class=\"mw-redirect\">Hamengkubuwono IX</a><span style=\"color: rgb(32, 33, 34); font-family: sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;\"><span>&nbsp;</span>dari kata \"Poromuko\" yang berarti pasukan terdepan dalam perang.</span><br></p>",
+        "image": "https://firebasestorage.googleapis.com/v0/b/organisasimanajemen-6aad0.appspot.com/o/blogs_b67b08f6-f778-453a-b597-5b15b499df6d.png?alt=media&token=0969ddb7-9076-42f4-857d-0046381c5ca4",
+        "updated_at": "2022-04-05T05:15:58.333Z",
+        "__collections__": {}
+      },
+      "blogs_e6499796-6843-4e20-a9ef-f5f40db78a69": {
+        "category": {
+          "__datatype__": "documentReference",
+          "value": "labels/Berita"
+        },
+        "title": "Produktif Tiada Henti! Gubernur Khofifah Buka Kegiatan Pramuka Peduli Semeru Spesial Ramadhan",
+        "created_at": "2022-04-12T14:32:32.369Z",
+        "updated_at": "2022-04-12T14:32:32.369Z",
+        "description": "<p>Lumajang – Bulan Suci Ramadan tidak menyurutkan semangat ratusan pramuka Jawa Timur dalam berbakti dan berpartisipasi dalam kegiatan Bakti Pramuka Peduli Semeru Spesial Ramadhan dengan membangunan Huntara Tahap 2. Kegiatan ini digelar pada Rabu-Selasa (6-12/4/2022) di Desa Sumbermujur Kecamatan Candipuro Kabupaten Lumajang.</p><p>Adapun ratusan peserta kegiatan tersebut berasal dari Kwarcab Pacitan, Nganjuk, Lumajang, Sumenep, Kota Kediri, Kota Surabaya, dan Saka Wana Bakti Jawa Timur.</p><p>Gubernur Jawa Timur, Kak Khofifah Indar Parawansa selaku Ketua Mabida Gerakan Pramuka Jawa Timur membuka secara resmi kegiatan atraktif tersebut (6/4/2022).</p><p>“Biasanya tema Spesial Ramadan untuk kajian kajian tertentu, seperti program ekonomi dan sebagianya. Tetapi tema Spesial Ramadan kali ini disajikan dengan luar biasa oleh Pramuka Jawa Timur. Secara spesifik peduli semeru. Mudah mudahan berkah dan kemuliaan Ramadan turun kepada kita semua. Aamiin,” ujar Kak Khofifah dalam sambutannya.</p><p>Menurut kak Khofifah, pihaknya sangat bangga terhadap Pramuka Jawa Timur. Dengan semangat berbakti dan mengabdi, akhirnya pembangunan Huntara Tahap 2 akan segera dilaksanakan.</p><p>“Dengan kekuatan dan energi positif seorang pramuka, semoga kegiatan pembangunan Huntara akan terlaksana dengan lancar dan berkah,” kata Kak Khofifah.</p><p>“Salam semangat, salam optimis, dan mari kita bersama memberikan dedikasi terbaik untuk masyarakat, bangsa, dan negara Indonesia,” imbuh Kak Khofifah Gubernur wanita satu-satunya di Indonsia saat ini.</p><p>Sementara itu, Ketua Kwartir Daerah Gerakan Pramuka Jawa Timur, Kak H. M. Arum Sabil, SP juga menyampaikan andil Gerakan Pramuka Jawa Timur.</p><p>“Dalam kegiatan Bakti Pramuka Peduli Semeru menargetkan pembangunan Huntara sebanyak 50 unit, pada tahap 1 sudah terbangun 19 huntara, dan pada tahap 2 Spesial Ramadhan ini akan dibangun 10 unit huntara” Ungkap Kak Arum</p><p>Kak Arum Sabil mengucapkan terima kasih atas seluruh dukungan, dedikasi dan bakti tanpa henti dari seluruh keluarga besar Gerakan Pramuka se-Jawa Timur.</p><p>“Terima kasih semuanya. Kak Khofifah yang telah menyempatkan waktu dan semangat yang berharga, memberikan fasilitas yang luar biasa, keluarga besar Pramuka Lumajang, dan pramuka se-Jawa Timur,” kata Kak Arum.</p><p>Penulis</p><p>Humas Kwarda Jatim</p><p>source:&nbsp;<a href=\"https://pramukarek.or.id/index/2022/04/produktif-tiada-henti-gubernur-khofifah-buka-kegiatan-pramuka-peduli-semeru-spesial-ramadhan/\" alt=\"https://pramukarek.or.id/index/2022/04/produktif-tiada-henti-gubernur-khofifah-buka-kegiatan-pramuka-peduli-semeru-spesial-ramadhan/\">https://pramukarek.or.id/index/2022/04/produktif-tiada-henti-gubernur-khofifah-buka-kegiatan-pramuka-peduli-semeru-spesial-ramadhan/</a>​<br></p>",
+        "author": {
+          "__datatype__": "documentReference",
+          "value": "users/user_114da8a2-a54d-412e-8a23-357c3dfb7027"
+        },
+        "image": "https://firebasestorage.googleapis.com/v0/b/organisasimanajemen-6aad0.appspot.com/o/blogs_e6499796-6843-4e20-a9ef-f5f40db78a69.png?alt=media&token=7ae0f233-a2ca-4758-93b9-9c5ff4540e70",
+        "viewed": 0,
+        "__collections__": {}
+      },
+      "blogs_f78da2a4-dc8b-49be-9ad4-00ce5233fb28": {
+        "updated_at": "2022-04-05T03:17:53.957Z",
+        "title": "Pemantapan Dewan Racana Dan Latihan Pengembangan Kepemimpinan Bersama UKM Pramuka Racana Panglima Sudirman Dan R.A. Kartini",
+        "created_at": "2022-03-24T00:11:02.358Z",
+        "image": "https://firebasestorage.googleapis.com/v0/b/organisasimanajemen-6aad0.appspot.com/o/blogs_f78da2a4-dc8b-49be-9ad4-00ce5233fb28.jpg?alt=media&token=312625cf-963a-456c-bf2a-8937f70c86ad",
+        "viewed": 1,
+        "category": {
+          "__datatype__": "documentReference",
+          "value": "labels/Artikel"
+        },
+        "author": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "description": "<p>Sabtu (2/2) Ruang bromo, Gedung Rektorat. Para anggota UKM Pramuka UPN Veteran Jawa Timur dengan antusias mengikuti kegiatan Pemantapan Dewan Racana dan Latihan pengembangan kepemimpinan (LPK). Kegiatan ini resmi dibuka oleh Bapak Ir. Mutasim Billah, MS., selaku wakil rektor 3 yang diutus langsung oleh Bapak Rektor untuk membuka kegiatan ini. Dalam sambutannya beliau berharap pramuka dapat bersaing di era milenial, sehingga pramuka tetap terpandang dan dapat meningkatkan kreativitas di tengah revolusi Industri 4.0.</p><p>Kegiatan ini menghadirkan pemateri-pemateri yang sangat luar biasa antara lain dari Andalan Nasional Kwarnas yaitu kak Budi Utomo, Andalan Saka Kwarda Jatim kak Endang Soelistyowati, Waka Kwarda Jatim kak Hariadi Purwantoro, dan salah satu alumni pramuka UPN Veteran Jawa Timur yang sudah melalang buana yaitu kak Puguh. Selain itu, acara ini juga dihadiri oleh para pembina dan para alumni Pramuka UPN lainnya yang membuat acara menjadi lebih berkesan.</p><p>Kegiatan pemantapan dewan racana, diperuntukkan untuk para dewan racana pramuka UPN “Veteran” Jawa Timur. Kegiatan ini sekaligus untuk melantik para dewan Racana baru masa kepengurusan 2019, yang kemudian dilanjutkan dengan penyampaian beberapa materi tentang keorganisasian untuk menunjang kinerja dewan Racana dalam mengelola UKM Pramuka UPN Veteran Jawa Timur.</p><p>Lain halnya dengan LPK, kegiatan ini diikuti oleh seluruh anggota Racana serta tamu Racana (calon anggota). Tujuan dari kegiatan ini adalah untuk membentuk karakter peserta LPK dalam&nbsp; berorganisasi. Adapun materi-materi yang disampaikan juga tak lepas dari lingkup keorganisasian, antara lain materi&nbsp; Kepemimpinan yang dalam hal ini disampaikan oleh Andalan Nasional Kwarnas Kak Budi Utomo, kemudian materi tentang<span>&nbsp;</span><em>Critical thinking</em><span>&nbsp;</span>yang disampaikan oleh kak Endang Soelistyowati, M. Kes, yang sedikit banyak membuka jalan pikiran peserta LPK perihal bagaimana cara berpikir kritis dalam waktu yang sempit. Sedangkan materi ketiga disampaikan oleh kak Hariadi mengenai<span>&nbsp;</span><em>Problem solving</em><span>&nbsp;</span>dan<span>&nbsp;</span><em>Scout project</em>. Dalam materi ini peserta LPK diajari bagaimana cara menyelesaikan masalah dalam suatu organisasi, serta perencanaan kegiatan terutama dalam bidang kepramukaan. Materi yang terakhir yaitu materi<span>&nbsp;</span><em>Public Speaking<span>&nbsp;</span></em>yang disampaikan oleh kak Puguh. Dalam kesempatannya, beliau menyampaikan bagaimana teknik menguasai diri serta audiens ketika harus berbicara didepan publik/umum. Materi ini dirasa sangat bermanfaat bagi mahasiswa dalam kegiatan perkuliahan maupun keorganisasian.</p><p>&nbsp;Kegiatan ini diharapkan menjadi tradisi tiap tahun untuk membantu para anggota UKM Pramuka UPN Veteran Jawa Timur khususnya untuk mempersiapkan diri dalam berorganisasi maupun dalam kehidupan sehari-harinya.</p>",
+        "__collections__": {}
+      }
+    },
+    "jabatan": {
+      "anggota": {
+        "akses_kas": false,
+        "akses_arsip": false,
+        "akses_pengaturan": false,
+        "akses_blog": true,
+        "akses_anggota": false,
+        "akses_jabatan": false,
+        "akses_keuangan": false,
+        "keterangan": "Anggota",
+        "jabatan": "Anggota Racana",
+        "__collections__": {}
+      },
+      "jabatan_06f0c8dd-527e-47cd-9f1a-5eff4b20d6cc": {
+        "akses_blog": false,
+        "akses_keuangan": true,
+        "akses_arsip": false,
+        "keterangan": "Mengelola Keuangan",
+        "jabatan": "Bendahara Putri",
+        "akses_kas": true,
+        "akses_pengaturan": false,
+        "akses_anggota": false,
+        "akses_jabatan": false,
+        "__collections__": {}
+      },
+      "jabatan_713f1ba5-46f8-4903-b069-1afbbec14a77": {
+        "jabatan": "Bendahara Putra",
+        "akses_arsip": false,
+        "akses_kas": true,
+        "akses_pengaturan": false,
+        "akses_anggota": false,
+        "akses_jabatan": false,
+        "akses_keuangan": true,
+        "akses_blog": false,
+        "keterangan": "Mengelola Keuangan",
+        "__collections__": {}
+      },
+      "jabatan_7279a72c-fdc0-473a-99d6-71ce3b5ff8dd": {
+        "akses_blog": false,
+        "akses_keuangan": false,
+        "akses_pengaturan": false,
+        "jabatan": "Sekretaris Putri",
+        "keterangan": "Mengelola Arsip dan Blog",
+        "akses_jabatan": false,
+        "akses_arsip": true,
+        "akses_anggota": false,
+        "akses_kas": false,
+        "__collections__": {}
+      },
+      "jabatan_810ebe59-0d0d-4d1b-acda-6d009454805a": {
+        "akses_pengaturan": false,
+        "akses_blog": true,
+        "akses_keuangan": false,
+        "jabatan": "Dewan Humas",
+        "akses_kas": false,
+        "keterangan": "Mengatur pengelelolaan hubungan masyarakat",
+        "akses_jabatan": false,
+        "akses_arsip": true,
+        "akses_anggota": false,
+        "__collections__": {}
+      },
+      "jabatan_98ab7be2-7fae-4af7-a2c9-abb2ea6085f5": {
+        "jabatan": "Sekretaris Putra",
+        "akses_jabatan": false,
+        "akses_pengaturan": false,
+        "akses_blog": false,
+        "akses_arsip": true,
+        "keterangan": "Mengelola Arsip dan Blog",
+        "akses_keuangan": false,
+        "akses_kas": false,
+        "akses_anggota": false,
+        "__collections__": {}
+      },
+      "jabatan_9e002a8a-073e-4a16-829a-43d963a3fb5f": {
+        "akses_arsip": false,
+        "akses_anggota": false,
+        "akses_pengaturan": false,
+        "akses_keuangan": false,
+        "akses_jabatan": false,
+        "keterangan": "Mengelola jadwal kegiatan",
+        "akses_blog": true,
+        "jabatan": "Dewan Giat-Ops",
+        "akses_kas": false,
+        "__collections__": {}
+      },
+      "jabatan_a47f04a4-5bc3-47c0-aa23-4db9aab21da9": {
+        "akses_anggota": false,
+        "akses_pengaturan": true,
+        "akses_kas": false,
+        "keterangan": "Mengelola sarana dan prasarana",
+        "akses_jabatan": false,
+        "akses_keuangan": false,
+        "akses_arsip": false,
+        "akses_blog": true,
+        "jabatan": "Dewan Rumga",
+        "__collections__": {}
+      },
+      "jabatan_b2febc7d-dc9f-4c74-a328-238a7965f303": {
+        "akses_arsip": true,
+        "akses_blog": true,
+        "akses_kas": true,
+        "keterangan": "Memimpin Rapat",
+        "akses_jabatan": true,
+        "akses_anggota": true,
+        "akses_keuangan": true,
+        "jabatan": "Ketua Dewan Racana",
+        "akses_pengaturan": true,
+        "__collections__": {}
+      },
+      "jabatan_cae85c17-437e-489f-9824-dffd3b70066b": {
+        "keterangan": "Mengatur adat Racana",
+        "akses_pengaturan": true,
+        "akses_keuangan": true,
+        "akses_kas": true,
+        "akses_arsip": true,
+        "akses_blog": true,
+        "akses_jabatan": true,
+        "jabatan": "Pemangku Adat",
+        "akses_anggota": true,
+        "__collections__": {}
+      },
+      "jabatan_f72dc01b-bc5f-4465-a56b-4dc44f739db4": {
+        "jabatan": "Dewan Tekpram",
+        "akses_jabatan": false,
+        "akses_pengaturan": false,
+        "akses_blog": true,
+        "akses_kas": false,
+        "akses_anggota": false,
+        "keterangan": "Mengatur materi latihan pramuka",
+        "akses_keuangan": false,
+        "akses_arsip": true,
+        "__collections__": {}
+      }
+    },
+    "kas": {
+      "kas_03160865-a3e7-478a-99a0-64d5ac17b779": {
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_95fdcac9-f4f5-4272-9b23-e5bac7eccc75"
+        },
+        "jumlahUang": "10.000",
+        "status": true,
+        "update_at": "2022-04-05T05:33:48.086Z",
+        "created_at": "2022-04-05T05:33:48.086Z",
+        "keterangan": "Kas Bulan Desember",
+        "created_by": {
+          "__datatype__": "documentReference",
+          "value": "users/user_f304c516-6343-45de-8d56-d87d8a262a27"
+        },
+        "__collections__": {}
+      },
+      "kas_12ebda3a-2eec-4d02-8bad-37c0e8fa1abb": {
+        "created_at": "2022-04-05T05:33:55.024Z",
+        "status": true,
+        "update_at": "2022-04-05T05:33:59.780Z",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_973366f3-c822-4879-8695-8ba1e2b448f9"
+        },
+        "created_by": {
+          "__datatype__": "documentReference",
+          "value": "users/user_f304c516-6343-45de-8d56-d87d8a262a27"
+        },
+        "keterangan": "Kas Bulan Desember",
+        "jumlahUang": "10.000",
+        "__collections__": {}
+      },
+      "kas_34c4a285-1b51-4d88-8caa-37d752f17f4d": {
+        "jumlahUang": "10.000",
+        "created_by": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "status": true,
+        "keterangan": "Kas Bulan Februari",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_114da8a2-a54d-412e-8a23-357c3dfb7027"
+        },
+        "created_at": "2022-04-05T05:34:32.849Z",
+        "update_at": "2022-04-05T05:34:32.849Z",
+        "__collections__": {}
+      },
+      "kas_410a88df-8596-4434-9378-4a646ca30b1c": {
+        "status": true,
+        "update_at": "2022-04-05T16:48:25.674Z",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_114da8a2-a54d-412e-8a23-357c3dfb7027"
+        },
+        "created_by": {
+          "__datatype__": "documentReference",
+          "value": "users/user_95fdcac9-f4f5-4272-9b23-e5bac7eccc75"
+        },
+        "jumlahUang": "23.000",
+        "keterangan": "bayar kas",
+        "created_at": "2022-04-05T16:48:25.674Z",
+        "__collections__": {}
+      },
+      "kas_57d226de-86f4-4f8f-915a-90bfafdb88ec": {
+        "created_at": "2022-04-07T06:29:27.243Z",
+        "keterangan": "Kas Bulan Juni",
+        "update_at": "2022-04-07T06:29:32.393Z",
+        "status": true,
+        "jumlahUang": "5.000",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "created_by": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "__collections__": {}
+      },
+      "kas_5a6bb902-4f22-40db-895f-fde79522de69": {
+        "update_at": "2022-03-31T06:55:21.418Z",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "status": true,
+        "keterangan": "Kas Bulan Mei",
+        "created_at": "2022-03-31T06:55:02.643Z",
+        "created_by": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "jumlahUang": "2.000",
+        "__collections__": {}
+      },
+      "kas_64b8d686-adb9-4f59-93fe-26071121840f": {
+        "keterangan": "Kas Bulan Januari",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_f304c516-6343-45de-8d56-d87d8a262a27"
+        },
+        "status": true,
+        "created_by": {
+          "__datatype__": "documentReference",
+          "value": "users/user_f304c516-6343-45de-8d56-d87d8a262a27"
+        },
+        "jumlahUang": "10.000",
+        "update_at": "2022-04-05T05:34:38.604Z",
+        "created_at": "2022-04-05T05:34:38.604Z",
+        "__collections__": {}
+      },
+      "kas_675b4f47-0fab-4363-9429-85827b6b451b": {
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_f304c516-6343-45de-8d56-d87d8a262a27"
+        },
+        "update_at": "2022-04-04T16:14:11.360Z",
+        "keterangan": "Test",
+        "jumlahUang": "1.000",
+        "created_by": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "created_at": "2022-04-04T16:14:11.360Z",
+        "status": false,
+        "__collections__": {}
+      },
+      "kas_77d2bfd3-3bc0-433b-a295-456030dfa95c": {
+        "update_at": "2022-04-07T06:27:41.073Z",
+        "created_by": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "jumlahUang": "2.000",
+        "keterangan": "Kas April 2022",
+        "created_at": "2022-04-07T06:27:26.196Z",
+        "status": true,
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_114da8a2-a54d-412e-8a23-357c3dfb7027"
+        },
+        "__collections__": {}
+      },
+      "kas_8a7f406a-2282-482e-a8b0-475216bf7d2e": {
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "keterangan": "Kas Bulan April",
+        "jumlahUang": "2.000",
+        "update_at": "2022-04-07T06:27:57.689Z",
+        "created_at": "2022-04-07T06:27:57.689Z",
+        "created_by": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "status": true,
+        "__collections__": {}
+      },
+      "kas_91209307-e93c-4c25-a58f-02f8d35a9b27": {
+        "jumlahUang": "120.000",
+        "update_at": "2022-04-04T12:04:57.381Z",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "created_at": "2022-04-04T12:04:57.381Z",
+        "status": true,
+        "created_by": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "keterangan": "Test",
+        "__collections__": {}
+      },
+      "kas_9774042a-933d-4111-adac-58d16c42da62": {
+        "status": true,
+        "keterangan": "Kas Bulan Januari",
+        "created_at": "2022-04-05T05:34:32.134Z",
+        "created_by": {
+          "__datatype__": "documentReference",
+          "value": "users/user_f304c516-6343-45de-8d56-d87d8a262a27"
+        },
+        "update_at": "2022-04-05T05:34:32.134Z",
+        "jumlahUang": "10.000",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_d7581710-a9e6-441b-9d5d-40e1edd9ed28"
+        },
+        "__collections__": {}
+      },
+      "kas_a1772af4-ed58-4269-9860-73392c2b5953": {
+        "created_at": "2022-04-05T05:33:12.584Z",
+        "keterangan": "Kas bulan desember",
+        "update_at": "2022-04-05T05:33:12.584Z",
+        "created_by": {
+          "__datatype__": "documentReference",
+          "value": "users/user_f304c516-6343-45de-8d56-d87d8a262a27"
+        },
+        "jumlahUang": "10.000",
+        "status": true,
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_114da8a2-a54d-412e-8a23-357c3dfb7027"
+        },
+        "__collections__": {}
+      },
+      "kas_a8789e15-ebfc-4e07-bd9f-b773c84e94bd": {
+        "status": false,
+        "jumlahUang": "40.000",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "created_by": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "update_at": "2022-04-05T03:43:59.410Z",
+        "keterangan": "-",
+        "created_at": "2022-04-05T03:43:59.410Z",
+        "__collections__": {}
+      },
+      "kas_b2d6dd9e-b675-43e4-992d-0ebb0f69f50b": {
+        "keterangan": "Kas Bulan April 2022",
+        "status": false,
+        "update_at": "2022-04-13T13:22:11.649Z",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "jumlahUang": "11.000",
+        "created_by": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "created_at": "2022-04-13T13:22:11.649Z",
+        "__collections__": {}
+      },
+      "kas_c41d7b39-3e5c-4264-a9c5-a117a23cc681": {
+        "created_by": {
+          "__datatype__": "documentReference",
+          "value": "users/user_f304c516-6343-45de-8d56-d87d8a262a27"
+        },
+        "created_at": "2022-04-05T05:33:39.818Z",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_911aa209-b319-43b6-b959-cc0df29b1491"
+        },
+        "status": true,
+        "update_at": "2022-04-05T05:33:39.818Z",
+        "jumlahUang": "10.000",
+        "keterangan": "Kas Bulan Januari",
+        "__collections__": {}
+      },
+      "kas_cec566ac-17d1-4605-a6b8-c894b6237fea": {
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_95fdcac9-f4f5-4272-9b23-e5bac7eccc75"
+        },
+        "created_at": "2022-04-05T16:47:07.414Z",
+        "status": true,
+        "jumlahUang": "50.000",
+        "keterangan": "bayar kas",
+        "update_at": "2022-04-05T16:47:12.480Z",
+        "created_by": {
+          "__datatype__": "documentReference",
+          "value": "users/user_95fdcac9-f4f5-4272-9b23-e5bac7eccc75"
+        },
+        "__collections__": {}
+      },
+      "kas_cf71d9ee-8675-4eaa-9c42-a15415d73ebc": {
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "created_by": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "update_at": "2022-04-07T03:47:29.614Z",
+        "jumlahUang": "2.000",
+        "status": true,
+        "keterangan": "Bulan April 2022",
+        "created_at": "2022-04-07T03:47:05.384Z",
+        "__collections__": {}
+      },
+      "kas_cfda83e7-b0f9-4ae2-a538-affb347bce38": {
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_7a6cad7e-a0d8-4ceb-8c12-e02384526054"
+        },
+        "created_at": "2022-04-13T03:13:57.443Z",
+        "created_by": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "status": true,
+        "update_at": "2022-04-13T13:21:56.820Z",
+        "keterangan": "Kas Bulan April 2022",
+        "jumlahUang": "8.000",
+        "__collections__": {}
+      },
+      "kas_d009abf8-642d-4a67-8149-8cdb0c032801": {
+        "status": true,
+        "created_by": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "created_at": "2022-03-31T06:18:22.417Z",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "update_at": "2022-03-31T06:18:22.417Z",
+        "jumlahUang": "500.000",
+        "keterangan": "Kas Bulan April",
+        "__collections__": {}
+      },
+      "kas_dd41d7e2-c804-406c-869f-cc556a97d13f": {
+        "update_at": "2022-04-05T05:34:19.298Z",
+        "created_at": "2022-04-05T05:34:19.298Z",
+        "jumlahUang": "10.000",
+        "status": true,
+        "created_by": {
+          "__datatype__": "documentReference",
+          "value": "users/user_f304c516-6343-45de-8d56-d87d8a262a27"
+        },
+        "keterangan": "Kas Bulan Januari",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_d47259c6-a4f5-4129-ba77-3311d45080d2"
+        },
+        "__collections__": {}
+      },
+      "kas_e9a6763b-b389-4ba7-8377-b1c92619dacc": {
+        "keterangan": "Kas Bulan Januari",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_d6cc28ae-050a-4578-95ed-2c79ceaec105"
+        },
+        "created_at": "2022-04-05T05:34:24.716Z",
+        "jumlahUang": "10.000",
+        "update_at": "2022-04-05T05:34:24.716Z",
+        "status": true,
+        "created_by": {
+          "__datatype__": "documentReference",
+          "value": "users/user_f304c516-6343-45de-8d56-d87d8a262a27"
+        },
+        "__collections__": {}
+      },
+      "kas_eb320e2b-f7ed-4649-9863-0e67c92bdecf": {
+        "status": true,
+        "jumlahUang": "10.000",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_fd4b4482-f344-4efc-bca9-1ccde164edda"
+        },
+        "update_at": "2022-04-05T05:34:49.922Z",
+        "created_at": "2022-04-05T05:34:49.922Z",
+        "created_by": {
+          "__datatype__": "documentReference",
+          "value": "users/user_f304c516-6343-45de-8d56-d87d8a262a27"
+        },
+        "keterangan": "Kas Bulan Januari",
+        "__collections__": {}
+      },
+      "kas_f1bc6a0f-8169-4121-8bb8-87e657a05bd6": {
+        "jumlahUang": "500.000",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "status": true,
+        "created_at": "2022-04-05T03:45:04.428Z",
+        "update_at": "2022-04-05T03:45:15.225Z",
+        "keterangan": "Test",
+        "created_by": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "__collections__": {}
+      },
+      "kas_use_092c1f49-a407-4db1-8eae-c2498d3a595e": {
+        "status": true,
+        "keterangan": "Bulan April 2022",
+        "update_at": "2022-04-07T04:28:56.868Z",
+        "created_at": "2022-04-07T04:28:48.501Z",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_114da8a2-a54d-412e-8a23-357c3dfb7027"
+        },
+        "jumlahUang": "2.000",
+        "created_by": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "__collections__": {}
+      },
+      "kas_use_9ba6e6a1-25bf-43c5-9162-9649951b3d46": {
+        "status": true,
+        "keterangan": "Bulan Januari",
+        "update_at": "2022-04-07T05:07:42.724Z",
+        "created_by": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "jumlahUang": "50.000",
+        "created_at": "2022-04-07T05:07:42.724Z",
+        "__collections__": {}
+      }
+    },
+    "keuangan": {
+      "keuangan_1278b436-439d-44bf-8dac-0d2c5b02c1a1": {
+        "tipe": "1",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_f304c516-6343-45de-8d56-d87d8a262a27"
+        },
+        "kredit": 45000,
+        "tanggalKeuangan": "2022-04-02T00:00:00.000Z",
+        "nominal": 45000,
+        "debit": 0,
+        "created_at": "2022-04-05T05:36:52.590Z",
+        "keterangan": "Pembayaran tiket",
+        "__collections__": {}
+      },
+      "keuangan_202_3ae0cb96-83b6-4349-98ac-4b65a0e03d00": {
+        "tipe": "2",
+        "tanggalKeuangan": "2022-04-07T05:07:43.521Z",
+        "created_at": "2022-04-07T05:07:43.521Z",
+        "keterangan": "Pembayaran Tagihan Kas",
+        "debit": 50000,
+        "kredit": 0,
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "nominal": 50000,
+        "__collections__": {}
+      },
+      "keuangan_22959a74-20b4-4bba-86d5-ecbb3f6cc8fe": {
+        "tipe": "2",
+        "created_at": "2022-04-05T05:33:13.418Z",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_f304c516-6343-45de-8d56-d87d8a262a27"
+        },
+        "kredit": 0,
+        "debit": 10000,
+        "keterangan": "Pembayaran Tagihan Kas",
+        "tanggalKeuangan": "2022-04-05T05:33:13.418Z",
+        "nominal": 10000,
+        "__collections__": {}
+      },
+      "keuangan_232dddea-7738-43ef-905a-d605b9547cde": {
+        "kredit": 500000,
+        "created_at": "2022-03-30T23:50:54.218Z",
+        "tanggalKeuangan": "2022-03-30T23:50:54.217Z",
+        "debit": 0,
+        "keterangan": "Penghapusan Tagihan Kas",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "tipe": "1",
+        "nominal": 500000,
+        "__collections__": {}
+      },
+      "keuangan_2b22e923-7dc9-451e-963d-84a2aba3c902": {
+        "keterangan": "Pembayaran Tagihan Kas",
+        "tanggalKeuangan": "2022-04-05T05:34:32.257Z",
+        "nominal": 10000,
+        "debit": 10000,
+        "kredit": 0,
+        "tipe": "2",
+        "created_at": "2022-04-05T05:34:32.257Z",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_f304c516-6343-45de-8d56-d87d8a262a27"
+        },
+        "__collections__": {}
+      },
+      "keuangan_2e280673-70f4-4be8-ac61-1cc1060ebe30": {
+        "created_at": "2022-04-07T03:49:41.063Z",
+        "tipe": "1",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "kredit": 5000,
+        "nominal": 5000,
+        "tanggalKeuangan": "2022-04-07T03:49:41.000Z",
+        "debit": 0,
+        "keterangan": "Fotokopi Berkas",
+        "__collections__": {}
+      },
+      "keuangan_3eeba2ff-c423-4cb5-8142-d1da1f589059": {
+        "tipe": "2",
+        "keterangan": "Pembayaran Tagihan Kas",
+        "nominal": 2000,
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "created_at": "2022-04-07T06:27:41.214Z",
+        "kredit": 0,
+        "tanggalKeuangan": "2022-04-07T06:27:41.214Z",
+        "debit": 2000,
+        "__collections__": {}
+      },
+      "keuangan_422cf39d-f0e3-4037-8bed-b66faa70a908": {
+        "debit": 0,
+        "created_at": "2022-03-31T06:57:30.854Z",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "tanggalKeuangan": "2022-03-31T00:00:00.000Z",
+        "nominal": 120000,
+        "tipe": "1",
+        "keterangan": "Kursi Sanggar",
+        "kredit": 120000,
+        "__collections__": {}
+      },
+      "keuangan_5d594e6a-99dd-457e-89ed-8f56fdb372b6": {
+        "tanggalKeuangan": "2022-04-05T16:50:34.000Z",
+        "kredit": 100000,
+        "keterangan": "sumbangan",
+        "nominal": 100000,
+        "tipe": "1",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_95fdcac9-f4f5-4272-9b23-e5bac7eccc75"
+        },
+        "created_at": "2022-04-05T16:50:34.226Z",
+        "debit": 0,
+        "__collections__": {}
+      },
+      "keuangan_86c49c77-032c-44c0-a8b0-bb3295123a8d": {
+        "keterangan": "Beli Kursi Sanggar",
+        "nominal": 120000,
+        "created_at": "2022-04-07T06:30:01.586Z",
+        "tanggalKeuangan": "2022-04-07T06:30:01.000Z",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "kredit": 120000,
+        "tipe": "1",
+        "debit": 0,
+        "__collections__": {}
+      },
+      "keuangan_886a90bc-dd4e-4368-80b8-0e3b56bb9138": {
+        "nominal": 10000,
+        "debit": 10000,
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "kredit": 0,
+        "keterangan": "Pembayaran Tagihan Kas",
+        "created_at": "2022-03-31T06:19:16.587Z",
+        "tipe": "2",
+        "tanggalKeuangan": "2022-03-31T06:19:16.587Z",
+        "__collections__": {}
+      },
+      "keuangan_89a0beb8-fe74-47e5-a307-870eb12a9656": {
+        "debit": 10000,
+        "tipe": "2",
+        "kredit": 0,
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_f304c516-6343-45de-8d56-d87d8a262a27"
+        },
+        "nominal": 10000,
+        "keterangan": "Pembayaran Tagihan Kas",
+        "created_at": "2022-04-05T05:34:24.855Z",
+        "tanggalKeuangan": "2022-04-05T05:34:24.855Z",
+        "__collections__": {}
+      },
+      "keuangan_91527147-35a0-48a9-a9da-3a013a1971b8": {
+        "debit": 5000,
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "tanggalKeuangan": "2022-04-07T06:29:32.612Z",
+        "created_at": "2022-04-07T06:29:32.612Z",
+        "kredit": 0,
+        "keterangan": "Pembayaran Tagihan Kas",
+        "nominal": 5000,
+        "tipe": "2",
+        "__collections__": {}
+      },
+      "keuangan_91806524-0f25-4201-9f8a-71c84122b299": {
+        "nominal": 10000,
+        "debit": 10000,
+        "tanggalKeuangan": "2022-04-05T05:33:59.915Z",
+        "tipe": "2",
+        "keterangan": "Pembayaran Tagihan Kas",
+        "kredit": 0,
+        "created_at": "2022-04-05T05:33:59.915Z",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_f304c516-6343-45de-8d56-d87d8a262a27"
+        },
+        "__collections__": {}
+      },
+      "keuangan_92f732a8-0a4d-4567-aeba-0339203e7a14": {
+        "debit": 8000,
+        "keterangan": "Pembayaran Tagihan Kas",
+        "kredit": 0,
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "tipe": "2",
+        "created_at": "2022-04-13T13:21:57.117Z",
+        "nominal": 8000,
+        "tanggalKeuangan": "2022-04-13T13:21:57.117Z",
+        "__collections__": {}
+      },
+      "keuangan_96684654-bd73-445e-af04-d33c5b56eae9": {
+        "keterangan": "Pembayaran Tagihan Kas",
+        "debit": 2000,
+        "created_at": "2022-04-07T04:28:57.008Z",
+        "tipe": "2",
+        "kredit": 0,
+        "tanggalKeuangan": "2022-04-07T04:28:57.008Z",
+        "nominal": 2000,
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "__collections__": {}
+      },
+      "keuangan_a49e9d81-750c-4c3f-8903-93158e727b42": {
+        "debit": 120000,
+        "kredit": 0,
+        "tipe": "2",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "keterangan": "Pembayaran Tagihan Kas",
+        "tanggalKeuangan": "2022-04-04T12:04:58.176Z",
+        "created_at": "2022-04-04T12:04:58.176Z",
+        "nominal": 120000,
+        "__collections__": {}
+      },
+      "keuangan_b0064040-5dc7-493c-b3fb-fcd7ca8850c3": {
+        "tipe": "2",
+        "keterangan": "Saldo Awal",
+        "created_at": "2022-03-30T23:32:28.266Z",
+        "debit": 1200000,
+        "nominal": 1200000,
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "kredit": 0,
+        "tanggalKeuangan": "2022-02-01T00:00:00.000Z",
+        "__collections__": {}
+      },
+      "keuangan_b2610e08-0916-4f39-a20a-1b6ef55c9886": {
+        "tipe": "2",
+        "debit": 10000,
+        "keterangan": "Pembayaran Tagihan Kas",
+        "tanggalKeuangan": "2022-04-05T05:34:19.425Z",
+        "kredit": 0,
+        "created_at": "2022-04-05T05:34:19.425Z",
+        "nominal": 10000,
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_f304c516-6343-45de-8d56-d87d8a262a27"
+        },
+        "__collections__": {}
+      },
+      "keuangan_b703b5d4-0746-46aa-b2dd-66422f529e8f": {
+        "created_at": "2022-04-05T05:36:15.444Z",
+        "debit": 500000,
+        "keterangan": "Keuntungan Seragam",
+        "tanggalKeuangan": "2022-04-05T00:00:00.000Z",
+        "tipe": "2",
+        "nominal": 500000,
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_f304c516-6343-45de-8d56-d87d8a262a27"
+        },
+        "kredit": 0,
+        "__collections__": {}
+      },
+      "keuangan_b9f77a48-a448-4266-b95e-1795347666f5": {
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "debit": 2000,
+        "created_at": "2022-04-07T06:27:57.832Z",
+        "kredit": 0,
+        "tanggalKeuangan": "2022-04-07T06:27:57.832Z",
+        "keterangan": "Pembayaran Tagihan Kas",
+        "nominal": 2000,
+        "tipe": "2",
+        "__collections__": {}
+      },
+      "keuangan_c826dad9-1273-4b47-84c7-7d1f4ef61862": {
+        "nominal": 10000,
+        "debit": 10000,
+        "created_at": "2022-04-05T05:33:48.275Z",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_f304c516-6343-45de-8d56-d87d8a262a27"
+        },
+        "keterangan": "Pembayaran Tagihan Kas",
+        "kredit": 0,
+        "tipe": "2",
+        "tanggalKeuangan": "2022-04-05T05:33:48.275Z",
+        "__collections__": {}
+      },
+      "keuangan_d9523bfe-432f-4f9c-bd5b-ed17571ef48f": {
+        "keterangan": "Pembayaran Tagihan Kas",
+        "created_at": "2022-03-31T06:55:21.947Z",
+        "tanggalKeuangan": "2022-03-31T06:55:21.946Z",
+        "debit": 2000,
+        "tipe": "2",
+        "kredit": 0,
+        "nominal": 2000,
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "__collections__": {}
+      },
+      "keuangan_dc83c964-c49e-420d-b1ea-b2c572136d16": {
+        "nominal": 500000,
+        "tipe": "1",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "keterangan": "Penghapusan Tagihan Kas",
+        "kredit": 500000,
+        "tanggalKeuangan": "2022-04-04T12:11:15.774Z",
+        "debit": 0,
+        "created_at": "2022-04-04T12:11:15.774Z",
+        "__collections__": {}
+      },
+      "keuangan_de300036-e9f4-4029-ba21-02c872ea4c14": {
+        "tipe": "2",
+        "tanggalKeuangan": "2022-04-07T03:47:30.519Z",
+        "keterangan": "Pembayaran Tagihan Kas",
+        "created_at": "2022-04-07T03:47:30.519Z",
+        "debit": 2000,
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "nominal": 2000,
+        "kredit": 0,
+        "__collections__": {}
+      },
+      "keuangan_e04763d0-14be-4b8a-b6d3-2a3a224736b5": {
+        "nominal": 10000,
+        "debit": 10000,
+        "keterangan": "Pembayaran Tagihan Kas",
+        "kredit": 0,
+        "created_at": "2022-04-05T05:34:33.706Z",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "tipe": "2",
+        "tanggalKeuangan": "2022-04-05T05:34:33.706Z",
+        "__collections__": {}
+      },
+      "keuangan_e2167d3e-553e-4d56-84b2-0bcba7c9ccd9": {
+        "kredit": 0,
+        "tanggalKeuangan": "2022-04-05T03:45:15.432Z",
+        "created_at": "2022-04-05T03:45:15.432Z",
+        "tipe": "2",
+        "debit": 500000,
+        "keterangan": "Pembayaran Tagihan Kas",
+        "nominal": 500000,
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "__collections__": {}
+      },
+      "keuangan_e3855b51-d376-4563-8b63-6d3b69786fb3": {
+        "keterangan": "Penghapusan Tagihan Kas",
+        "debit": 0,
+        "nominal": 10000,
+        "kredit": 10000,
+        "created_at": "2022-03-31T06:20:20.279Z",
+        "tipe": "1",
+        "tanggalKeuangan": "2022-03-31T06:20:20.279Z",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "__collections__": {}
+      },
+      "keuangan_e7494c6c-fb04-4382-b951-1111120c646a": {
+        "debit": 13000,
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "created_at": "2022-04-05T11:26:15.732Z",
+        "tipe": "2",
+        "tanggalKeuangan": "2022-04-05T00:00:00.000Z",
+        "kredit": 0,
+        "keterangan": "Test",
+        "nominal": 13000,
+        "__collections__": {}
+      },
+      "keuangan_ea6f7556-1bff-418d-a4b3-01c2c8add242": {
+        "tanggalKeuangan": "2022-03-30T23:50:22.731Z",
+        "nominal": 500000,
+        "created_at": "2022-03-30T23:50:22.731Z",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "kredit": 0,
+        "tipe": "2",
+        "debit": 500000,
+        "keterangan": "Pembayaran Tagihan Kas",
+        "__collections__": {}
+      },
+      "keuangan_eb385ef5-81e7-486c-86d9-966acd5c0abc": {
+        "keterangan": "Pembayaran Tagihan Kas",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "nominal": 500000,
+        "kredit": 0,
+        "debit": 500000,
+        "tanggalKeuangan": "2022-03-31T06:18:23.253Z",
+        "created_at": "2022-03-31T06:18:23.253Z",
+        "tipe": "2",
+        "__collections__": {}
+      },
+      "keuangan_f4c5a253-6649-4ba5-9ace-f87284803afb": {
+        "kredit": 0,
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_18d769f7-4f4a-4726-878f-6640f3b0d236"
+        },
+        "debit": 500000,
+        "tipe": "2",
+        "created_at": "2022-03-31T03:28:02.350Z",
+        "keterangan": "Pembayaran Tagihan Kas",
+        "nominal": 500000,
+        "tanggalKeuangan": "2022-03-31T03:28:02.350Z",
+        "__collections__": {}
+      },
+      "keuangan_fbc31a4c-bef4-4496-bdce-e5c575f675c2": {
+        "kredit": 0,
+        "created_at": "2022-04-05T05:33:40.253Z",
+        "user_id": {
+          "__datatype__": "documentReference",
+          "value": "users/user_f304c516-6343-45de-8d56-d87d8a262a27"
+        },
+        "tipe": "2",
+        "keterangan": "Pembayaran Tagihan Kas",
+        "tanggalKeuangan": "2022-04-05T05:33:40.253Z",
+        "nominal": 10000,
+        "debit": 10000,
+        "__collections__": {}
+      }
+    },
+    "labels": {
+      "Arsip": {
+        "label": "Arsip",
+        "__collections__": {}
+      },
+      "Artikel": {
+        "label": "Artikel",
+        "__collections__": {}
+      },
+      "Berita": {
+        "label": "Berita",
+        "__collections__": {}
+      },
+      "Blog": {
+        "label": "Blog",
+        "__collections__": {}
+      }
+    },
+    "pengaturan": {
+      "cover": {
+        "value": "https://firebasestorage.googleapis.com/v0/b/organisasimanajemen-6aad0.appspot.com/o/cover.jpeg?alt=media&token=db1bef15-9583-41d0-a59a-fcdae5880437",
+        "__collections__": {}
+      },
+      "dekripsi_cover": {
+        "value": "Selamat Datang di Blog Kami",
+        "__collections__": {}
+      },
+      "facebook": {
+        "value": "",
+        "__collections__": {}
+      },
+      "ikon": {
+        "value": "https://firebasestorage.googleapis.com/v0/b/organisasimanajemen-6aad0.appspot.com/o/ikon.png?alt=media&token=7b5d31a8-7db8-4a3f-887c-fac20e2436fe",
+        "__collections__": {}
+      },
+      "instagram": {
+        "value": "pramukaupnjatim",
+        "__collections__": {}
+      },
+      "judul_cover": {
+        "value": "Pramuka UPN Veteran Jawa Timur",
+        "__collections__": {}
+      },
+      "organisasi": {
+        "value": "Koperasi",
+        "__collections__": {}
+      },
+      "twitter": {
+        "value": "upnvjt_official",
+        "__collections__": {}
+      }
+    },
+    "rekap": {
+      "anggota": {
+        "value": 15,
+        "__collections__": {}
+      },
+      "blog": {
+        "value": 6,
+        "__collections__": {}
+      },
+      "kas": {
+        "value": 1366000,
+        "__collections__": {}
+      },
+      "keuangan": {
+        "value": 2596000,
+        "__collections__": {}
+      }
+    },
+    "rekap_bulanan": {
+      "2022_2": {
+        "tahun": 2022,
+        "bulan": 2,
+        "saldo": 1200000,
+        "nama_bulan": "Februari",
+        "__collections__": {}
+      },
+      "2022_3": {
+        "saldo": 882000,
+        "nama_bulan": "Maret",
+        "tahun": 2022,
+        "bulan": 3,
+        "__collections__": {}
+      },
+      "2022_4": {
+        "bulan": 4,
+        "nama_bulan": "April",
+        "saldo": 514000,
+        "tahun": 2022,
+        "__collections__": {}
+      }
+    },
+    "users": {
+      "user_114da8a2-a54d-412e-8a23-357c3dfb7027": {
+        "jenis_kelamin": "Pria",
+        "jabatan": {
+          "__datatype__": "documentReference",
+          "value": "jabatan/jabatan_f72dc01b-bc5f-4465-a56b-4dc44f739db4"
+        },
+        "tglLahir": "2001-09-18",
+        "email": "adminriyo@gmail.com",
+        "agama": "Islam",
+        "password": "10151c181f404342",
+        "fotoprofile": "https://firebasestorage.googleapis.com/v0/b/organisasimanajemen-6aad0.appspot.com/o/user_114da8a2-a54d-412e-8a23-357c3dfb7027.png?alt=media&token=96126138-3119-4468-8dd3-1aa66969779c",
+        "nama": "Triyono Rifan",
+        "status": true,
+        "no_hp": "085931011450",
+        "alamat": "Ambunten, Sumenep, Madura",
+        "__collections__": {}
+      },
+      "user_18d769f7-4f4a-4726-878f-6640f3b0d236": {
+        "password": "1a1407181f43464043",
+        "alamat": "Sidoarjo",
+        "email": "kevinpret27@gmail.com",
+        "no_hp": "088888881231",
+        "fotoprofile": "https://firebasestorage.googleapis.com/v0/b/organisasimanajemen-6aad0.appspot.com/o/user_18d769f7-4f4a-4726-878f-6640f3b0d236.PNG?alt=media&token=a8016bf2-9d2b-4838-9922-af2929498017",
+        "agama": "Islam",
+        "nama": "NOVANDI KEVIN PRATAMA",
+        "password2": "kevin2712",
+        "status": true,
+        "jenis_kelamin": "Pria",
+        "tglLahir": "2001-12-27",
+        "jabatan": {
+          "__datatype__": "documentReference",
+          "value": "jabatan/jabatan_b2febc7d-dc9f-4c74-a328-238a7965f303"
+        },
+        "__collections__": {}
+      },
+      "user_415a38d3-01b2-415c-9470-3654a611ea61": {
+        "jenis_kelamin": "Pria",
+        "agama": "Islam",
+        "alamat": "Sidoarjo",
+        "jabatan": {
+          "__datatype__": "documentReference",
+          "value": "jabatan/anggota"
+        },
+        "password": "404342454447",
+        "no_hp": "08736647828",
+        "status": true,
+        "nama": "Allysha Syakila",
+        "email": "allysa1234@gmail.com",
+        "tglLahir": "2001-12-27",
+        "__collections__": {}
+      },
+      "user_5dcedd00-55da-4053-89aa-8d181d346b00": {
+        "nama": "NOVANDI KEVIN PRATAMA",
+        "jenis_kelamin": "Pria",
+        "alamat": "Sidoarjo",
+        "agama": "Islam",
+        "tglLahir": "2000-02-02",
+        "jabatan": {
+          "__datatype__": "documentReference",
+          "value": "jabatan/anggota"
+        },
+        "no_hp": "0881026653711",
+        "status": true,
+        "email": "admin@gmail.com",
+        "password": "10151c181f404342",
+        "__collections__": {}
+      },
+      "user_5fb5caf0-c450-457a-83b9-4526a83250d6": {
+        "agama": "Islam",
+        "nama": "Andi Aji",
+        "email": "andi123@gmail.com",
+        "password": "101f151840434245",
+        "jabatan": {
+          "__datatype__": "documentReference",
+          "value": "jabatan/jabatan_713f1ba5-46f8-4903-b069-1afbbec14a77"
+        },
+        "no_hp": "08888888",
+        "tglLahir": "2001-12-27",
+        "alamat": "Buduran",
+        "status": true,
+        "jenis_kelamin": "Pria",
+        "__collections__": {}
+      },
+      "user_7a6cad7e-a0d8-4ceb-8c12-e02384526054": {
+        "no_hp": "0856453",
+        "alamat": "Surabaya",
+        "agama": "Islam",
+        "email": "rahma123@gmail.com",
+        "jabatan": {
+          "__datatype__": "documentReference",
+          "value": "jabatan/anggota"
+        },
+        "tglLahir": "2001-12-27",
+        "status": true,
+        "nama": "Nia Rahmadhani",
+        "password": "404342454447",
+        "jenis_kelamin": "Pria",
+        "__collections__": {}
+      },
+      "user_8bcc443c-fb09-4b4c-8d16-c15a7eaec61f": {
+        "agama": "Islam",
+        "status": true,
+        "alamat": "Surabaya",
+        "password": "404342454447",
+        "email": "rahma@gmail.com",
+        "nama": "Rahma Nur Fadillah",
+        "tglLahir": "2001-12-27",
+        "jabatan": {
+          "__datatype__": "documentReference",
+          "value": "jabatan/anggota"
+        },
+        "no_hp": "0984728471",
+        "jenis_kelamin": "Pria",
+        "__collections__": {}
+      },
+      "user_8bd02bdb-7eda-4c92-8011-f4dddd95cff4": {
+        "nama": "Muhammad Syaugi Shahab",
+        "jabatan": {
+          "__datatype__": "documentReference",
+          "value": "jabatan/anggota"
+        },
+        "tglLahir": "2001-12-27",
+        "agama": "Islam",
+        "jenis_kelamin": "Pria",
+        "status": false,
+        "alamat": "Jl.Bendul Merisi Selatan V No.3",
+        "password": "404342454447",
+        "no_hp": "089502869186",
+        "email": "m.syaugishahab@gmail.com",
+        "__collections__": {}
+      },
+      "user_911aa209-b319-43b6-b959-cc0df29b1491": {
+        "email": "renebae01@gmail.com",
+        "nama": "Indy Pristyananda Pramesweari",
+        "password": "404342454447",
+        "status": true,
+        "jabatan": {
+          "__datatype__": "documentReference",
+          "value": "jabatan/anggota"
+        },
+        "agama": "Islam",
+        "no_hp": "086321784",
+        "jenis_kelamin": "Pria",
+        "tglLahir": "2001-12-27",
+        "alamat": "sampang",
+        "__collections__": {}
+      },
+      "user_95fdcac9-f4f5-4272-9b23-e5bac7eccc75": {
+        "jenis_kelamin": "Pria",
+        "fotoprofile": "https://firebasestorage.googleapis.com/v0/b/organisasimanajemen-6aad0.appspot.com/o/user_95fdcac9-f4f5-4272-9b23-e5bac7eccc75.jpeg?alt=media&token=33581cb0-8a36-4f85-9bad-0e12b3153b68",
+        "jabatan": {
+          "__datatype__": "documentReference",
+          "value": "jabatan/anggota"
+        },
+        "agama": "Islam",
+        "nama": "Muhammad Ayeman",
+        "alamat": "Aceh",
+        "tglLahir": "2001-12-27",
+        "no_hp": "085843928956",
+        "password": "00061403050804181e01",
+        "email": "khanfasproduction@gmail.com",
+        "status": true,
+        "__collections__": {}
+      },
+      "user_973366f3-c822-4879-8695-8ba1e2b448f9": {
+        "no_hp": "082537832782",
+        "password": "404342454447",
+        "tglLahir": "2001-12-27",
+        "status": true,
+        "agama": "Islam",
+        "jenis_kelamin": "Wanita",
+        "nama": "Alief Rama Mahendra",
+        "jabatan": {
+          "__datatype__": "documentReference",
+          "value": "jabatan/anggota"
+        },
+        "alamat": "makasar",
+        "email": "20081010013@sudent.upnjatim.ac.id",
+        "__collections__": {}
+      },
+      "user_and_740606e0-901c-4bfc-8607-57c8e937d5d5": {
+        "no_hp": "088888",
+        "tglLahir": "2001-12-27",
+        "alamat": "Buduran",
+        "email": "andi@gmail.com",
+        "password": "101f1518404342",
+        "agama": "Islam",
+        "status": true,
+        "nama": "Andi Rayka",
+        "jenis_kelamin": "Pria",
+        "jabatan": {
+          "__datatype__": "documentReference",
+          "value": "jabatan/anggota"
+        },
+        "__collections__": {}
+      },
+      "user_d47259c6-a4f5-4129-ba77-3311d45080d2": {
+        "tglLahir": "2001-12-27",
+        "alamat": "bojonegoro",
+        "agama": "Islam",
+        "jabatan": {
+          "__datatype__": "documentReference",
+          "value": "jabatan/anggota"
+        },
+        "no_hp": "0865467875",
+        "nama": "Milla Angkasa Rachela",
+        "email": "hondayamaha011001@gmail.com",
+        "jenis_kelamin": "Pria",
+        "status": true,
+        "password": "404342454447",
+        "__collections__": {}
+      },
+      "user_d6cc28ae-050a-4578-95ed-2c79ceaec105": {
+        "password": "101a04151417101f1a10",
+        "email": "galanahmde09@gmail.com",
+        "password2": "akudefanka",
+        "status": true,
+        "alamat": "Waru",
+        "jabatan": {
+          "__datatype__": "documentReference",
+          "value": "jabatan/anggota"
+        },
+        "agama": "Islam",
+        "nama": "Galan Ahmad Defanka",
+        "jenis_kelamin": "Pria",
+        "no_hp": "08991349277",
+        "tglLahir": "2001-12-27",
+        "__collections__": {}
+      },
+      "user_d7581710-a9e6-441b-9d5d-40e1edd9ed28": {
+        "password": "404342454447",
+        "alamat": "blora",
+        "agama": "Islam",
+        "no_hp": "084724672",
+        "jabatan": {
+          "__datatype__": "documentReference",
+          "value": "jabatan/anggota"
+        },
+        "jenis_kelamin": "Pria",
+        "tglLahir": "2001-12-27",
+        "email": "aliefindymillani@gmail.com",
+        "nama": "Nur Istyana",
+        "status": true,
+        "__collections__": {}
+      },
+      "user_f304c516-6343-45de-8d56-d87d8a262a27": {
+        "tglLahir": "2001-12-27",
+        "nonaktif": true,
+        "password": "101a04021008101f161a101c04",
+        "alamat": "Tuban",
+        "jabatan": {
+          "__datatype__": "documentReference",
+          "value": "jabatan/anggota"
+        },
+        "nama": "Alief Indy Millani",
+        "jenis_kelamin": "Wanita",
+        "agama": "Kristen",
+        "fotoprofile": "https://firebasestorage.googleapis.com/v0/b/organisasimanajemen-6aad0.appspot.com/o/user_f304c516-6343-45de-8d56-d87d8a262a27.jpg?alt=media&token=b89eca45-0eb8-47f0-ba95-4d8280f3c213",
+        "no_hp": "088102665",
+        "email": "renazahira01@gmail.com",
+        "status": true,
+        "__collections__": {}
+      },
+      "user_fd4b4482-f344-4efc-bca9-1ccde164edda": {
+        "jabatan": {
+          "__datatype__": "documentReference",
+          "value": "jabatan/anggota"
+        },
+        "jenis_kelamin": "Pria",
+        "alamat": "lamongan",
+        "agama": "Islam",
+        "nama": "Siti Nur Faizah",
+        "tglLahir": "2001-12-27",
+        "email": "rendisetya011001@gmail.com",
+        "status": true,
+        "no_hp": "084578998",
+        "password": "404342454447",
+        "__collections__": {}
+      }
+    }
+  }
+}
