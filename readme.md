@@ -1,7 +1,7 @@
 # Sistem Manajemen Organisasi
 Live Preview : https://organisasimanajemen-6aad0.web.app
 
-###1. Konfigurasi Database
+### 1. Konfigurasi Database
    
 Database yang digunakan project ini adalah Firebase Firestore. Aplikasi dapat digunakan tanpa mengganti konfigurasi database. Dengan membuka index.html pada root folder aplikasi akan berjalan.
 
@@ -49,7 +49,7 @@ Ubah config.json sesuai nama file JSON terdownload sebelumnya
 Ubah const firebaseConfig sesuai firebase console
 
 
-###2. Login
+### 2. Login
    
 Untuk mengakses Member Panel diperlukan login berikut akun yang dapat digunakan
 
