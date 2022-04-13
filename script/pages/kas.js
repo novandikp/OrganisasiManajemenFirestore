@@ -310,7 +310,7 @@ $(document).ready(function() {
             ];
 
             let maxRow = 5 + data.data.length + 2;
-            const title = "Laporan Keuangan";
+            const title = "Laporan Kas";
             worksheet.mergeCells("A1", "D1");
             worksheet.getCell("A1").value = title;
 
