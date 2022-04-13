@@ -522,7 +522,7 @@ $(document).ready(function() {
                     if (data.pageNumber === 1) {
                         dokumen.setFontSize(14);
                         dokumen.setFontType("bold");
-                        const header = "Laporan Kas";
+                        const header = "Laporan Keuangan";
 
                         let textWidth =
                             (dokumen.getStringUnitWidth(header) *
